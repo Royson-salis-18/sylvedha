@@ -38,7 +38,7 @@ export function SiteHeader() {
           <img 
             src="/images/logo-horizontal-dark-green.png" 
             alt="Sylvedha Logo" 
-            className="h-[52px] w-auto object-contain transition-opacity opacity-90 group-hover:opacity-100 origin-left py-1" 
+            className="h-[72px] w-auto object-contain transition-opacity opacity-90 group-hover:opacity-100 origin-left py-1" 
           />
         </a>
 
