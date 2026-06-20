@@ -1,14 +1,17 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist } from 'next/font/google'
+import { Fira_Sans } from 'next/font/google'
 import { Fraunces } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
+const firaSans = Fira_Sans({ 
+  variable: '--font-fira-sans', 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'] 
+})
 const fraunces = Fraunces({
   variable: '--font-fraunces',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -31,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${fraunces.variable} bg-background`}
+      className={`${firaSans.variable} ${fraunces.variable} bg-background`}
     >
       <body className="font-sans antialiased">
         {children}

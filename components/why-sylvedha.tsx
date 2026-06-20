@@ -1,4 +1,8 @@
+"use client"
+
 import { Layers, ShieldCheck, Wrench, FlaskRound, Rocket } from "lucide-react"
+import { useAnimate } from "./use-animate"
+import { FloatingCubes } from "./floating-cubes"
 
 const reasons = [
   {
@@ -34,28 +38,43 @@ const reasons = [
 ]
 
 export function WhySylvedha() {
+  const ref = useAnimate()
+
   return (
-    <section className="border-b border-border bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
+    <section ref={ref} className="relative overflow-hidden bg-[#01312D] text-white min-h-[100svh] flex flex-col justify-center">
+      <FloatingCubes />
+      {/* Background glow */}
+      <div className="absolute left-1/2 top-0 -z-[1] h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-[#BFF202]/5 blur-[200px]" />
+      <div className="absolute right-0 bottom-1/4 -z-[1] h-[400px] w-[400px] rounded-full bg-[#3A7717]/15 blur-[150px]" />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary-foreground/70">
+          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
             Why SYLVEDHA
           </p>
-          <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight tracking-tight text-balance sm:text-4xl">
-            Built differently, for lasting impact
+          <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            Built differently, for{" "}
+            <span className="italic text-[#BFF202]">lasting impact</span>
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((reason) => (
-            <div key={reason.title}>
-              <span className="flex size-11 items-center justify-center rounded-xl bg-primary-foreground/10">
-                <reason.icon className="size-5" />
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
+          {reasons.map((reason, i) => (
+            <div
+              key={reason.title}
+              className={`animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 transition-all duration-500 hover:-translate-y-1 hover:border-[#BFF202]/30 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-[#BFF202]/5 ${
+                i === 0 || i === 3 ? "lg:col-span-2" : "col-span-1"
+              }`}
+            >
+              <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[#BFF202]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/10" />
+
+              <span className="flex size-14 items-center justify-center rounded-2xl bg-white/[0.06] text-[#BFF202] transition-all duration-500 group-hover:scale-110 group-hover:bg-[#BFF202]/10">
+                <reason.icon className="size-6" />
               </span>
-              <h3 className="mt-5 font-heading text-xl font-semibold">
+              <h3 className="mt-8 font-heading text-2xl font-semibold text-white">
                 {reason.title}
               </h3>
-              <p className="mt-3 leading-relaxed text-primary-foreground/75">
+              <p className="mt-3 text-lg leading-relaxed text-white/60">
                 {reason.description}
               </p>
             </div>

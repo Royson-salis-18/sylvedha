@@ -1,63 +1,73 @@
-import { ArrowRight } from "lucide-react"
+"use client"
+
+import { ArrowRight, ArrowDown } from "lucide-react"
+import { useAnimate } from "./use-animate"
 
 export function Hero() {
+  const ref = useAnimate()
+
   return (
-    <section id="top" className="relative isolate overflow-hidden">
+    <section id="top" ref={ref} className="relative isolate overflow-hidden min-h-[100svh] flex flex-col justify-center">
+
       {/* Background image */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-20 overflow-hidden">
         <img
           src="/images/hero-nature-tech.png"
           alt="Aerial view of green agricultural fields meeting solar panel arrays"
-          className="size-full object-cover"
+          className="size-full object-cover animate-slow-zoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.24_0.03_150_/_0.78)] via-[oklch(0.24_0.03_150_/_0.6)] to-[oklch(0.24_0.03_150_/_0.85)]" />
+        {/* Lighter gradient to ensure image is clearly visible while keeping text readable */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#01312D]/70 via-[#01312D]/40 to-[#01312D]/20" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-5 pb-20 pt-36 sm:px-8 sm:pb-28 sm:pt-44 lg:pb-36 lg:pt-52">
+      {/* Decorative elements */}
+      <div className="absolute right-0 top-1/4 -z-[5] size-[500px] rounded-full bg-[#BFF202]/5 blur-[120px] animate-pulse-glow" />
+      <div className="absolute -left-20 bottom-1/4 -z-[5] size-[400px] rounded-full bg-[#3A7717]/10 blur-[100px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-3xl">
-          <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm">
+          <span className="animate-scale-in-scroll inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#BFF202] backdrop-blur-md">
+            <span className="size-2 rounded-full bg-[#BFF202] animate-pulse-glow" />
             Nature Powered. Technology Driven.
           </span>
 
-          <h1 className="mt-6 font-heading text-4xl font-semibold leading-[1.05] tracking-tight text-balance text-white sm:text-5xl lg:text-6xl">
-            Building the Future of Sustainable Innovation
+          <h1 className="animate-on-scroll mt-8 font-heading text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+            Building the Future of{" "}
+            <span className="gradient-text italic">Sustainable</span>{" "}
+            Innovation
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+          <p className="animate-on-scroll mt-8 max-w-2xl text-xl leading-relaxed text-white/75">
             SYLVEDHA LLP is a multidisciplinary technology company developing
             innovative solutions across Agriculture, Biotechnology, Renewable
             Energy, Artificial Intelligence, Automation, and Sustainable
             Infrastructure.
           </p>
 
-          <p className="mt-4 max-w-2xl leading-relaxed text-white/70">
-            From AI-powered agriculture and automated growing systems to algae
-            biorefineries and next-generation renewable energy, we create
-            practical innovations that improve lives while protecting the planet.
-          </p>
-
-          <div className="mt-9 flex flex-wrap items-center gap-3">
+          <div className="animate-slide-left-scroll mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#focus"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-[#BFF202] px-7 py-3.5 text-sm font-semibold text-[#01312D] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#BFF202]/25"
             >
               Explore Our Innovations
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/15"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-[#BFF202]/40 hover:bg-white/10"
             >
               Partner With Us
             </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-3 py-3 text-sm font-medium text-white/80 transition-colors hover:text-white"
-            >
-              Contact Us
-            </a>
           </div>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
+        <a href="#about" className="flex flex-col items-center gap-2 text-white/50 transition-colors hover:text-white/80">
+          <span className="text-xs uppercase tracking-[0.2em]">Scroll</span>
+          <ArrowDown className="size-4" />
+        </a>
       </div>
     </section>
   )
