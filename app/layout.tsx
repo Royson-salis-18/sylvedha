@@ -116,6 +116,13 @@ export default function RootLayout({
             })
           }}
         />
+        <div className="fixed -right-[20%] top-[10%] -z-50 pointer-events-none select-none opacity-[0.02] mix-blend-screen overflow-hidden">
+          <img 
+            src="/images/logo-icon-lime.png" 
+            alt="" 
+            className="w-[80vw] max-w-[1200px] h-auto object-contain rotate-12 grayscale"
+          />
+        </div>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
