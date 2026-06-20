@@ -33,14 +33,13 @@ export function SiteHeader() {
           : "border-b border-transparent",
       )}
     >
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5 group">
-          <span className="flex size-9 items-center justify-center rounded-xl bg-[#BFF202] text-[#01312D] transition-transform duration-300 group-hover:scale-110">
-            <Leaf className="size-4" />
-          </span>
-          <span className="font-heading text-lg font-semibold tracking-tight text-white">
-            SYLVEDHA
-          </span>
+      <div className="mx-auto flex h-[88px] max-w-7xl items-center justify-between px-5 sm:px-8">
+        <a href="#top" className="flex items-center gap-2.5 group transition-transform duration-300 hover:scale-105">
+          <img 
+            src="/images/logo-bw.png" 
+            alt="Sylvedha Logo" 
+            className="h-[76px] w-auto object-contain invert brightness-200 opacity-90 transition-opacity group-hover:opacity-100 scale-[1.7] origin-left py-1" 
+          />
         </a>
 
         <nav className="hidden items-center gap-1 md:flex">

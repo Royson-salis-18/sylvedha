@@ -15,10 +15,64 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://sylvedha.com'),
   title: 'SYLVEDHA LLP — Nature Powered. Technology Driven.',
+  icons: {
+    icon: '/images/logo-mark.png',
+    shortcut: '/images/logo-mark.png',
+    apple: '/images/logo-mark.png',
+  },
   description:
-    'SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, AI, Automation, and Sustainable Infrastructure.',
-  generator: 'v0.app',
+    'SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation, and Sustainable Infrastructure.',
+  keywords: [
+    "SYLVEDHA",
+    "Sylvedha LLP",
+    "Sustainable Technology",
+    "Agriculture Technology",
+    "Biotechnology",
+    "Renewable Energy",
+    "Artificial Intelligence",
+    "Smart Automation",
+    "Algae Biorefinery",
+    "Smart Farming",
+    "India"
+  ],
+  authors: [{ name: 'SYLVEDHA LLP' }],
+  creator: 'SYLVEDHA LLP',
+  publisher: 'SYLVEDHA LLP',
+  openGraph: {
+    title: 'SYLVEDHA LLP — Nature Powered. Technology Driven.',
+    description: 'Developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, AI, and Sustainable Infrastructure.',
+    url: 'https://sylvedha.com',
+    siteName: 'SYLVEDHA LLP',
+    images: [
+      {
+        url: '/images/hero-nature-tech.png',
+        width: 1200,
+        height: 630,
+        alt: 'SYLVEDHA LLP - Nature Powered. Technology Driven.',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SYLVEDHA LLP — Nature Powered. Technology Driven.',
+    description: 'Innovative solutions across Agriculture, Biotechnology, Renewable Energy, AI, and Sustainable Infrastructure.',
+    images: ['/images/hero-nature-tech.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export const viewport: Viewport = {
@@ -37,6 +91,36 @@ export default function RootLayout({
       className={`${firaSans.variable} ${fraunces.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "SYLVEDHA LLP",
+              url: "https://sylvedha.com",
+              logo: "https://sylvedha.com/images/logo-bw.png",
+              description: "SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation, and Sustainable Infrastructure.",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-96323-97595",
+                contactType: "customer service",
+                email: "info@sylvedha.com",
+                areaServed: "IN",
+                availableLanguage: "en"
+              },
+              location: {
+                "@type": "Place",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Mangaluru",
+                  addressRegion: "Karnataka",
+                  addressCountry: "IN"
+                }
+              }
+            })
+          }}
+        />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

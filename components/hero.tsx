@@ -24,21 +24,39 @@ export function Hero() {
       <div className="absolute right-0 top-1/4 -z-[5] size-[500px] rounded-full bg-[#BFF202]/5 blur-[120px] animate-pulse-glow" />
       <div className="absolute -left-20 bottom-1/4 -z-[5] size-[400px] rounded-full bg-[#3A7717]/10 blur-[100px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
 
+      {/* Sharp geometric accents */}
+      <div className="absolute inset-0 pointer-events-none z-[1]">
+        {/* Top-left corner bracket */}
+        <div className="absolute left-8 top-8 h-16 w-16 border-l-2 border-t-2 border-[#BFF202]/40" />
+        <div className="absolute left-12 top-12 h-8 w-8 border-l border-t border-[#BFF202]/20" />
+        {/* Top-right corner bracket */}
+        <div className="absolute right-8 top-8 h-16 w-16 border-r-2 border-t-2 border-white/15" />
+        {/* Bottom-left */}
+        <div className="absolute bottom-8 left-8 h-12 w-12 border-b-2 border-l-2 border-[#BFF202]/30" />
+        {/* Bottom-right */}
+        <div className="absolute bottom-8 right-8 h-12 w-12 border-b-2 border-r-2 border-white/10" />
+        {/* Top gradient line */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#BFF202]/50 via-white/10 to-transparent" />
+        <div className="absolute top-0 left-0 w-24 h-[3px] bg-[#BFF202]" />
+        {/* Bottom gradient line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-[#BFF202]/30" />
+      </div>
+
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-3xl">
           <span className="animate-scale-in-scroll inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#BFF202] backdrop-blur-md">
-            <span className="size-2 rounded-full bg-[#BFF202] animate-pulse-glow" />
+            <img src="/images/logo-mark.png" alt="Sylvedha" className="h-3.5 w-auto object-contain invert brightness-200" />
             Nature Powered. Technology Driven.
           </span>
 
           <h1 className="animate-on-scroll mt-8 font-heading text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
             Building the Future of{" "}
-            <span className="gradient-text italic">Sustainable</span>{" "}
+            <span className="gradient-text italic pr-2">Sustainable</span>{" "}
             Innovation
           </h1>
 
           <p className="animate-on-scroll mt-8 max-w-2xl text-xl leading-relaxed text-white/75">
-            SYLVEDHA LLP is a multidisciplinary technology company developing
+            <span className="font-sans font-bold text-white">SYLVEDHA LLP</span>{" "}is a multidisciplinary technology company developing
             innovative solutions across Agriculture, Biotechnology, Renewable
             Energy, Artificial Intelligence, Automation, and Sustainable
             Infrastructure.

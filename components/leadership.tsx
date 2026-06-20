@@ -6,21 +6,21 @@ import { FloatingCubes } from "./floating-cubes"
 const team = [
   {
     name: "Royson Salis",
-    role: "Founder & Chief Executive Officer",
+    role: "Co-Founder & Chief Executive Officer",
     bio: "Leading innovation strategy, research initiatives, business development, and technology vision.",
-    initials: "RS",
+    image: "/images/team-royson.jpg",
   },
   {
     name: "Sharath",
-    role: "Chief Operating Officer",
+    role: "Co-Founder & Chief Operating Officer",
     bio: "Driving operational excellence, partnerships, implementation, and organizational growth.",
-    initials: "SH",
+    image: "/images/team-sharath.jpg",
   },
   {
     name: "Prakash Nayak",
-    role: "Chief Technology Officer",
+    role: "Co-Founder & Chief Technology Officer",
     bio: "Leading technology architecture, product development, automation systems, and engineering initiatives.",
-    initials: "PN",
+    image: "/images/team-prakash.jpg",
   },
 ]
 
@@ -34,9 +34,20 @@ export function Leadership() {
       <div className="absolute right-0 bottom-0 -z-[1] h-[500px] w-[500px] rounded-full bg-[#3A7717]/10 blur-[200px]" />
       <div className="absolute -left-20 top-1/4 -z-[1] h-[300px] w-[300px] rounded-full bg-[#BFF202]/5 blur-[120px]" />
 
+      {/* Sharp geometric accents */}
+      <div className="absolute inset-0 pointer-events-none z-[1]">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#BFF202]/40 via-white/10 to-transparent" />
+        <div className="absolute top-0 right-0 w-20 h-[3px] bg-[#BFF202]/60" />
+        <div className="absolute right-8 top-8 h-14 w-14 border-r-2 border-t-2 border-[#BFF202]/35" />
+        <div className="absolute left-8 top-8 h-10 w-10 border-l-2 border-t-2 border-white/10" />
+        <div className="absolute left-8 bottom-8 h-10 w-10 border-l-2 border-b-2 border-[#BFF202]/20" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#BFF202]/15 to-transparent" />
+      </div>
+
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
+            <img src="/images/logo-mark.png" alt="Sylvedha" className="h-3.5 w-auto object-contain invert brightness-200" />
             Leadership Team
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
@@ -53,9 +64,13 @@ export function Leadership() {
             >
               <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[#BFF202]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/10" />
 
-              <span className="mx-auto flex size-20 items-center justify-center rounded-full bg-gradient-to-br from-[#BFF202] to-[#3A7717] font-heading text-2xl font-bold text-[#01312D] transition-transform duration-500 group-hover:scale-110">
-                {member.initials}
-              </span>
+              <div className="mx-auto size-24 overflow-hidden rounded-full ring-2 ring-white/10 transition-all duration-500 group-hover:ring-[#BFF202]/40 group-hover:scale-105">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="size-full object-cover object-top"
+                />
+              </div>
               <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
                 {member.name}
               </h3>

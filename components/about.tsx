@@ -15,13 +15,14 @@ export function About() {
         <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div>
             <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              <img src="/images/logo-mark.png" alt="Sylvedha" className="h-3.5 w-auto object-contain brightness-0" />
               Who We Are
             </p>
             <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
               Where <span className="italic text-secondary">nature</span> meets engineering
             </h2>
             <p className="animate-on-scroll mt-6 text-lg leading-relaxed text-muted-foreground">
-              Unlike traditional companies focused on a single sector, SYLVEDHA
+              Unlike traditional companies focused on a single sector, <span className="font-sans font-bold text-primary">SYLVEDHA</span>{" "}
               operates as a multidisciplinary innovation platform.
             </p>
             <a
@@ -35,7 +36,7 @@ export function About() {
 
           <div className="animate-on-scroll space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>
-              SYLVEDHA LLP is an innovation-driven company focused on creating
+              <span className="font-sans font-bold text-primary">SYLVEDHA LLP</span>{" "}is an innovation-driven company focused on creating
               technologies that bridge the gap between nature and engineering.
               Our mission is to build sustainable solutions that address some of
               the world&apos;s most pressing challenges — food security, resource

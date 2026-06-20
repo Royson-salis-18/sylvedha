@@ -31,6 +31,8 @@ const projects = [
       "Affordable Deployment",
       "Easy Integration",
     ],
+    image: "/images/irrigation-system.jpg",
+    imageAlt: "Smart automated irrigation hardware with plants, water tank, and mobile app interface",
   },
   {
     title: "Indoor Farming & Controlled Environment Agriculture",
@@ -58,6 +60,8 @@ const projects = [
       "Smart Energy Integration",
       "Urban Renewable Energy Solutions",
     ],
+    image: "/images/solar-innovation.png",
+    imageAlt: "Futuristic skyscraper with building-integrated photovoltaic solar window panels",
   },
 ]
 
@@ -71,6 +75,7 @@ export function FlagshipProjects() {
       <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary">
+            <img src="/images/logo-mark.png" alt="Sylvedha" className="h-3.5 w-auto object-contain brightness-0" />
             Flagship Projects
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
