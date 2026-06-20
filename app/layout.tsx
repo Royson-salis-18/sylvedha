@@ -117,7 +117,7 @@ export default function RootLayout({
           }}
         />
         {/* Global Watermark overlay */}
-        <div className="fixed -right-[5%] top-[15%] z-50 pointer-events-none select-none opacity-[0.08] overflow-hidden">
+        <div className="fixed -right-[5%] top-[15%] z-50 pointer-events-none select-none opacity-[0.08]">
           <img 
             src="/images/logo-icon-white.png" 
             alt="" 
