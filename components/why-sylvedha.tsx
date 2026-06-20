@@ -60,7 +60,7 @@ export function WhySylvedha() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
-            <img src="/images/logo-mark.png" alt="Sylvedha" className="h-3.5 w-auto object-contain invert brightness-200" />
+            <img src="/images/logo-icon-lime.png" alt="Sylvedha" className="h-3.5 w-auto object-contain " />
             Why <span className="font-sans font-bold">SYLVEDHA</span>
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">

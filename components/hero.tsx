@@ -45,7 +45,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-3xl">
           <span className="animate-scale-in-scroll inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#BFF202] backdrop-blur-md">
-            <img src="/images/logo-mark.png" alt="Sylvedha" className="h-3.5 w-auto object-contain invert brightness-200" />
+            <img src="/images/logo-icon-lime.png" alt="Sylvedha" className="h-3.5 w-auto object-contain " />
             Innovating Technology in Harmony with Nature
           </span>
 

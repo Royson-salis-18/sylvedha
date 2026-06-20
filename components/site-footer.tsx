@@ -66,9 +66,9 @@ export function SiteFooter() {
           <div className="max-w-sm">
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo-bw.png"
+                src="/images/logo-horizontal-white.png"
                 alt="Sylvedha Logo"
-                className="h-[120px] w-auto object-contain invert brightness-200 origin-left"
+                className="h-[64px] w-auto object-contain origin-left"
               />
             </div>
             <p className="mt-3 text-sm uppercase tracking-[0.25em] text-[#BFF202]/80">
