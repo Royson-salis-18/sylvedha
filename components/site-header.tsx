@@ -36,7 +36,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-[88px] max-w-7xl items-center justify-between px-5 sm:px-8">
         <a href="#top" className="flex items-center gap-2.5 group transition-transform duration-300 hover:scale-105">
           <img 
-            src="/images/logo-horizontal-white.png" 
+            src="/images/logo-horizontal-dark-green.png" 
             alt="Sylvedha Logo" 
             className="h-[52px] w-auto object-contain transition-opacity opacity-90 group-hover:opacity-100 origin-left py-1" 
           />

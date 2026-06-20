@@ -66,7 +66,7 @@ export function SiteFooter() {
           <div className="max-w-sm">
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo-horizontal-white.png"
+                src="/images/logo-horizontal-dark-green.png"
                 alt="Sylvedha Logo"
                 className="h-[64px] w-auto object-contain origin-left"
               />
