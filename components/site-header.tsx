@@ -47,7 +47,7 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-4 py-2 text-sm text-white/70 transition-all duration-300 hover:bg-white/10 hover:text-white"
+              className="rounded-xl px-4 py-2 text-sm text-white/70 transition-all duration-300 hover:bg-white/10 hover:text-white"
             >
               {link.label}
             </a>
@@ -56,7 +56,7 @@ export function SiteHeader() {
 
         <a
           href="#contact"
-          className="hidden rounded-full bg-[#BFF202] px-6 py-2.5 text-sm font-semibold text-[#01312D] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#BFF202]/25 md:inline-flex"
+          className="hidden rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-6 py-2.5 text-sm font-semibold text-[#01312D] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#BFF202]/25 md:inline-flex"
         >
           Partner With Us
         </a>
@@ -93,7 +93,7 @@ export function SiteHeader() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-3 inline-flex justify-center rounded-full bg-[#BFF202] px-6 py-3 text-sm font-semibold text-[#01312D]"
+              className="mt-3 inline-flex justify-center rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-6 py-3 text-sm font-semibold text-[#01312D]"
             >
               Partner With Us
             </a>

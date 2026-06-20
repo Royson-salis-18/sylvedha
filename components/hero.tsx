@@ -21,7 +21,7 @@ export function Hero() {
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute right-0 top-1/4 -z-[5] size-[500px] rounded-full bg-[#BFF202]/5 blur-[120px] animate-pulse-glow" />
+      <div className="absolute right-0 top-1/4 -z-[5] size-[500px] rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/5 blur-[120px] animate-pulse-glow" />
       <div className="absolute -left-20 bottom-1/4 -z-[5] size-[400px] rounded-full bg-[#3A7717]/10 blur-[100px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
 
       {/* Sharp geometric accents */}
@@ -44,7 +44,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-3xl">
-          <span className="animate-scale-in-scroll inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#BFF202] backdrop-blur-md">
+          <span className="animate-scale-in-scroll inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#BFF202] backdrop-blur-md">
             <img src="/images/logo-icon-lime.png" alt="Sylvedha" className="h-3.5 w-auto object-contain " />
             Innovating Technology in Harmony with Nature
           </span>
@@ -65,14 +65,14 @@ export function Hero() {
           <div className="animate-slide-left-scroll mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#focus"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-[#BFF202] px-7 py-3.5 text-sm font-semibold text-[#01312D] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#BFF202]/25"
+              className="group inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-7 py-3.5 text-sm font-semibold text-[#01312D] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#BFF202]/25"
             >
               Explore Our Innovations
               <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-[#BFF202]/40 hover:bg-white/10"
+              className="group inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] hover:bg-white/10 hover:border-white/20 px-7 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-[#BFF202]/40 hover:bg-white/10"
             >
               Partner With Us
             </a>

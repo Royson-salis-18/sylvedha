@@ -13,7 +13,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-[#BFF202] px-6 py-4 text-base font-semibold text-[#01312D] transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#BFF202]/25 disabled:cursor-not-allowed disabled:opacity-60"
+      className="group inline-flex w-full items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-6 py-4 text-base font-semibold text-[#01312D] transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#BFF202]/25 disabled:cursor-not-allowed disabled:opacity-60"
     >
       {pending ? "Sending..." : "Send message"}
       <Send className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -95,7 +95,7 @@ export function FocusAreas() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
-          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
+          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
             <img src="/images/logo-icon-lime.png" alt="Sylvedha" className="h-3.5 w-auto object-contain " />
             Our Focus Areas
           </p>

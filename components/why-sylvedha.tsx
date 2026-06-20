@@ -44,7 +44,7 @@ export function WhySylvedha() {
     <section ref={ref} className="relative overflow-hidden bg-[#01312D] text-white min-h-[100svh] flex flex-col justify-center">
       <FloatingCubes />
       {/* Background glow */}
-      <div className="absolute left-1/2 top-0 -z-[1] h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-[#BFF202]/5 blur-[200px]" />
+      <div className="absolute left-1/2 top-0 -z-[1] h-[600px] w-[800px] -translate-x-1/2 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/5 blur-[200px]" />
       <div className="absolute right-0 bottom-1/4 -z-[1] h-[400px] w-[400px] rounded-full bg-[#3A7717]/15 blur-[150px]" />
 
       {/* Sharp geometric accents */}
@@ -59,7 +59,7 @@ export function WhySylvedha() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
-          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
+          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
             <img src="/images/logo-icon-lime.png" alt="Sylvedha" className="h-3.5 w-auto object-contain " />
             Why <span className="font-sans font-bold">SYLVEDHA</span>
           </p>
@@ -77,7 +77,7 @@ export function WhySylvedha() {
                 i === 0 || i === 3 ? "lg:col-span-2" : "col-span-1"
               }`}
             >
-              <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[#BFF202]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/10" />
+              <div className="absolute -right-10 -top-10 size-40 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/10" />
 
               <span className="flex size-14 items-center justify-center rounded-2xl bg-white/[0.06] text-[#BFF202] transition-all duration-500 group-hover:scale-110 group-hover:bg-[#BFF202]/10">
                 <reason.icon className="size-6" />

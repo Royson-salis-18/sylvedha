@@ -31,7 +31,7 @@ export function Journey() {
 
   return (
     <section id="journey" ref={ref} className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
-      <div className="absolute right-0 top-1/3 -z-[1] h-[400px] w-[400px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
+      <div className="absolute right-0 top-1/3 -z-[1] h-[400px] w-[400px] rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/5 blur-[150px]" />
 
       <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">

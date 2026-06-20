@@ -95,7 +95,7 @@ export function FlagshipProjects() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
           </div>
           <div className="p-10 sm:p-12 flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#BFF202] px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[#01312D]">
+            <span className="inline-flex w-fit items-center gap-2 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[#01312D]">
               <span className="size-1.5 rounded-full bg-[#01312D] animate-pulse" />
               Most Ambitious Project
             </span>
@@ -122,7 +122,7 @@ export function FlagshipProjects() {
                   key={item}
                   className="flex items-center gap-2.5 text-sm text-foreground/80"
                 >
-                  <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#BFF202]/20">
+                  <span className="flex size-5 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/20">
                     <Check className="size-3 text-[#3A7717]" />
                   </span>
                   {item}

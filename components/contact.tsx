@@ -15,7 +15,7 @@ export function Contact() {
       <FloatingCubes />
       {/* Decorative */}
       <div className="absolute left-0 top-0 -z-[1] h-[600px] w-[600px] rounded-full bg-[#3A7717]/20 blur-[200px]" />
-      <div className="absolute right-0 bottom-0 -z-[1] h-[400px] w-[400px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
+      <div className="absolute right-0 bottom-0 -z-[1] h-[400px] w-[400px] rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/5 blur-[150px]" />
 
       {/* Sharp geometric accents */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
@@ -32,7 +32,7 @@ export function Contact() {
       <div className="relative z-40 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="grid gap-16 lg:grid-cols-2">
           <div>
-            <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
+            <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
               Contact
             </p>
             <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
