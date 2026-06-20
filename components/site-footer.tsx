@@ -51,7 +51,7 @@ export function SiteFooter() {
         <div className="absolute left-1/2 top-0 h-[20%] w-px -translate-x-1/2 bg-gradient-to-b from-[#BFF202]/15 to-transparent" />
 
         {/* Subtle lime glow bottom center */}
-        <div className="absolute bottom-0 left-1/2 h-64 w-96 -translate-x-1/2 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/5 blur-[80px]" />
+        <div className="absolute bottom-0 left-1/2 h-64 w-96 -translate-x-1/2 rounded-full bg-[#BFF202]/5 blur-[80px]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
@@ -119,7 +119,7 @@ export function SiteFooter() {
               {disciplines.map((item) => (
                 <span
                   key={item}
-                  className="rounded-none border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-white/70 transition-colors hover:border-[#BFF202]/30 hover:text-[#BFF202]"
+                  className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-white/70 transition-colors hover:border-[#BFF202]/30 hover:text-[#BFF202]"
                 >
                   {item}
                 </span>
@@ -130,7 +130,7 @@ export function SiteFooter() {
               href="https://www.linkedin.com/company/sylvedhallp/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-none border border-white/15 bg-white/5 px-5 py-2.5 text-sm text-white/80 transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/5 hover:text-[#BFF202]"
+              className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm text-white/80 transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/5 hover:text-[#BFF202]"
             >
               LinkedIn
               <ArrowUpRight className="size-4" />
