@@ -17,6 +17,14 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL('https://sylvedha.com'),
   title: 'SYLVEDHA LLP — Innovating Technology in Harmony with Nature',
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '48x48', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   description:
     'SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation, and Sustainable Infrastructure.',
   keywords: [
@@ -94,7 +102,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "SYLVEDHA LLP",
               url: "https://sylvedha.com",
-              logo: "https://sylvedha.com/images/logo-bw.png",
+              logo: "https://sylvedha.com/images/logo-horizontal-dark-green.png",
               description: "SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation, and Sustainable Infrastructure.",
               contactPoint: {
                 "@type": "ContactPoint",
