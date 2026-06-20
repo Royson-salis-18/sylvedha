@@ -117,11 +117,11 @@ export default function RootLayout({
           }}
         />
         {/* Global Watermark overlay */}
-        <div className="fixed -right-[15%] top-[10%] z-50 pointer-events-none select-none opacity-[0.04] overflow-hidden">
+        <div className="fixed -right-[5%] top-[15%] z-50 pointer-events-none select-none opacity-[0.08] overflow-hidden">
           <img 
             src="/images/logo-icon-white.png" 
             alt="" 
-            className="w-[80vw] max-w-[1200px] h-auto object-contain rotate-12"
+            className="w-[50vw] max-w-[600px] h-auto object-contain rotate-12"
           />
         </div>
         {children}
