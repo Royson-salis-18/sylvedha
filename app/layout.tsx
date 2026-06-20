@@ -16,12 +16,7 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sylvedha.com'),
-  title: 'SYLVEDHA LLP — Nature Powered. Technology Driven.',
-  icons: {
-    icon: '/images/logo-mark.png',
-    shortcut: '/images/logo-mark.png',
-    apple: '/images/logo-mark.png',
-  },
+  title: 'SYLVEDHA LLP — Innovating Technology in Harmony with Nature',
   description:
     'SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation, and Sustainable Infrastructure.',
   keywords: [
@@ -41,7 +36,7 @@ export const metadata: Metadata = {
   creator: 'SYLVEDHA LLP',
   publisher: 'SYLVEDHA LLP',
   openGraph: {
-    title: 'SYLVEDHA LLP — Nature Powered. Technology Driven.',
+    title: 'SYLVEDHA LLP — Innovating Technology in Harmony with Nature',
     description: 'Developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, AI, and Sustainable Infrastructure.',
     url: 'https://sylvedha.com',
     siteName: 'SYLVEDHA LLP',
@@ -50,7 +45,7 @@ export const metadata: Metadata = {
         url: '/images/hero-nature-tech.png',
         width: 1200,
         height: 630,
-        alt: 'SYLVEDHA LLP - Nature Powered. Technology Driven.',
+        alt: 'SYLVEDHA LLP - Innovating Technology in Harmony with Nature',
       },
     ],
     locale: 'en_IN',
@@ -58,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SYLVEDHA LLP — Nature Powered. Technology Driven.',
+    title: 'SYLVEDHA LLP — Innovating Technology in Harmony with Nature',
     description: 'Innovative solutions across Agriculture, Biotechnology, Renewable Energy, AI, and Sustainable Infrastructure.',
     images: ['/images/hero-nature-tech.png'],
   },

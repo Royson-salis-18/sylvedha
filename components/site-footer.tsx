@@ -72,7 +72,7 @@ export function SiteFooter() {
               />
             </div>
             <p className="mt-3 text-sm uppercase tracking-[0.25em] text-[#BFF202]/80">
-              Nature Powered. Technology Driven.
+              Innovating Technology in Harmony with Nature
             </p>
             <p className="mt-5 leading-relaxed text-white/55">
               Building intelligent solutions for a sustainable future — across agriculture, biotechnology, renewable energy, AI, and automation.
