@@ -128,7 +128,7 @@ export function FocusAreas() {
                 {area.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/80 transition-colors duration-300 group-hover:border-[#BFF202]/20"
+                    className="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/80 transition-colors duration-300 group-hover:border-[#BFF202]/20"
                   >
                     {item}
                   </span>

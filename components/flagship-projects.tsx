@@ -74,8 +74,8 @@ export function FlagshipProjects() {
 
       <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
-          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-            <img src="/images/logo-icon-black.png" alt="Sylvedha" className="h-3.5 w-auto object-contain " />
+          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <img src="/images/logo-icon-black.png" alt="Sylvedha" className="h-3.5 w-auto object-contain" />
             Flagship Projects
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
@@ -85,7 +85,7 @@ export function FlagshipProjects() {
         </div>
 
         {/* Featured: Algae Biorefinery */}
-        <div className="animate-on-scroll mt-16 group grid overflow-hidden rounded-[2rem] border border-border bg-card lg:grid-cols-2 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5">
+        <div className="animate-on-scroll mt-16 group grid overflow-hidden rounded-[2rem] border border-border bg-card lg:grid-cols-2 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:border-[#BFF202]/20">
           <div className="relative min-h-72 lg:min-h-full overflow-hidden">
             <img
               src="/images/algae-biorefinery.png"
@@ -95,7 +95,7 @@ export function FlagshipProjects() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
           </div>
           <div className="p-10 sm:p-12 flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-2 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[#01312D]">
+            <span className="inline-flex w-fit items-center gap-2 rounded-xl bg-[#BFF202] px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[#01312D] shadow-md shadow-[#BFF202]/20">
               <span className="size-1.5 rounded-full bg-[#01312D] animate-pulse" />
               Most Ambitious Project
             </span>
@@ -122,7 +122,7 @@ export function FlagshipProjects() {
                   key={item}
                   className="flex items-center gap-2.5 text-sm text-foreground/80"
                 >
-                  <span className="flex size-5 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/20">
+                  <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#BFF202]/20">
                     <Check className="size-3 text-[#3A7717]" />
                   </span>
                   {item}
@@ -137,7 +137,7 @@ export function FlagshipProjects() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="animate-on-scroll group flex flex-col overflow-hidden rounded-[2rem] border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5"
+              className="animate-on-scroll group flex flex-col overflow-hidden rounded-[2rem] border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 hover:border-[#BFF202]/20"
             >
               {project.image && (
                 <div className="relative h-52 overflow-hidden">
@@ -163,7 +163,7 @@ export function FlagshipProjects() {
                   {project.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-primary/15 bg-primary/5 px-3.5 py-1.5 text-xs font-medium text-primary transition-colors group-hover:border-primary/25 group-hover:bg-primary/10"
+                      className="rounded-xl border border-primary/15 bg-primary/5 px-3.5 py-1.5 text-xs font-medium text-primary transition-colors group-hover:border-primary/25 group-hover:bg-primary/10"
                     >
                       {item}
                     </li>

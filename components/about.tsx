@@ -9,13 +9,14 @@ export function About() {
   return (
     <section id="about" ref={ref} className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
       {/* Subtle background decoration */}
-      <div className="absolute right-0 top-0 -z-[1] h-[600px] w-[600px] rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/5 blur-[150px]" />
+      <div className="absolute right-0 top-0 -z-[1] h-[600px] w-[600px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
+      <div className="absolute -left-20 bottom-0 -z-[1] h-[400px] w-[400px] rounded-full bg-[#3A7717]/5 blur-[120px]" />
 
       <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div>
-            <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-              <img src="/images/logo-icon-black.png" alt="Sylvedha" className="h-3.5 w-auto object-contain " />
+            <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+              <img src="/images/logo-icon-black.png" alt="Sylvedha" className="h-3.5 w-auto object-contain" />
               Who We Are
             </p>
             <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
@@ -27,7 +28,7 @@ export function About() {
             </p>
             <a
               href="#focus"
-              className="animate-on-scroll mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-secondary group"
+              className="animate-on-scroll mt-8 inline-flex items-center gap-2 rounded-xl bg-primary/5 border border-primary/15 px-5 py-2.5 text-sm font-semibold text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:shadow-md group"
             >
               See Our Focus Areas
               <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -52,9 +53,11 @@ export function About() {
         </div>
 
         <div className="mt-20 grid gap-5 md:grid-cols-2 stagger-children">
-          <div className="animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-border bg-card p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5">
-            <div className="absolute -right-16 -top-16 size-48 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/8 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/20" />
-            <span className="flex size-14 items-center justify-center rounded-2xl bg-[#BFF202] text-[#01312D]">
+          {/* Vision Card */}
+          <div className="animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-border bg-card p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 hover:border-[#BFF202]/20">
+            <div className="absolute -right-16 -top-16 size-48 rounded-full bg-[#BFF202]/8 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/20" />
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#BFF202]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <span className="flex size-14 items-center justify-center rounded-2xl bg-[#BFF202] text-[#01312D] shadow-lg shadow-[#BFF202]/20 transition-transform duration-300 group-hover:scale-110">
               <Eye className="size-6" />
             </span>
             <h3 className="mt-6 font-heading text-2xl font-semibold text-card-foreground">
@@ -68,9 +71,11 @@ export function About() {
             </p>
           </div>
 
-          <div className="animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-border bg-primary p-10 text-primary-foreground transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
-            <div className="absolute -right-16 -top-16 size-48 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/10 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/25" />
-            <span className="flex size-14 items-center justify-center rounded-2xl bg-white/10 text-[#BFF202]">
+          {/* Mission Card */}
+          <div className="animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-white/10 bg-primary p-10 text-primary-foreground transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+            <div className="absolute -right-16 -top-16 size-48 rounded-full bg-[#BFF202]/10 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/25" />
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#BFF202]/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <span className="flex size-14 items-center justify-center rounded-2xl bg-white/10 text-[#BFF202] shadow-lg shadow-black/10 transition-transform duration-300 group-hover:scale-110">
               <Target className="size-6" />
             </span>
             <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
