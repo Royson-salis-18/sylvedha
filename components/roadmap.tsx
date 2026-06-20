@@ -76,7 +76,7 @@ export function Roadmap() {
               }`}
             >
               {i === 0 && (
-                <div className="absolute -right-10 -top-10 size-40 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/10 blur-[80px]" />
+                <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[#BFF202]/10 blur-[80px]" />
               )}
 
               <div className="flex items-center justify-between">

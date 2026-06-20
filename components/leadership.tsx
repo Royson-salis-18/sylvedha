@@ -32,7 +32,7 @@ export function Leadership() {
       <FloatingCubes />
       {/* Decorative elements */}
       <div className="absolute right-0 bottom-0 -z-[1] h-[500px] w-[500px] rounded-full bg-[#3A7717]/10 blur-[200px]" />
-      <div className="absolute -left-20 top-1/4 -z-[1] h-[300px] w-[300px] rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/5 blur-[120px]" />
+      <div className="absolute -left-20 top-1/4 -z-[1] h-[300px] w-[300px] rounded-full bg-[#BFF202]/5 blur-[120px]" />
 
       {/* Sharp geometric accents */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
@@ -62,7 +62,7 @@ export function Leadership() {
               key={member.name}
               className="animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-10 text-center transition-all duration-500 hover:-translate-y-1 hover:border-[#BFF202]/30 hover:bg-white/[0.08]"
             >
-              <div className="absolute -right-10 -top-10 size-40 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/10" />
+              <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[#BFF202]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/10" />
 
               <div className="mx-auto size-24 overflow-hidden rounded-full ring-2 ring-white/10 transition-all duration-500 group-hover:ring-[#BFF202]/40 group-hover:scale-105">
                 <img
