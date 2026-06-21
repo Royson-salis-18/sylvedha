@@ -8,19 +8,19 @@ const team = [
     name: "Royson Salis",
     role: "Co-Founder & Chief Executive Officer",
     bio: "Leading innovation strategy, research initiatives, business development, and technology vision.",
-    image: "/images/team-royson.jpg",
+    image: "/images/team-royson.jpg?v=2",
   },
   {
     name: "Sharath",
     role: "Co-Founder & Chief Operating Officer",
     bio: "Driving operational excellence, partnerships, implementation, and organizational growth.",
-    image: "/images/team-sharath.jpg",
+    image: "/images/team-sharath.jpg?v=2",
   },
   {
     name: "Prakash Nayak",
     role: "Co-Founder & Chief Technology Officer",
     bio: "Leading technology architecture, product development, automation systems, and engineering initiatives.",
-    image: "/images/team-prakash.jpg",
+    image: "/images/team-prakash.jpg?v=2",
   },
 ]
 
