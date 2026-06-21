@@ -134,17 +134,7 @@ export default function RootLayout({
           />
         </div>
         
-        {/* Main Background Image */}
-        <div 
-          className="fixed inset-0 -z-10 pointer-events-none"
-          style={{
-            backgroundImage: "url('/background.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed",
-            backgroundRepeat: "no-repeat"
-          }}
-        />
+
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

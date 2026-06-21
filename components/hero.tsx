@@ -12,7 +12,7 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <img
-          src="/images/hero-nature-tech-new.png"
+          src="/background.png"
           alt="A beautiful, sprawling futuristic eco-industrial park blending smart agriculture, biotech domes, and green energy"
           className="size-full object-cover animate-slow-zoom"
         />
