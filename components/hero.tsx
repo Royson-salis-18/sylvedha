@@ -12,8 +12,8 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <img
-          src="/images/hero-nature-tech.png"
-          alt="Aerial view of green agricultural fields meeting solar panel arrays"
+          src="/images/hero-nature-tech-new.png"
+          alt="A cinematic landscape blending advanced biotechnology, renewable energy, and nature"
           className="size-full object-cover animate-slow-zoom"
         />
         {/* Lighter gradient to ensure image is clearly visible while keeping text readable */}
