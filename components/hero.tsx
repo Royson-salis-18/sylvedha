@@ -13,7 +13,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <img
           src="/images/hero-nature-tech-new.png"
-          alt="A cinematic landscape blending advanced biotechnology, renewable energy, and nature"
+          alt="A macro shot of a green leaf seamlessly transitioning into glowing digital circuitry, representing the fusion of nature and engineering"
           className="size-full object-cover animate-slow-zoom"
         />
         {/* Lighter gradient to ensure image is clearly visible while keeping text readable */}
