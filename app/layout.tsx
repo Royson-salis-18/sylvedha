@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: 'SYLVEDHA LLP — Innovating Technology in Harmony with Nature',
   icons: {
     icon: [
+      { url: '/icon.png', type: 'image/png', sizes: 'any' },
       { url: '/favicon.png', sizes: '48x48', type: 'image/png' },
     ],
     apple: [
