@@ -17,7 +17,7 @@ export function Hero() {
           className="size-full object-cover animate-slow-zoom"
         />
         {/* Lighter gradient to ensure image is clearly visible while keeping text readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#01312D]/40 via-[#01312D]/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
 
       {/* Decorative elements */}
@@ -27,19 +27,19 @@ export function Hero() {
       {/* Sharp geometric accents */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
         {/* Top-left corner bracket */}
-        <div className="absolute left-8 top-8 h-16 w-16 border-l-2 border-t-2 border-[#BFF202]/40" />
-        <div className="absolute left-12 top-12 h-8 w-8 border-l border-t border-[#BFF202]/20" />
+        <div className="absolute left-8 top-8 h-16 w-16 border-l-2 border-t-2 border-[#BFF202]" />
+        <div className="absolute left-12 top-12 h-8 w-8 border-l border-t border-[#BFF202]/50" />
         {/* Top-right corner bracket */}
-        <div className="absolute right-8 top-8 h-16 w-16 border-r-2 border-t-2 border-white/15" />
+        <div className="absolute right-8 top-8 h-16 w-16 border-r-2 border-t-2 border-[#BFF202]" />
         {/* Bottom-left */}
-        <div className="absolute bottom-8 left-8 h-12 w-12 border-b-2 border-l-2 border-[#BFF202]/30" />
+        <div className="absolute bottom-8 left-8 h-12 w-12 border-b-2 border-l-2 border-[#BFF202]" />
         {/* Bottom-right */}
-        <div className="absolute bottom-8 right-8 h-12 w-12 border-b-2 border-r-2 border-white/10" />
+        <div className="absolute bottom-8 right-8 h-12 w-12 border-b-2 border-r-2 border-[#BFF202]/80" />
         {/* Top gradient line */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#BFF202]/50 via-white/10 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#BFF202] via-[#BFF202]/30 to-transparent" />
         <div className="absolute top-0 left-0 w-24 h-[3px] bg-[#BFF202]" />
         {/* Bottom gradient line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-[#BFF202]/30" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#BFF202]/30 to-[#BFF202]" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
