@@ -105,6 +105,9 @@ export default function RootLayout({
               url: "https://sylvedha.com",
               logo: "https://sylvedha.com/images/logo-horizontal-dark-green.png",
               description: "SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation, and Sustainable Infrastructure.",
+              sameAs: [
+                "https://www.linkedin.com/company/sylvedhallp/"
+              ],
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+91-96323-97595",
