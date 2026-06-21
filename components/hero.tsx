@@ -17,7 +17,7 @@ export function Hero() {
           className="size-full object-cover animate-slow-zoom"
         />
         {/* Lighter gradient to ensure image is clearly visible while keeping text readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#01312D]/70 via-[#01312D]/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#01312D]/40 via-[#01312D]/10 to-transparent" />
       </div>
 
       {/* Decorative elements */}
