@@ -80,6 +80,37 @@ export async function sendContact(
     }
   }
 
+  // 2.5 Slide unlock token check:
+  const slideToken = String(formData.get("slide_token") ?? "").trim()
+  if (!slideToken) {
+    console.warn("[Anti-Bot] Submission rejected: Missing slide verification token.")
+    return {
+      status: "success",
+      message: "Thank you! Your message has been sent. We'll be in touch soon.",
+    }
+  }
+
+  try {
+    const decoded = JSON.parse(Buffer.from(slideToken, "base64").toString("utf-8"))
+    if (
+      !decoded ||
+      typeof decoded.t !== "number" ||
+      decoded.s !== "sylvedha-human-slide-unlock"
+    ) {
+      console.warn("[Anti-Bot] Submission rejected: Invalid slide verification token structure.")
+      return {
+        status: "success",
+        message: "Thank you! Your message has been sent. We'll be in touch soon.",
+      }
+    }
+  } catch (err) {
+    console.warn("[Anti-Bot] Submission rejected: Failed to parse slide verification token.", err)
+    return {
+      status: "success",
+      message: "Thank you! Your message has been sent. We'll be in touch soon.",
+    }
+  }
+
   // 3. IP-based Rate Limiting (In-Memory)
   let ip = "127.0.0.1"
   try {
