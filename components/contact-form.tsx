@@ -1,6 +1,6 @@
 "use client"
 
-import { useActionState } from "react"
+import { useActionState, useEffect, useState } from "react"
 import { useFormStatus } from "react-dom"
 import { CheckCircle2, AlertCircle, Send } from "lucide-react"
 import { sendContact, type ContactState } from "@/app/actions/send-contact"
@@ -26,6 +26,32 @@ const inputClasses =
 
 export function ContactForm() {
   const [state, formAction] = useActionState(sendContact, initialState)
+  const [botToken, setBotToken] = useState("")
+
+  useEffect(() => {
+    const handleInteraction = () => {
+      if (!botToken) {
+        const now = Date.now()
+        const token = btoa(JSON.stringify({ t: now, s: "sylvedha-human-touch" }))
+        setBotToken(token)
+      }
+    }
+
+    // Capture standard human events
+    window.addEventListener("mousemove", handleInteraction, { once: true })
+    window.addEventListener("keydown", handleInteraction, { once: true })
+    window.addEventListener("touchstart", handleInteraction, { once: true })
+    window.addEventListener("pointerdown", handleInteraction, { once: true })
+    window.addEventListener("click", handleInteraction, { once: true })
+
+    return () => {
+      window.removeEventListener("mousemove", handleInteraction)
+      window.removeEventListener("keydown", handleInteraction)
+      window.removeEventListener("touchstart", handleInteraction)
+      window.removeEventListener("pointerdown", handleInteraction)
+      window.removeEventListener("click", handleInteraction)
+    }
+  }, [botToken])
 
   return (
     <form action={formAction} className="rounded-[2rem] border border-white/10 bg-white/5 p-8 sm:p-10 backdrop-blur-sm">
@@ -33,6 +59,29 @@ export function ContactForm() {
         Send us a message
       </h3>
       <p className="mt-2 text-sm text-white/50">We&apos;ll get back to you within 24 hours.</p>
+
+      {/* Honeypot fields - invisible to humans, tempting for bot scrapers */}
+      <div className="absolute -top-[9999px] -left-[9999px] h-0 w-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+        <label htmlFor="company">Company</label>
+        <input
+          id="company"
+          type="text"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
+      {/* Human interaction token */}
+      <input type="hidden" name="ts_token" value={botToken} />
 
       <div className="mt-8 grid gap-6">
         <div className="grid gap-2">
