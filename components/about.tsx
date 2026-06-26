@@ -11,7 +11,7 @@ export function About() {
         <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div>
             <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-              <img src="/images/logo-icon-black.webp" alt="Sylvedha" width={8} height={14} className="h-3.5 w-auto object-contain" />
+              <img src="/images/logo-mark.webp" alt="Sylvedha" width={12} height={14} className="h-3.5 w-auto object-contain" />
               Who We Are
             </p>
             <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">

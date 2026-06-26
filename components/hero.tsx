@@ -45,7 +45,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#BFF202] backdrop-blur-md">
-            <img src="/images/logo-icon-lime.webp" alt="Sylvedha" width={8} height={14} className="h-3.5 w-auto object-contain " />
+            <img src="/images/logo-mark.webp" alt="Sylvedha" width={12} height={14} className="h-3.5 w-auto object-contain invert brightness-200" />
             Innovating Technology in Harmony with Nature
           </span>
 
