@@ -7,11 +7,13 @@ import './globals.css'
 const firaSans = Fira_Sans({ 
   variable: '--font-fira-sans', 
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'] 
+  weight: ['400', '500', '600', '700'],
+  preload: false,
 })
 const fraunces = Fraunces({
   variable: '--font-fraunces',
   subsets: ['latin'],
+  preload: false,
 })
 
 export const metadata: Metadata = {
