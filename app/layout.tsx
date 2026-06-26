@@ -21,7 +21,7 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sylvedha.com'),
-  title: 'SYLVEDHA LLP — Innovating Technology in Harmony with Nature',
+  title: 'SYLVEDHA — Innovating Technology in Harmony with Nature',
   icons: {
     icon: [
       { url: '/favicon.png', sizes: '48x48', type: 'image/png' },

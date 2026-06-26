@@ -128,15 +128,35 @@ export function SiteFooter() {
               ))}
             </div>
 
-            <a
-              href="https://www.linkedin.com/company/sylvedhallp/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm text-white/90 transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/5 hover:text-[#BFF202]"
-            >
-              LinkedIn
-              <ArrowUpRight className="size-4" />
-            </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="https://www.linkedin.com/company/sylvedhallp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm text-white/90 transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/5 hover:text-[#BFF202]"
+              >
+                LinkedIn
+                <ArrowUpRight className="size-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/sylvedha/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm text-white/90 transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/5 hover:text-[#BFF202]"
+              >
+                Instagram
+                <ArrowUpRight className="size-4" />
+              </a>
+              <a
+                href="https://x.com/Sylvedha"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm text-white/90 transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/5 hover:text-[#BFF202]"
+              >
+                X / Twitter
+                <ArrowUpRight className="size-4" />
+              </a>
+            </div>
           </div>
         </div>
 
