@@ -84,7 +84,7 @@ export function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
-        <a href="#about" className="flex flex-col items-center gap-2 text-white/50 transition-colors hover:text-white/80">
+        <a href="#about" className="flex flex-col items-center gap-2 text-white drop-shadow-md transition-colors hover:text-[#BFF202]">
           <span className="text-xs uppercase tracking-[0.2em]">Scroll</span>
           <ArrowDown className="size-4" />
         </a>

@@ -91,7 +91,7 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-2 mb-5">
               <div className="h-3 w-[2px] bg-[#BFF202]" />
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
                 Quick Links
               </p>
             </div>
@@ -113,7 +113,7 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-2 mb-5">
               <div className="h-3 w-[2px] bg-[#BFF202]" />
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
                 Disciplines
               </p>
             </div>
@@ -153,9 +153,9 @@ export function SiteFooter() {
             
             <div className="flex flex-wrap items-center gap-4 text-xs">
               <a href="mailto:info@sylvedha.com" className="hover:text-[#BFF202] transition-colors text-white/90">info@sylvedha.com</a>
-              <span className="text-white/40">|</span>
+              <span className="text-white/80">|</span>
               <a href="#privacy" className="hover:text-white transition-colors text-white/90">Privacy Policy</a>
-              <span className="text-white/40">|</span>
+              <span className="text-white/80">|</span>
               <a href="#terms" className="hover:text-white transition-colors text-white/90">Terms of Service</a>
             </div>
 
