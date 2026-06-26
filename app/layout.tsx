@@ -57,10 +57,10 @@ export const metadata: Metadata = {
     siteName: 'SYLVEDHA LLP',
     images: [
       {
-        url: '/images/hero-nature-tech.png',
+        url: '/images/hero-nature-tech.webp',
         width: 1200,
         height: 630,
-        alt: 'SYLVEDHA LLP - Innovating Technology in Harmony with Nature',
+        alt: 'Sylvedha - Innovating Technology in Harmony with Nature',
       },
     ],
     locale: 'en_IN',
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SYLVEDHA LLP — Innovating Technology in Harmony with Nature',
-    description: 'Innovative solutions across Agriculture, Biotechnology, Renewable Energy, AI, and Sustainable Infrastructure.',
-    images: ['/images/hero-nature-tech.png'],
+    title: 'SYLVEDHA — Innovating Technology in Harmony with Nature',
+    description: 'We build sustainable solutions addressing food security, resource management, and environmental conservation.',
+    images: ['/images/hero-nature-tech.webp'],
   },
   robots: {
     index: true,
@@ -143,7 +143,7 @@ export default function RootLayout({
         {/* Global Watermark overlay */}
         <div className="fixed -right-[5%] top-[35%] z-50 pointer-events-none select-none opacity-[0.08]">
           <img
-            src="/images/logo-icon-white.png"
+            src="/images/logo-icon-white.webp"
             alt=""
             aria-hidden="true"
             className="w-[28vw] max-w-[380px] h-auto object-contain rotate-12"
