@@ -40,26 +40,26 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
-        <div className="max-w-3xl animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both">
+        <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#BFF202] backdrop-blur-md">
             <img src="/images/logo-icon-lime.webp" alt="Sylvedha" width={8} height={14} className="h-3.5 w-auto object-contain " />
             Innovating Technology in Harmony with Nature
           </span>
 
-          <h1 className="mt-8 font-heading text-5xl font-semibold leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150 fill-mode-both">
+          <h1 className="mt-8 font-heading text-5xl font-semibold leading-[1.05] tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
             Building the Future of{" "}
             <span className="gradient-text italic pr-2">Sustainable</span>{" "}
             Innovation
           </h1>
 
-          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white drop-shadow-md animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
+          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white drop-shadow-md">
             <span className="font-sans font-bold text-white">SYLVEDHA LLP</span>{" "}is a multidisciplinary technology company developing
             innovative solutions across Agriculture, Biotechnology, Renewable
             Energy, Artificial Intelligence, Automation, and Sustainable
             Infrastructure.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500 fill-mode-both">
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#focus"
               className="group inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-7 py-3.5 text-sm font-semibold text-[#01312D] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#BFF202]/25"
