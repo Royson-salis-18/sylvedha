@@ -76,7 +76,7 @@ export function SiteFooter() {
             <p className="mt-3 text-sm uppercase tracking-[0.25em] text-[#BFF202]/80">
               Innovating Technology in Harmony with Nature
             </p>
-            <p className="mt-5 leading-relaxed text-white/55">
+            <p className="mt-5 leading-relaxed text-white/90">
               Building intelligent solutions for a sustainable future — across agriculture, biotechnology, renewable energy, AI, and automation.
             </p>
 
@@ -100,7 +100,7 @@ export function SiteFooter() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="group flex items-center gap-2 text-sm text-white/65 transition-colors hover:text-[#BFF202]"
+                  className="group flex items-center gap-2 text-sm text-white/90 transition-colors hover:text-[#BFF202]"
                 >
                   <span className="h-px w-3 bg-white/20 transition-all duration-300 group-hover:w-5 group-hover:bg-[#BFF202]" />
                   {link.label}
@@ -121,7 +121,7 @@ export function SiteFooter() {
               {disciplines.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-white/70 transition-colors hover:border-[#BFF202]/30 hover:text-[#BFF202]"
+                  className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs text-white/90 transition-colors hover:border-[#BFF202]/30 hover:text-[#BFF202]"
                 >
                   {item}
                 </span>
@@ -132,7 +132,7 @@ export function SiteFooter() {
               href="https://www.linkedin.com/company/sylvedhallp/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm text-white/80 transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/5 hover:text-[#BFF202]"
+              className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm text-white/90 transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/5 hover:text-[#BFF202]"
             >
               LinkedIn
               <ArrowUpRight className="size-4" />
@@ -148,14 +148,14 @@ export function SiteFooter() {
             <div className="absolute -top-0.5 right-0 h-[3px] w-16 bg-white/10" />
           </div>
 
-          <div className="flex flex-col gap-4 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-4 text-sm text-white/90 sm:flex-row sm:items-center sm:justify-between">
             <p>&copy; {new Date().getFullYear()} <span className="font-sans font-bold text-white/90">SYLVEDHA LLP</span>. All Rights Reserved.</p>
             
             <div className="flex flex-wrap items-center gap-4 text-xs">
               <a href="mailto:info@sylvedha.com" className="hover:text-[#BFF202] transition-colors text-white/90">info@sylvedha.com</a>
-              <span className="text-white/80">|</span>
+              <span className="text-white/90">|</span>
               <a href="#privacy" className="hover:text-white transition-colors text-white/90">Privacy Policy</a>
-              <span className="text-white/80">|</span>
+              <span className="text-white/90">|</span>
               <a href="#terms" className="hover:text-white transition-colors text-white/90">Terms of Service</a>
             </div>
 

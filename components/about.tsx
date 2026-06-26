@@ -81,7 +81,7 @@ export function About() {
             <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
               Our Mission
             </h3>
-            <p className="mt-4 text-lg leading-relaxed text-white/75">
+            <p className="mt-4 text-lg leading-relaxed text-white/90">
               To design, develop, and deploy affordable, intelligent, and
               scalable technologies that transform agriculture, energy,
               biotechnology, and sustainability through innovation, research, and

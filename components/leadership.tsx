@@ -78,7 +78,7 @@ export function Leadership() {
               <p className="mt-2 text-sm font-semibold uppercase tracking-[0.15em] text-[#BFF202]">
                 {member.role}
               </p>
-              <p className="mt-4 leading-relaxed text-white/60">
+              <p className="mt-4 leading-relaxed text-white/90">
                 {member.bio}
               </p>
             </div>

@@ -85,7 +85,7 @@ export function WhySylvedha() {
               <h3 className="mt-8 font-heading text-2xl font-semibold text-white">
                 {reason.title}
               </h3>
-              <p className="mt-3 text-lg leading-relaxed text-white/60">
+              <p className="mt-3 text-lg leading-relaxed text-white/90">
                 {reason.description}
               </p>
             </div>

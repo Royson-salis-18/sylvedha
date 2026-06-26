@@ -40,7 +40,7 @@ export function Contact() {
               <span className="italic text-[#BFF202]">sustainable future</span>{" "}
               together
             </h2>
-            <p className="animate-on-scroll mt-6 max-w-lg text-lg leading-relaxed text-white/65">
+            <p className="animate-on-scroll mt-6 max-w-lg text-lg leading-relaxed text-white/90">
               Whether you&apos;re a farmer, researcher, investor, educational
               institution, industry partner, or sustainability enthusiast, we
               welcome opportunities to collaborate and innovate.

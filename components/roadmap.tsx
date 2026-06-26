@@ -101,7 +101,7 @@ export function Roadmap() {
                 {phase.items.map((item) => (
                   <li
                     key={item}
-                    className={`flex items-center gap-3 text-sm ${i === 0 ? "text-white/75" : "text-foreground/75"}`}
+                    className={`flex items-center gap-3 text-sm ${i === 0 ? "text-white/90" : "text-foreground/75"}`}
                   >
                     <span className={`size-2 shrink-0 rounded-full ${i === 0 ? "bg-[#BFF202]" : "bg-primary"}`} />
                     {item}

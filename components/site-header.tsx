@@ -68,7 +68,7 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex size-10 items-center justify-center rounded-xl text-white/80 transition-colors hover:bg-white/10 md:hidden"
+          className="inline-flex size-10 items-center justify-center rounded-xl text-white/90 transition-colors hover:bg-white/10 md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -89,7 +89,7 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-xl py-3 px-4 text-sm text-white/70 transition-colors hover:bg-white/5 hover:text-white"
+                className="rounded-xl py-3 px-4 text-sm text-white/90 transition-colors hover:bg-white/5 hover:text-white"
               >
                 {link.label}
               </a>

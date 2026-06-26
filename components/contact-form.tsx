@@ -22,7 +22,7 @@ function SubmitButton({ disabled }: { disabled: boolean }) {
 }
 
 const inputClasses =
-  "w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3.5 text-base text-white outline-none transition-all duration-300 placeholder:text-white/30 focus:border-[#BFF202]/50 focus:bg-white/[0.08] focus:ring-2 focus:ring-[#BFF202]/20"
+  "w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3.5 text-base text-white outline-none transition-all duration-300 placeholder:text-white/90 focus:border-[#BFF202]/50 focus:bg-white/[0.08] focus:ring-2 focus:ring-[#BFF202]/20"
 
 function SlideToVerify({ onVerify }: { onVerify: (verified: boolean) => void }) {
   const [position, setPosition] = useState(0)
@@ -93,7 +93,7 @@ function SlideToVerify({ onVerify }: { onVerify: (verified: boolean) => void }) 
       className={`relative w-full h-12 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 overflow-hidden flex items-center justify-center select-none ${isVerified ? "border-[#BFF202]/30 bg-[#BFF202]/5" : ""}`}
     >
       {/* Background text */}
-      <span className={`text-xs font-semibold tracking-wider transition-opacity duration-300 ${isVerified ? "text-[#BFF202] opacity-100" : "text-white/40 opacity-100"}`}>
+      <span className={`text-xs font-semibold tracking-wider transition-opacity duration-300 ${isVerified ? "text-[#BFF202] opacity-100" : "text-white/90 opacity-100"}`}>
         {isVerified ? "Verification Successful" : "Slide right to verify"}
       </span>
 
@@ -169,7 +169,7 @@ export function ContactForm() {
       <h3 className="font-heading text-xl font-semibold text-white">
         Send us a message
       </h3>
-      <p className="mt-2 text-sm text-white/50">We&apos;ll get back to you within 24 hours.</p>
+      <p className="mt-2 text-sm text-white/90">We&apos;ll get back to you within 24 hours.</p>
 
       {/* Honeypot fields - invisible to humans, tempting for bot scrapers */}
       <div className="absolute -top-[9999px] -left-[9999px] h-0 w-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
@@ -199,7 +199,7 @@ export function ContactForm() {
 
       <div className="mt-8 grid gap-6">
         <div className="grid gap-2">
-          <label htmlFor="name" className="text-sm font-medium text-white/80">
+          <label htmlFor="name" className="text-sm font-medium text-white/90">
             Name
           </label>
           <input
@@ -214,7 +214,7 @@ export function ContactForm() {
         </div>
 
         <div className="grid gap-2">
-          <label htmlFor="email" className="text-sm font-medium text-white/80">
+          <label htmlFor="email" className="text-sm font-medium text-white/90">
             Email
           </label>
           <input
@@ -229,8 +229,8 @@ export function ContactForm() {
         </div>
 
         <div className="grid gap-2">
-          <label htmlFor="subject" className="text-sm font-medium text-white/80">
-            Subject <span className="text-white/35">(optional)</span>
+          <label htmlFor="subject" className="text-sm font-medium text-white/90">
+            Subject <span className="text-white/90">(optional)</span>
           </label>
           <input
             id="subject"
@@ -242,7 +242,7 @@ export function ContactForm() {
         </div>
 
         <div className="grid gap-2">
-          <label htmlFor="message" className="text-sm font-medium text-white/80">
+          <label htmlFor="message" className="text-sm font-medium text-white/90">
             Message
           </label>
           <textarea
@@ -257,7 +257,7 @@ export function ContactForm() {
 
         {/* Security verification section */}
         <div className="grid gap-2 mt-2">
-          <label className="text-sm font-medium text-white/80">
+          <label className="text-sm font-medium text-white/90">
             Security Verification
           </label>
           <SlideToVerify onVerify={handleVerify} />

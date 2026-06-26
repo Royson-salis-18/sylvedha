@@ -121,14 +121,14 @@ export function FocusAreas() {
               <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
                 {area.title}
               </h3>
-              <p className="mt-3 leading-relaxed text-white/65">
+              <p className="mt-3 leading-relaxed text-white/90">
                 {area.description}
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {area.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/80 transition-colors duration-300 group-hover:border-[#BFF202]/20"
+                    className="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/90 transition-colors duration-300 group-hover:border-[#BFF202]/20"
                   >
                     {item}
                   </span>
