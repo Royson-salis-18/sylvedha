@@ -95,6 +95,10 @@ export default function RootLayout({
       lang="en"
       className={`${firaSans.variable} ${fraunces.variable} bg-background`}
     >
+      <head>
+        <link rel="preload" href="/background.webp" as="image" type="image/webp" fetchPriority="high" />
+        <link rel="preload" href="/images/logo-horizontal-dark-green.webp" as="image" type="image/webp" fetchPriority="high" />
+      </head>
       <body className="font-sans antialiased">
         <script
           type="application/ld+json"

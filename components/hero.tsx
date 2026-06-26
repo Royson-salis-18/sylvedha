@@ -16,7 +16,7 @@ export function Hero() {
           alt="A beautiful, sprawling futuristic eco-industrial park blending smart agriculture, biotech domes, and green energy"
           fetchPriority="high"
           decoding="sync"
-          className="size-full object-cover animate-slow-zoom"
+          className="size-full object-cover sm:animate-slow-zoom"
         />
         {/* Uniform dark overlay to ensure perfect contrast for Lighthouse */}
         <div className="absolute inset-0 bg-black/60 sm:bg-black/50" />
