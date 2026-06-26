@@ -64,7 +64,7 @@ export function Leadership() {
                   src={member.image}
                   alt={member.name}
                   loading="lazy"
-                  className="size-full object-cover"
+                  className="size-full object-cover object-[50%_20%]"
                 />
               </div>
               <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
