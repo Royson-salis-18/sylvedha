@@ -146,7 +146,7 @@ export default function RootLayout({
             src="/images/logo-icon-white.png"
             alt=""
             aria-hidden="true"
-            className="w-[50vw] max-w-[600px] h-auto object-contain rotate-12"
+            className="w-[28vw] max-w-[380px] h-auto object-contain rotate-12"
           />
         </div>
 
