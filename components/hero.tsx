@@ -2,10 +2,10 @@ import { ArrowRight, ArrowDown } from "lucide-react"
 
 export function Hero() {
   return (
-    <section id="top" className="relative isolate overflow-hidden min-h-[100svh] flex flex-col justify-center">
+    <section id="top" className="relative isolate overflow-hidden bg-[#012522] min-h-[100svh] flex flex-col justify-center">
 
       {/* Background image */}
-      <div className="absolute inset-0 -z-20 overflow-hidden">
+      <div className="absolute inset-0 -z-20 overflow-hidden bg-[#012522]">
         <picture>
           <source media="(max-width: 640px)" srcSet="/background-mobile.webp" type="image/webp" />
           <img
