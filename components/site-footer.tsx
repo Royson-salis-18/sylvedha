@@ -148,15 +148,15 @@ export function SiteFooter() {
             <div className="absolute -top-0.5 right-0 h-[3px] w-16 bg-white/10" />
           </div>
 
-          <div className="flex flex-col gap-4 text-sm text-white/40 sm:flex-row sm:items-center sm:justify-between">
-            <p>&copy; {new Date().getFullYear()} <span className="font-sans font-bold text-white/60">SYLVEDHA LLP</span>. All Rights Reserved.</p>
+          <div className="flex flex-col gap-4 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between">
+            <p>&copy; {new Date().getFullYear()} <span className="font-sans font-bold text-white/90">SYLVEDHA LLP</span>. All Rights Reserved.</p>
             
             <div className="flex flex-wrap items-center gap-4 text-xs">
-              <a href="mailto:info@sylvedha.com" className="hover:text-[#BFF202] transition-colors">info@sylvedha.com</a>
-              <span className="text-white/20">|</span>
-              <a href="#privacy" className="hover:text-white/80 transition-colors">Privacy Policy</a>
-              <span className="text-white/20">|</span>
-              <a href="#terms" className="hover:text-white/80 transition-colors">Terms of Service</a>
+              <a href="mailto:info@sylvedha.com" className="hover:text-[#BFF202] transition-colors text-white/90">info@sylvedha.com</a>
+              <span className="text-white/40">|</span>
+              <a href="#privacy" className="hover:text-white transition-colors text-white/90">Privacy Policy</a>
+              <span className="text-white/40">|</span>
+              <a href="#terms" className="hover:text-white transition-colors text-white/90">Terms of Service</a>
             </div>
 
             <div className="flex items-center gap-3 hidden md:flex">
