@@ -92,7 +92,7 @@ export function FloatingCubes() {
     }
     groupsRef.current = groups
 
-    let animId: number
+    let animId: number = 0
     let lastTime = 0
 
     const rotate3D = (
@@ -207,16 +207,33 @@ export function FloatingCubes() {
       animId = requestAnimationFrame(draw)
     }
 
-    animId = requestAnimationFrame(draw)
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          if (!animId) {
+            lastTime = performance.now()
+            animId = requestAnimationFrame(draw)
+          }
+        } else {
+          if (animId) {
+            cancelAnimationFrame(animId)
+            animId = 0
+          }
+        }
+      },
+      { rootMargin: "200px" }
+    )
+    intersectionObserver.observe(canvas)
 
-    const observer = new ResizeObserver(resize)
+    const resizeObserver = new ResizeObserver(resize)
     if (canvas.parentElement) {
-      observer.observe(canvas.parentElement)
+      resizeObserver.observe(canvas.parentElement)
     }
 
     return () => {
-      cancelAnimationFrame(animId)
-      observer.disconnect()
+      if (animId) cancelAnimationFrame(animId)
+      intersectionObserver.disconnect()
+      resizeObserver.disconnect()
     }
   }, [])
 
