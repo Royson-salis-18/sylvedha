@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Fira_Sans } from 'next/font/google'
 import { Fraunces } from 'next/font/google'
+import { GlobalObserver } from '@/components/global-observer'
 import './globals.css'
 
 const firaSans = Fira_Sans({ 
@@ -105,6 +106,7 @@ export default function RootLayout({
         <link rel="preload" href="/images/logo-horizontal-dark-green.webp" as="image" type="image/webp" fetchPriority="high" />
       </head>
       <body className="font-sans antialiased">
+        <GlobalObserver />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

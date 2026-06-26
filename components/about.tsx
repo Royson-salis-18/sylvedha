@@ -1,13 +1,8 @@
-"use client"
-
 import { Eye, Target, ArrowUpRight } from "lucide-react"
-import { useAnimate } from "./use-animate"
 
 export function About() {
-  const ref = useAnimate()
-
   return (
-    <section id="about" ref={ref} className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
+    <section id="about" className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
       {/* Subtle background decoration */}
       <div className="absolute right-0 top-0 -z-[1] h-[600px] w-[600px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
       <div className="absolute -left-20 bottom-0 -z-[1] h-[400px] w-[400px] rounded-full bg-[#3A7717]/5 blur-[120px]" />

@@ -1,7 +1,4 @@
-"use client"
-
 import { Sprout, FlaskConical, Sun, Cpu, Recycle } from "lucide-react"
-import { useAnimate } from "./use-animate"
 import { FloatingCubes } from "./floating-cubes"
 
 const areas = [
@@ -82,10 +79,8 @@ const areas = [
 ]
 
 export function FocusAreas() {
-  const ref = useAnimate()
-
   return (
-    <section id="focus" ref={ref} className="relative overflow-hidden bg-primary min-h-[100svh] flex flex-col justify-center">
+    <section id="focus" className="relative overflow-hidden bg-primary min-h-[100svh] flex flex-col justify-center">
       <FloatingCubes />
       {/* Decorative grid */}
       <div className="absolute inset-0 -z-[1] opacity-[0.03]" style={{

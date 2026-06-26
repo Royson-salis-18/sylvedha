@@ -1,17 +1,12 @@
-"use client"
-
 import { Mail, Phone, Link2, ArrowUpRight } from "lucide-react"
 import { ContactForm } from "@/components/contact-form"
-import { useAnimate } from "./use-animate"
 import { FloatingCubes } from "./floating-cubes"
 
 const phones = ["+91 96323 97595", "+91 77950 70676", "+91 82771 51149"]
 
 export function Contact() {
-  const ref = useAnimate()
-
   return (
-    <section id="contact" ref={ref} className="relative z-30 overflow-hidden bg-[#01312D] text-white min-h-[100svh] flex flex-col justify-center">
+    <section id="contact" className="relative z-30 overflow-hidden bg-[#01312D] text-white min-h-[100svh] flex flex-col justify-center">
       <FloatingCubes />
       {/* Decorative */}
       <div className="absolute left-0 top-0 -z-[1] h-[600px] w-[600px] rounded-full bg-[#3A7717]/20 blur-[200px]" />

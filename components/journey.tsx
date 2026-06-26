@@ -1,6 +1,3 @@
-"use client"
-
-import { useAnimate } from "./use-animate"
 
 const milestones = [
   {
@@ -27,10 +24,8 @@ const milestones = [
 ]
 
 export function Journey() {
-  const ref = useAnimate()
-
   return (
-    <section id="journey" ref={ref} className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
+    <section id="journey" className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
       <div className="absolute right-0 top-1/3 -z-[1] h-[400px] w-[400px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
       <div className="absolute -left-20 bottom-0 -z-[1] h-[300px] w-[300px] rounded-full bg-[#3A7717]/5 blur-[120px]" />
 

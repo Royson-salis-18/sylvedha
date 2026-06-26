@@ -1,6 +1,3 @@
-"use client"
-
-import { useAnimate } from "./use-animate"
 import { FloatingCubes } from "./floating-cubes"
 
 const team = [
@@ -25,10 +22,8 @@ const team = [
 ]
 
 export function Leadership() {
-  const ref = useAnimate()
-
   return (
-    <section id="team" ref={ref} className="relative overflow-hidden bg-[#01312D] text-white min-h-[100svh] flex flex-col justify-center">
+    <section id="team" className="relative overflow-hidden bg-[#01312D] text-white min-h-[100svh] flex flex-col justify-center">
       <FloatingCubes />
       {/* Decorative elements */}
       <div className="absolute right-0 bottom-0 -z-[1] h-[500px] w-[500px] rounded-full bg-[#3A7717]/10 blur-[200px]" />

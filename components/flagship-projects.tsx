@@ -1,7 +1,4 @@
-"use client"
-
 import { Check, ArrowUpRight } from "lucide-react"
-import { useAnimate } from "./use-animate"
 
 const projects = [
   {
@@ -66,10 +63,8 @@ const projects = [
 ]
 
 export function FlagshipProjects() {
-  const ref = useAnimate()
-
   return (
-    <section id="projects" ref={ref} className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
+    <section id="projects" className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
       <div className="absolute left-0 bottom-0 -z-[1] h-[500px] w-[500px] rounded-full bg-[#3A7717]/5 blur-[150px]" />
 
       <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
