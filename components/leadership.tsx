@@ -68,6 +68,7 @@ export function Leadership() {
                 <img
                   src={member.image}
                   alt={member.name}
+                  loading="lazy"
                   className="size-full object-cover object-top"
                 />
               </div>

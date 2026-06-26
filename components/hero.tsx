@@ -14,6 +14,8 @@ export function Hero() {
         <img
           src="/background.webp"
           alt="A beautiful, sprawling futuristic eco-industrial park blending smart agriculture, biotech domes, and green energy"
+          fetchPriority="high"
+          decoding="sync"
           className="size-full object-cover animate-slow-zoom"
         />
         {/* Lighter gradient to ensure image is clearly visible while keeping text readable */}
