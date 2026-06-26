@@ -19,7 +19,7 @@ export function Hero() {
           className="size-full object-cover animate-slow-zoom"
         />
         {/* Lighter gradient to ensure image is clearly visible while keeping text readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30 sm:bg-gradient-to-r sm:from-black/80 sm:via-black/50 sm:to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/50 sm:bg-gradient-to-r sm:from-black/90 sm:via-black/60 sm:to-black/20" />
       </div>
 
       {/* Decorative elements */}
@@ -51,13 +51,13 @@ export function Hero() {
             Innovating Technology in Harmony with Nature
           </span>
 
-          <h1 className="animate-on-scroll mt-8 font-heading text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="animate-on-scroll mt-8 font-heading text-5xl font-semibold leading-[1.05] tracking-tight text-white drop-shadow-md sm:text-6xl lg:text-7xl">
             Building the Future of{" "}
             <span className="gradient-text italic pr-2">Sustainable</span>{" "}
             Innovation
           </h1>
 
-          <p className="animate-on-scroll mt-8 max-w-2xl text-xl leading-relaxed text-white/75">
+          <p className="animate-on-scroll mt-8 max-w-2xl text-xl leading-relaxed text-white/90 drop-shadow-sm">
             <span className="font-sans font-bold text-white">SYLVEDHA LLP</span>{" "}is a multidisciplinary technology company developing
             innovative solutions across Agriculture, Biotechnology, Renewable
             Energy, Artificial Intelligence, Automation, and Sustainable
@@ -74,7 +74,7 @@ export function Hero() {
             </a>
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] hover:bg-white/10 hover:border-white/20 px-7 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-[#BFF202]/40 hover:bg-white/10"
+              className="group inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-black/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] hover:bg-white/10 hover:border-white/20 px-7 py-3.5 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-[#BFF202]/40"
             >
               Partner With Us
             </a>

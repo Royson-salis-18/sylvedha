@@ -40,6 +40,8 @@ export function SiteHeader() {
             alt="Sylvedha Logo" 
             width={205}
             height={72}
+            fetchPriority="high"
+            decoding="sync"
             className="h-[72px] w-auto object-contain transition-opacity opacity-90 group-hover:opacity-100 origin-left py-1" 
           />
         </a>
