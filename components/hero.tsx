@@ -6,13 +6,16 @@ export function Hero() {
 
       {/* Background image */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
-        <img
-          src="/background.webp"
-          alt="A beautiful, sprawling futuristic eco-industrial park blending smart agriculture, biotech domes, and green energy"
-          fetchPriority="high"
-          decoding="sync"
-          className="size-full object-cover sm:animate-slow-zoom"
-        />
+        <picture>
+          <source media="(max-width: 640px)" srcSet="/background-mobile.webp" type="image/webp" />
+          <img
+            src="/background.webp"
+            alt="A beautiful, sprawling futuristic eco-industrial park blending smart agriculture, biotech domes, and green energy"
+            fetchPriority="high"
+            decoding="sync"
+            className="size-full object-cover sm:animate-slow-zoom"
+          />
+        </picture>
         {/* Uniform dark overlay to ensure perfect contrast for Lighthouse */}
         <div className="absolute inset-0 bg-black/60 sm:bg-black/50" />
       </div>

@@ -98,7 +98,8 @@ export default function RootLayout({
       className={`${firaSans.variable} ${fraunces.variable} bg-background`}
     >
       <head>
-        <link rel="preload" href="/background.webp" as="image" type="image/webp" fetchPriority="high" />
+        <link rel="preload" href="/background-mobile.webp" as="image" type="image/webp" media="(max-width: 640px)" fetchPriority="high" />
+        <link rel="preload" href="/background.webp" as="image" type="image/webp" media="(min-width: 641px)" fetchPriority="high" />
         <link rel="preload" href="/images/logo-horizontal-dark-green.webp" as="image" type="image/webp" fetchPriority="high" />
       </head>
       <body className="font-sans antialiased">
