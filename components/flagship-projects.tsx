@@ -16,7 +16,7 @@ const projects = [
       "AI Data Processing",
       "Predictive Farming Insights",
     ],
-    image: "/images/smart-agriculture.png",
+    image: "/images/smart-agriculture.webp",
     imageAlt: "Smart agriculture sensor planted in soil among green crops",
   },
   {
@@ -31,7 +31,7 @@ const projects = [
       "Affordable Deployment",
       "Easy Integration",
     ],
-    image: "/images/irrigation-system.jpg",
+    image: "/images/irrigation-system.webp",
     imageAlt: "Smart automated irrigation hardware with plants, water tank, and mobile app interface",
   },
   {
@@ -46,7 +46,7 @@ const projects = [
       "Controlled Environment Cultivation",
       "Commercial Indoor Farming",
     ],
-    image: "/images/indoor-farming.png",
+    image: "/images/indoor-farming.webp",
     imageAlt: "Rows of microgreens growing under LED lights in a vertical farm",
   },
   {
@@ -60,7 +60,7 @@ const projects = [
       "Smart Energy Integration",
       "Urban Renewable Energy Solutions",
     ],
-    image: "/images/solar-innovation.png",
+    image: "/images/solar-innovation.webp",
     imageAlt: "Futuristic skyscraper with building-integrated photovoltaic solar window panels",
   },
 ]
@@ -75,7 +75,7 @@ export function FlagshipProjects() {
       <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-            <img src="/images/logo-icon-black.png" alt="Sylvedha" className="h-3.5 w-auto object-contain" />
+            <img src="/images/logo-icon-black.webp" alt="Sylvedha" width={8} height={14} className="h-3.5 w-auto object-contain" />
             Flagship Projects
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
@@ -88,7 +88,7 @@ export function FlagshipProjects() {
         <div className="animate-on-scroll mt-16 group grid overflow-hidden rounded-[2rem] border border-border bg-card lg:grid-cols-2 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:border-[#BFF202]/20">
           <div className="relative min-h-72 lg:min-h-full overflow-hidden">
             <img
-              src="/images/algae-biorefinery.png"
+              src="/images/algae-biorefinery.webp"
               alt="Green algae bioreactor tubes glowing in a modern laboratory"
               className="absolute size-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

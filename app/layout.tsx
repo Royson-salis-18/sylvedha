@@ -104,7 +104,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "SYLVEDHA LLP",
               url: "https://sylvedha.com",
-              logo: "https://sylvedha.com/images/logo-horizontal-dark-green.png",
+              logo: "https://sylvedha.com/images/logo-horizontal-dark-green.webp",
               description: "SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation, and Sustainable Infrastructure.",
               sameAs: [
                 "https://www.linkedin.com/company/sylvedhallp/"
@@ -132,8 +132,11 @@ export default function RootLayout({
         {/* Global Watermark overlay */}
         <div className="fixed -right-[5%] top-[15%] z-50 pointer-events-none select-none opacity-[0.08]">
           <img 
-            src="/images/logo-icon-white.png" 
+            src="/images/logo-icon-white.webp" 
             alt="" 
+            width={600}
+            height={1041}
+            fetchPriority="high"
             className="w-[50vw] max-w-[600px] h-auto object-contain rotate-12"
           />
         </div>

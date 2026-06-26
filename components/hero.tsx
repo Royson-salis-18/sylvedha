@@ -12,12 +12,12 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <img
-          src="/background.png"
+          src="/background.webp"
           alt="A beautiful, sprawling futuristic eco-industrial park blending smart agriculture, biotech domes, and green energy"
           className="size-full object-cover animate-slow-zoom"
         />
         {/* Lighter gradient to ensure image is clearly visible while keeping text readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20 sm:bg-gradient-to-r sm:from-black/60 sm:via-black/20 sm:to-transparent" />
       </div>
 
       {/* Decorative elements */}
@@ -45,7 +45,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-3xl">
           <span className="animate-scale-in-scroll inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-2 text-xs font-medium uppercase tracking-[0.25em] text-[#BFF202] backdrop-blur-md">
-            <img src="/images/logo-icon-lime.png" alt="Sylvedha" className="h-3.5 w-auto object-contain " />
+            <img src="/images/logo-icon-lime.webp" alt="Sylvedha" width={8} height={14} className="h-3.5 w-auto object-contain " />
             Innovating Technology in Harmony with Nature
           </span>
 

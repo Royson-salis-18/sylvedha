@@ -8,19 +8,19 @@ const team = [
     name: "Royson Salis",
     role: "Co-Founder & Chief Executive Officer",
     bio: "Leading innovation strategy, research initiatives, business development, and technology vision.",
-    image: "/images/team-royson.jpg?v=2",
+    image: "/images/team-royson.webp?v=2",
   },
   {
     name: "Sharath",
     role: "Co-Founder & Chief Operating Officer",
     bio: "Driving operational excellence, partnerships, implementation, and organizational growth.",
-    image: "/images/team-sharath.jpg?v=2",
+    image: "/images/team-sharath.webp?v=2",
   },
   {
     name: "Prakash Nayak",
     role: "Co-Founder & Chief Technology Officer",
     bio: "Leading technology architecture, product development, automation systems, and engineering initiatives.",
-    image: "/images/team-prakash.jpg?v=2",
+    image: "/images/team-prakash.webp?v=2",
   },
 ]
 
@@ -47,7 +47,7 @@ export function Leadership() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
-            <img src="/images/logo-icon-lime.png" alt="Sylvedha" className="h-3.5 w-auto object-contain " />
+            <img src="/images/logo-icon-lime.webp" alt="Sylvedha" width={8} height={14} className="h-3.5 w-auto object-contain " />
             Leadership Team
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
