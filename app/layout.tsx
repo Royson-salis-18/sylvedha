@@ -141,12 +141,12 @@ export default function RootLayout({
           }}
         />
         {/* Sylvedha brand watermark overlay */}
-        <div className="fixed -right-[8%] top-[10%] z-50 pointer-events-none select-none opacity-[0.06]">
+        <div className="fixed -right-[8%] -bottom-[5%] z-50 pointer-events-none select-none opacity-[0.07]">
           <img
             src="/images/logo-mark.webp"
             alt=""
             aria-hidden="true"
-            className="w-[45vw] max-w-[520px] h-auto rotate-12 invert brightness-200"
+            className="w-[40vw] max-w-[480px] h-auto -rotate-12 brightness-0 invert"
           />
         </div>
 
