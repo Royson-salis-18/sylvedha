@@ -8,10 +8,14 @@ const firaSans = Fira_Sans({
   variable: '--font-fira-sans', 
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  display: 'optional',
+  adjustFontFallback: true,
 })
 const fraunces = Fraunces({
   variable: '--font-fraunces',
   subsets: ['latin'],
+  display: 'optional',
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {
