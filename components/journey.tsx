@@ -42,8 +42,8 @@ export function Journey() {
 
         <div className="mt-16 relative stagger-children">
           {/* Vertical line with glow */}
-          <div className="absolute left-[19px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/40 via-[#BFF202]/40 to-primary/10" />
-          <div className="absolute left-[18px] top-2 bottom-2 w-[3px] bg-gradient-to-b from-[#BFF202]/10 via-[#BFF202]/5 to-transparent blur-sm" />
+          <div className="absolute left-[26px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/40 via-[#BFF202]/40 to-primary/10" />
+          <div className="absolute left-[25px] top-2 bottom-2 w-[3px] bg-gradient-to-b from-[#BFF202]/10 via-[#BFF202]/5 to-transparent blur-sm" />
 
           <div className="flex flex-col gap-10">
             {milestones.map((milestone, i) => (

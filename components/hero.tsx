@@ -56,7 +56,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/90 drop-shadow-md">
-            <span className="font-sans font-bold text-white">SYLVEDHA LLP</span>{" "}is a multidisciplinary technology company developing
+            <span className="font-sans font-bold text-white">SYLVEDHA</span>{" "}is a multidisciplinary technology company developing
             innovative solutions across Agriculture, Biotechnology, Renewable
             Energy, Artificial Intelligence, Automation, and Sustainable
             Infrastructure.

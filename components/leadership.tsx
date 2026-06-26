@@ -5,19 +5,19 @@ const team = [
     name: "Royson Salis",
     role: "Co-Founder & Chief Executive Officer",
     bio: "Leading innovation strategy, research initiatives, business development, and technology vision.",
-    image: "/images/team-royson.webp?v=2",
+    image: "/images/team-royson.webp?v=3",
   },
   {
     name: "Sharath",
     role: "Co-Founder & Chief Operating Officer",
     bio: "Driving operational excellence, partnerships, implementation, and organizational growth.",
-    image: "/images/team-sharath.webp?v=2",
+    image: "/images/team-sharath.webp?v=3",
   },
   {
     name: "Prakash Nayak",
     role: "Co-Founder & Chief Technology Officer",
     bio: "Leading technology architecture, product development, automation systems, and engineering initiatives.",
-    image: "/images/team-prakash.webp?v=2",
+    image: "/images/team-prakash.webp?v=3",
   },
 ]
 
@@ -64,7 +64,7 @@ export function Leadership() {
                   src={member.image}
                   alt={member.name}
                   loading="lazy"
-                  className="size-full object-cover object-top"
+                  className="size-full object-cover"
                 />
               </div>
               <h3 className="mt-6 font-heading text-2xl font-semibold text-white">

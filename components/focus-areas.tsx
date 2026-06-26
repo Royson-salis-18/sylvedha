@@ -30,7 +30,7 @@ const areas = [
       "Sustainable Raw Materials",
       "Biorefinery Technologies",
     ],
-    accent: "#3A7717",
+    accent: "#BFF202",
   },
   {
     icon: Sun,
@@ -60,7 +60,7 @@ const areas = [
       "Predictive Analytics",
       "Automation Platforms",
     ],
-    accent: "#3A7717",
+    accent: "#BFF202",
   },
   {
     icon: Recycle,
@@ -110,7 +110,7 @@ export function FocusAreas() {
             >
               <div className="absolute -right-10 -top-10 size-40 rounded-full blur-[80px] transition-all duration-500 group-hover:opacity-100 opacity-0" style={{ background: area.accent }} />
 
-              <span className="flex size-14 items-center justify-center rounded-2xl bg-white/10 transition-all duration-500 group-hover:bg-[#BFF202]/15 group-hover:scale-110" style={{ color: area.accent }}>
+              <span className="flex size-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-500 group-hover:bg-[#BFF202]/15 group-hover:scale-110 group-hover:border-[#BFF202]/30" style={{ color: area.accent }}>
                 <area.icon className="size-6" />
               </span>
               <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
@@ -123,7 +123,7 @@ export function FocusAreas() {
                 {area.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/90 transition-colors duration-300 group-hover:border-[#BFF202]/20"
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/90 transition-all duration-300 group-hover:border-[#BFF202]/30 group-hover:bg-white/10 group-hover:shadow-[0_0_10px_rgba(191,242,2,0.1)]"
                   >
                     {item}
                   </span>

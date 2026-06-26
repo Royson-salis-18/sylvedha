@@ -32,7 +32,7 @@ export function About() {
 
           <div className="animate-on-scroll space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>
-              <span className="font-sans font-bold text-primary">SYLVEDHA LLP</span>{" "}is an innovation-driven company focused on creating
+              <span className="font-sans font-bold text-primary">SYLVEDHA</span>{" "}is an innovation-driven company focused on creating
               technologies that bridge the gap between nature and engineering.
               Our mission is to build sustainable solutions that address some of
               the world&apos;s most pressing challenges — food security, resource
