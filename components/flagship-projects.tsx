@@ -86,6 +86,8 @@ export function FlagshipProjects() {
               src="/images/algae-biorefinery.webp"
               alt="Green algae bioreactor tubes glowing in a modern laboratory"
               loading="lazy"
+              width={800}
+              height={600}
               className="absolute size-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -141,6 +143,8 @@ export function FlagshipProjects() {
                     src={project.image}
                     alt={project.imageAlt ?? ""}
                     loading="lazy"
+                    width={600}
+                    height={400}
                     className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />

@@ -24,12 +24,11 @@ export const metadata: Metadata = {
   title: 'SYLVEDHA — Innovating Technology in Harmony with Nature',
   icons: {
     icon: [
-      { url: '/favicon.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon.png', type: 'image/png', sizes: '48x48' },
       { url: '/icon.png', type: 'image/png', sizes: 'any' },
-      { url: '/favicon.ico', type: 'image/x-icon' },
     ],
     apple: [
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-icon.png', type: 'image/png', sizes: '180x180' },
     ],
   },
   description:
@@ -115,7 +114,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "SYLVEDHA LLP",
               url: "https://sylvedha.com",
-              logo: "https://sylvedha.com/images/logo-horizontal-dark-green.webp",
+              logo: "https://sylvedha.com/icon.png",
               description: "SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation, and Sustainable Infrastructure.",
               sameAs: [
                 "https://www.linkedin.com/company/sylvedhallp/"
@@ -146,6 +145,8 @@ export default function RootLayout({
             src="/images/logo-icon-white.webp"
             alt=""
             aria-hidden="true"
+            width={380}
+            height={380}
             className="w-[28vw] max-w-[380px] h-auto object-contain rotate-12"
           />
         </div>

@@ -64,6 +64,8 @@ export function Leadership() {
                   src={member.image}
                   alt={member.name}
                   loading="lazy"
+                  width={96}
+                  height={96}
                   className="size-full object-cover object-[50%_20%]"
                 />
               </div>

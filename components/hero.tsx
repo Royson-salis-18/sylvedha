@@ -13,6 +13,8 @@ export function Hero() {
             alt="A beautiful, sprawling futuristic eco-industrial park blending smart agriculture, biotech domes, and green energy"
             fetchPriority="high"
             decoding="sync"
+            width={1920}
+            height={1080}
             className="size-full object-cover sm:animate-slow-zoom"
           />
         </picture>
