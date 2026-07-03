@@ -61,8 +61,8 @@ export function FloatingCubes() {
     }
     resize()
 
-    // Generate groups — fewer on mobile to avoid long main-thread tasks
-    const numGroups = window.innerWidth < 768 ? 8 : 20
+    // Generate groups
+    const numGroups = 20 // Increased number of cubes
     const groups: InterlockingCubeGroup[] = []
     for (let i = 0; i < numGroups; i++) {
       // Random direction vectors for multi-directional movement

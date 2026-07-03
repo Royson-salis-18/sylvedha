@@ -70,7 +70,6 @@ export function SiteFooter() {
                 alt="Sylvedha Logo"
                 width={182}
                 height={64}
-                loading="lazy"
                 className="h-[64px] w-auto object-contain origin-left"
               />
             </div>
