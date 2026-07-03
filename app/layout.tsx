@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   title: 'SYLVEDHA — Innovating Technology in Harmony with Nature',
   icons: {
     icon: [
-      { url: '/favicon.png', type: 'image/png', sizes: '48x48' },
-      { url: '/icon.png', type: 'image/png', sizes: 'any' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-google.png', type: 'image/png', sizes: '48x48' },
     ],
     apple: [
       { url: '/apple-icon.png', type: 'image/png', sizes: '180x180' },
