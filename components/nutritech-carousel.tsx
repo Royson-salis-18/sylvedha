@@ -12,11 +12,12 @@ export const nutriTechMedia: Array<
   | { type: "image"; src: string; caption: string }
   | { type: "video"; src: string; caption: string }
 > = [
-  // ── Replace / add your real files below ──────────────────────────────────
+  // ── Video ────────────────────────────────────────────────────────────────
+  { type: "video", src: "/images/nutritech/nutritech_setup_video.mp4", caption: "NutriTech experimental setup — live walkthrough" },
+  // ── Add your photos below once ready ─────────────────────────────────────
   { type: "image", src: "", caption: "Sensor node — close-up view" },
   { type: "image", src: "", caption: "Experimental plant growth setup" },
   { type: "image", src: "", caption: "IoT board and wiring" },
-  { type: "video", src: "", caption: "Live demo — experimental setup walkthrough" },
   // ─────────────────────────────────────────────────────────────────────────
 ]
 
