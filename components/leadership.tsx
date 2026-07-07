@@ -1,4 +1,5 @@
 import { FloatingCubes } from "./floating-cubes"
+import { Mail, Phone } from "lucide-react"
 
 const team = [
   {
@@ -6,18 +7,24 @@ const team = [
     role: "Co-Founder & Chief Executive Officer",
     bio: "Leading innovation strategy, research initiatives, business development, and technology vision.",
     image: "/images/team-royson.webp?v=3",
+    email: "royson.ceo@sylvedha.com",
+    phone: "+91 77950 70676",
   },
   {
     name: "Sharath",
     role: "Co-Founder & Chief Operating Officer",
     bio: "Driving operational excellence, partnerships, implementation, and organizational growth.",
     image: "/images/team-sharath.webp?v=3",
+    email: "sharath.coo@sylvedha.com",
+    phone: "+91 96323 97595",
   },
   {
     name: "Prakash Nayak",
     role: "Co-Founder & Chief Technology Officer",
     bio: "Leading technology architecture, product development, automation systems, and engineering initiatives.",
     image: "/images/team-prakash.webp?v=3",
+    email: "prakash.cto@sylvedha.com",
+    phone: "+91 82771 51149",
   },
 ]
 
@@ -78,6 +85,22 @@ export function Leadership() {
               <p className="mt-4 leading-relaxed text-white/90">
                 {member.bio}
               </p>
+              <div className="mt-6 pt-6 border-t border-white/10 flex flex-col items-center gap-2.5 text-sm text-white/80">
+                <a
+                  href={`mailto:${member.email}`}
+                  className="inline-flex items-center gap-2 hover:text-[#BFF202] transition-colors duration-300 group/link"
+                >
+                  <Mail className="size-4 text-[#BFF202]/70 group-hover/link:text-[#BFF202] transition-colors duration-300" />
+                  <span>{member.email}</span>
+                </a>
+                <a
+                  href={`tel:${member.phone.replace(/\s+/g, "")}`}
+                  className="inline-flex items-center gap-2 hover:text-[#BFF202] transition-colors duration-300 group/link"
+                >
+                  <Phone className="size-4 text-[#BFF202]/70 group-hover/link:text-[#BFF202] transition-colors duration-300" />
+                  <span>{member.phone}</span>
+                </a>
+              </div>
             </div>
           ))}
         </div>
