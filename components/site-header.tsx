@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Focus Areas", href: "/#focus" },
-  { label: "Upcoming Projects", href: "/projects" },
+  { label: "Current Projects", href: "/#current-projects" },
   { label: "Journey", href: "/#journey" },
   { label: "Team", href: "/#team" },
   { label: "Contact", href: "/#contact" },
