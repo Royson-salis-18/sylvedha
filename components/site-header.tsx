@@ -5,12 +5,12 @@ import { Leaf, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Focus Areas", href: "#focus" },
-  { label: "Projects", href: "#projects" },
-  { label: "Journey", href: "#journey" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Focus Areas", href: "/#focus" },
+  { label: "Upcoming Projects", href: "/projects" },
+  { label: "Journey", href: "/#journey" },
+  { label: "Team", href: "/#team" },
+  { label: "Contact", href: "/#contact" },
 ]
 
 export function SiteHeader() {
