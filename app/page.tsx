@@ -10,6 +10,7 @@ import { Leadership } from "@/components/leadership"
 import { Roadmap } from "@/components/roadmap"
 import { Contact } from "@/components/contact"
 import { SiteFooter } from "@/components/site-footer"
+import { ArrowRight } from "lucide-react"
 
 export default function Page() {
   return (
@@ -23,6 +24,16 @@ export default function Page() {
         <section className="bg-[#01312D] px-5 sm:px-8 pb-16">
           <div className="mx-auto max-w-7xl animate-on-scroll">
             <Grevara />
+            {/* Bottom CTA for Projects */}
+            <div className="flex justify-end mt-12">
+              <a
+                href="/projects"
+                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-[#BFF202]/25 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/10 hover:text-[#BFF202] hover:shadow-[0_0_25px_rgba(191,242,2,0.15)] hover:scale-105"
+              >
+                View Upcoming Projects
+                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </div>
           </div>
         </section>
         <WhySylvedha />
