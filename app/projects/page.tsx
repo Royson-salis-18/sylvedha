@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { GlobalObserver } from "@/components/global-observer"
+import Image from "next/image"
 import { NutriTechCarousel } from "@/components/nutritech-carousel"
 import { Grevara } from "@/components/grevara"
 import { Check, Cpu, Cloud, BarChart3, Zap, Leaf, Database } from "lucide-react"
@@ -138,13 +139,15 @@ export default function ProjectsPage() {
           </div>
           <div className="relative mx-auto max-w-7xl px-5 sm:px-8 text-center">
             <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
-              <img
-                src="/images/logo-mark.webp"
-                alt="Sylvedha"
-                width={12}
-                height={14}
-                className="h-3.5 w-auto object-contain invert brightness-200"
-              />
+              <span className="relative h-3.5 w-3 block">
+                <Image
+                  src="/images/logo-mark.webp"
+                  alt="Sylvedha"
+                  fill
+                  sizes="12px"
+                  className="object-contain invert brightness-200"
+                />
+              </span>
               Our Projects
             </p>
             <h1 className="animate-on-scroll mt-6 font-heading text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">
@@ -181,10 +184,12 @@ export default function ProjectsPage() {
                 <div className="flex flex-wrap items-start gap-5">
                   {/* Logo */}
                   <div className="size-28 overflow-hidden rounded-full shadow-xl shadow-black/40 relative flex-shrink-0" style={{ border: "1.5px solid rgba(245,240,232,0.25)", background: "#F5F0E8" }}>
-                    <img
+                    <Image
                       src="/images/nutritech/nutritech-logo.jpeg"
                       alt="NutriTech"
-                      className="absolute inset-0 size-full object-cover object-[center_40%] scale-[1.6] transition-transform duration-700 hover:scale-[1.7]"
+                      fill
+                      sizes="112px"
+                      className="object-cover object-[center_40%] scale-[1.6] transition-transform duration-700 hover:scale-[1.7]"
                     />
                   </div>
                   <div>
@@ -348,13 +353,12 @@ export default function ProjectsPage() {
           {/* Algae Biorefinery */}
           <div className="animate-on-scroll group glass-noise grid overflow-hidden rounded-[2rem] border border-white/10 bg-[#023a35]/90 lg:grid-cols-2 transition-all duration-500 hover:bg-[#03453f]/90 hover:shadow-2xl hover:shadow-[#BFF202]/5 hover:border-[#BFF202]/20 mb-6">
             <div className="relative min-h-72 lg:min-h-full overflow-hidden">
-              <img
+              <Image
                 src="/images/algae-biorefinery.webp"
                 alt="Green algae bioreactor tubes glowing in a modern laboratory"
-                loading="lazy"
-                width={800}
-                height={600}
-                className="absolute size-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
@@ -406,13 +410,12 @@ export default function ProjectsPage() {
               >
                 {project.image && (
                   <div className="relative h-52 overflow-hidden">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.imageAlt ?? ""}
-                      loading="lazy"
-                      width={600}
-                      height={400}
-                      className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     <span

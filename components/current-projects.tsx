@@ -2,6 +2,7 @@
 
 import { NutriTechCarousel } from "./nutritech-carousel"
 import { Check, Cpu, Cloud, BarChart3, Zap, Leaf, Database, ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 const monitored = [
   "Soil Moisture", "Temperature", "Humidity", "pH Level",
@@ -43,7 +44,9 @@ export function CurrentProjects() {
         {/* Section label */}
         <div className="flex items-center gap-4 mb-10">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-[#BFF202]/20 bg-[#BFF202]/8 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-md shadow-[0_0_20px_rgba(191,242,2,0.10)]">
-            <img src="/images/logo-mark.webp" alt="Sylvedha" width={12} height={14} className="h-3.5 w-auto object-contain invert brightness-200" />
+            <span className="relative h-3.5 w-3 block">
+              <Image src="/images/logo-mark.webp" alt="Sylvedha" fill sizes="12px" className="object-contain invert brightness-200" />
+            </span>
             Current Projects
           </p>
           <div className="flex-1 h-px bg-gradient-to-r from-[#BFF202]/25 to-transparent" />
@@ -57,10 +60,12 @@ export function CurrentProjects() {
           <div className="flex flex-wrap items-center gap-4 mb-6">
             {/* Logo */}
             <div className="size-28 overflow-hidden rounded-full shadow-xl shadow-black/40 relative flex-shrink-0" style={{ border: "1.5px solid rgba(245,240,232,0.25)", background: "#F5F0E8" }}>
-              <img
+              <Image
                 src="/images/nutritech/nutritech-logo.jpeg"
                 alt="NutriTech"
-                className="absolute inset-0 size-full object-cover object-[center_40%] scale-[1.6] transition-transform duration-700 hover:scale-[1.7]"
+                fill
+                sizes="112px"
+                className="object-cover object-[center_40%] scale-[1.6] transition-transform duration-700 hover:scale-[1.7]"
               />
             </div>
             <div>

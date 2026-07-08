@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react"
+import Image from "next/image"
 
 const disciplines = [
   "Agriculture",
@@ -64,13 +65,13 @@ export function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           {/* Brand column */}
           <div className="max-w-sm">
-            <div className="flex items-center gap-3">
-              <img
+            <div className="flex items-center gap-3 relative h-[64px] w-[182px]">
+              <Image
                 src="/images/logo-horizontal-dark-green.webp"
                 alt="Sylvedha Logo"
-                width={182}
-                height={64}
-                className="h-[64px] w-auto object-contain origin-left"
+                fill
+                sizes="182px"
+                className="object-contain origin-left"
               />
             </div>
             <p className="mt-3 text-sm uppercase tracking-[0.25em] text-[#BFF202]/80">

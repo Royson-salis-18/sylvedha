@@ -1,5 +1,6 @@
 import { FloatingCubes } from "./floating-cubes"
 import { Mail, Phone } from "lucide-react"
+import Image from "next/image"
 
 const team = [
   {
@@ -49,7 +50,9 @@ export function Leadership() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
-            <img src="/images/logo-mark.webp" alt="Sylvedha" width={12} height={14} className="h-3.5 w-auto object-contain invert brightness-200" />
+            <span className="relative h-3.5 w-3 block">
+              <Image src="/images/logo-mark.webp" alt="Sylvedha" fill sizes="12px" className="object-contain invert brightness-200" />
+            </span>
             Leadership Team
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
@@ -66,14 +69,13 @@ export function Leadership() {
             >
               <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[#BFF202]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/10" />
 
-              <div className="mx-auto size-24 overflow-hidden rounded-full ring-2 ring-white/10 transition-all duration-500 group-hover:ring-[#BFF202]/40 group-hover:scale-105">
-                <img
+              <div className="mx-auto size-24 overflow-hidden rounded-full ring-2 ring-white/10 transition-all duration-500 group-hover:ring-[#BFF202]/40 group-hover:scale-105 relative">
+                <Image
                   src={member.image}
                   alt={member.name}
-                  loading="lazy"
-                  width={96}
-                  height={96}
-                  className="size-full object-cover object-[50%_20%]"
+                  fill
+                  sizes="96px"
+                  className="object-cover object-[50%_20%]"
                 />
               </div>
               <h3 className="mt-6 font-heading text-2xl font-semibold text-white">

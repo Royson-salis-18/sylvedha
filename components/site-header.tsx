@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Leaf, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 const navLinks = [
   { label: "About", href: "/#about" },
@@ -34,15 +35,14 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-[88px] max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="/" className="flex items-center gap-2.5 group transition-transform duration-300 hover:scale-105">
-          <img 
+        <a href="/" className="flex items-center gap-2.5 group transition-transform duration-300 hover:scale-105 relative h-[72px] w-[205px]">
+          <Image 
             src="/images/logo-horizontal-dark-green.webp" 
             alt="Sylvedha Logo" 
-            width={205}
-            height={72}
-            fetchPriority="high"
-            decoding="sync"
-            className="h-[72px] w-auto object-contain transition-opacity opacity-90 group-hover:opacity-100 origin-left py-1" 
+            fill
+            sizes="205px"
+            priority
+            className="object-contain transition-opacity opacity-90 group-hover:opacity-100 origin-left py-1" 
           />
         </a>
 

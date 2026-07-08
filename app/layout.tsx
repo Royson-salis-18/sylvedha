@@ -4,6 +4,7 @@ import { Fira_Sans } from 'next/font/google'
 import { Fraunces } from 'next/font/google'
 import { GlobalObserver } from '@/components/global-observer'
 import './globals.css'
+import Image from 'next/image'
 
 const firaSans = Fira_Sans({ 
   variable: '--font-fira-sans', 
@@ -117,7 +118,7 @@ export default function RootLayout({
               logo: "https://sylvedha.com/icon.png",
               description: "SYLVEDHA LLP is a multidisciplinary technology company developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation, and Sustainable Infrastructure.",
               sameAs: [
-                "https://www.linkedin.com/company/sylvedhallp/"
+                "https://www.linkedin.com/company/sylvedha"
               ],
               contactPoint: {
                 "@type": "ContactPoint",
@@ -140,14 +141,14 @@ export default function RootLayout({
           }}
         />
         {/* Global Watermark overlay */}
-        <div className="fixed -right-[5%] top-[35%] z-50 pointer-events-none select-none opacity-[0.08]">
-          <img
+        <div className="fixed -right-[5%] top-[35%] z-50 pointer-events-none select-none opacity-[0.08] w-[28vw] max-w-[380px] aspect-square">
+          <Image
             src="/images/logo-icon-white.webp"
             alt=""
             aria-hidden="true"
-            width={380}
-            height={380}
-            className="w-[28vw] max-w-[380px] h-auto object-contain rotate-12"
+            fill
+            sizes="(max-width: 768px) 28vw, 380px"
+            className="object-contain rotate-12"
           />
         </div>
 

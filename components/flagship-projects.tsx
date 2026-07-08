@@ -1,4 +1,5 @@
 import { Check, ArrowUpRight } from "lucide-react"
+import Image from "next/image"
 
 const projects = [
   {
@@ -70,7 +71,9 @@ export function FlagshipProjects() {
       <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-            <img src="/images/logo-mark.webp" alt="Sylvedha" width={12} height={14} className="h-3.5 w-auto object-contain" />
+            <span className="relative h-3.5 w-3 block">
+              <Image src="/images/logo-mark.webp" alt="Sylvedha" fill sizes="12px" className="object-contain" />
+            </span>
             Flagship Projects
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
@@ -82,13 +85,12 @@ export function FlagshipProjects() {
         {/* Featured: Algae Biorefinery */}
         <div className="animate-on-scroll mt-16 group grid overflow-hidden rounded-[2rem] border border-border bg-card lg:grid-cols-2 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:border-[#BFF202]/20">
           <div className="relative min-h-72 lg:min-h-full overflow-hidden">
-            <img
+            <Image
               src="/images/algae-biorefinery.webp"
               alt="Green algae bioreactor tubes glowing in a modern laboratory"
-              loading="lazy"
-              width={800}
-              height={600}
-              className="absolute size-full object-cover transition-transform duration-700 group-hover:scale-105"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
           </div>
@@ -139,13 +141,12 @@ export function FlagshipProjects() {
             >
               {project.image && (
                 <div className="relative h-52 overflow-hidden">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.imageAlt ?? ""}
-                    loading="lazy"
-                    width={600}
-                    height={400}
-                    className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
