@@ -130,7 +130,7 @@ export function SiteFooter() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="https://www.linkedin.com/company/sylvedhallp/"
+                href="https://www.linkedin.com/company/sylvedha"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm text-white/90 transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/5 hover:text-[#BFF202]"
