@@ -28,11 +28,11 @@ export function Grevara() {
   return (
     <section
       id="grevara"
-      className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1a0a22] text-white shadow-xl shadow-purple-900/5"
+      className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#110517] text-white shadow-xl shadow-purple-900/5"
     >
       {/* Background glows — purple/gold theme for Grevara */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-purple-900/20 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-amber-900/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-purple-800/20 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-amber-600/10 blur-[120px] pointer-events-none" />
 
       {/* Top border accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
@@ -147,7 +147,7 @@ export function Grevara() {
       {/* Catalog Modal */}
       {showCatalog && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-black/60">
-          <div className="relative w-full max-w-5xl h-[85vh] bg-[#1a0a22] rounded-3xl border border-white/20 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
+          <div className="relative w-full max-w-5xl h-[85vh] bg-[#110517] rounded-3xl border border-white/20 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
               <div className="flex items-center gap-3">
                 <img src="/images/grevara/grevara-logo.png" alt="Grevara" className="size-8 object-cover rounded-full" />
