@@ -12,13 +12,22 @@ export const nutriTechMedia: Array<
   | { type: "image"; src: string; caption: string }
   | { type: "video"; src: string; caption: string }
 > = [
-  // ── Video ────────────────────────────────────────────────────────────────
+  // ── Slide 1: Hero — full growth chamber open ──────────────────────────────
+  { type: "image", src: "/images/nutritech/setup-main.jpg",        caption: "NutriTech Experimentation Setup — controlled environment growth chamber" },
+  // ── Slide 2: Video walkthrough ────────────────────────────────────────────
   { type: "video", src: "/images/nutritech/nutritech_setup_video.mp4", caption: "NutriTech experimental setup — live walkthrough" },
-  // ── Add your photos below once ready ─────────────────────────────────────
-  { type: "image", src: "", caption: "Sensor node — close-up view" },
-  { type: "image", src: "", caption: "Experimental plant growth setup" },
-  { type: "image", src: "", caption: "IoT board and wiring" },
-  // ─────────────────────────────────────────────────────────────────────────
+  // ── Slide 3–4: Growth chamber at night ────────────────────────────────────
+  { type: "image", src: "/images/nutritech/setup-night-front.jpg", caption: "Growth chamber — night view with grow lights active" },
+  { type: "image", src: "/images/nutritech/setup-night-inside.jpg",caption: "Inside the chamber — multi-crop trays under LED lighting" },
+  // ── Slide 5–6: Plant growth ───────────────────────────────────────────────
+  { type: "image", src: "/images/nutritech/plant-inside-trays.jpg",caption: "Multiple crop trays growing inside the controlled environment" },
+  { type: "image", src: "/images/nutritech/plant-microgreens.jpg", caption: "Dense microgreens — grown under automated light & irrigation" },
+  { type: "image", src: "/images/nutritech/plant-tomatoes.jpg",    caption: "Tomatoes grown inside NutriTech's drip-irrigated controlled setup" },
+  // ── Slide 7–10: A-RIS sensor module ──────────────────────────────────────
+  { type: "image", src: "/images/nutritech/aris-topdown.jpg",      caption: "A-RIS sensor module — IoT board with multi-sensor array (top view)" },
+  { type: "image", src: "/images/nutritech/aris-exhibit-setup.jpg",caption: "A-RIS prototype at exhibition — complete sensor and control setup" },
+  { type: "image", src: "/images/nutritech/aris-exhibit-demo.jpg", caption: "NutriTech demo at tech exhibition — A-RIS system in action" },
+  { type: "image", src: "/images/nutritech/aris-solar.jpg",        caption: "A-RIS with solar panel integration — renewable-powered sensing" },
 ]
 
 function Placeholder({ icon, caption }: { icon: "image" | "video"; caption: string }) {

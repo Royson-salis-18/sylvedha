@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { GlobalObserver } from "@/components/global-observer"
 import { NutriTechCarousel } from "@/components/nutritech-carousel"
+import { Grevara } from "@/components/grevara"
 import { Check, Cpu, Cloud, BarChart3, Zap, Leaf, Database } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ const upcomingProjects = [
     ],
     image: "/images/smart-agriculture.webp",
     imageAlt: "Smart agriculture sensor planted in soil among green crops",
-    status: "In Development",
+    status: "Prototype Phase",
   },
   {
     title: "Smart Automated Irrigation System",
@@ -44,7 +45,7 @@ const upcomingProjects = [
     image: "/images/irrigation-system.webp",
     imageAlt:
       "Smart automated irrigation hardware with plants, water tank, and mobile app interface",
-    status: "In Development",
+    status: "Prototype Phase",
   },
   {
     title: "Indoor Farming & Controlled Environment Agriculture",
@@ -60,7 +61,7 @@ const upcomingProjects = [
     ],
     image: "/images/indoor-farming.webp",
     imageAlt: "Rows of microgreens growing under LED lights in a vertical farm",
-    status: "Research Phase",
+    status: "Planning Phase",
   },
   {
     title: "Next Generation Solar Innovation Program",
@@ -76,14 +77,13 @@ const upcomingProjects = [
     image: "/images/solar-innovation.webp",
     imageAlt:
       "Futuristic skyscraper with building-integrated photovoltaic solar window panels",
-    status: "Research Phase",
+    status: "Planning Phase",
   },
 ]
 
 const statusColors: Record<string, string> = {
-  "In Development":
-    "bg-[#BFF202]/10 text-[#BFF202] border border-[#BFF202]/30",
-  "Research Phase": "bg-white/5 text-white/60 border border-white/10",
+  "Prototype Phase": "bg-[#BFF202]/10 text-[#BFF202] border border-[#BFF202]/30",
+  "Planning Phase":  "bg-white/5 text-white/50 border border-white/10",
 }
 
 // ── NutriTech tech pillars ────────────────────────────────────────────────────
@@ -333,7 +333,12 @@ export default function ProjectsPage() {
             <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
           </div>
 
-          {/* Algae Biorefinery — featured */}
+          {/* Grevara — live brand */}
+          <div className="animate-on-scroll mb-6">
+            <Grevara />
+          </div>
+
+          {/* Algae Biorefinery */}
           <div className="animate-on-scroll group grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 lg:grid-cols-2 transition-all duration-500 hover:shadow-2xl hover:shadow-[#BFF202]/5 hover:border-[#BFF202]/20 mb-6">
             <div className="relative min-h-72 lg:min-h-full overflow-hidden">
               <img
@@ -348,12 +353,8 @@ export default function ProjectsPage() {
             </div>
             <div className="p-10 sm:p-12 flex flex-col justify-center">
               <div className="flex items-center gap-3 flex-wrap">
-                <span className="inline-flex items-center gap-2 rounded-xl bg-[#BFF202] px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[#01312D] shadow-md shadow-[#BFF202]/20">
-                  <span className="size-1.5 rounded-full bg-[#01312D] animate-pulse" />
-                  Most Ambitious Project
-                </span>
-                <span className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/60">
-                  Research Phase
+                <span className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/50">
+                  Planning Phase
                 </span>
               </div>
               <h2 className="mt-6 font-heading text-3xl font-semibold sm:text-4xl">

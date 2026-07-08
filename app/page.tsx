@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { FocusAreas } from "@/components/focus-areas"
 import { CurrentProjects } from "@/components/current-projects"
+import { Grevara } from "@/components/grevara"
 import { WhySylvedha } from "@/components/why-sylvedha"
 import { Journey } from "@/components/journey"
 import { Leadership } from "@/components/leadership"
@@ -19,6 +20,7 @@ export default function Page() {
         <About />
         <FocusAreas />
         <CurrentProjects />
+        <Grevara />
         <WhySylvedha />
         <Journey />
         <Leadership />
