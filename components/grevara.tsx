@@ -199,7 +199,7 @@ export function Grevara() {
               </div>
               <div className="flex-1 w-full bg-white/5 relative">
                 <iframe
-                  src="/documents/grevara-catalog.pdf"
+                  src="/grevara-catalog.html"
                   className="absolute inset-0 size-full border-none"
                   title="Grevara Product Catalog"
                 />
