@@ -140,7 +140,7 @@ export default function RootLayout({
           }}
         />
         {/* Global Watermark overlay */}
-        <div className="fixed -right-[5%] top-[35%] z-50 pointer-events-none select-none opacity-[0.08] w-[28vw] max-w-[380px] aspect-square">
+        <div className="fixed -right-[5%] bottom-[10%] z-50 pointer-events-none select-none opacity-[0.08] w-[28vw] max-w-[380px] aspect-square">
           <Image
             src="/images/logo-icon-white.webp"
             alt=""
