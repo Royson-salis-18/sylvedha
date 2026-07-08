@@ -10,13 +10,13 @@ const firaSans = Fira_Sans({
   variable: '--font-fira-sans', 
   subsets: ['latin'],
   weight: ['400', '600'],
-  display: 'optional',
+  display: 'swap',
   adjustFontFallback: true,
 })
 const fraunces = Fraunces({
   variable: '--font-fraunces',
   subsets: ['latin'],
-  display: 'optional',
+  display: 'swap',
   adjustFontFallback: true,
 })
 
@@ -103,7 +103,6 @@ export default function RootLayout({
       <head>
         <link rel="preload" href="/background-mobile.webp" as="image" type="image/webp" media="(max-width: 640px)" fetchPriority="high" />
         <link rel="preload" href="/background.webp" as="image" type="image/webp" media="(min-width: 641px)" fetchPriority="high" />
-        <link rel="preload" href="/images/logo-horizontal-dark-green.webp" as="image" type="image/webp" fetchPriority="high" />
       </head>
       <body className="font-sans antialiased">
         <GlobalObserver />
@@ -147,7 +146,9 @@ export default function RootLayout({
             alt=""
             aria-hidden="true"
             fill
-            sizes="(max-width: 768px) 28vw, 380px"
+            sizes="120px"
+            loading="lazy"
+            quality={50}
             className="object-contain rotate-12"
           />
         </div>
