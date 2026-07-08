@@ -5,15 +5,15 @@ import { ChevronLeft, ChevronRight, Sparkles, Leaf, ShoppingBag, ArrowRight, Fil
 
 const grevaraImages = [
   { src: "/images/grevara/product-shelf.jpg",    caption: "Radish Purple Sango — packaged & ready for sale" },
-  { src: "/images/grevara/growing-mature.jpg",   caption: "Mature radish microgreens inside NutriTech growth chamber" },
+  { src: "/images/grevara/growing-mature.jpg",   caption: "Mature Sango Radish inside NutriTech growth chamber" },
   { src: "/images/grevara/growing-dense.jpg",    caption: "Dense crop of Sango Radish microgreens" },
-  { src: "/images/grevara/growing-red-trays.jpg",caption: "Multiple microgreens trays at different growth stages" },
-  { src: "/images/grevara/growing-pink.jpg",     caption: "Pink radish microgreens at early growth stage" },
+  { src: "/images/grevara/plant-multiple-microgreens.jpg",caption: "Multiple microgreens varieties growing" },
+  { src: "/images/grevara/growing-pink.jpg",     caption: "Sango Radish microgreens at early growth stage" },
 ]
 
 const highlights = [
   { icon: Sparkles, label: "Already Selling", desc: "Products actively sold to customers in Mangaluru" },
-  { icon: Leaf,     label: "Varieties",        desc: "Radish Purple Sango, Pink Radish, and more" },
+  { icon: Leaf,     label: "Variety",          desc: "Radish Purple Sango, and more" },
   { icon: ShoppingBag, label: "Ready to Order", desc: "Fresh microgreens grown in controlled environment" },
 ]
 

@@ -34,7 +34,7 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-[88px] max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5 group transition-transform duration-300 hover:scale-105">
+        <a href="/" className="flex items-center gap-2.5 group transition-transform duration-300 hover:scale-105">
           <img 
             src="/images/logo-horizontal-dark-green.webp" 
             alt="Sylvedha Logo" 
@@ -59,7 +59,7 @@ export function SiteHeader() {
         </nav>
 
         <a
-          href="#contact"
+          href="/#contact"
           className="hidden rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-6 py-2.5 text-sm font-semibold text-[#01312D] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#BFF202]/25 md:inline-flex"
         >
           Connect With Us
@@ -95,7 +95,7 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex justify-center rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-6 py-3 text-sm font-semibold text-[#01312D]"
             >
