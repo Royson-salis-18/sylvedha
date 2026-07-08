@@ -79,8 +79,8 @@ export function NutriTechCarousel() {
               src={slide.src}
               autoPlay
               loop
-              muted
               playsInline
+              controls
               className="size-full object-cover"
             />
           ) : (
