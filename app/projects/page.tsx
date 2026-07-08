@@ -8,9 +8,9 @@ import { Grevara } from "@/components/grevara"
 import { Check, Cpu, Cloud, BarChart3, Zap, Leaf, Database } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Projects — SYLVEDHA",
+  title: "Upcoming Projects — SYLVEDHA",
   description:
-    "Explore Sylvedha's current and upcoming projects — from Project NutriTech, our AI-ready smart agriculture initiative, to innovations in biotechnology, renewable energy, and sustainable infrastructure.",
+    "Explore Sylvedha's upcoming projects — innovations in biotechnology, renewable energy, and sustainable infrastructure.",
 }
 
 // ── Upcoming projects ─────────────────────────────────────────────────────────
@@ -148,199 +148,22 @@ export default function ProjectsPage() {
                   className="object-contain invert brightness-200"
                 />
               </span>
-              Our Projects
+              Upcoming Projects
             </p>
             <h1 className="animate-on-scroll mt-6 font-heading text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">
               Building the{" "}
               <span className="italic text-[#BFF202]">future of farming</span>
             </h1>
             <p className="animate-on-scroll mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-              From active prototypes and experimental setups to long-term
-              research pipelines — here's what Sylvedha is working on.
+              From long-term research pipelines to next-generation innovations — here's what Sylvedha is working on for the future.
             </p>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════════════════════════════
-            SECTION 1 — CURRENT PROJECTS
-        ══════════════════════════════════════════════════════════════════════ */}
-        <section className="mx-auto max-w-7xl px-5 sm:px-8 pb-6">
-          {/* Section label */}
-          <div className="flex items-center gap-4 mb-10">
-            <span className="inline-flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
-              <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Current Projects
-            </span>
-            <div className="flex-1 h-px bg-gradient-to-r from-emerald-400/20 to-transparent" />
-          </div>
-
-          {/* ── NutriTech Card ──────────────────────────────────────────────── */}
-            <div className="animate-on-scroll rounded-[2.5rem] overflow-hidden border border-white/10 bg-white/[0.04] backdrop-blur-md shadow-2xl relative transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_-8px_rgba(191,242,2,0.18)] hover:border-[#BFF202]/25">
-
-
-            {/* Card header */}
-            <div className="relative overflow-hidden px-10 py-10 sm:px-14 sm:py-12 border-b border-white/10 bg-white/[0.02]">
-              <div className="relative flex flex-wrap items-start justify-between gap-6">
-                <div className="flex flex-wrap items-start gap-5">
-                  {/* Logo */}
-                  <div className="size-28 overflow-hidden rounded-full shadow-xl shadow-black/40 relative flex-shrink-0" style={{ border: "1.5px solid rgba(245,240,232,0.25)", background: "#F5F0E8" }}>
-                    <Image
-                      src="/images/nutritech/nutritech-logo.jpeg"
-                      alt="NutriTech"
-                      fill
-                      sizes="112px"
-                      className="object-cover object-[center_40%] scale-[1.6] transition-transform duration-700 hover:scale-[1.7]"
-                    />
-                  </div>
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3 mb-5">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-[#BFF202]/15 border border-[#BFF202]/30 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-[#BFF202] shadow-[0_0_15px_rgba(191,242,2,0.15)]">
-                        <span className="size-1.5 rounded-full bg-[#BFF202] animate-pulse" />
-                        Active — Prototype Stage
-                      </span>
-                      <span className="rounded-full border border-[#F5F0E8]/20 bg-[#F5F0E8]/5 px-4 py-1.5 text-xs font-medium uppercase tracking-wide text-[#F5F0E8]/70 backdrop-blur-sm">
-                        Agritech · IoT · Automation
-                      </span>
-                    </div>
-                    <h2 className="font-heading text-4xl font-bold sm:text-5xl tracking-tight text-[#F5F0E8]">
-                      Project{" "}
-                      <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#BFF202] to-[#9ED600]">NutriTech</span>
-                    </h2>
-                    <p className="mt-3 text-sm font-medium uppercase tracking-[0.15em] text-[#F5F0E8]/40">
-                      Sylvedha's Smart Agriculture Initiative
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <p className="relative mt-6 max-w-3xl text-lg leading-relaxed text-[#F5F0E8]/70">
-                NutriTech is Sylvedha's long-term smart agriculture
-                initiative — combining environmental sensing, controlled
-                growth experiments, automation, and digital infrastructure
-                to build a practical foundation for advanced farming solutions.
-              </p>
-            </div>
-
-            {/* Carousel + overview */}
-            <div className="grid lg:grid-cols-2 gap-0 divide-y lg:divide-y-0 lg:divide-x border-b border-white/10" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
-
-              {/* Carousel */}
-              <div className="p-8 sm:p-10">
-                <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202]">
-                  Experimental Setup — Photos &amp; Video
-                </p>
-                <NutriTechCarousel />
-                <p className="mt-4 text-xs italic text-center text-[#F5F0E8]/30">
-                  Real photos and video of the NutriTech prototype setup — add your media to{" "}
-                  <code className="font-mono text-[#F5F0E8]/40">components/nutritech-carousel.tsx</code>
-                </p>
-              </div>
-
-              {/* What it monitors */}
-              <div className="p-8 sm:p-10 flex flex-col">
-                <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202]">
-                  What the Setup Monitors
-                </p>
-                <div className="grid grid-cols-2 gap-2.5 flex-1">
-                  {[
-                    "Soil Moisture",
-                    "Temperature",
-                    "Humidity",
-                    "pH Level",
-                    "EC / Nutrients",
-                    "Water Level",
-                    "Light Condition",
-                    "Crop Growth Stage",
-                    "Irrigation Activity",
-                    "Sensor Status",
-                    "Field / Section Data",
-                    "Device Activity",
-                  ].map((item) => (
-                    <span
-                      key={item}
-                      className="flex items-center gap-2 text-sm text-[#F5F0E8]/80"
-                    >
-                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#BFF202]/15 border border-[#BFF202]/30">
-                        <Check className="size-3 text-[#BFF202]" />
-                      </span>
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Current focus */}
-                <div className="relative mt-8 rounded-2xl p-5 overflow-hidden group/focus transition-all duration-500 hover:border-[#BFF202]/40 hover:shadow-[0_10px_30px_-10px_rgba(191,242,2,0.15)]" style={{ background: "linear-gradient(135deg, rgba(191,242,2,0.08) 0%, rgba(245,240,232,0.03) 100%)", border: "1px solid rgba(191,242,2,0.2)" }}>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#BFF202]/0 via-[#BFF202]/5 to-[#BFF202]/0 opacity-0 group-hover/focus:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                  <p className="relative text-xs font-bold uppercase tracking-[0.15em] mb-3 text-[#BFF202]">
-                    Current Focus
-                  </p>
-                  <ul className="relative space-y-2 text-sm text-[#F5F0E8]/70">
-                    <li>• Testing controlled growth environments</li>
-                    <li>• Gathering environmental performance metrics</li>
-                    <li>• Validating integrated hardware systems</li>
-                    <li>• Enhancing monitoring capabilities</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Tech pillars */}
-            <div className="px-8 py-10 sm:px-10 border-b border-white/10">
-              <p className="mb-8 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202]">
-                Technology Layers
-              </p>
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
-                {techPillars.map((pillar) => (
-                  <div
-                    key={pillar.title}
-                    className="animate-on-scroll group flex gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#BFF202]/30 hover:bg-white/[0.06]"
-                    style={{ border: "1px solid rgba(245,240,232,0.07)", background: "rgba(255,255,255,0.02)" }}
-                  >
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#BFF202]/10 border border-[#BFF202]/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-[#BFF202]/20">
-                      <pillar.icon className="size-5 text-[#BFF202]" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm tracking-wide text-[#F5F0E8]">{pillar.title}</p>
-                      <p className="mt-1.5 text-xs leading-relaxed text-[#F5F0E8]/60">{pillar.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Future Capabilities */}
-            <div className="px-8 py-10 sm:px-10">
-              <p className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202]">
-                Future Capabilities
-              </p>
-              <div className="flex flex-wrap gap-2.5">
-                {[
-                  "Predictive Analytics",
-                  "Resource Optimization",
-                  "Automated Advisory",
-                  "Environmental Resilience",
-                  "Scalable Integration",
-                  "Yield Improvement",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full px-4 py-1.5 text-xs font-medium transition-colors hover:border-[#BFF202]/35 border border-[#F5F0E8]/15 text-[#F5F0E8]/70 bg-[#F5F0E8]/5"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
         {/* ══════════════════════════════════════════════════════════════════════
             SECTION 2 — UPCOMING PROJECTS
         ══════════════════════════════════════════════════════════════════════ */}
-        <section className="mx-auto max-w-7xl px-5 sm:px-8 py-16 pb-10">
-          {/* Grevara — live brand */}
-          <div className="animate-on-scroll mb-16">
-            <Grevara />
-          </div>
+        <section className="mx-auto max-w-7xl px-5 sm:px-8 pb-10">
 
           {/* Section label for Upcoming Projects */}
           <div className="flex items-center gap-4 mb-10">
