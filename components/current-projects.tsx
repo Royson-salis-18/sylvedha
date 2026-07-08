@@ -9,12 +9,12 @@ const monitored = [
 ]
 
 const techPillars = [
-  { icon: Cpu,      title: "IoT & Sensors",    desc: "ESP32-based nodes monitoring soil, water, air, and light in real time." },
-  { icon: Zap,      title: "Automation",        desc: "Rule-based control of pumps, valves, fans, and irrigation lines." },
-  { icon: Cloud,    title: "Cloud Layer",        desc: "Structured storage of sensor readings, logs, and growth records." },
-  { icon: BarChart3,title: "Dashboard",         desc: "Live graphs, alerts, device status, and crop-wise visualization." },
-  { icon: Leaf,     title: "Controlled Env.",   desc: "Experimental plant setup for testing sensors, logic, and data methods." },
-  { icon: Database, title: "AI Foundation",     desc: "Every data point builds a dataset for future crop-intelligence AI." },
+  { icon: Cpu,      title: "Hardware Integration",    desc: "Deploying integrated sensor modules for field monitoring." },
+  { icon: Zap,      title: "Control Systems",        desc: "Automated management of irrigation and climate parameters." },
+  { icon: Cloud,    title: "Data Infrastructure",        desc: "Secure storage for environmental and growth metrics." },
+  { icon: BarChart3,title: "Monitoring",         desc: "Real-time visibility into system performance and crop status." },
+  { icon: Leaf,     title: "Controlled Environment",   desc: "Optimized growth chambers for consistent cultivation." },
+  { icon: Database, title: "Data Analytics",     desc: "Compiling structured data to inform future agricultural solutions." },
 ]
 
 export function CurrentProjects() {
@@ -55,16 +55,16 @@ export function CurrentProjects() {
               Active — Prototype Stage
             </span>
             <span className="rounded-xl border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-wide text-white/50">
-              Agritech · AI · IoT
+              Agritech · IoT · Automation
             </span>
           </div>
           <h2 className="font-heading text-4xl font-semibold leading-tight sm:text-5xl">
             Project <span className="italic text-[#BFF202]">NutriTech</span>
           </h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/70">
-            Sylvedha's smart agriculture initiative — combining IoT sensing, controlled-environment plant
-            growth experiments, automation, and cloud data storage to build the foundation for
-            AI-powered farming intelligence.
+            Sylvedha's smart agriculture initiative — combining environmental sensing, controlled plant
+            growth experiments, automation, and digital infrastructure to build scalable solutions for
+            future farming.
           </p>
         </div>
 
@@ -98,10 +98,10 @@ export function CurrentProjects() {
             <div className="mt-6 rounded-2xl border border-[#BFF202]/15 bg-[#BFF202]/5 p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#BFF202] mb-3">Current Focus</p>
               <ul className="space-y-1.5 text-sm text-white/70">
-                <li>• Testing sensors and automation systems</li>
-                <li>• Collecting real-time plant &amp; environmental data</li>
-                <li>• Building cloud storage &amp; monitoring dashboards</li>
-                <li>• Creating a dataset for future AI models</li>
+                <li>• Testing controlled growth environments</li>
+                <li>• Gathering environmental performance metrics</li>
+                <li>• Validating integrated hardware systems</li>
+                <li>• Enhancing monitoring capabilities</li>
               </ul>
             </div>
           </div>

@@ -90,33 +90,33 @@ const statusColors: Record<string, string> = {
 const techPillars = [
   {
     icon: Cpu,
-    title: "IoT & Sensors",
-    desc: "ESP32-based sensor nodes monitoring soil moisture, temperature, humidity, pH, EC, water level, and light conditions in real time.",
+    title: "Hardware Integration",
+    desc: "Deploying integrated sensor modules for field monitoring.",
   },
   {
     icon: Zap,
-    title: "Automation",
-    desc: "Rule-based control of water pumps, solenoid valves, irrigation lines, fans, and lighting systems based on live sensor data.",
+    title: "Control Systems",
+    desc: "Automated management of irrigation and climate parameters.",
   },
   {
     icon: Cloud,
-    title: "Cloud Data Layer",
-    desc: "Structured cloud storage of sensor readings, irrigation logs, crop data, growth records, and environmental history.",
+    title: "Data Infrastructure",
+    desc: "Secure storage for environmental and growth metrics.",
   },
   {
     icon: BarChart3,
-    title: "Dashboard",
-    desc: "Real-time visualization of plant health, soil trends, temperature and humidity graphs, device status, and alerts.",
+    title: "Monitoring",
+    desc: "Real-time visibility into system performance and crop status.",
   },
   {
     icon: Leaf,
     title: "Controlled Environment",
-    desc: "An experimental plant growth setup that acts as a testing ground for sensors, automation logic, and data-collection methods.",
+    desc: "Optimized growth chambers for consistent cultivation.",
   },
   {
     icon: Database,
-    title: "AI Foundation",
-    desc: "Every data point collected builds a structured agricultural dataset that will power future crop recommendation and predictive farming AI models.",
+    title: "Data Analytics",
+    desc: "Compiling structured data to inform future agricultural solutions.",
   },
 ]
 
@@ -185,7 +185,7 @@ export default function ProjectsPage() {
                       Active — Prototype Stage
                     </span>
                     <span className="rounded-xl border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-wide text-white/60">
-                      Agritech · AI · IoT
+                      Agritech · IoT · Automation
                     </span>
                   </div>
                   <h2 className="font-heading text-4xl font-semibold sm:text-5xl">
@@ -193,15 +193,15 @@ export default function ProjectsPage() {
                     <span className="italic text-[#BFF202]">NutriTech</span>
                   </h2>
                   <p className="mt-3 text-sm font-medium uppercase tracking-[0.15em] text-white/50">
-                    Sylvedha's Smart Agriculture &amp; AI Farming Initiative
+                    Sylvedha's Smart Agriculture Initiative
                   </p>
                 </div>
               </div>
               <p className="relative mt-6 max-w-3xl text-lg leading-relaxed text-white/75">
-                NutriTech is Sylvedha's long-term AI-ready smart agriculture
-                initiative — combining IoT sensing, controlled-environment plant
-                growth experiments, automation, cloud data storage, and future AI
-                models to build a practical foundation for intelligent farming.
+                NutriTech is Sylvedha's long-term smart agriculture
+                initiative — combining environmental sensing, controlled
+                growth experiments, automation, and digital infrastructure
+                to build a practical foundation for advanced farming solutions.
               </p>
             </div>
 
@@ -258,11 +258,10 @@ export default function ProjectsPage() {
                     Current Focus
                   </p>
                   <ul className="space-y-2 text-sm text-white/70">
-                    <li>• Building &amp; testing the controlled plant growth setup</li>
-                    <li>• Collecting real-time plant &amp; environmental data</li>
-                    <li>• Testing sensors and automation systems</li>
-                    <li>• Developing cloud-based storage &amp; dashboards</li>
-                    <li>• Building a dataset for future AI models</li>
+                    <li>• Testing controlled growth environments</li>
+                    <li>• Gathering environmental performance metrics</li>
+                    <li>• Validating integrated hardware systems</li>
+                    <li>• Enhancing monitoring capabilities</li>
                   </ul>
                 </div>
               </div>
@@ -291,23 +290,19 @@ export default function ProjectsPage() {
               </div>
             </div>
 
-            {/* Future AI direction */}
+            {/* Future Capabilities */}
             <div className="border-t border-white/8 px-8 py-10 sm:px-10">
               <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#BFF202]">
-                Future AI Direction
+                Future Capabilities
               </p>
               <div className="flex flex-wrap gap-2.5">
                 {[
-                  "Crop Suitability Prediction",
-                  "Irrigation Recommendation",
-                  "Crop Health Monitoring",
-                  "Disease Risk Prediction",
-                  "Nutrient Deficiency Detection",
-                  "Yield Estimation",
-                  "Water Usage Optimization",
-                  "Environmental Stress Prediction",
-                  "Growth Pattern Analysis",
-                  "AI-Based Farming Advisory",
+                  "Predictive Analytics",
+                  "Resource Optimization",
+                  "Automated Advisory",
+                  "Environmental Resilience",
+                  "Scalable Integration",
+                  "Yield Improvement",
                 ].map((item) => (
                   <span
                     key={item}
