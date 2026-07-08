@@ -33,5 +33,9 @@
   },
   "optionalDependencies": {
     "@next/swc-win32-ia32-msvc": "^14.2.16"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11"
+  ]
 }
