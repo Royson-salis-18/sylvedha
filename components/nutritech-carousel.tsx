@@ -97,7 +97,7 @@ export function NutriTechCarousel() {
         )}
 
         {/* Caption overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-5 py-4">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-5 py-4 pointer-events-none">
           <p className="text-sm text-white/80">{slide.caption}</p>
         </div>
 
