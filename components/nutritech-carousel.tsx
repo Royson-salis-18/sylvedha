@@ -19,6 +19,8 @@ export const nutriTechMedia: Array<
   // ── Slide 3: Growth chamber at night ────────────────────────────────────
   { type: "image", src: "/images/nutritech/setup-night-inside.jpg",caption: "Inside the chamber — multi-crop trays under LED lighting" },
   // ── Slide 5–6: Plant growth ───────────────────────────────────────────────
+  { type: "image", src: "/images/nutritech/plant-early-leaves.jpg",  caption: "Early-stage growth monitoring" },
+  { type: "image", src: "/images/nutritech/plant-multiple-microgreens.jpg", caption: "Multiple microgreens varieties growing" },
   { type: "image", src: "/images/nutritech/plant-inside-trays.jpg",caption: "Multiple crop trays growing inside the controlled environment" },
   { type: "image", src: "/images/nutritech/plant-microgreens.jpg", caption: "Dense microgreens — grown under automated light & irrigation" },
   { type: "image", src: "/images/nutritech/plant-tomatoes.jpg",    caption: "Tomatoes grown inside NutriTech's drip-irrigated controlled setup" },
