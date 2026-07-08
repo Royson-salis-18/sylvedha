@@ -118,13 +118,13 @@ export function Grevara() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-opacity duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent pointer-events-none" />
                 {/* Caption */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 transform transition-transform duration-300">
+                <div className="absolute top-0 left-0 right-0 p-5 transform transition-transform duration-300 pointer-events-none">
                   <p className="text-sm font-medium text-white/90 drop-shadow-md">{slide.caption}</p>
                 </div>
                 {/* Counter */}
-                <div className="absolute top-4 right-4 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md shadow-lg">
+                <div className="absolute bottom-4 right-4 rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md shadow-lg pointer-events-none">
                   {current + 1} / {total}
                 </div>
                 {/* Prev / Next */}

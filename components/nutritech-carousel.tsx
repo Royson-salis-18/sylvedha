@@ -97,12 +97,12 @@ export function NutriTechCarousel() {
         )}
 
         {/* Caption overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-5 py-4 pointer-events-none">
-          <p className="text-sm text-white/80">{slide.caption}</p>
+        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent px-5 py-4 pointer-events-none">
+          <p className="text-sm font-medium text-white drop-shadow-md">{slide.caption}</p>
         </div>
 
         {/* Counter */}
-        <div className="absolute top-3 right-3 rounded-lg bg-black/40 px-2.5 py-1 text-xs font-medium text-white/70 backdrop-blur-sm">
+        <div className="absolute bottom-3 right-3 rounded-lg bg-black/40 px-2.5 py-1 text-xs font-medium text-white/70 backdrop-blur-sm pointer-events-none">
           {current + 1} / {total}
         </div>
 
