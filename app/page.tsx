@@ -20,7 +20,11 @@ export default function Page() {
         <About />
         <FocusAreas />
         <CurrentProjects />
-        <Grevara />
+        <section className="bg-[#01312D] px-5 sm:px-8 pb-16">
+          <div className="mx-auto max-w-7xl animate-on-scroll">
+            <Grevara />
+          </div>
+        </section>
         <WhySylvedha />
         <Journey />
         <Leadership />

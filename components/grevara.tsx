@@ -28,7 +28,7 @@ export function Grevara() {
   return (
     <section
       id="grevara"
-      className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#110517] text-white shadow-xl shadow-purple-900/5"
+      className="relative overflow-hidden rounded-[2.5rem] border border-amber-400/30 bg-[#110517] text-white shadow-xl shadow-purple-900/5"
     >
       {/* Background glows — purple/gold theme for Grevara */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-purple-800/20 blur-[150px] pointer-events-none" />
