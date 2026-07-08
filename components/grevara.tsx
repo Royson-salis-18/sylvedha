@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, Sparkles, Leaf, ShoppingBag, ArrowRight, FileText } from "lucide-react"
+import { ChevronLeft, ChevronRight, Sparkles, Leaf, ShoppingBag, ArrowRight, FileText, X } from "lucide-react"
 
 const grevaraImages = [
   { src: "/images/grevara/product-shelf.jpg",    caption: "Radish Purple Sango — packaged & ready for sale" },
@@ -23,11 +23,12 @@ export function Grevara() {
   const prev = () => setCurrent((c) => (c - 1 + total) % total)
   const next = () => setCurrent((c) => (c + 1) % total)
   const slide = grevaraImages[current]
+  const [showCatalog, setShowCatalog] = useState(false)
 
   return (
     <section
       id="grevara"
-      className="relative overflow-hidden bg-[#1a0a22] text-white"
+      className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1a0a22] text-white shadow-xl shadow-purple-900/5"
     >
       {/* Background glows — purple/gold theme for Grevara */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-purple-900/20 blur-[150px] pointer-events-none" />
@@ -90,16 +91,14 @@ export function Grevara() {
 
             {/* Catalog Button */}
             <div className="mt-8">
-              <a
-                href="/documents/grevara-catalog.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setShowCatalog(true)}
                 className="group inline-flex items-center gap-2 rounded-2xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-[#1a0a22] transition-colors hover:bg-amber-300"
               >
                 <FileText className="size-4" />
                 View Product Catalog
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -144,6 +143,33 @@ export function Grevara() {
 
       {/* Bottom border accent */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
+
+      {/* Catalog Modal */}
+      {showCatalog && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-black/60">
+          <div className="relative w-full max-w-5xl h-[85vh] bg-[#1a0a22] rounded-3xl border border-white/20 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <img src="/images/grevara/grevara-logo.png" alt="Grevara" className="size-8 object-cover rounded-full" />
+                <h3 className="font-semibold text-white">Grevara Product Catalog</h3>
+              </div>
+              <button
+                onClick={() => setShowCatalog(false)}
+                className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors"
+              >
+                <X className="size-5" />
+              </button>
+            </div>
+            <div className="flex-1 w-full bg-white/5 relative">
+              <iframe 
+                src="/documents/grevara-catalog.pdf" 
+                className="absolute inset-0 size-full border-none"
+                title="Grevara Product Catalog"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
