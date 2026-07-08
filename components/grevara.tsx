@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, Sparkles, Leaf, ShoppingBag } from "lucide-react"
+import { ChevronLeft, ChevronRight, Sparkles, Leaf, ShoppingBag, ArrowRight, FileText } from "lucide-react"
 
 const grevaraImages = [
   { src: "/images/grevara/product-shelf.jpg",    caption: "Radish Purple Sango — packaged & ready for sale" },
@@ -51,13 +51,13 @@ export function Grevara() {
         <div className="animate-on-scroll grid lg:grid-cols-2 gap-10 items-center mb-12">
           <div>
             {/* Logo */}
-            <img
-              src="/images/grevara/grevara-logo.png"
-              alt="Grevara Microgreens"
-              width={160}
-              height={160}
-              className="size-28 object-contain rounded-full mb-6"
-            />
+            <div className="size-28 mb-6 overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 relative">
+              <img
+                src="/images/grevara/grevara-logo.png"
+                alt="Grevara Microgreens"
+                className="absolute inset-0 size-full object-cover scale-[1.3] transform-gpu"
+              />
+            </div>
             <h2 className="font-heading text-4xl font-semibold leading-tight sm:text-5xl">
               <span className="text-amber-400 italic">Grevara</span>{" "}
               Microgreens
@@ -86,6 +86,20 @@ export function Grevara() {
                   <p className="mt-1 text-xs text-white/55 leading-relaxed">{h.desc}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Catalog Button */}
+            <div className="mt-8">
+              <a
+                href="/documents/grevara-catalog.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-2xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-[#1a0a22] transition-colors hover:bg-amber-300"
+              >
+                <FileText className="size-4" />
+                View Product Catalog
+                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
             </div>
           </div>
 

@@ -320,17 +320,17 @@ export default function ProjectsPage() {
             SECTION 2 — UPCOMING PROJECTS
         ══════════════════════════════════════════════════════════════════════ */}
         <section className="mx-auto max-w-7xl px-5 sm:px-8 py-16 pb-10">
-          {/* Section label */}
+          {/* Grevara — live brand */}
+          <div className="animate-on-scroll mb-16">
+            <Grevara />
+          </div>
+
+          {/* Section label for Upcoming Projects */}
           <div className="flex items-center gap-4 mb-10">
             <span className="rounded-xl border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
               Upcoming Projects
             </span>
             <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
-          </div>
-
-          {/* Grevara — live brand */}
-          <div className="animate-on-scroll mb-6">
-            <Grevara />
           </div>
 
           {/* Algae Biorefinery */}

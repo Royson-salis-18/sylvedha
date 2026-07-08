@@ -15,9 +15,8 @@ export const nutriTechMedia: Array<
   // ── Slide 1: Hero — full growth chamber open ──────────────────────────────
   { type: "image", src: "/images/nutritech/setup-main.jpg",        caption: "NutriTech Experimentation Setup — controlled environment growth chamber" },
   // ── Slide 2: Video walkthrough ────────────────────────────────────────────
-  { type: "video", src: "/images/nutritech/nutritech_setup_video.mp4", caption: "NutriTech experimental setup — live walkthrough" },
-  // ── Slide 3–4: Growth chamber at night ────────────────────────────────────
-  { type: "image", src: "/images/nutritech/setup-night-front.jpg", caption: "Growth chamber — night view with grow lights active" },
+  { type: "video", src: "/images/nutritech/nutritech_setup_video.mp4", caption: "NutriTech experimental setup — video walkthrough" },
+  // ── Slide 3: Growth chamber at night ────────────────────────────────────
   { type: "image", src: "/images/nutritech/setup-night-inside.jpg",caption: "Inside the chamber — multi-crop trays under LED lighting" },
   // ── Slide 5–6: Plant growth ───────────────────────────────────────────────
   { type: "image", src: "/images/nutritech/plant-inside-trays.jpg",caption: "Multiple crop trays growing inside the controlled environment" },
