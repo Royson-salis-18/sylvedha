@@ -28,7 +28,7 @@ export default function Page() {
             <div className="flex justify-end mt-12">
               <a
                 href="/projects"
-                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-[#BFF202]/25 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-[#BFF202]/50 hover:bg-[#BFF202]/10 hover:text-[#BFF202] hover:shadow-[0_0_25px_rgba(191,242,2,0.15)] hover:scale-105"
+                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-[#BFF202]/30 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-[#BFF202] hover:bg-[#BFF202] hover:text-[#011A17] hover:shadow-[0_0_30px_rgba(191,242,2,0.6)] hover:-translate-y-1"
               >
                 View Upcoming Projects
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
