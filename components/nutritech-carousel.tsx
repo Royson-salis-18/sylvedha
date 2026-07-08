@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react"
 import { ChevronLeft, ChevronRight, ImageIcon, VideoIcon } from "lucide-react"
+import Image from "next/image"
 
 // ─────────────────────────────────────────────────────────────────────────────
 // EDIT THIS ARRAY to add your real photos and video.
@@ -76,15 +77,19 @@ export function NutriTechCarousel() {
             <video
               key={slide.src}
               src={slide.src}
-              controls
+              autoPlay
+              loop
+              muted
+              playsInline
               className="size-full object-cover"
             />
           ) : (
-            <img
+            <Image
               key={slide.src}
               src={slide.src}
               alt={slide.caption}
-              className="size-full object-cover transition-opacity duration-300"
+              fill
+              className="object-cover transition-opacity duration-300"
             />
           )
         ) : (
@@ -160,7 +165,7 @@ export function NutriTechCarousel() {
                     <VideoIcon className="size-6 text-[#BFF202]/60" />
                   </div>
                 ) : (
-                  <img src={item.src} alt={item.caption} className="size-full object-cover" />
+                  <Image src={item.src} alt={item.caption} fill className="object-cover" />
                 )
               ) : (
                 <div className="flex size-full items-center justify-center bg-white/[0.04]">

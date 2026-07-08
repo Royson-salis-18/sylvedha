@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronLeft, ChevronRight, Sparkles, Leaf, ShoppingBag, ArrowRight, FileText, X } from "lucide-react"
+import Image from "next/image"
 
 const grevaraImages = [
   { src: "/images/grevara/product-shelf.jpg", caption: "Radish Purple Sango — packaged & ready for sale" },
@@ -53,10 +54,12 @@ export function Grevara() {
             <div>
               {/* Logo */}
               <div className="size-28 mb-6 overflow-hidden rounded-full border border-amber-400/20 bg-gradient-to-br from-white/10 to-white/5 relative shadow-lg shadow-amber-900/10 backdrop-blur-md">
-                <img
+                <Image
                   src="/images/grevara/grevara-logo.png"
                   alt="Grevara Microgreens"
-                  className="absolute inset-0 size-full object-cover scale-[1.3] transform-gpu transition-transform duration-700 hover:scale-[1.4]"
+                  fill
+                  sizes="112px"
+                  className="object-cover scale-[1.3] transform-gpu transition-transform duration-700 hover:scale-[1.4]"
                 />
               </div>
               <h2 className="font-heading text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl tracking-tight">
@@ -108,10 +111,12 @@ export function Grevara() {
             <div className="flex flex-col gap-6 h-full pt-4 lg:pt-0">
               {/* Image carousel */}
               <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-amber-500/20 bg-[#120818] shadow-2xl shadow-black/50">
-                <img
+                <Image
                   src={slide.src}
                   alt={slide.caption}
-                  className="size-full object-cover transition-opacity duration-500"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-opacity duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 {/* Caption */}
@@ -136,6 +141,7 @@ export function Grevara() {
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
+                    aria-label={`Go to slide ${i + 1}`}
                     className={`rounded-full transition-all duration-300 ${i === current ? "w-6 h-2 bg-amber-400" : "size-2 bg-white/20 hover:bg-white/40"}`}
                   />
                 ))}
@@ -180,7 +186,7 @@ export function Grevara() {
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 bg-white/5">
                 <div className="flex items-center gap-3">
                   <div className="size-10 overflow-hidden rounded-full border border-amber-400/30">
-                    <img src="/images/grevara/grevara-logo.png" alt="Grevara" className="size-full object-cover scale-[1.2]" />
+                    <Image src="/images/grevara/grevara-logo.png" alt="Grevara" fill sizes="40px" className="object-cover scale-[1.2]" />
                   </div>
                   <h3 className="font-semibold text-lg text-white">Grevara Product Catalog</h3>
                 </div>
