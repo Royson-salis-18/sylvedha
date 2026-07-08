@@ -182,7 +182,7 @@ export function Grevara() {
         {/* Catalog Modal */}
         {showCatalog && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-black/60">
-            <div className="relative w-full max-w-7xl h-[92vh] bg-[#110517] rounded-3xl border border-white/20 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
+            <div className="relative w-full max-w-7xl h-full max-h-[96vh] bg-[#110517] rounded-3xl border border-white/20 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 bg-white/5">
                 <div className="flex items-center gap-3">
                   <h3 className="font-semibold text-lg text-white">Grevara Product Catalog</h3>
