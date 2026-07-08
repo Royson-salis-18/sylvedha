@@ -62,7 +62,7 @@ export function Leadership() {
           {team.map((member) => (
             <div
               key={member.name}
-              className="animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-10 text-center transition-all duration-500 hover:-translate-y-1 hover:border-[#BFF202]/30 hover:bg-white/[0.08]"
+              className="animate-on-scroll group glass-noise bg-[#01201D]/80 border border-white/10 overflow-hidden rounded-[2rem] p-10 text-center transition-all duration-500 hover:-translate-y-1 hover:border-[#BFF202]/40 hover:bg-[#011A17]/90 hover:shadow-[0_0_40px_-10px_rgba(191,242,2,0.15)]"
             >
               <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[#BFF202]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/10" />
 

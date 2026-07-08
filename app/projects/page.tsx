@@ -346,7 +346,7 @@ export default function ProjectsPage() {
           </div>
 
           {/* Algae Biorefinery */}
-          <div className="animate-on-scroll group grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 lg:grid-cols-2 transition-all duration-500 hover:shadow-2xl hover:shadow-[#BFF202]/5 hover:border-[#BFF202]/20 mb-6">
+          <div className="animate-on-scroll group glass-noise grid overflow-hidden rounded-[2rem] border border-white/10 bg-[#01201D]/80 lg:grid-cols-2 transition-all duration-500 hover:shadow-2xl hover:shadow-[#BFF202]/5 hover:border-[#BFF202]/20 mb-6">
             <div className="relative min-h-72 lg:min-h-full overflow-hidden">
               <img
                 src="/images/algae-biorefinery.webp"
@@ -402,7 +402,7 @@ export default function ProjectsPage() {
             {upcomingProjects.map((project) => (
               <article
                 key={project.title}
-                className="animate-on-scroll group flex flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#BFF202]/5 hover:border-[#BFF202]/20"
+                className="animate-on-scroll group glass-noise flex flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#01201D]/80 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#BFF202]/5 hover:border-[#BFF202]/20"
               >
                 {project.image && (
                   <div className="relative h-52 overflow-hidden">

@@ -104,7 +104,7 @@ export function FocusAreas() {
           {areas.map((area, i) => (
             <div
               key={area.title}
-              className={`animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-[#BFF202]/30 hover:bg-white/10 ${
+              className={`animate-on-scroll group glass-noise relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#01201D]/80 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-[#BFF202]/40 hover:bg-[#011A17]/90 hover:shadow-[0_0_40px_-10px_rgba(191,242,2,0.15)] ${
                 i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
               }`}
             >

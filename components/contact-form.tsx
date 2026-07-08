@@ -165,7 +165,7 @@ export function ContactForm() {
   }
 
   return (
-    <form action={formAction} className="rounded-[2rem] border border-white/10 bg-white/5 p-8 sm:p-10 backdrop-blur-sm">
+    <form action={formAction} className="rounded-[2rem] border border-white/10 glass-noise bg-[#01201D]/80 p-8 sm:p-10 backdrop-blur-sm">
       <h3 className="font-heading text-xl font-semibold text-white">
         Send us a message
       </h3>

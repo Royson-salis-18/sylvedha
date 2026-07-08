@@ -49,7 +49,7 @@ export function About() {
 
         <div className="mt-20 grid gap-5 md:grid-cols-2 stagger-children">
           {/* Vision Card */}
-          <div className="animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-border bg-card p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 hover:border-[#BFF202]/20">
+          <div className="animate-on-scroll group glass-noise relative overflow-hidden rounded-[2rem] border border-border bg-card/95 p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 hover:border-[#BFF202]/20">
             <div className="absolute -right-16 -top-16 size-48 rounded-full bg-[#BFF202]/8 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/20" />
             <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#BFF202]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             <span className="flex size-14 items-center justify-center rounded-2xl bg-[#BFF202] text-[#01312D] shadow-lg shadow-[#BFF202]/20 transition-transform duration-300 group-hover:scale-110">
@@ -67,7 +67,7 @@ export function About() {
           </div>
 
           {/* Mission Card */}
-          <div className="animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-white/10 bg-primary p-10 text-primary-foreground transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+          <div className="animate-on-scroll group glass-noise relative overflow-hidden rounded-[2rem] border border-white/10 bg-primary/90 p-10 text-primary-foreground transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
             <div className="absolute -right-16 -top-16 size-48 rounded-full bg-[#BFF202]/10 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/25" />
             <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#BFF202]/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             <span className="flex size-14 items-center justify-center rounded-2xl bg-white/10 text-[#BFF202] shadow-lg shadow-black/10 transition-transform duration-300 group-hover:scale-110">
