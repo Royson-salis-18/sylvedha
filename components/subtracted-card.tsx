@@ -1,4 +1,4 @@
-import { ReactNode, useId } from "react"
+import { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 
 interface SubtractedCardProps {
@@ -20,8 +20,6 @@ export function SubtractedCard({
   color = "dark-green",
   floatingElement,
 }: SubtractedCardProps) {
-  const maskId = useId()
-
   const bgClasses = {
     "dark-green": "bg-[#023a35]",
     neon: "bg-[#BFF202] text-[#012522]",
@@ -31,37 +29,60 @@ export function SubtractedCard({
 
   const R = cutoutSize
   const F = filletSize
+  const dx = Math.sqrt(R * R + 2 * R * F).toFixed(2)
+
+  // Generate SVG string for the mask
+  let svgContent = ''
+  if (corner === "top-right") {
+    svgContent = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <defs>
+          <mask id="m">
+            <rect x="0" y="0" width="100%" height="100%" fill="white" rx="32" />
+            
+            <!-- Top Fillet -->
+            <rect x="calc(100% - ${dx}px)" y="0" width="${dx}" height="${F}" fill="black" />
+            <circle cx="calc(100% - ${dx}px)" cy="${F}" r="${F}" fill="white" />
+            
+            <!-- Right Fillet -->
+            <rect x="calc(100% - ${F}px)" y="0" width="${F}" height="${dx}" fill="black" />
+            <circle cx="calc(100% - ${F}px)" cy="${dx}" r="${F}" fill="white" />
+            
+            <!-- Main Cutout -->
+            <circle cx="100%" cy="0" r="${R}" fill="black" />
+          </mask>
+        </defs>
+        <rect x="0" y="0" width="100%" height="100%" fill="white" mask="url(#m)" />
+      </svg>
+    `
+  } else if (corner === "bottom-left") {
+    svgContent = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <defs>
+          <mask id="m">
+            <rect x="0" y="0" width="100%" height="100%" fill="white" rx="32" />
+            
+            <!-- Left Fillet -->
+            <rect x="0" y="calc(100% - ${dx}px)" width="${F}" height="${dx}" fill="black" />
+            <circle cx="${F}" cy="calc(100% - ${dx}px)" r="${F}" fill="white" />
+            
+            <!-- Bottom Fillet -->
+            <rect x="0" y="calc(100% - ${F}px)" width="${dx}" height="${F}" fill="black" />
+            <circle cx="${dx}" cy="calc(100% - ${F}px)" r="${F}" fill="white" />
+            
+            <!-- Main Cutout -->
+            <circle cx="0" cy="100%" r="${R}" fill="black" />
+          </mask>
+        </defs>
+        <rect x="0" y="0" width="100%" height="100%" fill="white" mask="url(#m)" />
+      </svg>
+    `
+  }
+
+  const maskImageStyle = corner !== "none" ? `url("data:image/svg+xml;utf8,${encodeURIComponent(svgContent.trim())}")` : undefined
 
   return (
     <div className="relative h-full w-full group">
-      {corner !== "none" && (
-        <svg width="0" height="0" className="absolute pointer-events-none">
-          <defs>
-            <mask id={maskId}>
-              <rect x="0" y="0" width="100%" height="100%" fill="white" rx="32" />
-              
-              {corner === "top-right" && (
-                <>
-                  <circle cx="100%" cy="0" r={R} fill="black" />
-                  <path d={`M calc(100% - ${R}px) 0 L calc(100% - ${R + F}px) 0 A ${F} ${F} 0 0 1 calc(100% - ${R}px) ${F} Z`} fill="black" />
-                  <path d={`M 100% ${R} L 100% ${R + F} A ${F} ${F} 0 0 0 calc(100% - ${F}px) ${R} Z`} fill="black" />
-                </>
-              )}
-              
-              {corner === "bottom-left" && (
-                <>
-                  <circle cx="0" cy="100%" r={R} fill="black" />
-                  <path d={`M 0 calc(100% - ${R}px) L 0 calc(100% - ${R + F}px) A ${F} ${F} 0 0 0 ${F} calc(100% - ${R}px) Z`} fill="black" />
-                  <path d={`M ${R} 100% L ${R + F} 100% A ${F} ${F} 0 0 1 ${R} calc(100% - ${F}px) Z`} fill="black" />
-                </>
-              )}
-              
-              {/* Note: top-left and bottom-right omitted for brevity, add if needed later */}
-            </mask>
-          </defs>
-        </svg>
-      )}
-
       <div
         className={cn(
           "relative h-full w-full rounded-[2rem] p-8 transition-all duration-500",
@@ -69,8 +90,10 @@ export function SubtractedCard({
           className
         )}
         style={{
-          WebkitMaskImage: corner !== "none" ? `url(#${maskId})` : undefined,
-          maskImage: corner !== "none" ? `url(#${maskId})` : undefined,
+          WebkitMaskImage: maskImageStyle,
+          maskImage: maskImageStyle,
+          WebkitMaskSize: "100% 100%",
+          maskSize: "100% 100%",
         }}
       >
         {children}
