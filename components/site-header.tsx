@@ -7,12 +7,13 @@ import Image from "next/image"
 
 const navLinks = [
   { label: "About", href: "/#about" },
-  { label: "Why Sylvedha", href: "/#why-sylvedha" },
   { label: "Focus Areas", href: "/#focus" },
   { label: "Projects", href: "/#current-projects" },
+  { label: "Grevara Store", href: "/#grevara", highlight: "purple" },
+  { label: "Why Sylvedha", href: "/#why-sylvedha" },
   { label: "Journey", href: "/#journey" },
   { label: "Team", href: "/#team" },
-  { label: "Grevara Store", href: "/#grevara", highlight: "purple" },
+  { label: "Roadmap", href: "/#roadmap" },
 ]
 
 export function SiteHeader() {
