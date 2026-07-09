@@ -7,10 +7,12 @@ import Image from "next/image"
 
 const navLinks = [
   { label: "About", href: "/#about" },
+  { label: "Why Sylvedha", href: "/#why-sylvedha" },
   { label: "Focus Areas", href: "/#focus" },
-  { label: "Current Projects", href: "/#current-projects" },
+  { label: "Projects", href: "/#current-projects" },
   { label: "Journey", href: "/#journey" },
   { label: "Team", href: "/#team" },
+  { label: "Grevara Store", href: "/#grevara", highlight: "purple" },
 ]
 
 export function SiteHeader() {
@@ -49,12 +51,17 @@ export function SiteHeader() {
           <span className="font-heading text-[22px] font-bold tracking-wide text-white mt-[2px]">Sylvedha</span>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex pr-4">
+        <nav className="hidden items-center gap-1 xl:flex pr-4">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-xl px-4 py-2 text-sm text-[#011a17] transition-all duration-300 hover:bg-black/5 hover:text-[#8db300] font-semibold tracking-wide"
+              className={cn(
+                "rounded-xl px-3.5 py-2 text-[13px] font-bold tracking-wide transition-all duration-300 whitespace-nowrap",
+                link.highlight === "purple"
+                  ? "bg-gradient-to-r from-[#2a1126] to-[#461a3f] text-[#d4af37] shadow-md border border-[#d4af37]/20 hover:shadow-lg hover:-translate-y-0.5 hover:text-white"
+                  : "text-[#011a17] hover:bg-black/5 hover:text-[#8db300]"
+              )}
             >
               {link.label}
             </a>
@@ -64,7 +71,7 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex size-10 items-center justify-center rounded-xl text-white/90 transition-colors hover:bg-white/10 md:hidden"
+          className="inline-flex size-10 items-center justify-center rounded-xl text-black/80 transition-colors hover:bg-black/5 xl:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -74,7 +81,7 @@ export function SiteHeader() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "overflow-hidden transition-all duration-300 md:hidden",
+          "overflow-hidden transition-all duration-300 xl:hidden",
           open ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
         )}
       >
@@ -85,7 +92,12 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-xl py-3 px-4 text-sm text-white/90 transition-colors hover:bg-white/5 hover:text-white"
+                className={cn(
+                  "rounded-xl py-3 px-4 text-sm font-semibold transition-colors mb-1",
+                  link.highlight === "purple"
+                    ? "bg-[#2a1126] text-[#d4af37] border border-[#d4af37]/30 mt-2 text-center"
+                    : "text-white/90 hover:bg-white/5 hover:text-white"
+                )}
               >
                 {link.label}
               </a>
