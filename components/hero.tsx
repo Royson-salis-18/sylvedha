@@ -7,7 +7,7 @@ export function Hero() {
 
       {/* Background image */}
       <div className="absolute inset-0 -z-20 overflow-hidden bg-[#012522]">
-        <picture>
+        <picture className="hidden sm:block">
           <source media="(max-width: 640px)" srcSet="/background-mobile.webp" type="image/webp" />
           <img
             src="/background.webp"
@@ -20,7 +20,7 @@ export function Hero() {
           />
         </picture>
         {/* Uniform dark overlay to ensure perfect contrast for Lighthouse */}
-        <div className="absolute inset-0 bg-black/60 sm:bg-black/50" />
+        <div className="absolute inset-0 bg-black/60 sm:bg-black/50 hidden sm:block" />
       </div>
 
       {/* Decorative elements */}
@@ -60,11 +60,11 @@ export function Hero() {
             Innovation
           </h1>
 
-          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white/90 drop-shadow-md">
+          <p className="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed text-white/90 drop-shadow-md">
             <span className="font-sans font-bold text-white">SYLVEDHA</span>{" "}is a multidisciplinary technology company developing
-            innovative solutions across Agriculture, Biotechnology, Renewable
+            innovative solutions<span className="hidden sm:inline"> across Agriculture, Biotechnology, Renewable
             Energy, Artificial Intelligence, Automation, and Sustainable
-            Infrastructure.
+            Infrastructure</span><span className="inline sm:hidden"> for a sustainable future</span>.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
