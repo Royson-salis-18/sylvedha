@@ -1,5 +1,6 @@
 import { Eye, Target, ArrowUpRight } from "lucide-react"
 import Image from "next/image"
+import { SubtractedCard } from "./subtracted-card"
 
 export function About() {
   return (
@@ -52,40 +53,50 @@ export function About() {
 
         <div className="mt-20 grid gap-5 md:grid-cols-2 stagger-children">
           {/* Vision Card */}
-          <div className="animate-on-scroll group glass-noise relative overflow-hidden rounded-[2rem] border border-border bg-card/95 p-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 hover:border-[#BFF202]/20">
-            <div className="absolute -right-16 -top-16 size-48 rounded-full bg-[#BFF202]/8 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/20" />
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#BFF202]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <span className="flex size-14 items-center justify-center rounded-2xl bg-[#BFF202] text-[#01312D] shadow-lg shadow-[#BFF202]/20 transition-transform duration-300 group-hover:scale-110">
-              <Eye className="size-6" />
-            </span>
-            <h3 className="mt-6 font-heading text-2xl font-semibold text-card-foreground">
+          <SubtractedCard
+            color="white"
+            corner="top-right"
+            cutoutSize={70}
+            className="animate-on-scroll"
+            floatingElement={
+              <div className="flex size-14 items-center justify-center rounded-full bg-[#BFF202] text-[#012522] shadow-lg">
+                <Eye className="size-6" />
+              </div>
+            }
+          >
+            <h3 className="mt-2 font-heading text-2xl font-semibold text-[#012522]">
               Our Vision
             </h3>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-lg leading-relaxed text-[#012522]/80">
               To become a global leader in sustainable innovation by developing
               technologies that empower communities, enhance productivity,
               accelerate renewable energy adoption, and create a more resilient
               future for generations to come.
             </p>
-          </div>
+          </SubtractedCard>
 
           {/* Mission Card */}
-          <div className="animate-on-scroll group glass-noise relative overflow-hidden rounded-[2rem] border border-white/10 bg-primary/90 p-10 text-primary-foreground transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
-            <div className="absolute -right-16 -top-16 size-48 rounded-full bg-[#BFF202]/10 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/25" />
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#BFF202]/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <span className="flex size-14 items-center justify-center rounded-2xl bg-white/10 text-[#BFF202] shadow-lg shadow-black/10 transition-transform duration-300 group-hover:scale-110">
-              <Target className="size-6" />
-            </span>
-            <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
+          <SubtractedCard
+            color="neon"
+            corner="bottom-left"
+            cutoutSize={70}
+            className="animate-on-scroll"
+            floatingElement={
+              <div className="flex size-14 items-center justify-center rounded-full bg-[#012522] text-[#BFF202] shadow-lg">
+                <Target className="size-6" />
+              </div>
+            }
+          >
+            <h3 className="mt-2 font-heading text-2xl font-semibold text-[#012522]">
               Our Mission
             </h3>
-            <p className="mt-4 text-lg leading-relaxed text-white/90">
+            <p className="mt-4 text-lg leading-relaxed text-[#012522]/90">
               To design, develop, and deploy affordable, intelligent, and
               scalable technologies that transform agriculture, energy,
               biotechnology, and sustainability through innovation, research, and
               practical implementation.
             </p>
-          </div>
+          </SubtractedCard>
         </div>
       </div>
     </section>

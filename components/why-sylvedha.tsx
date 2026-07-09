@@ -1,6 +1,7 @@
 import { Layers, ShieldCheck, Wrench, FlaskRound, Rocket } from "lucide-react"
 import { FloatingCubes } from "./floating-cubes"
 import Image from "next/image"
+import { SubtractedCard } from "./subtracted-card"
 
 const reasons = [
   {
@@ -68,26 +69,36 @@ export function WhySylvedha() {
         </div>
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 stagger-children">
-          {reasons.map((reason, i) => (
-            <div
+          {reasons.map((reason, i) => {
+            const isDark = i === 2 || i === 3;
+            const color = isDark ? "dark-green" : "white";
+            const corner = i % 2 === 0 ? "top-right" : "bottom-left";
+            return (
+            <SubtractedCard
               key={reason.title}
-              className={`animate-on-scroll group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 transition-all duration-500 hover:-translate-y-1 hover:border-[#BFF202]/30 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-[#BFF202]/5 ${
+              color={color}
+              corner={corner}
+              cutoutSize={60}
+              filletSize={20}
+              className={`animate-on-scroll ${
                 i === 0 || i === 3 ? "lg:col-span-2" : "col-span-1"
               }`}
+              floatingElement={
+                <div className={`flex size-12 items-center justify-center rounded-full shadow-lg ${
+                  isDark ? "bg-[#BFF202] text-[#012522]" : "bg-[#012522] text-[#BFF202]"
+                }`}>
+                  <reason.icon className="size-5" />
+                </div>
+              }
             >
-              <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[#BFF202]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#BFF202]/10" />
-
-              <span className="flex size-14 items-center justify-center rounded-2xl bg-white/[0.06] text-[#BFF202] transition-all duration-500 group-hover:scale-110 group-hover:bg-[#BFF202]/10">
-                <reason.icon className="size-6" />
-              </span>
-              <h3 className="mt-8 font-heading text-2xl font-semibold text-white">
+              <h3 className={`mt-2 font-heading text-2xl font-semibold ${isDark ? "text-white" : "text-[#012522]"}`}>
                 {reason.title}
               </h3>
-              <p className="mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed text-white/90 hidden sm:block">
+              <p className={`mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed hidden sm:block ${isDark ? "text-white/90" : "text-[#012522]/80"}`}>
                 {reason.description}
               </p>
-            </div>
-          ))}
+            </SubtractedCard>
+          )})}
         </div>
       </div>
     </section>
