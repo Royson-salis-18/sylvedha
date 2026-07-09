@@ -11,7 +11,6 @@ const navLinks = [
   { label: "Current Projects", href: "/#current-projects" },
   { label: "Journey", href: "/#journey" },
   { label: "Team", href: "/#team" },
-  { label: "Contact", href: "/#contact" },
 ]
 
 export function SiteHeader() {
@@ -27,43 +26,40 @@ export function SiteHeader() {
 
   return (
     <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled
-          ? "border-b border-white/10 bg-[#01312D]/80 backdrop-blur-xl shadow-lg shadow-black/10"
-          : "border-b border-transparent",
-      )}
+      className="fixed inset-x-0 top-3 z-50 transition-all duration-500 flex justify-center px-4"
     >
-      <div className="mx-auto flex h-[88px] max-w-7xl items-center justify-between px-5 sm:px-8">
-        <a href="/" className="flex items-center gap-2.5 group transition-transform duration-300 hover:scale-105 relative h-[72px] w-[205px]">
-          <Image 
-            src="/images/logo-horizontal-dark-green.webp" 
-            alt="Sylvedha Logo" 
-            fill
-            sizes="205px"
-            priority
-            className="object-contain transition-opacity opacity-90 group-hover:opacity-100 origin-left py-1" 
-          />
+      <div className={cn(
+        "flex h-[72px] w-full max-w-5xl items-center justify-between px-2 transition-all duration-500 rounded-[2rem]",
+        scrolled
+          ? "bg-white/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-black/5"
+          : "bg-white/90 backdrop-blur-md shadow-2xl border border-white/20"
+      )}>
+        {/* Logo with dark background card */}
+        <a href="/" className="flex items-center gap-2 group transition-transform duration-300 hover:scale-105 bg-[#011a17] rounded-full shadow-inner ml-2 pr-6 pl-1.5 py-1.5">
+          <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white/5">
+            <Image 
+              src="/images/logo-icon-lime.webp" 
+              alt="Sylvedha Icon" 
+              width={22}
+              height={22}
+              priority
+              className="object-contain transition-transform group-hover:scale-110" 
+            />
+          </div>
+          <span className="font-heading text-[22px] font-bold tracking-wide text-white mt-[2px]">Sylvedha</span>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 md:flex pr-4">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-xl px-4 py-2 text-sm text-white/90 drop-shadow-md transition-all duration-300 hover:bg-white/10 hover:text-[#BFF202] font-medium"
+              className="rounded-xl px-4 py-2 text-sm text-[#011a17] transition-all duration-300 hover:bg-black/5 hover:text-[#8db300] font-semibold tracking-wide"
             >
               {link.label}
             </a>
           ))}
         </nav>
-
-        <a
-          href="/#contact"
-          className="hidden rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-6 py-2.5 text-sm font-semibold text-[#01312D] transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#BFF202]/25 md:inline-flex"
-        >
-          Connect With Us
-        </a>
 
         <button
           type="button"

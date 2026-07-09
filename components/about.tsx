@@ -56,11 +56,11 @@ export function About() {
           <SubtractedCard
             color="white"
             corner="top-right"
-            cutoutSize={70}
+            cutoutSize={56}
             className="animate-on-scroll"
             floatingElement={
-              <div className="flex size-14 items-center justify-center rounded-full bg-[#BFF202] text-[#012522] shadow-lg">
-                <Eye className="size-6" />
+              <div className="flex size-full items-center justify-center rounded-full bg-[#BFF202] text-[#012522] shadow-md">
+                <Eye className="size-5" />
               </div>
             }
           >
@@ -79,11 +79,11 @@ export function About() {
           <SubtractedCard
             color="neon"
             corner="bottom-left"
-            cutoutSize={70}
+            cutoutSize={56}
             className="animate-on-scroll"
             floatingElement={
-              <div className="flex size-14 items-center justify-center rounded-full bg-[#012522] text-[#BFF202] shadow-lg">
-                <Target className="size-6" />
+              <div className="flex size-full items-center justify-center rounded-full bg-[#012522] text-[#BFF202] shadow-md">
+                <Target className="size-5" />
               </div>
             }
           >

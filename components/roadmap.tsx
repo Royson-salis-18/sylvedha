@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react"
+import { SubtractedCard } from "./subtracted-card"
 
 const phases = [
   {
@@ -62,47 +63,47 @@ export function Roadmap() {
 
         <div className="mt-16 grid gap-5 md:grid-cols-3 stagger-children">
           {phases.map((phase, i) => (
-            <div
-              key={phase.phase}
-              className={`animate-on-scroll group relative flex flex-col overflow-hidden rounded-[2rem] border p-10 transition-all duration-500 hover:-translate-y-1 ${
-                i === 0
-                  ? "border-[#BFF202]/30 bg-primary text-white hover:shadow-2xl hover:shadow-primary/20"
-                  : "border-border bg-card hover:shadow-xl hover:shadow-primary/5"
-              }`}
-            >
-              {i === 0 && (
-                <div className="absolute -right-10 -top-10 size-40 rounded-full bg-[#BFF202]/10 blur-[80px]" />
-              )}
-
-              <div className="flex items-center justify-between">
-                <span className={`font-heading text-6xl font-bold ${i === 0 ? "text-white/10" : "text-primary/10"}`}>
-                  {`0${i + 1}`}
-                </span>
-                <span className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider ${
-                  i === 0
-                    ? "bg-[#BFF202] text-[#01312D]"
-                    : "bg-primary/5 text-primary"
-                }`}>
-                  {phase.status}
-                </span>
-              </div>
-              <p className={`mt-2 text-xs font-semibold uppercase tracking-[0.2em] ${i === 0 ? "text-[#BFF202]" : "text-primary"}`}>
-                {phase.phase}
-              </p>
-              <h3 className={`mt-2 font-heading text-2xl font-semibold ${i === 0 ? "text-white" : "text-card-foreground"}`}>
-                {phase.title}
-              </h3>
-              <ul className={`mt-6 flex flex-col gap-3 border-t pt-6 ${i === 0 ? "border-white/15" : "border-border"}`}>
-                {phase.items.map((item) => (
-                  <li
-                    key={item}
-                    className={`flex items-center gap-3 text-sm ${i === 0 ? "text-white/90" : "text-foreground/75"}`}
-                  >
-                    <span className={`size-2 shrink-0 rounded-full ${i === 0 ? "bg-[#BFF202]" : "bg-primary"}`} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div key={phase.phase} className="animate-on-scroll h-full">
+              <SubtractedCard
+                corner="top-left"
+                cutoutSize={64}
+                color={i === 0 ? "dark-green" : "white"}
+                floatingElement={
+                  <span className={`flex size-full items-center justify-center font-heading text-3xl font-bold leading-none ${i === 0 ? "text-[#BFF202]" : "text-[#7b9896]"}`}>
+                    {`0${i + 1}`}
+                  </span>
+                }
+                className="flex h-full flex-col p-8"
+              >
+                <div className="flex items-center justify-end">
+                  <span className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider ${
+                    i === 0
+                      ? "bg-[#BFF202] text-[#01312D]"
+                      : "bg-[#012522]/10 text-[#012522]"
+                  }`}>
+                    {phase.status}
+                  </span>
+                </div>
+                <div className="mt-8">
+                  <p className={`text-xs font-semibold uppercase tracking-[0.2em] ${i === 0 ? "text-[#BFF202]" : "text-[#012522]"}`}>
+                    {phase.phase}
+                  </p>
+                  <h3 className={`mt-2 font-heading text-2xl font-semibold ${i === 0 ? "text-white" : "text-[#012522]"}`}>
+                    {phase.title}
+                  </h3>
+                </div>
+                <ul className={`mt-auto flex flex-col gap-3 border-t pt-6 pb-2 ${i === 0 ? "border-white/15" : "border-black/10"}`}>
+                  {phase.items.map((item) => (
+                    <li
+                      key={item}
+                      className={`flex items-center gap-3 text-sm font-medium ${i === 0 ? "text-white/90" : "text-[#012522]/80"}`}
+                    >
+                      <span className={`size-1.5 shrink-0 rounded-full ${i === 0 ? "bg-[#BFF202]" : "bg-[#012522]"}`} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </SubtractedCard>
             </div>
           ))}
         </div>

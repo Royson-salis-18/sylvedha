@@ -1,6 +1,7 @@
 import { Sprout, FlaskConical, Sun, Cpu, Recycle } from "lucide-react"
 import { FloatingCubes } from "./floating-cubes"
 import Image from "next/image"
+import { SubtractedCard } from "./subtracted-card"
 
 const areas = [
   {
@@ -103,37 +104,58 @@ export function FocusAreas() {
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3 stagger-children">
-          {areas.map((area, i) => (
-            <div
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3 stagger-children overflow-visible">
+          {areas.map((area, i) => {
+            const isNeon = i === 1; // Make Biotechnology neon for variety
+            const isWhite = i === 3; // Make AI white for variety
+            const color = isNeon ? "neon" : isWhite ? "white" : "dark-green";
+            const corner = i % 2 === 0 ? "top-right" : "bottom-left";
+            
+            return (
+            <SubtractedCard
               key={area.title}
-              className={`animate-on-scroll group glass-noise relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#023a35]/90 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-[#BFF202]/40 hover:bg-[#03453f]/90 hover:shadow-[0_0_40px_-10px_rgba(191,242,2,0.15)] ${
+              color={color}
+              corner={corner}
+              cutoutSize={56}
+              className={`animate-on-scroll ${
                 i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
-              }`}
+              } ${!isNeon && !isWhite ? "border border-white/10 hover:border-[#BFF202]/40" : ""}`}
+              floatingElement={
+                <div className={`flex size-full items-center justify-center rounded-full shadow-md ${
+                  isNeon ? "bg-[#012522] text-[#BFF202]" : "bg-[#BFF202] text-[#012522]"
+                }`}>
+                  <area.icon className="size-5" />
+                </div>
+              }
             >
-              <div className="absolute -right-10 -top-10 size-40 rounded-full blur-[80px] transition-all duration-500 group-hover:opacity-100 opacity-0" style={{ background: area.accent }} />
+              <div className="absolute -right-10 -top-10 size-40 rounded-full blur-[80px] transition-all duration-500 group-hover:opacity-100 opacity-0 pointer-events-none" style={{ background: area.accent }} />
 
-              <span className="flex size-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-500 group-hover:bg-[#BFF202]/15 group-hover:scale-110 group-hover:border-[#BFF202]/30" style={{ color: area.accent }}>
-                <area.icon className="size-6" />
-              </span>
-              <h3 className="mt-6 font-heading text-2xl font-semibold text-white">
+              <h3 className={`mt-2 font-heading text-2xl font-semibold ${
+                isNeon || isWhite ? "text-[#012522]" : "text-white"
+              }`}>
                 {area.title}
               </h3>
-              <p className="mt-3 leading-relaxed text-white/90 hidden sm:block">
+              <p className={`mt-3 leading-relaxed hidden sm:block ${
+                isNeon || isWhite ? "text-[#012522]/80" : "text-white/90"
+              }`}>
                 {area.description}
               </p>
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-wrap gap-2 relative z-10">
                 {area.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/90 transition-all duration-300 group-hover:border-[#BFF202]/30 group-hover:bg-white/10 group-hover:shadow-[0_0_10px_rgba(191,242,2,0.1)]"
+                    className={`rounded-full border px-3 py-1.5 text-xs transition-all duration-300 ${
+                      isNeon || isWhite 
+                        ? "border-[#012522]/20 bg-[#012522]/5 text-[#012522] hover:bg-[#012522]/10" 
+                        : "border-white/10 bg-white/5 text-white/90 hover:border-[#BFF202]/30 hover:bg-white/10 hover:shadow-[0_0_10px_rgba(191,242,2,0.1)]"
+                    }`}
                   >
                     {item}
                   </span>
                 ))}
               </div>
-            </div>
-          ))}
+            </SubtractedCard>
+          )})}
         </div>
       </div>
     </section>

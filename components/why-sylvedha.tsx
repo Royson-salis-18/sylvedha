@@ -78,13 +78,12 @@ export function WhySylvedha() {
               key={reason.title}
               color={color}
               corner={corner}
-              cutoutSize={60}
-              filletSize={20}
+              cutoutSize={56}
               className={`animate-on-scroll ${
                 i === 0 || i === 3 ? "lg:col-span-2" : "col-span-1"
               }`}
               floatingElement={
-                <div className={`flex size-12 items-center justify-center rounded-full shadow-lg ${
+                <div className={`flex size-full items-center justify-center rounded-full shadow-md ${
                   isDark ? "bg-[#BFF202] text-[#012522]" : "bg-[#012522] text-[#BFF202]"
                 }`}>
                   <reason.icon className="size-5" />
