@@ -272,30 +272,6 @@
 .animate-icon-pop { animation: icon-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
 .animate-tilt-in  { animation: tilt-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
-/* Magnetic hover shimmer on cards */
-.card-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-.card-shimmer::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.06) 50%,
-    transparent 60%
-  );
-  background-size: 200% 100%;
-  background-position: -200% 0;
-  transition: background-position 0.6s ease;
-  pointer-events: none;
-  border-radius: inherit;
-}
-.card-shimmer:hover::after {
-  background-position: 200% 0;
-}
 
 
 /* Scroll-triggered animation observer classes */

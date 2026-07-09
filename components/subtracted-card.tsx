@@ -267,20 +267,10 @@ export function SubtractedCard({
   const cardRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
   const iconRef = useRef<HTMLDivElement>(null)
-  const glowRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number>(0)
   const [dims, setDims] = useState({ w: 0, h: 0 })
 
-  const glowColor: Record<string, string> = {
-    "dark-green": "rgba(191,242,2,0.12)",
-    neon: "rgba(1,26,23,0.15)",
-    black: "rgba(191,242,2,0.10)",
-    white: "rgba(1,49,45,0.08)",
-    "purple-gold": "rgba(212,175,55,0.15)",
-  }
-
   const fillColor = FILL[color] || color
-  const activeGlow = glowColor[color] || "rgba(255,255,255,0.08)"
   const bgClass = BG[color] || ""
 
   const iconDiameter = useMemo(() => {
@@ -352,7 +342,6 @@ export function SubtractedCard({
       rafRef.current = requestAnimationFrame(() => {
         const body = bodyRef.current
         const icon = iconRef.current
-        const glow = glowRef.current
         if (!body) return
 
         const rect = body.getBoundingClientRect()
@@ -361,13 +350,8 @@ export function SubtractedCard({
         const dx = nx - 0.5
         const dy = ny - 0.5
 
-        body.style.transform = `perspective(900px) rotateX(${-dy * 16}deg) rotateY(${dx * 16}deg) scale(1.02)`
+        body.style.transform = `perspective(900px) rotateX(${-dy * 35}deg) rotateY(${dx * 35}deg) scale(1.04)`
         body.style.transition = "none"
-
-        if (glow) {
-          glow.style.opacity = "1"
-          glow.style.background = `radial-gradient(circle at ${nx * 100}% ${ny * 100}%, ${activeGlow} 0%, transparent 65%)`
-        }
 
         if (icon && effectiveCorner !== "none") {
           icon.style.transform = `translate(${-dx * 8}px, ${-dy * 8}px) scale(1.03)`
@@ -375,7 +359,7 @@ export function SubtractedCard({
         }
       })
     },
-    [activeGlow, disableAnimation, effectiveCorner]
+    [disableAnimation, effectiveCorner]
   )
 
   const handleMouseLeave = useCallback(() => {
@@ -383,7 +367,6 @@ export function SubtractedCard({
     cancelAnimationFrame(rafRef.current)
     const body = bodyRef.current
     const icon = iconRef.current
-    const glow = glowRef.current
 
     if (body) {
       body.style.transition = "transform 0.5s cubic-bezier(0.22,1,0.36,1)"
@@ -393,7 +376,6 @@ export function SubtractedCard({
       icon.style.transition = "transform 0.5s cubic-bezier(0.22,1,0.36,1)"
       icon.style.transform = ""
     }
-    if (glow) glow.style.opacity = "0"
   }, [disableAnimation, effectiveCorner])
 
   const shaped = Boolean(outlinePath)
@@ -432,17 +414,6 @@ export function SubtractedCard({
               />
             )}
           </svg>
-        )}
-
-        {!disableAnimation && (
-          <div
-            ref={glowRef}
-            className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-[1]"
-            style={{ 
-              opacity: 0,
-              clipPath: outlinePath ? `path('${outlinePath}')` : undefined
-            }}
-          />
         )}
 
         {effectiveCorner !== "none" && effectiveCorner.includes("top") && (
