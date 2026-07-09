@@ -11,9 +11,9 @@ const navLinks = [
   { label: "Projects", href: "/#current-projects" },
   { label: "Grevara Store", href: "/#grevara", highlight: "purple" },
   { label: "Why Sylvedha", href: "/#why-sylvedha" },
-  { label: "Journey", href: "/#journey" },
   { label: "Team", href: "/#team" },
   { label: "Roadmap", href: "/#roadmap" },
+  { label: "Connect", href: "/#contact" },
 ]
 
 export function SiteHeader() {

@@ -5,7 +5,6 @@ import { FocusAreas } from "@/components/focus-areas"
 import { CurrentProjects } from "@/components/current-projects"
 import { Grevara } from "@/components/grevara"
 import { WhySylvedha } from "@/components/why-sylvedha"
-import { Journey } from "@/components/journey"
 import { Leadership } from "@/components/leadership"
 import { Roadmap } from "@/components/roadmap"
 import { Contact } from "@/components/contact"
@@ -37,7 +36,6 @@ export default function Page() {
           </div>
         </section>
         <WhySylvedha />
-        <Journey />
         <Leadership />
         <Roadmap />
         <Contact />
