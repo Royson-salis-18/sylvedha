@@ -42,7 +42,7 @@ export function About() {
               efficiency, renewable energy, climate resilience, and intelligent
               automation.
             </p>
-            <p>
+            <p className="hidden sm:block">
               We believe the future belongs to integrated solutions
               that create economic value while generating positive environmental
               and social impact.

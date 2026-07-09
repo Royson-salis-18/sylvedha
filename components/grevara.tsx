@@ -69,11 +69,11 @@ export function Grevara() {
               <p className="mt-2 text-sm font-semibold uppercase tracking-[0.15em] text-white/40">
                 A Sylvedha LLP Sub-Brand
               </p>
-              <p className="mt-5 text-lg leading-relaxed text-white/70">
+              <p className="mt-4 sm:mt-5 text-base sm:text-lg leading-relaxed text-white/70">
                 Grevara is Sylvedha's microgreens brand — growing and delivering
-                fresh, nutrient-dense microgreens in controlled environments.
+                fresh, nutrient-dense microgreens in controlled environments.<span className="hidden sm:inline">
                 Products are already being sold locally in Mangaluru, with more
-                varieties and wider distribution on the way.
+                varieties and wider distribution on the way.</span>
               </p>
 
               {/* Highlights */}
