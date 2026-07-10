@@ -106,7 +106,7 @@ export function Hero() {
         {/* 2. Hero Image Card */}
         <div className={cn("relative h-[210px] sm:h-[280px] rounded-[1.75rem] bg-[#0a1f13] overflow-hidden shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.22)]", isMobile ? "" : "animate-fade-up")} style={{animationDelay:'100ms'}}>
           <Image
-            src="/images/hero-bg.png"
+            src="/images/hero-nature-tech-new.webp"
             alt="Hero"
             fill
             className="object-cover opacity-90"
