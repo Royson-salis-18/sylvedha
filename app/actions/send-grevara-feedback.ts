@@ -219,7 +219,8 @@ export async function sendGrevaraForm(
   }
 
   if (sheetError) {
-    return { status: "error", message: sheetError }
+    console.warn("[Grevara Sheets] Non-fatal error:", sheetError)
+    // Don't block the user from seeing success if the email fallback worked
   }
 
   const successMessages = {
