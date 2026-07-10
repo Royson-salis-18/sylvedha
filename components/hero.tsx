@@ -42,7 +42,7 @@ export function Hero() {
   const tilt = useTilt()
 
   return (
-    <section className="w-full bg-[#011a17] h-dvh flex flex-col pt-[76px] md:pt-[92px] pb-2 px-4 md:px-8 overflow-hidden">
+    <section className="w-full bg-[#011a17] min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden">
       <style>{`
         @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
         @keyframes fadeInLeft { from { opacity:0; transform:translateX(-28px); } to { opacity:1; transform:translateX(0); } }
@@ -76,27 +76,27 @@ export function Hero() {
       `}</style>
 
       {/* Mobile View */}
-      <div className="lg:hidden flex flex-col gap-4 pb-4">
+      <div className="lg:hidden flex flex-col gap-3.5 pb-2">
         {/* 1. Text Card */}
-        <div className="bg-[#eee9df] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between shrink-0 animate-fade-up" style={{animationDelay:'0ms'}}>
+        <div className="bg-[#eee9df] rounded-[1.75rem] p-5 sm:p-8 flex flex-col justify-between shrink-0 animate-fade-up shadow-[0_18px_45px_rgba(0,0,0,0.18)]" style={{animationDelay:'0ms'}}>
           <div>
-            <p className="text-[#5b7d10] font-black tracking-[0.25em] text-[12px] mb-0.5">SYLVEDHA</p>
-            <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] mb-3">Innovating Technology in Harmony with Nature</p>
-            <h1 className="font-heading text-[32px] sm:text-[38px] leading-[1] font-extrabold text-[#06100d]">
+            <p className="text-[#5b7d10] font-black tracking-[0.22em] text-[11px] mb-1">SYLVEDHA</p>
+            <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] mb-3.5">Innovating Technology in Harmony with Nature</p>
+            <h1 className="font-heading text-[clamp(2rem,9vw,2.45rem)] sm:text-[38px] leading-[0.98] font-extrabold text-[#06100d]">
               Building the Future of <span className="text-[#5b7d10] italic font-normal">Sustainable Innovation</span>
             </h1>
-            <p className="text-[13px] leading-[1.55] mt-3 text-[#06100d]/80 font-medium">
+            <p className="text-[13px] sm:text-sm leading-[1.55] mt-3.5 text-[#06100d]/80 font-medium">
               SYLVEDHA is a multidisciplinary technology company developing innovative solutions across{" "}
               <span className="font-bold text-[#06100d]">Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation,</span> and Sustainable Infrastructure.
             </p>
           </div>
-          <button className="mt-5 w-fit px-6 py-2.5 bg-[#c7ff00] text-[#06100d] rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-[#a6d900] transition-colors">
+          <a href="#focus" className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-[#c7ff00] px-6 py-3 text-center text-[11px] font-bold uppercase tracking-widest text-[#06100d] transition-colors hover:bg-[#a6d900] sm:w-fit">
             Explore Innovations
-          </button>
+          </a>
         </div>
 
         {/* 2. Hero Image Card */}
-        <div className="relative h-[220px] sm:h-[280px] rounded-[2rem] bg-[#0a1f13] overflow-hidden shrink-0 animate-fade-up" style={{animationDelay:'100ms'}}>
+        <div className="relative h-[210px] sm:h-[280px] rounded-[1.75rem] bg-[#0a1f13] overflow-hidden shrink-0 animate-fade-up shadow-[0_18px_45px_rgba(0,0,0,0.22)]" style={{animationDelay:'100ms'}}>
           <Image
             src="/images/hero-bg.png"
             alt="Hero"
@@ -108,21 +108,25 @@ export function Hero() {
         </div>
 
         {/* 3. Get in Touch Card */}
-        <a href="/#contact" className="relative h-[110px] rounded-[2rem] px-6 flex items-center justify-between group overflow-hidden bg-[#062118] shrink-0 animate-fade-up" style={{animationDelay:'200ms'}}>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#c7ff00] to-[#91ba00] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <a
+          href="/#contact"
+          className="relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] shrink-0 animate-fade-up border border-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition-colors duration-300"
+          style={{ animationDelay: '200ms' }}
+        >
+          <div className="absolute inset-0 opacity-0 transition-opacity duration-300" />
           <div className="relative z-10 flex flex-col">
-            <p className="text-white/80 text-[9px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors">Let&apos;s Collaborate</p>
-            <p className="font-heading font-bold text-[24px] text-white leading-[1.05] transition-colors">
+            <p className="text-[#01312D] text-[9px] font-bold uppercase tracking-[0.25em] mb-1 transition-colors group-hover:text-white">Let&apos;s Collaborate</p>
+            <p className="font-heading font-bold text-[24px] text-[#01312D] leading-[1.05] transition-colors group-hover:text-white">
               Get in <span className="italic font-light">Touch</span>
             </p>
           </div>
-          <div className="relative z-10 size-12 rounded-full border-2 border-white/20 bg-white/6 flex items-center justify-center transition-colors shrink-0">
+          <div className="relative z-10 size-12 rounded-full bg-[#01312D] flex items-center justify-center transition-colors duration-300 shrink-0 group-hover:bg-white/10">
             <ArrowUpRight className="size-5 text-white transition-colors" />
           </div>
         </a>
 
         {/* 4. Grevara Card */}
-        <a href="/#grevara" className="relative h-[180px] rounded-[2rem] bg-[#2a1126] overflow-hidden shrink-0 animate-fade-up cursor-pointer group border border-amber-400/20 hover:border-amber-400/60 transition-all duration-500 hover:scale-[1.01]" style={{animationDelay:'300ms'}}>
+        <a href="/#grevara" className="relative h-[178px] rounded-[1.75rem] bg-[#2a1126] overflow-hidden shrink-0 animate-fade-up cursor-pointer group border border-amber-400/20 hover:border-amber-400/60 transition-all duration-500 hover:scale-[1.01] shadow-[0_18px_45px_rgba(0,0,0,0.2)]" style={{animationDelay:'300ms'}}>
           <Image
             src="/images/grevara/product-shelf.jpg"
             alt="Grevara Products"
@@ -130,8 +134,8 @@ export function Hero() {
             className="object-cover opacity-55 group-hover:opacity-70 transition-opacity duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
-          <div className="absolute bottom-4 left-5 flex items-center gap-4 z-10">
-            <div className="shrink-0 size-[70px] rounded-full grevara-badge-ring p-[2px]">
+          <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 z-10">
+            <div className="shrink-0 size-16 rounded-full grevara-badge-ring p-[2px] sm:size-[70px]">
               <div className="w-full h-full rounded-full overflow-hidden">
                 <Image
                   src="/images/grevara/grevara-badge.png"
@@ -143,8 +147,8 @@ export function Hero() {
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <p className="text-[#d4af37] font-bold tracking-[0.2em] text-[9px] uppercase">Grevara Microgreens</p>
-              <p className="text-white font-heading font-bold text-lg leading-tight mt-0.5">
+              <p className="text-[#d4af37] font-bold tracking-[0.18em] text-[9px] uppercase">Grevara Microgreens</p>
+              <p className="text-white font-heading font-bold text-base sm:text-lg leading-tight mt-0.5">
                 Small greens. Serious flavour.<br/><span className="italic font-light text-amber-200">Try it fresh →</span>
               </p>
             </div>
@@ -234,19 +238,19 @@ export function Hero() {
         <div className="absolute top-[calc(428/560*100%)] left-0 w-[48%] h-[calc(127/560*100%)] z-30 opacity-0 afu d3">
           <a
             href="/#contact"
-            className="block w-full h-full rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#062118] relative"
+            className="block w-full h-full rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] relative transition-colors duration-300"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#c7ff00] to-[#91ba00] transition-transform duration-[750ms] ease-[cubic-bezier(0.87,0,0.13,1)] group-hover:-translate-y-full origin-top" />
+            <div className="absolute inset-0 opacity-0 transition-opacity duration-300" />
             {/* Left: text block */}
             <div className="relative z-10 flex flex-col">
-              <p className="text-[#06100d]/60 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-700 group-hover:text-[#c7ff00]/80">Let&apos;s Collaborate</p>
-              <p className="font-heading font-bold text-[28px] xl:text-[32px] text-[#06100d] leading-[1.05] transition-colors duration-700 group-hover:text-white">
+              <p className="text-[#01312D]/90 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-300 group-hover:text-white">Let&apos;s Collaborate</p>
+              <p className="font-heading font-bold text-[28px] xl:text-[32px] text-[#01312D] leading-[1.05] transition-colors duration-300 group-hover:text-white">
                 Get in <span className="italic font-light">Touch</span>
               </p>
             </div>
             {/* Right: arrow circle */}
-            <div className="relative z-10 size-14 rounded-full border-2 border-[#06100d]/30 bg-[#06100d]/5 flex items-center justify-center transition-all duration-700 group-hover:border-[#c7ff00] group-hover:bg-[#c7ff00]/10 group-hover:rotate-45 shrink-0">
-              <ArrowUpRight className="size-6 text-[#06100d] transition-colors duration-700 group-hover:text-[#c7ff00]" />
+            <div className="relative z-10 size-14 rounded-full bg-[#01312D] flex items-center justify-center transition-all duration-300 shrink-0 group-hover:bg-white/10 group-hover:rotate-0">
+              <ArrowUpRight className="size-6 text-white transition-colors duration-300" />
             </div>
           </a>
         </div>
