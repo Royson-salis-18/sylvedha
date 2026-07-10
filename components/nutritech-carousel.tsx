@@ -135,12 +135,17 @@ export function NutriTechCarousel() {
               key={i}
               onClick={() => setCurrent(i)}
               aria-label={`Go to slide ${i + 1}`}
-              className={`rounded-full transition-all duration-300 ${
-                i === current
-                  ? "w-6 h-2 bg-[#BFF202]"
-                  : "size-2 bg-white/20 hover:bg-white/40"
-              }`}
-            />
+              className={`rounded-full transition-all duration-300 flex items-center justify-center w-10 h-10 p-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#BFF202]`}
+            >
+              {/* visual indicator inside larger touch target */}
+              <span
+                className={
+                  i === current
+                    ? "block w-6 h-2 rounded-full bg-[#BFF202]"
+                    : "block w-3 h-3 rounded-full bg-white/20 hover:bg-white/40"
+                }
+              />
+            </button>
           ))}
         </div>
       )}
