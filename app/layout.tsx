@@ -142,8 +142,10 @@ export default function RootLayout({
             })
           }}
         />
-        {/* Global Watermark overlay */}
-        <div className="fixed -right-[8%] -bottom-[8%] z-50 pointer-events-none select-none opacity-[0.08] w-[28vw] max-w-[380px] aspect-square">
+        {children}
+
+        {/* Global Watermark overlay (render after main content to avoid LCP competition) */}
+        <div className="fixed -right-[8%] -bottom-[8%] z-50 pointer-events-none select-none opacity-[0.08] w-[28vw] max-w-[380px] aspect-square" aria-hidden="true">
           <Image
             src="/images/logo-icon-white.webp"
             alt=""
@@ -156,8 +158,6 @@ export default function RootLayout({
             className="object-contain rotate-12"
           />
         </div>
-
-        {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
