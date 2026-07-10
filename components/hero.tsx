@@ -80,10 +80,10 @@ export function Hero() {
         {/* 1. Text Card */}
         <div className="bg-[#eee9df] rounded-[1.75rem] p-5 sm:p-8 flex flex-col justify-between shrink-0 animate-fade-up shadow-[0_18px_45px_rgba(0,0,0,0.18)]" style={{animationDelay:'0ms'}}>
           <div>
-            <p className="text-[#5b7d10] font-black tracking-[0.22em] text-[11px] mb-1">SYLVEDHA</p>
+            <p className="text-[#123b00] font-black tracking-[0.22em] text-[11px] mb-1">SYLVEDHA</p>
             <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] mb-3.5">Innovating Technology in Harmony with Nature</p>
             <h1 className="font-heading text-[clamp(2rem,9vw,2.45rem)] sm:text-[38px] leading-[0.98] font-extrabold text-[#06100d]">
-              Building the Future of <span className="text-[#5b7d10] italic font-normal">Sustainable Innovation</span>
+              Building the Future of <span className="text-[#123b00] italic font-normal">Sustainable Innovation</span>
             </h1>
             <p className="text-[13px] sm:text-sm leading-[1.55] mt-3.5 text-[#06100d]/80 font-medium">
               SYLVEDHA is a multidisciplinary technology company developing innovative solutions across{" "}
@@ -190,10 +190,10 @@ export function Hero() {
           style={{ clipPath: 'url(#text-clip)' }}
         >
           <div className="w-full h-[calc(290/415*100%)] px-[40px] xl:px-[50px] pt-[28px] xl:pt-[36px] pb-2 flex flex-col justify-start relative z-10">
-            <p className="text-[#5b7d10] font-black tracking-[0.25em] text-[12px] xl:text-[14px] mb-0.5 animate-text-float" style={{animationDelay:'0s'}}>SYLVEDHA</p>
+            <p className="text-[#123b00] font-black tracking-[0.25em] text-[12px] xl:text-[14px] mb-0.5 animate-text-float" style={{animationDelay:'0s'}}>SYLVEDHA</p>
             <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] xl:text-[12px] mb-3">Innovating Technology in Harmony with Nature</p>
             <h1 className="font-heading text-[36px] xl:text-[46px] leading-[0.95] font-extrabold text-[#06100d]">
-              Building the Future of{" "}<span className="text-[#5b7d10] italic font-normal animate-text-float inline-block" style={{animationDelay:'1s'}}>Sustainable<br/>Innovation</span>
+              Building the Future of{" "}<span className="text-[#123b00] italic font-normal animate-text-float inline-block" style={{animationDelay:'1s'}}>Sustainable<br/>Innovation</span>
             </h1>
             <p className="text-[13px] xl:text-[15px] leading-[1.55] mt-3 text-[#06100d]/80 font-medium max-w-[95%]">
               SYLVEDHA is a multidisciplinary technology company developing innovative solutions across{" "}
@@ -213,7 +213,7 @@ export function Hero() {
               ].map((tag, i) => (
                 <span
                   key={tag.label}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#06100d]/10 text-[10px] font-bold uppercase tracking-widest text-[#06100d]/90 hover:bg-[#5b7d10]/20 hover:text-[#5b7d10] hover:scale-105 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#06100d]/10 text-[10px] font-bold uppercase tracking-widest text-[#06100d]/90 hover:bg-[#123b00]/20 hover:text-[#123b00] hover:scale-105 transition-all cursor-pointer"
                   style={{ transitionDelay: `${i * 40}ms` }}
                 >
                   <tag.icon className="size-3" /> {tag.label}
