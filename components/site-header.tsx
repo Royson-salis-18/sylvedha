@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Leaf, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
@@ -28,18 +28,16 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header
-      className="fixed inset-x-0 top-3 z-50 transition-all duration-500 flex justify-center px-4"
-    >
+    <header className="fixed inset-x-0 top-3 z-50 px-3 transition-all duration-500 sm:px-4">
       <div className={cn(
-        "flex h-[64px] sm:h-[72px] w-full max-w-[1400px] items-center justify-between px-2 transition-all duration-500 rounded-[2rem]",
+        "mx-auto flex h-[64px] w-full max-w-[1400px] items-center justify-between rounded-[1.75rem] px-2 transition-all duration-500 sm:h-[72px] sm:rounded-[2rem]",
         scrolled
           ? "bg-white/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-black/5"
           : "bg-white/90 backdrop-blur-md shadow-2xl border border-white/20"
       )}>
         {/* Logo with dark background card */}
-        <a href="/" className="flex items-center gap-2 group transition-transform duration-300 hover:scale-105 bg-[#011a17] rounded-full shadow-inner ml-2 pr-6 pl-1.5 py-1.5">
-          <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white/5">
+        <a href="/" className="group ml-0 flex min-w-0 items-center gap-2 rounded-full bg-[#011a17] py-1.5 pl-1.5 pr-4 shadow-inner transition-transform duration-300 hover:scale-105 sm:ml-2 sm:pr-6">
+          <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/5 sm:size-12">
             <Image
               src="/images/logo-icon-lime.webp"
               alt="Sylvedha Icon"
@@ -49,7 +47,7 @@ export function SiteHeader() {
               className="object-contain transition-transform group-hover:scale-110"
             />
           </div>
-          <span className="font-heading text-[20px] sm:text-[22px] font-bold tracking-wide text-white mt-[2px]">Sylvedha</span>
+          <span className="mt-[2px] truncate font-heading text-[19px] font-bold tracking-wide text-white sm:text-[22px]">Sylvedha</span>
         </a>
 
         <nav className="hidden items-center gap-1 xl:flex pr-4">
@@ -74,8 +72,9 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex size-10 items-center justify-center rounded-xl text-black/80 transition-colors hover:bg-black/5 xl:hidden"
+          className="inline-flex size-11 shrink-0 items-center justify-center rounded-2xl text-black/80 transition-colors hover:bg-black/5 xl:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
@@ -84,19 +83,19 @@ export function SiteHeader() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "overflow-hidden transition-all duration-300 xl:hidden",
-          open ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+          "absolute left-3 right-3 top-[76px] overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl transition-all duration-300 sm:left-4 sm:right-4 sm:top-[86px] xl:hidden",
+          open ? "max-h-[calc(100svh-96px)] opacity-100" : "pointer-events-none max-h-0 opacity-0"
         )}
       >
-        <nav className="border-t border-white/10 bg-[#01312D]/95 backdrop-blur-xl">
-          <div className="mx-auto flex max-w-7xl flex-col px-5 py-4 sm:px-8">
+        <nav className="bg-[#01312D]/97 backdrop-blur-xl">
+          <div className="mx-auto flex max-h-[calc(100svh-96px)] max-w-7xl flex-col overflow-y-auto px-3 py-3 sm:px-5 sm:py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "rounded-xl py-3 px-4 text-sm font-semibold transition-colors mb-1",
+                  "mb-1 rounded-2xl px-4 py-3.5 text-sm font-semibold transition-colors",
                   link.highlight === "purple"
                     ? "bg-[#2a1126] text-[#d4af37] border border-[#d4af37]/30 mt-2 text-center"
                     : link.highlight === "neon"
