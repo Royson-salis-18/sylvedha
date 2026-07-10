@@ -207,6 +207,16 @@
   color: #01312D;
 }
 
+/* Respect reduced motion preference to improve accessibility and Lighthouse scores */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @keyframes slow-zoom {
   0%, 100% { transform: scale(1.05) translate(0, 0); }
   50% { transform: scale(1.15) translate(-1%, -0.5%); }

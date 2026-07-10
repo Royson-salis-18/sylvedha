@@ -103,6 +103,7 @@ export function Hero() {
             fill
             className="object-cover opacity-90"
             priority
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 1200px"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
         </div>
@@ -113,15 +114,18 @@ export function Hero() {
           className="relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] shrink-0 animate-fade-up border border-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition-colors duration-300"
           style={{ animationDelay: '200ms' }}
         >
-          <div className="absolute inset-0 z-0 rounded-[1.75rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.87,0,0.13,1)]" />
+          <div
+            className="absolute inset-0 z-0 rounded-[1.75rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+            style={{ willChange: 'transform, opacity' }}
+          />
           <div className="relative z-10 flex flex-col">
             <p className="text-[#01312D] text-[9px] font-bold uppercase tracking-[0.25em] mb-1 transition-colors group-hover:text-white">Let&apos;s Collaborate</p>
             <p className="font-heading font-bold text-[24px] text-[#01312D] leading-[1.05] transition-colors group-hover:text-white">
               Get in <span className="italic font-light">Touch</span>
             </p>
           </div>
-          <div className="relative z-10 size-12 rounded-full bg-[#01312D] flex items-center justify-center transition-colors duration-300 shrink-0 group-hover:bg-white/10">
-            <ArrowUpRight className="size-5 text-white transition-colors" />
+          <div className="relative z-10 size-12 rounded-full bg-[#01312D] flex items-center justify-center transition-colors duration-300 shrink-0 group-hover:bg-white/10" style={{ willChange: 'background-color, transform' }}>
+            <ArrowUpRight className="size-5 text-white transition-colors" style={{ willChange: 'color, transform' }} />
           </div>
         </a>
 
@@ -229,6 +233,7 @@ export function Hero() {
             fill
             className="object-cover opacity-90"
             priority
+            sizes="(max-width: 1024px) 100vw, 1200px"
           />
           {/* Lighter gradient — just enough for depth */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
@@ -240,7 +245,10 @@ export function Hero() {
             href="/#contact"
             className="block w-full h-full rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] relative transition-colors duration-300"
           >
-            <div className="absolute inset-0 z-0 rounded-[2.5rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.87,0,0.13,1)]" />
+            <div
+              className="absolute inset-0 z-0 rounded-[2.5rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+              style={{ willChange: 'transform, opacity' }}
+            />
             {/* Left: text block */}
             <div className="relative z-10 flex flex-col">
               <p className="text-[#01312D]/90 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-300 group-hover:text-white">Let&apos;s Collaborate</p>
