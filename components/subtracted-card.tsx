@@ -81,16 +81,16 @@ const RING_PALETTES = {
       innerGlow: "0 0 14px rgba(138,106,22,0.24)",
     },
     neon: {
-      outer: "#6B8E23",
-      inner: "#01312D",
-      outerGlow: "0 0 14px rgba(74,110,35,0.24)",
-      innerGlow: "0 0 14px rgba(1,49,45,0.22)",
+      outer: "#BFF202",
+      inner: "#6A716D",
+      outerGlow: "0 0 18px rgba(191,242,2,0.34)",
+      innerGlow: "0 0 14px rgba(70,78,74,0.22)",
     },
     white: {
       outer: "#01312D",
-      inner: "#3A7717",
+      inner: "#BFF202",
       outerGlow: "0 0 14px rgba(1,49,45,0.22)",
-      innerGlow: "0 0 14px rgba(58,119,23,0.24)",
+      innerGlow: "0 0 18px rgba(191,242,2,0.34)",
     },
   },
   dark: {
@@ -114,15 +114,15 @@ const RING_PALETTES = {
     },
     neon: {
       outer: "#F5F0E8",
-      inner: "#65E4C0",
+      inner: "#BFF202",
       outerGlow: "0 0 22px rgba(245,240,232,0.38)",
-      innerGlow: "0 0 22px rgba(101,228,192,0.40)",
+      innerGlow: "0 0 24px rgba(191,242,2,0.42)",
     },
     white: {
       outer: "#BFF202",
-      inner: "#65E4C0",
+      inner: "#F5F0E8",
       outerGlow: "0 0 24px rgba(191,242,2,0.42)",
-      innerGlow: "0 0 22px rgba(101,228,192,0.38)",
+      innerGlow: "0 0 22px rgba(245,240,232,0.36)",
     },
   },
 } as const
