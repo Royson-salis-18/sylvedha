@@ -276,6 +276,7 @@ export function Hero() {
             fill
             className="object-cover opacity-55 group-hover:opacity-75 transition-opacity duration-700"
             fetchPriority="low"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
 
           {/* Bottom content */}
