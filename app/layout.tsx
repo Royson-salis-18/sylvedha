@@ -4,7 +4,6 @@ import { Fira_Sans } from 'next/font/google'
 import { Fraunces } from 'next/font/google'
 import { GlobalObserver } from '@/components/global-observer'
 import './globals.css'
-import Image from 'next/image'
 
 const firaSans = Fira_Sans({ 
   variable: '--font-fira-sans', 
@@ -102,10 +101,8 @@ export default function RootLayout({
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preload" href="/background-mobile.webp" as="image" type="image/webp" media="(max-width: 640px)" fetchPriority="high" />
-        <link rel="preload" href="/background.webp" as="image" type="image/webp" media="(min-width: 641px)" fetchPriority="high" />
         {/* Preload large hero image only for desktop to avoid mobile LCP competition */}
-        <link rel="preload" href="/images/hero-nature-tech-new.webp" as="image" type="image/webp" media="(min-width: 1024px)" fetchpriority="high" />
+        <link rel="preload" href="/images/hero-nature-tech-new.webp" as="image" type="image/webp" media="(min-width: 1024px)" fetchPriority="high" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased">
@@ -146,19 +143,11 @@ export default function RootLayout({
         {children}
 
         {/* Global Watermark overlay (render after main content to avoid LCP competition) */}
-        <div className="fixed -right-[8%] -bottom-[8%] z-50 pointer-events-none select-none opacity-[0.08] w-[28vw] max-w-[380px] aspect-square" aria-hidden="true">
-          <Image
-            src="/images/logo-icon-white.webp"
-            alt=""
-            aria-hidden="true"
-            fill
-            sizes="120px"
-            loading="lazy"
-            fetchPriority="low"
-            quality={50}
-            className="object-contain rotate-12"
-          />
-        </div>
+        <div
+          className="fixed -right-[8%] -bottom-[8%] z-50 pointer-events-none select-none opacity-[0.08] w-[28vw] max-w-[380px] aspect-square bg-no-repeat bg-contain bg-center"
+          aria-hidden="true"
+          style={{ backgroundImage: "url('/images/logo-icon-white.webp')" }}
+        />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
