@@ -142,11 +142,23 @@ export function Hero() {
             <clipPath id="hero-clip" clipPathUnits="objectBoundingBox">
               <path d="M 0.3761,0 
                        H 0.96 A 0.04,0.06 0 0 1 1,0.06 
-                       V 0.94 A 0.04,0.06 0 0 1 0.96,1 
+                       V 0.68 A 0.04,0.06 0 0 1 0.96,0.74 
+                       H 0.70 A 0.04,0.06 0 0 0 0.66,0.80 
+                       V 0.94 A 0.04,0.06 0 0 1 0.62,1 
                        H 0.04 A 0.04,0.06 0 0 1 0,0.94 
                        V 0.6808 A 0.04,0.06 0 0 1 0.04,0.6208 
                        H 0.2961 A 0.04,0.06 0 0 0 0.3361,0.5608 
                        V 0.06 A 0.04,0.06 0 0 1 0.3761,0 Z" />
+            </clipPath>
+
+            <clipPath id="grevara-clip" clipPathUnits="objectBoundingBox">
+              <path d="M 0.04,0.414 
+                       H 0.62 A 0.04,0.09 0 0 0 0.66,0.324 
+                       V 0.09 A 0.04,0.09 0 0 1 0.70,0 
+                       H 0.96 A 0.04,0.09 0 0 1 1,0.09 
+                       V 0.91 A 0.04,0.09 0 0 1 0.96,1 
+                       H 0.04 A 0.04,0.09 0 0 1 0,0.91 
+                       V 0.504 A 0.04,0.09 0 0 1 0.04,0.414 Z" />
             </clipPath>
           </defs>
         </svg>
@@ -194,7 +206,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ── 2. HERO IMAGE CARD (Top-Right, L-shape) ── */}
+        {/* ── 2. HERO IMAGE CARD (Top-Right, C-shape) ── */}
         <div
           className="absolute top-0 left-[40.5%] w-[59.5%] h-[72%] bg-[#0a1f13] z-10 opacity-0 afr d2 overflow-hidden"
           style={{ clipPath: 'url(#hero-clip)' }}
@@ -231,10 +243,11 @@ export function Hero() {
           </div>
         </a>
 
-        {/* ── 4. GREVARA CARD (Bottom-Right) ── */}
+        {/* ── 4. GREVARA CARD (Bottom-Right, L-shape with hump) ── */}
         <a
           href="/#grevara"
-          className="absolute left-[40.5%] top-[73.5%] w-[59.5%] h-[26.5%] rounded-[2.5rem] bg-[#2a1126] z-20 opacity-0 afr d4 cursor-pointer group overflow-hidden shadow-[0_18px_45px_rgba(0,0,0,0.2)] border border-amber-400/20 hover:border-amber-400/50 transition-all duration-500"
+          className="absolute left-[40.5%] top-[54.78%] w-[59.5%] h-[45.22%] bg-[#2a1126] z-20 opacity-0 afr d4 cursor-pointer group overflow-hidden"
+          style={{ clipPath: 'url(#grevara-clip)' }}
         >
           <Image
             src="/images/grevara/product-shelf.jpg"
@@ -245,7 +258,9 @@ export function Hero() {
             sizes="(max-width: 1024px) 60vw, 700px"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
-          <div className="absolute bottom-5 left-6 right-6 flex items-center gap-5 z-10">
+          {/* Border overlay for shaped card */}
+          <div className="absolute inset-0 opacity-20 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none" style={{ background: 'linear-gradient(45deg, rgba(251,191,36,0) 40%, rgba(251,191,36,0.5) 100%)' }} />
+          <div className="absolute bottom-5 left-6 right-[38%] flex items-center gap-5 z-10">
             <div className="shrink-0 size-[80px] xl:size-[90px] rounded-full grevara-badge-ring p-[3px] animate-ring-glow animate-bob">
               <div className="w-full h-full rounded-full overflow-hidden">
                 <Image src="/images/grevara/grevara-badge.png" alt="Grevara" width={90} height={90} className="w-full h-full object-cover scale-[1.35] object-center" />
