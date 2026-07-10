@@ -89,6 +89,8 @@ export function NutriTechCarousel() {
               src={slide.src}
               alt={slide.caption}
               fill
+              quality={60}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 900px"
               className="object-cover transition-opacity duration-300"
             />
           )
@@ -171,7 +173,7 @@ export function NutriTechCarousel() {
                     <VideoIcon className="size-6 text-[#BFF202]/60" />
                   </div>
                 ) : (
-                  <Image src={item.src} alt={item.caption} fill className="object-cover" />
+                  <Image src={item.src} alt={item.caption} fill quality={45} sizes="96px" className="object-cover" />
                 )
               ) : (
                 <div className="flex size-full items-center justify-center bg-white/[0.04]">

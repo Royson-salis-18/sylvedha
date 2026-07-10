@@ -171,7 +171,8 @@ export function Grevara() {
                   src={slide.src}
                   alt={slide.caption}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={60}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 720px"
                   className="object-cover transition-opacity duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent pointer-events-none" />

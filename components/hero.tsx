@@ -43,7 +43,7 @@ export function Hero() {
   const tilt = useTilt()
 
   return (
-    <section className="w-full bg-[#011a17] min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden">
+    <section className="w-full bg-[#011a17] min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] lg:pt-[100px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden">
       <style>{`
         @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
         @keyframes fadeInLeft { from { opacity:0; transform:translateX(-28px); } to { opacity:1; transform:translateX(0); } }
@@ -95,6 +95,8 @@ export function Hero() {
             Explore Innovations
           </a>
         </div>
+
+        {/* Mask removed from mobile section; will insert into desktop container below */}
 
         {/* 2. Hero Image Card */}
         <div className="relative h-[210px] sm:h-[280px] rounded-[1.75rem] bg-[#0a1f13] overflow-hidden shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.22)] animate-fade-up" style={{animationDelay:'100ms'}}>
@@ -172,6 +174,8 @@ export function Hero() {
         className="hidden lg:flex flex-1 min-h-0 relative w-full max-w-[1400px] mx-auto font-sans will-change-transform"
       >
 
+        {/* (removed vertical mask) */}
+
         {/* SVG Stencil Definitions */}
         <svg width="0" height="0" className="absolute pointer-events-none">
           <defs>
@@ -189,10 +193,10 @@ export function Hero() {
 
         {/* ── 1. TEXT CARD ── */}
         <div
-          className="absolute top-0 left-0 w-[48%] h-[calc(415/560*100%)] bg-[#eee9df] z-20 opacity-0 afl d1 flex flex-col pointer-events-auto overflow-hidden"
+          className="absolute top-0 left-0 w-[48%] h-[calc(405/560*100%)] bg-[#eee9df] z-20 opacity-0 afl d1 flex flex-col pointer-events-auto overflow-hidden"
           style={{ clipPath: 'url(#text-clip)' }}
         >
-          <div className="w-full h-[calc(290/415*100%)] px-[40px] xl:px-[50px] pt-[28px] xl:pt-[36px] pb-2 flex flex-col justify-start relative z-10">
+          <div className="w-full h-[calc(290/405*100%)] px-[40px] xl:px-[50px] pt-[28px] xl:pt-[36px] pb-2 flex flex-col justify-start relative z-10">
             <p className="text-[#123b00] font-black tracking-[0.25em] text-[12px] xl:text-[14px] mb-0.5 animate-text-float" style={{animationDelay:'0s'}}>SYLVEDHA</p>
             <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] xl:text-[12px] mb-3">Innovating Technology in Harmony with Nature</p>
             <h1 className="font-heading text-[36px] xl:text-[46px] leading-[0.95] font-extrabold text-[#06100d]">
@@ -206,7 +210,7 @@ export function Hero() {
               Explore Innovations
             </button>
           </div>
-          <div className="w-[calc(100%*28/48)] h-[calc(125/415*100%)] px-[40px] xl:px-[50px] pt-0 flex flex-col justify-end pb-5 relative z-10">
+          <div className="w-[calc(100%*28/48)] h-[calc(115/405*100%)] px-[40px] xl:px-[50px] pt-0 flex flex-col justify-end pb-5 relative z-10">
             <div className="flex flex-wrap gap-2">
               {[
                 { icon: Sprout, label: 'Agritech' },
@@ -228,7 +232,7 @@ export function Hero() {
 
         {/* ── 2. HERO IMAGE CARD ── */}
         <div
-          className="absolute top-0 left-[calc(28%+14px)] w-[calc(72%-14px)] h-[calc(415/560*100%)] bg-[#0a1f13] z-20 opacity-0 afr d2 overflow-hidden"
+          className="absolute top-0 left-[calc(28%+14px)] w-[calc(72%-14px)] h-[calc(405/560*100%)] bg-[#0a1f13] z-20 opacity-0 afr d2 overflow-hidden"
           style={{ clipPath: 'url(#hero-clip)' }}
         >
           <Image
@@ -244,8 +248,10 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
         </div>
 
+        {/* overlay removed per user feedback */}
+
         {/* ── 3. GET IN TOUCH ── */}
-        <div className="absolute top-[calc(428/560*100%)] left-0 w-[48%] h-[calc(127/560*100%)] z-30 opacity-0 afu d3">
+        <div className="absolute top-[calc(418/560*100%)] left-0 w-[48%] h-[calc(127/560*100%)] z-30 opacity-0 afu d3">
           <a
             href="/#contact"
             className="block w-full h-full rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] relative transition-colors duration-300"
@@ -271,7 +277,7 @@ export function Hero() {
         {/* ── 4. GREVARA CARD ── */}
         <a
           href="/#grevara"
-          className="absolute top-[calc(300/560*100%)] left-[calc(48%+14px)] w-[calc(52%-14px)] h-[calc(254/560*100%)] bg-[#2a1126] z-20 opacity-0 afr d4 cursor-pointer group"
+          className="absolute top-[calc(300/560*100%-30px)] left-[calc(48%+14px)] w-[calc(52%-14px)] h-[calc(274/560*100%)] bg-[#2a1126] z-20 opacity-0 afr d4 cursor-pointer group"
           style={{ clipPath: 'url(#grevara-clip)' }}
         >
           <Image
