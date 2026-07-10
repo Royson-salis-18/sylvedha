@@ -171,23 +171,23 @@ export function Hero() {
           <div className="w-full flex-1 px-10 xl:px-12 pt-8 xl:pt-10 pb-2 flex flex-col justify-start relative z-10">
             <p className="text-[#123b00] font-black tracking-[0.25em] text-[12px] xl:text-[14px] mb-0.5 animate-text-float" style={{animationDelay:'0s'}}>SYLVEDHA</p>
             <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] xl:text-[12px] mb-3">Innovating Technology in Harmony with Nature</p>
-            <h1 className="font-heading text-[clamp(1.9rem,2.7vw,2.9rem)] leading-[0.95] font-extrabold text-[#06100d]">
-              Building the Future of{" "}
-              <span className="text-[#123b00] italic font-normal animate-text-float inline-block" style={{animationDelay:'1s'}}>
-                Sustainable<br/>Innovation
+            <h1 className="font-heading text-[clamp(2.2rem,3vw,3.2rem)] leading-[1.05] font-extrabold text-[#06100d] max-w-[95%]">
+              Building the Future of <br className="hidden xl:block" />
+              <span className="text-[#123b00] italic font-normal">
+                Sustainable Innovation
               </span>
             </h1>
-            <p className="text-[13px] xl:text-[14px] leading-[1.55] mt-3 text-[#06100d]/80 font-medium max-w-[85%]">
+            <p className="text-[13px] xl:text-[14px] leading-[1.6] mt-4 text-[#06100d]/80 font-medium max-w-[90%]">
               SYLVEDHA is a multidisciplinary technology company developing innovative solutions across{" "}
               <span className="font-bold text-[#06100d]">Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation,</span> and Sustainable Infrastructure.
             </p>
-            <button className="mt-4 w-fit px-7 py-2.5 bg-[#c7ff00] text-[#06100d] rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-[#a6d900] transition-colors animate-pulse-glow">
+            <button className="mt-5 w-fit px-7 py-3 bg-[#c7ff00] text-[#06100d] rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-[#a6d900] transition-colors animate-pulse-glow">
               Explore Innovations
             </button>
           </div>
           {/* Tag row sits in the lower-left quadrant */}
           <div className="w-[66%] px-10 xl:px-12 pb-8 flex flex-col justify-end relative z-10">
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2.5">
               {[
                 { icon: Sprout, label: 'Agritech' },
                 { icon: FlaskConical, label: 'Biotech' },
@@ -260,7 +260,7 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
           {/* Border overlay for shaped card */}
           <div className="absolute inset-0 opacity-20 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none" style={{ background: 'linear-gradient(45deg, rgba(251,191,36,0) 40%, rgba(251,191,36,0.5) 100%)' }} />
-          <div className="absolute bottom-5 left-6 right-[38%] flex items-center gap-5 z-10">
+          <div className="absolute bottom-5 left-6 right-6 flex items-center gap-5 z-10">
             <div className="shrink-0 size-[80px] xl:size-[90px] rounded-full grevara-badge-ring p-[3px] animate-ring-glow animate-bob">
               <div className="w-full h-full rounded-full overflow-hidden">
                 <Image src="/images/grevara/grevara-badge.png" alt="Grevara" width={90} height={90} className="w-full h-full object-cover scale-[1.35] object-center" />
