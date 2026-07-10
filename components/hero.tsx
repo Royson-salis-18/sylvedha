@@ -166,52 +166,33 @@ export function Hero() {
         </a>
       </div>
 
-      {/* Desktop View — Entire container tilts as one */}
-      <div 
+      {/* Desktop View — flex columns with uniform gap */}
+      <div
         ref={tilt.ref}
         onMouseMove={tilt.onMove}
         onMouseLeave={tilt.onLeave}
-        className="hidden lg:flex flex-1 min-h-0 relative w-full max-w-[1400px] mx-auto font-sans will-change-transform"
+        className="hidden lg:flex flex-1 min-h-0 w-full max-w-[1400px] mx-auto gap-3 will-change-transform"
       >
+        {/* ── LEFT COLUMN ── */}
+        <div className="flex flex-col gap-3 w-[46%] min-w-0">
 
-        {/* (removed vertical mask) */}
-
-        {/* SVG Stencil Definitions */}
-        <svg width="0" height="0" className="absolute pointer-events-none">
-          <defs>
-            <clipPath id="text-clip" clipPathUnits="objectBoundingBox">
-              <path d="M 0.0595,0 H 0.9405 A 0.0595,0.0964 0 0 1 1,0.0964 V 0.612 A 0.0595,0.0964 0 0 1 0.9405,0.708 H 0.6429 A 0.0595,0.0964 0 0 0 0.5833,0.805 V 0.9036 A 0.0595,0.0964 0 0 1 0.5238,1 H 0.0595 A 0.0595,0.0964 0 0 1 0,0.9036 V 0.0964 A 0.0595,0.0964 0 0 1 0.0595,0 Z" />
-            </clipPath>
-            <clipPath id="hero-clip" clipPathUnits="objectBoundingBox">
-              <path d="M 0.3219,0 H 0.9598 A 0.0402,0.0964 0 0 1 1,0.0964 V 0.612 A 0.0402,0.0964 0 0 1 0.9598,0.708 H 0.7022 A 0.0402,0.0964 0 0 0 0.662,0.805 V 0.9036 A 0.0402,0.0964 0 0 1 0.6218,1 H 0.0402 A 0.0402,0.0964 0 0 1 0,0.9036 V 0.805 A 0.0402,0.0964 0 0 1 0.0402,0.708 H 0.2415 A 0.0402,0.0964 0 0 0 0.2817,0.612 V 0.0964 A 0.0402,0.0964 0 0 1 0.3219,0 Z" />
-            </clipPath>
-            <clipPath id="grevara-clip" clipPathUnits="objectBoundingBox">
-              <path d="M 0.605,0 H 0.944 A 0.056,0.1575 0 0 1 1,0.1575 V 0.8425 A 0.056,0.1575 0 0 1 0.944,1 H 0.056 A 0.056,0.1575 0 0 1 0,0.8425 V 0.6333 A 0.056,0.1575 0 0 1 0.056,0.5 H 0.493 A 0.056,0.1575 0 0 0 0.549,0.3667 V 0.1575 A 0.056,0.1575 0 0 1 0.605,0 Z" />
-            </clipPath>
-          </defs>
-        </svg>
-
-        {/* ── 1. TEXT CARD ── */}
-        <div
-          className="absolute top-0 left-0 w-[48%] h-[calc(405/560*100%)] bg-[#eee9df] z-20 opacity-0 afl d1 flex flex-col pointer-events-auto overflow-hidden"
-          style={{ clipPath: 'url(#text-clip)' }}
-        >
-          <div className="w-full h-[calc(290/405*100%)] px-[40px] xl:px-[50px] pt-[28px] xl:pt-[36px] pb-2 flex flex-col justify-start relative z-10">
-            <p className="text-[#123b00] font-black tracking-[0.25em] text-[12px] xl:text-[14px] mb-0.5 animate-text-float" style={{animationDelay:'0s'}}>SYLVEDHA</p>
-            <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] xl:text-[12px] mb-3">Innovating Technology in Harmony with Nature</p>
-            <h1 className="font-heading text-[36px] xl:text-[46px] leading-[0.95] font-extrabold text-[#06100d]">
-              Building the Future of{" "}<span className="text-[#123b00] italic font-normal animate-text-float inline-block" style={{animationDelay:'1s'}}>Sustainable<br/>Innovation</span>
-            </h1>
-            <p className="text-[13px] xl:text-[15px] leading-[1.55] mt-3 text-[#06100d]/80 font-medium max-w-[95%]">
-              SYLVEDHA is a multidisciplinary technology company developing innovative solutions across{" "}
-              <span className="font-bold text-[#06100d]">Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation,</span> and Sustainable Infrastructure.
-            </p>
-            <button className="mt-4 w-fit px-7 py-2.5 bg-[#c7ff00] text-[#06100d] rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-[#a6d900] transition-colors animate-pulse-glow">
-              Explore Innovations
-            </button>
-          </div>
-          <div className="w-[calc(100%*28/48)] h-[calc(115/405*100%)] px-[40px] xl:px-[50px] pt-0 flex flex-col justify-end pb-5 relative z-10">
-            <div className="flex flex-wrap gap-2">
+          {/* 1. TEXT CARD */}
+          <div className="flex-1 min-h-0 bg-[#eee9df] rounded-[2rem] overflow-hidden opacity-0 afl d1 flex flex-col justify-between p-8 xl:p-10 pointer-events-auto">
+            <div>
+              <p className="text-[#123b00] font-black tracking-[0.25em] text-[12px] xl:text-[14px] mb-0.5 animate-text-float" style={{animationDelay:'0s'}}>SYLVEDHA</p>
+              <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] xl:text-[12px] mb-3">Innovating Technology in Harmony with Nature</p>
+              <h1 className="font-heading text-[clamp(1.9rem,2.8vw,2.9rem)] leading-[0.95] font-extrabold text-[#06100d]">
+                Building the Future of{" "}<span className="text-[#123b00] italic font-normal animate-text-float inline-block" style={{animationDelay:'1s'}}>Sustainable<br/>Innovation</span>
+              </h1>
+              <p className="text-[13px] xl:text-[14px] leading-[1.55] mt-3 text-[#06100d]/80 font-medium">
+                SYLVEDHA is a multidisciplinary technology company developing innovative solutions across{" "}
+                <span className="font-bold text-[#06100d]">Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation,</span> and Sustainable Infrastructure.
+              </p>
+              <button className="mt-4 w-fit px-7 py-2.5 bg-[#c7ff00] text-[#06100d] rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-[#a6d900] transition-colors animate-pulse-glow">
+                Explore Innovations
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-2 mt-4">
               {[
                 { icon: Sprout, label: 'Agritech' },
                 { icon: FlaskConical, label: 'Biotech' },
@@ -228,89 +209,82 @@ export function Hero() {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* ── 2. HERO IMAGE CARD ── */}
-        <div
-          className="absolute top-0 left-[calc(28%+14px)] w-[calc(72%-14px)] h-[calc(405/560*100%)] bg-[#0a1f13] z-20 opacity-0 afr d2 overflow-hidden"
-          style={{ clipPath: 'url(#hero-clip)' }}
-        >
-          <Image
-            src="/images/hero-bg.png"
-            alt="Hero"
-            fill
-            className="object-cover opacity-90"
-            priority
-            quality={65}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1000px"
-          />
-          {/* Lighter gradient — just enough for depth */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
-        </div>
-
-        {/* overlay removed per user feedback */}
-
-        {/* ── 3. GET IN TOUCH ── */}
-        <div className="absolute top-[calc(418/560*100%)] left-0 w-[48%] h-[calc(127/560*100%)] z-30 opacity-0 afu d3">
+          {/* 2. GET IN TOUCH */}
           <a
             href="/#contact"
-            className="block w-full h-full rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] relative transition-colors duration-300"
+            className="shrink-0 h-[22%] rounded-[2rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] relative transition-colors duration-300 opacity-0 afu d3"
           >
             <div
-              className="absolute inset-0 z-0 rounded-[2.5rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-              style={{ willChange: 'transform, opacity' }}
+              className="absolute inset-0 z-0 rounded-[2rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+              style={{ willChange: 'transform' }}
             />
-            {/* Left: text block */}
             <div className="relative z-10 flex flex-col">
               <p className="text-[#01312D]/90 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-300 group-hover:text-white">Let&apos;s Collaborate</p>
-              <p className="font-heading font-bold text-[28px] xl:text-[32px] text-[#01312D] leading-[1.05] transition-colors duration-300 group-hover:text-white">
+              <p className="font-heading font-bold text-[clamp(1.4rem,2vw,2rem)] text-[#01312D] leading-[1.05] transition-colors duration-300 group-hover:text-white">
                 Get in <span className="italic font-light">Touch</span>
               </p>
             </div>
-            {/* Right: arrow circle */}
-            <div className="relative z-10 size-14 rounded-full bg-[#01312D] flex items-center justify-center transition-all duration-300 shrink-0 group-hover:bg-white/10 group-hover:rotate-0">
+            <div className="relative z-10 size-14 rounded-full bg-[#01312D] flex items-center justify-center transition-all duration-300 shrink-0 group-hover:bg-white/10">
               <ArrowUpRight className="size-6 text-white transition-colors duration-300" />
             </div>
           </a>
+
         </div>
 
-        {/* ── 4. GREVARA CARD ── */}
-        <a
-          href="/#grevara"
-          className="absolute top-[calc(300/560*100%-30px)] left-[calc(48%+14px)] w-[calc(52%-14px)] h-[calc(274/560*100%)] bg-[#2a1126] z-20 opacity-0 afr d4 cursor-pointer group"
-          style={{ clipPath: 'url(#grevara-clip)' }}
-        >
-          <Image
-            src="/images/grevara/product-shelf.jpg"
-            alt="Grevara Products"
-            fill
-            className="object-cover opacity-55 group-hover:opacity-75 transition-opacity duration-700"
-            fetchPriority="low"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
+        {/* ── RIGHT COLUMN ── */}
+        <div className="flex flex-col gap-3 flex-1 min-w-0">
 
-          {/* Bottom content */}
-          <div className="absolute bottom-5 left-6 right-6 flex items-center gap-5 z-10">
-            <div className="shrink-0 size-[90px] rounded-full grevara-badge-ring p-[3px] animate-ring-glow animate-bob">
-              <div className="w-full h-full rounded-full overflow-hidden">
-                <Image
-                  src="/images/grevara/grevara-badge.png"
-                  alt="Grevara"
-                  width={90}
-                  height={90}
-                  className="w-full h-full object-cover scale-[1.35] object-center"
-                />
+          {/* 3. HERO IMAGE CARD */}
+          <div className="flex-1 min-h-0 bg-[#0a1f13] rounded-[2rem] overflow-hidden opacity-0 afr d2 relative">
+            <Image
+              src="/images/hero-bg.png"
+              alt="Sylvedha sustainable innovation campus"
+              fill
+              className="object-cover opacity-90"
+              priority
+              quality={70}
+              sizes="(max-width: 1024px) 80vw, 900px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/50 via-transparent to-transparent" />
+          </div>
+
+          {/* 4. GREVARA CARD */}
+          <a
+            href="/#grevara"
+            className="shrink-0 h-[34%] bg-[#2a1126] rounded-[2rem] overflow-hidden opacity-0 afr d4 cursor-pointer group relative border border-amber-400/20 hover:border-amber-400/50 transition-all duration-500"
+          >
+            <Image
+              src="/images/grevara/product-shelf.jpg"
+              alt="Grevara Products"
+              fill
+              className="object-cover opacity-55 group-hover:opacity-75 transition-opacity duration-700"
+              fetchPriority="low"
+              sizes="(max-width: 1024px) 60vw, 700px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
+            <div className="absolute bottom-5 left-6 right-6 flex items-center gap-5 z-10">
+              <div className="shrink-0 size-[80px] rounded-full grevara-badge-ring p-[3px] animate-ring-glow animate-bob">
+                <div className="w-full h-full rounded-full overflow-hidden">
+                  <Image
+                    src="/images/grevara/grevara-badge.png"
+                    alt="Grevara"
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover scale-[1.35] object-center"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col justify-center">
+                <p className="text-[#d4af37] font-bold tracking-[0.2em] text-[10px] uppercase">Grevara Microgreens</p>
+                <p className="text-white font-heading font-bold text-xl leading-tight mt-1 opacity-90 transition-opacity group-hover:opacity-100">
+                  Small greens. Serious flavour.<br/><span className="italic font-light text-amber-200">Try it fresh →</span>
+                </p>
               </div>
             </div>
-            <div className="flex flex-col justify-center">
-              <p className="text-[#d4af37] font-bold tracking-[0.2em] text-[10px] uppercase">Grevara Microgreens</p>
-              <p className="text-white font-heading font-bold text-xl leading-tight mt-1 opacity-90 transition-opacity group-hover:opacity-100">
-                Small greens. Serious flavour.<br/><span className="italic font-light text-amber-200">Try it fresh →</span>
-              </p>
-            </div>
-          </div>
-        </a>
+          </a>
 
+        </div>
       </div>
     </section>
   )
