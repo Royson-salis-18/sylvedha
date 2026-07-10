@@ -74,7 +74,7 @@ export function SiteHeader() {
           onClick={() => setOpen((v) => !v)}
           className="inline-flex size-11 shrink-0 items-center justify-center rounded-2xl text-black/80 transition-colors hover:bg-black/5 xl:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
+          aria-expanded={open ? "true" : "false"}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
