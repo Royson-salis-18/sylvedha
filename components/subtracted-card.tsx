@@ -14,7 +14,8 @@ const SHIMMER_STYLE = `
     from { stroke-dashoffset: 0; }
     to   { stroke-dashoffset: -800; }
   }
-  .sc-border-anim { animation: sc-border-spin 12s linear infinite; }
+  /* Only run heavy stroke-dashoffset animation when parent group is hovered to reduce continuous non-composited animations */
+  .group:hover .sc-border-anim { animation: sc-border-spin 12s linear infinite; }
 `
 
 type SizeValue = number | string
