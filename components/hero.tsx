@@ -40,6 +40,14 @@ function useTilt() {
 
 export function Hero() {
   const tilt = useTilt()
+  const [isMobile, setIsMobile] = useState<boolean>(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   return (
     <section className="w-full bg-[#011a17] min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden">
@@ -96,15 +104,15 @@ export function Hero() {
         </div>
 
         {/* 2. Hero Image Card */}
-        <div className="relative h-[210px] sm:h-[280px] rounded-[1.75rem] bg-[#0a1f13] overflow-hidden shrink-0 animate-fade-up shadow-[0_18px_45px_rgba(0,0,0,0.22)]" style={{animationDelay:'100ms'}}>
+        <div className={cn("relative h-[210px] sm:h-[280px] rounded-[1.75rem] bg-[#0a1f13] overflow-hidden shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.22)]", isMobile ? "" : "animate-fade-up")} style={{animationDelay:'100ms'}}>
           <Image
             src="/images/hero-bg.png"
             alt="Hero"
             fill
             className="object-cover opacity-90"
-            priority
-            fetchPriority="high"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 1200px"
+            loading={isMobile ? 'lazy' : undefined}
+            fetchPriority={isMobile ? 'low' : 'high'}
+            sizes={isMobile ? '(max-width: 640px) 100vw' : '(max-width: 1024px) 60vw, 1200px'}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
         </div>
@@ -112,12 +120,12 @@ export function Hero() {
         {/* 3. Get in Touch Card */}
         <a
           href="/#contact"
-          className="relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] shrink-0 animate-fade-up border border-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition-colors duration-300"
+          className={cn("relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] shrink-0 border border-white/10 shadow-[0_18px_45px_rgba(0,0,0,0.18)] transition-colors duration-300", isMobile ? "" : "animate-fade-up")}
           style={{ animationDelay: '200ms' }}
         >
           <div
             className="absolute inset-0 z-0 rounded-[1.75rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
-            style={{ willChange: 'transform, opacity' }}
+            style={isMobile ? {} : { willChange: 'transform, opacity' }}
           />
           <div className="relative z-10 flex flex-col">
             <p className="text-[#01312D] text-[9px] font-bold uppercase tracking-[0.25em] mb-1 transition-colors group-hover:text-white">Let&apos;s Collaborate</p>
