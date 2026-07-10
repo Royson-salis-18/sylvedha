@@ -38,7 +38,7 @@ const reasons = [
 
 export function WhySylvedha() {
   return (
-    <section className="relative overflow-hidden bg-[#01312D] text-white min-h-[100svh] flex flex-col justify-center">
+    <section id="why-sylvedha" className="relative overflow-hidden bg-[#01312D] text-white min-h-[100svh] flex flex-col justify-center">
       <FloatingCubes />
       {/* Background glow */}
       <div className="absolute left-1/2 top-0 -z-[1] h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-[#BFF202]/5 blur-[200px]" />

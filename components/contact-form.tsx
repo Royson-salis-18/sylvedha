@@ -1,6 +1,6 @@
 "use client"
 
-import { useActionState, useEffect, useState, useRef } from "react"
+import { useActionState, useEffect, useState, useRef, useCallback } from "react"
 import { useFormStatus } from "react-dom"
 import { CheckCircle2, AlertCircle, Send, ArrowRight, Check } from "lucide-react"
 import { sendContact, type ContactState } from "@/app/actions/send-contact"
@@ -22,7 +22,7 @@ function SubmitButton({ disabled }: { disabled: boolean }) {
 }
 
 const inputClasses =
-  "w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3.5 text-base text-white outline-none transition-all duration-300 placeholder:text-white/90 focus:border-[#BFF202]/50 focus:bg-white/[0.08] focus:ring-2 focus:ring-[#BFF202]/20"
+  "w-full rounded-xl border border-transparent bg-[#022c27] px-5 py-4 text-sm font-medium text-white outline-none transition-all duration-300 placeholder:text-white/30 focus:border-[#BFF202]/50 focus:bg-[#02332e] focus:ring-4 focus:ring-[#BFF202]/10"
 
 function SlideToVerify({ onVerify }: { onVerify: (verified: boolean) => void }) {
   const [position, setPosition] = useState(0)
@@ -90,11 +90,11 @@ function SlideToVerify({ onVerify }: { onVerify: (verified: boolean) => void }) 
   return (
     <div 
       ref={trackRef}
-      className={`relative w-full h-12 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 overflow-hidden flex items-center justify-center select-none ${isVerified ? "border-[#BFF202]/30 bg-[#BFF202]/5" : ""}`}
+      className={`relative w-full h-14 rounded-xl bg-[#022c27] transition-all duration-300 overflow-hidden flex items-center justify-center select-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] ${isVerified ? "border border-[#BFF202]/40 bg-[#BFF202]/10 shadow-[0_0_20px_rgba(191,242,2,0.15)]" : "border border-transparent"}`}
     >
       {/* Background text */}
-      <span className={`text-xs font-semibold tracking-wider transition-opacity duration-300 ${isVerified ? "text-[#BFF202] opacity-100" : "text-white/90 opacity-100"}`}>
-        {isVerified ? "Verification Successful" : "Slide right to verify"}
+      <span className={`text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 z-10 ${isVerified ? "text-[#BFF202] drop-shadow-[0_0_8px_rgba(191,242,2,0.4)]" : "text-white/40"}`}>
+        {isVerified ? "Verification Successful" : "Slide to verify →"}
       </span>
 
       {/* Track fill */}
@@ -105,8 +105,8 @@ function SlideToVerify({ onVerify }: { onVerify: (verified: boolean) => void }) 
 
       {/* Slider handle */}
       <div
-        className={`absolute top-1 bottom-1 h-10 w-10 rounded-lg flex items-center justify-center transition-all duration-100 ease-out cursor-grab ${isDragging ? "cursor-grabbing scale-95" : ""} ${isVerified ? "bg-[#BFF202] text-[#01312D] left-[calc(100%-44px)]" : "bg-white/10 text-white left-1 hover:bg-white/20"}`}
-        style={isVerified ? {} : { left: `calc(${position}% - ${position * 0.4}px + 4px)` }}
+        className={`absolute top-1.5 bottom-1.5 h-11 w-12 rounded-lg flex items-center justify-center transition-transform duration-100 ease-out cursor-grab shadow-lg z-20 ${isDragging ? "cursor-grabbing scale-95" : ""} ${isVerified ? "bg-[#BFF202] text-[#011e1b] left-[calc(100%-52px)] shadow-[0_0_15px_rgba(191,242,2,0.4)]" : "bg-[#011e1b] text-white left-1.5 hover:scale-105"}`}
+        style={isVerified ? {} : { left: `calc(${position}% - ${position * 0.48}px + 6px)` }}
         onMouseDown={(e) => handleStart(e.clientX)}
         onTouchStart={(e) => {
           if (e.touches.length > 0) {
@@ -164,12 +164,47 @@ export function ContactForm() {
     }
   }
 
+  const formCardRef = useRef<HTMLFormElement>(null)
+  const formRafRef  = useRef<number>(0)
+
+  const onFormMove = useCallback((e: React.MouseEvent<HTMLFormElement>) => {
+    cancelAnimationFrame(formRafRef.current)
+    formRafRef.current = requestAnimationFrame(() => {
+      const el = formCardRef.current
+      if (!el) return
+      const r  = el.getBoundingClientRect()
+      const nx = (e.clientX - r.left)  / r.width
+      const ny = (e.clientY - r.top)   / r.height
+      el.style.transform  = `perspective(900px) rotateX(${(ny - 0.5) * -10}deg) rotateY(${(nx - 0.5) * 10}deg) scale(1.02) translateZ(0)`
+      el.style.transition = "none"
+    })
+  }, [])
+
+  const onFormLeave = useCallback(() => {
+    cancelAnimationFrame(formRafRef.current)
+    const el = formCardRef.current
+    if (el) {
+      el.style.transition = "transform 0.55s cubic-bezier(0.22,1,0.36,1)"
+      el.style.transform  = ""
+    }
+  }, [])
+
   return (
-    <form action={formAction} className="rounded-[2rem] border border-white/10 glass-noise bg-[#023a35]/90 p-8 sm:p-10 backdrop-blur-sm">
-      <h3 className="font-heading text-xl font-semibold text-white">
-        Send us a message
-      </h3>
-      <p className="mt-2 text-sm text-white/90">We&apos;ll get back to you within 24 hours.</p>
+    <form
+      ref={formCardRef}
+      action={formAction}
+      onMouseMove={onFormMove}
+      onMouseLeave={onFormLeave}
+      className="relative overflow-hidden rounded-[2.5rem] border border-white/[0.05] bg-[#011e1b] p-8 sm:p-10 shadow-2xl will-change-transform cursor-default"
+    >
+      
+      <div className="relative">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202] mb-3">Get in Touch</p>
+        <h3 className="font-heading text-3xl font-bold text-white">
+          Send us a message
+        </h3>
+        <p className="mt-2 text-sm text-white/50">We&apos;ll get back to you within 24 hours.</p>
+      </div>
 
       {/* Honeypot fields - invisible to humans, tempting for bot scrapers */}
       <div className="absolute -top-[9999px] -left-[9999px] h-0 w-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
@@ -197,9 +232,9 @@ export function ContactForm() {
       {/* Slide unlock token */}
       <input type="hidden" name="slide_token" value={slideToken} />
 
-      <div className="mt-8 grid gap-6">
+      <div className="relative mt-8 grid gap-6">
         <div className="grid gap-2">
-          <label htmlFor="name" className="text-sm font-medium text-white/90">
+          <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 pl-1">
             Name
           </label>
           <input
@@ -214,7 +249,7 @@ export function ContactForm() {
         </div>
 
         <div className="grid gap-2">
-          <label htmlFor="email" className="text-sm font-medium text-white/90">
+          <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 pl-1">
             Email
           </label>
           <input
@@ -229,8 +264,8 @@ export function ContactForm() {
         </div>
 
         <div className="grid gap-2">
-          <label htmlFor="subject" className="text-sm font-medium text-white/90">
-            Subject <span className="text-white/90">(optional)</span>
+          <label htmlFor="subject" className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 pl-1">
+            Subject <span className="text-white/30 lowercase tracking-normal">(optional)</span>
           </label>
           <input
             id="subject"
@@ -242,7 +277,7 @@ export function ContactForm() {
         </div>
 
         <div className="grid gap-2">
-          <label htmlFor="message" className="text-sm font-medium text-white/90">
+          <label htmlFor="message" className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 pl-1">
             Message
           </label>
           <textarea
@@ -257,7 +292,7 @@ export function ContactForm() {
 
         {/* Security verification section */}
         <div className="grid gap-2 mt-2">
-          <label className="text-sm font-medium text-white/90">
+          <label className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 pl-1">
             Security Verification
           </label>
           <SlideToVerify onVerify={handleVerify} />

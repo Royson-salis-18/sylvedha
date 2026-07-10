@@ -22,7 +22,7 @@ export function CurrentProjects() {
   return (
     <section
       id="current-projects"
-      className="relative overflow-hidden min-h-[100svh] flex flex-col justify-center text-white pb-0"
+      className="relative overflow-hidden flex flex-col justify-center text-white pb-0"
       style={{ background: "linear-gradient(135deg, #011A17 0%, #01312D 45%, #012820 100%)" }}
     >
       {/* Background glows — from logo palette: forest green + lime + cream */}
@@ -39,19 +39,8 @@ export function CurrentProjects() {
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#6DB33F]/30 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-12 pb-6 sm:px-8">
 
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-10">
-          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-[#BFF202]/20 bg-[#BFF202]/8 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-md shadow-[0_0_20px_rgba(191,242,2,0.10)]">
-            <span className="relative h-3.5 w-3 block">
-              <Image src="/images/logo-mark.webp" alt="Sylvedha" fill sizes="12px" className="object-contain invert brightness-200" />
-            </span>
-            Current Projects
-          </p>
-          <div className="flex-1 h-px bg-gradient-to-r from-[#BFF202]/25 to-transparent" />
-        </div>
-        
         {/* Desktop View */}
         <div className="hidden lg:block">
           <div className="rounded-[2.5rem] overflow-hidden p-12 mb-6 border border-white/10 bg-white/[0.04] backdrop-blur-md shadow-2xl relative transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_-8px_rgba(191,242,2,0.18)] hover:border-[#BFF202]/25">
@@ -235,6 +224,17 @@ export function CurrentProjects() {
             </div>
 
           </div>
+        </div>
+
+        {/* Action Button */}
+        <div className="mt-10 flex justify-end">
+          <a
+            href="/projects"
+            className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-[#BFF202]/30 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-[#BFF202] hover:bg-[#BFF202] hover:text-[#011A17] hover:shadow-[0_0_30px_rgba(191,242,2,0.6)] hover:-translate-y-1"
+          >
+            View Upcoming Projects
+            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
         </div>
 
       </div>

@@ -8,12 +8,12 @@ import Image from "next/image"
 const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Focus Areas", href: "/#focus" },
-  { label: "Projects", href: "/#current-projects" },
   { label: "Grevara Store", href: "/#grevara", highlight: "purple" },
+  { label: "Projects", href: "/#current-projects" },
   { label: "Why Sylvedha", href: "/#why-sylvedha" },
   { label: "Team", href: "/#team" },
   { label: "Roadmap", href: "/#roadmap" },
-  { label: "Connect", href: "/#contact" },
+  { label: "Connect", href: "/#contact", highlight: "neon" },
 ]
 
 export function SiteHeader() {
@@ -40,13 +40,13 @@ export function SiteHeader() {
         {/* Logo with dark background card */}
         <a href="/" className="flex items-center gap-2 group transition-transform duration-300 hover:scale-105 bg-[#011a17] rounded-full shadow-inner ml-2 pr-6 pl-1.5 py-1.5">
           <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-white/5">
-            <Image 
-              src="/images/logo-icon-lime.webp" 
-              alt="Sylvedha Icon" 
+            <Image
+              src="/images/logo-icon-lime.webp"
+              alt="Sylvedha Icon"
               width={22}
               height={22}
               priority
-              className="object-contain transition-transform group-hover:scale-110" 
+              className="object-contain transition-transform group-hover:scale-110"
             />
           </div>
           <span className="font-heading text-[22px] font-bold tracking-wide text-white mt-[2px]">Sylvedha</span>
@@ -61,6 +61,8 @@ export function SiteHeader() {
                 "rounded-xl px-3.5 py-2 text-[13px] font-bold tracking-wide transition-all duration-300 whitespace-nowrap",
                 link.highlight === "purple"
                   ? "bg-gradient-to-r from-[#2a1126] to-[#461a3f] text-[#d4af37] shadow-md border border-[#d4af37]/20 hover:shadow-lg hover:-translate-y-0.5 hover:text-white"
+                  : link.highlight === "neon"
+                  ? "bg-[#BFF202] text-[#011a17] font-black shadow-[0_0_16px_rgba(191,242,2,0.35)] hover:shadow-[0_0_28px_rgba(191,242,2,0.6)] hover:-translate-y-0.5"
                   : "text-[#011a17] hover:bg-black/5 hover:text-[#8db300]"
               )}
             >
@@ -97,6 +99,8 @@ export function SiteHeader() {
                   "rounded-xl py-3 px-4 text-sm font-semibold transition-colors mb-1",
                   link.highlight === "purple"
                     ? "bg-[#2a1126] text-[#d4af37] border border-[#d4af37]/30 mt-2 text-center"
+                    : link.highlight === "neon"
+                    ? "bg-[#BFF202] text-[#011a17] font-black mt-2 text-center"
                     : "text-white/90 hover:bg-white/5 hover:text-white"
                 )}
               >

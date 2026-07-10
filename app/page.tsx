@@ -9,6 +9,7 @@ import { Leadership } from "@/components/leadership"
 import { Roadmap } from "@/components/roadmap"
 import { Contact } from "@/components/contact"
 import { SiteFooter } from "@/components/site-footer"
+import { FloatingForms } from "@/components/floating-forms"
 import { ArrowRight } from "lucide-react"
 
 export default function Page() {
@@ -19,28 +20,27 @@ export default function Page() {
         <Hero />
         <About />
         <FocusAreas />
-        <CurrentProjects />
-        <section className="bg-[#01312D] px-5 sm:px-8 pb-16">
+        {/* ── Current Projects: Grevara → NutriTech → View Upcoming ── */}
+        <section className="bg-gradient-to-b from-[#01312D] to-[#011A17] px-5 sm:px-8 pt-24 pb-12 transition-colors duration-500">
           <div className="mx-auto max-w-7xl animate-on-scroll">
-            <Grevara />
-            {/* Bottom CTA for Projects */}
-            <div className="flex justify-end mt-12">
-              <a
-                href="/projects"
-                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-[#BFF202]/30 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-[#BFF202] hover:bg-[#BFF202] hover:text-[#011A17] hover:shadow-[0_0_30px_rgba(191,242,2,0.6)] hover:-translate-y-1"
-              >
-                View Upcoming Projects
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+            <div className="flex items-center gap-4 mb-12">
+              <p className="inline-flex items-center gap-2 rounded-full border border-[#BFF202]/20 bg-[#BFF202]/8 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-md shadow-[0_0_20px_rgba(191,242,2,0.10)]">
+                Current Projects
+              </p>
+              <div className="flex-1 h-px bg-gradient-to-r from-[#BFF202]/25 to-transparent" />
             </div>
+            <Grevara />
           </div>
         </section>
+        <CurrentProjects />
+
         <WhySylvedha />
         <Leadership />
         <Roadmap />
         <Contact />
       </main>
       <SiteFooter />
+      <FloatingForms />
     </>
   )
 }

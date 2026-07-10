@@ -3,6 +3,20 @@
 import { ReactNode, useRef, useCallback, useState, useEffect, useMemo } from "react"
 import { cn } from "@/lib/utils"
 
+// ── Shimmer sweep keyframe injected once ──────────────────────────────────────
+const SHIMMER_STYLE = `
+  @keyframes sc-shimmer {
+    0%   { transform: translateX(-120%) skewX(-15deg); }
+    100% { transform: translateX(250%)  skewX(-15deg); }
+  }
+  .sc-shimmer-run { animation: sc-shimmer 0.65s cubic-bezier(0.4,0,0.2,1) forwards; }
+  @keyframes sc-border-spin {
+    from { stroke-dashoffset: 0; }
+    to   { stroke-dashoffset: -800; }
+  }
+  .sc-border-anim { animation: sc-border-spin 12s linear infinite; }
+`
+
 type SizeValue = number | string
 
 interface CutoutConfig {
@@ -264,10 +278,13 @@ export function SubtractedCard({
   borderRadius = 32,
   scoopGap = DEFAULT_GAP,
 }: SubtractedCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const bodyRef = useRef<HTMLDivElement>(null)
-  const iconRef = useRef<HTMLDivElement>(null)
-  const rafRef = useRef<number>(0)
+  const cardRef  = useRef<HTMLDivElement>(null)
+  const bodyRef  = useRef<HTMLDivElement>(null)
+  const iconRef  = useRef<HTMLDivElement>(null)
+  const shimRef  = useRef<HTMLDivElement>(null)
+  const spotRef  = useRef<HTMLDivElement>(null)
+  const rafRef   = useRef<number>(0)
+  const shimmedRef = useRef(false)
   const [dims, setDims] = useState({ w: 0, h: 0 })
 
   const fillColor = FILL[color] || color
@@ -342,6 +359,7 @@ export function SubtractedCard({
       rafRef.current = requestAnimationFrame(() => {
         const body = bodyRef.current
         const icon = iconRef.current
+        const spot = spotRef.current
         if (!body) return
 
         const rect = body.getBoundingClientRect()
@@ -350,11 +368,20 @@ export function SubtractedCard({
         const dx = nx - 0.5
         const dy = ny - 0.5
 
-        body.style.transform = `perspective(900px) rotateX(${-dy * 35}deg) rotateY(${dx * 35}deg) scale(1.04)`
+        // Stronger 3D tilt
+        body.style.transform = `perspective(800px) rotateX(${-dy * 18}deg) rotateY(${dx * 18}deg) scale(1.045) translateZ(0)`
         body.style.transition = "none"
 
+        // Spotlight follow
+        if (spot) {
+          spot.style.opacity = "1"
+          spot.style.background = `radial-gradient(circle at ${nx * 100}% ${ny * 100}%, rgba(255,255,255,0.07) 0%, transparent 60%)`
+          spot.style.transition = "none"
+        }
+
+        // Icon parallax counter-movement
         if (icon && effectiveCorner !== "none") {
-          icon.style.transform = `translate(${-dx * 8}px, ${-dy * 8}px) scale(1.03)`
+          icon.style.transform = `translate(${-dx * 14}px, ${-dy * 14}px) scale(1.05) rotate(${dx * 6}deg)`
           icon.style.transition = "none"
         }
       })
@@ -362,23 +389,47 @@ export function SubtractedCard({
     [disableAnimation, effectiveCorner]
   )
 
+  const handleMouseEnter = useCallback(() => {
+    if (disableAnimation) return
+    // Shimmer sweep — only once per hover
+    const shim = shimRef.current
+    if (!shim) return
+    shimmedRef.current = false
+    shim.classList.remove("sc-shimmer-run")
+    // force reflow
+    void shim.offsetWidth
+    shim.classList.add("sc-shimmer-run")
+  }, [disableAnimation])
+
   const handleMouseLeave = useCallback(() => {
     if (disableAnimation) return
     cancelAnimationFrame(rafRef.current)
     const body = bodyRef.current
     const icon = iconRef.current
+    const spot = spotRef.current
 
     if (body) {
-      body.style.transition = "transform 0.5s cubic-bezier(0.22,1,0.36,1)"
+      body.style.transition = "transform 0.55s cubic-bezier(0.22,1,0.36,1)"
       body.style.transform = ""
     }
+    if (spot) {
+      spot.style.transition = "opacity 0.4s ease"
+      spot.style.opacity = "0"
+    }
     if (icon && effectiveCorner !== "none") {
-      icon.style.transition = "transform 0.5s cubic-bezier(0.22,1,0.36,1)"
+      icon.style.transition = "transform 0.55s cubic-bezier(0.22,1,0.36,1)"
       icon.style.transform = ""
     }
   }, [disableAnimation, effectiveCorner])
 
   const shaped = Boolean(outlinePath)
+
+  // Ring colors that contrast with the card surface
+  const outerRing = color === "neon"  ? "#011e1b"  // dark green outer for neon
+                  : "#ffffff"                       // white outer for all others
+  const innerRing = color === "white" ? "#011e1b"  // dark green inner for white cards
+                  : color === "neon"  ? "#ffffff"   // white inner for neon cards
+                  : "#BFF202"                       // neon inner for dark/black cards
 
   return (
     <div
@@ -386,7 +437,10 @@ export function SubtractedCard({
       className={cn("relative w-full min-h-[200px] overflow-visible group", !disableAnimation && "cursor-pointer")}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
     >
+      {/* Inject shimmer keyframes once */}
+      <style>{SHIMMER_STYLE}</style>
       {/* In-flow body — keeps grid row height; SVG paints the real card shape on top */}
       <div
         ref={bodyRef}
@@ -396,6 +450,25 @@ export function SubtractedCard({
           cleanClass
         )}
       >
+        {/* Shimmer sweep overlay */}
+        <div
+          ref={shimRef}
+          className="absolute inset-0 z-[3] pointer-events-none overflow-hidden"
+          style={{ borderRadius: borderRadius }}
+        >
+          <div
+            className="absolute inset-y-0 w-[40%] bg-gradient-to-r from-transparent via-white/12 to-transparent"
+            style={{ transform: "translateX(-120%) skewX(-15deg)" }}
+          />
+        </div>
+
+        {/* Spotlight follow */}
+        <div
+          ref={spotRef}
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{ opacity: 0, borderRadius: borderRadius }}
+        />
+
         {shaped && (
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -403,16 +476,26 @@ export function SubtractedCard({
             preserveAspectRatio="none"
             aria-hidden
           >
+            {/* Fill */}
             <path d={outlinePath!} fill={fillColor} />
-            {hasBorder && (
-              <path
-                d={outlinePath!}
-                fill="none"
-                stroke="rgba(255,255,255,0.14)"
-                strokeWidth="1.5"
-                vectorEffect="non-scaling-stroke"
-              />
-            )}
+            {/* Animated gradient border */}
+            <path
+              d={outlinePath!}
+              fill="none"
+              stroke="url(#sc-grad-border)"
+              strokeWidth="1.8"
+              strokeDasharray="80 40"
+              vectorEffect="non-scaling-stroke"
+              className="sc-border-anim opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+            />
+            <defs>
+              <linearGradient id="sc-grad-border" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(255,255,255,0)" />
+                <stop offset="40%" stopColor="rgba(255,255,255,0.5)" />
+                <stop offset="60%" stopColor="rgba(191,242,2,0.6)" />
+                <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+              </linearGradient>
+            </defs>
           </svg>
         )}
 
@@ -447,9 +530,23 @@ export function SubtractedCard({
           }}
         >
           {!disableAnimation && (
-            <div className="absolute inset-0 rounded-full border-2 border-current opacity-0 group-hover:opacity-30 group-hover:scale-[1.4] transition-all duration-700 ease-out" />
+            <>
+              {/* Outer ring */}
+              <div
+                className="absolute inset-0 rounded-full border-2 opacity-0 group-hover:opacity-90 group-hover:scale-[1.7] transition-all duration-700 ease-out"
+                style={{ borderColor: outerRing }}
+              />
+              {/* Inner ring */}
+              <div
+                className="absolute inset-0 rounded-full border-2 opacity-0 group-hover:opacity-90 group-hover:scale-[1.3] transition-all duration-500 ease-out"
+                style={{ borderColor: innerRing }}
+              />
+            </>
           )}
-          <div className={cn("size-full", !disableAnimation && "animate-bob")}>{floatingElement}</div>
+          <div className={cn(
+            "size-full transition-all duration-500",
+            !disableAnimation && "animate-bob group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
+          )}>{floatingElement}</div>
         </div>
       )}
     </div>

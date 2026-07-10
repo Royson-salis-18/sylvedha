@@ -397,3 +397,28 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #BFF202;
 }
+
+@layer utilities {
+  .premium-metal {
+    background-color: #d97706;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        #fbbf24 0%,
+        #a855f7 1.5%,
+        #d97706 3%,
+        #9333ea 4.5%,
+        #78350f 6%,
+        #7e22ce 7.5%,
+        #fbbf24 9%
+      );
+    background-blend-mode: multiply;
+    background-size: 200% 100%, 100% 100%;
+  }
+}

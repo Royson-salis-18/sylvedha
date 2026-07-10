@@ -119,7 +119,7 @@ export function FocusAreas() {
               cutoutSize={56}
               className={`animate-on-scroll ${
                 i === 0 ? "lg:col-span-2 lg:row-span-1" : ""
-              } ${!isNeon && !isWhite ? "border border-white/10 hover:border-[#BFF202]/40" : ""}`}
+              }`}
               floatingElement={
                 <div className={`flex size-full items-center justify-center rounded-full shadow-md ${
                   isNeon ? "bg-[#012522] text-[#BFF202]" : "bg-[#BFF202] text-[#012522]"
@@ -128,7 +128,6 @@ export function FocusAreas() {
                 </div>
               }
             >
-              <div className="absolute -right-10 -top-10 size-40 rounded-full blur-[80px] transition-all duration-500 group-hover:opacity-100 opacity-0 pointer-events-none" style={{ background: area.accent }} />
 
               <h3 className={`mt-2 font-heading text-2xl font-semibold ${
                 isNeon || isWhite ? "text-[#012522]" : "text-white"
@@ -146,8 +145,8 @@ export function FocusAreas() {
                     key={item}
                     className={`rounded-full border px-3 py-1.5 text-xs transition-all duration-300 ${
                       isNeon || isWhite 
-                        ? "border-[#012522]/20 bg-[#012522]/5 text-[#012522] hover:bg-[#012522]/10" 
-                        : "border-white/10 bg-white/5 text-white/90 hover:border-[#BFF202]/30 hover:bg-white/10 hover:shadow-[0_0_10px_rgba(191,242,2,0.1)]"
+                        ? "border-[#012522]/20 bg-[#012522]/5 text-[#012522]" 
+                        : "border-white/10 bg-white/5 text-white/90"
                     }`}
                   >
                     {item}

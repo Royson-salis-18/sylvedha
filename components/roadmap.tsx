@@ -39,7 +39,7 @@ const phases = [
 
 export function Roadmap() {
   return (
-    <section className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
+    <section id="roadmap" className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
       <div className="absolute left-1/2 top-0 -z-[1] h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-[#3A7717]/5 blur-[200px]" />
 
       <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">

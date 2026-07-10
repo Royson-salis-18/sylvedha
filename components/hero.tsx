@@ -48,8 +48,8 @@ export function Hero() {
         @keyframes fadeInLeft { from { opacity:0; transform:translateX(-28px); } to { opacity:1; transform:translateX(0); } }
         @keyframes fadeInRight{ from { opacity:0; transform:translateX(28px);  } to { opacity:1; transform:translateX(0); } }
         @keyframes bob        { 0%,100%{ transform:translateY(0) scale(1); } 50%{ transform:translateY(-8px) scale(1.04); } }
-        @keyframes pulse-glow { 0%,100%{ box-shadow:0 0 18px rgba(199,255,0,0.45); } 50%{ box-shadow:0 0 38px rgba(199,255,0,0.9),0 0 65px rgba(199,255,0,0.25); } }
-        @keyframes ring-glow  { 0%,100%{ filter:drop-shadow(0 0 6px rgba(212,175,55,0.5)); } 50%{ filter:drop-shadow(0 0 18px rgba(212,175,55,1)); } }
+        @keyframes pulse-glow  { 0%,100%{ box-shadow:0 0 18px rgba(199,255,0,0.45); } 50%{ box-shadow:0 0 38px rgba(199,255,0,0.9),0 0 65px rgba(199,255,0,0.25); } }
+        @keyframes ring-glow   { 0%,100%{ filter:drop-shadow(0 0 6px rgba(212,175,55,0.5)); } 50%{ filter:drop-shadow(0 0 18px rgba(212,175,55,1)); } }
         @keyframes text-float { 0%,100%{ transform:translateY(0px); } 50%{ transform:translateY(-5px); } }
 
         .afu  { animation: fadeInUp    0.85s cubic-bezier(0.16,1,0.3,1) forwards; }
@@ -122,17 +122,14 @@ export function Hero() {
         </a>
 
         {/* 4. Grevara Card */}
-        <div className="relative h-[180px] rounded-[2rem] bg-[#2a1126] overflow-hidden shrink-0 animate-fade-up cursor-pointer group" style={{animationDelay:'300ms'}}>
+        <a href="/#grevara" className="relative h-[180px] rounded-[2rem] bg-[#2a1126] overflow-hidden shrink-0 animate-fade-up cursor-pointer group border border-amber-400/20 hover:border-amber-400/60 transition-all duration-500 hover:scale-[1.01]" style={{animationDelay:'300ms'}}>
           <Image
             src="/images/grevara/product-shelf.jpg"
             alt="Grevara Products"
             fill
-            className="object-cover opacity-55"
+            className="object-cover opacity-55 group-hover:opacity-70 transition-opacity duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
-          <div className="absolute top-4 right-5 px-3 py-1 bg-red-600 text-white text-[9px] font-black tracking-widest uppercase rounded-full shadow-[0_0_15px_rgba(220,38,38,0.6)] z-10">
-            On Sale
-          </div>
           <div className="absolute bottom-4 left-5 flex items-center gap-4 z-10">
             <div className="shrink-0 size-[70px] rounded-full grevara-badge-ring p-[2px]">
               <div className="w-full h-full rounded-full overflow-hidden">
@@ -146,13 +143,13 @@ export function Hero() {
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <p className="text-[#d4af37] font-bold tracking-[0.2em] text-[9px] uppercase">Grevara Premium</p>
+              <p className="text-[#d4af37] font-bold tracking-[0.2em] text-[9px] uppercase">Grevara Microgreens</p>
               <p className="text-white font-heading font-bold text-lg leading-tight mt-0.5">
-                Buy Fresh Kits<br/><span className="italic font-light">Shop Now</span>
+                Small greens. Serious flavour.<br/><span className="italic font-light text-amber-200">Try it fresh →</span>
               </p>
             </div>
           </div>
-        </div>
+        </a>
       </div>
 
       {/* Desktop View — Entire container tilts as one */}
@@ -255,7 +252,8 @@ export function Hero() {
         </div>
 
         {/* ── 4. GREVARA CARD ── */}
-        <div
+        <a
+          href="/#grevara"
           className="absolute top-[calc(300/560*100%)] left-[calc(48%+14px)] w-[calc(52%-14px)] h-[calc(254/560*100%)] bg-[#2a1126] z-20 opacity-0 afr d4 cursor-pointer group"
           style={{ clipPath: 'url(#grevara-clip)' }}
         >
@@ -266,11 +264,6 @@ export function Hero() {
             className="object-cover opacity-55 group-hover:opacity-75 transition-opacity duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
-
-          {/* On Sale badge */}
-          <div className="absolute top-4 right-6 px-3 py-1 bg-red-600 text-white text-[9px] font-black tracking-widest uppercase rounded-full shadow-[0_0_15px_rgba(220,38,38,0.6)] z-10 animate-pulse">
-            On Sale
-          </div>
 
           {/* Bottom content */}
           <div className="absolute bottom-5 left-6 right-6 flex items-center gap-5 z-10">
@@ -286,13 +279,13 @@ export function Hero() {
               </div>
             </div>
             <div className="flex flex-col justify-center">
-              <p className="text-[#d4af37] font-bold tracking-[0.2em] text-[10px] uppercase">Grevara Premium</p>
+              <p className="text-[#d4af37] font-bold tracking-[0.2em] text-[10px] uppercase">Grevara Microgreens</p>
               <p className="text-white font-heading font-bold text-xl leading-tight mt-1 opacity-90 transition-opacity group-hover:opacity-100">
-                Buy Fresh Kits<br/><span className="italic font-light">Shop Now</span>
+                Small greens. Serious flavour.<br/><span className="italic font-light text-amber-200">Try it fresh →</span>
               </p>
             </div>
           </div>
-        </div>
+        </a>
 
       </div>
     </section>
