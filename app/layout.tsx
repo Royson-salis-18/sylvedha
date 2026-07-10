@@ -101,6 +101,7 @@ export default function RootLayout({
       className={`${firaSans.variable} ${fraunces.variable} bg-background`}
     >
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preload" href="/background-mobile.webp" as="image" type="image/webp" media="(max-width: 640px)" fetchPriority="high" />
         <link rel="preload" href="/background.webp" as="image" type="image/webp" media="(min-width: 641px)" fetchPriority="high" />
       </head>

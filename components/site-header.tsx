@@ -32,7 +32,7 @@ export function SiteHeader() {
       className="fixed inset-x-0 top-3 z-50 transition-all duration-500 flex justify-center px-4"
     >
       <div className={cn(
-        "flex h-[72px] w-full max-w-[1400px] items-center justify-between px-2 transition-all duration-500 rounded-[2rem]",
+        "flex h-[64px] sm:h-[72px] w-full max-w-[1400px] items-center justify-between px-2 transition-all duration-500 rounded-[2rem]",
         scrolled
           ? "bg-white/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-black/5"
           : "bg-white/90 backdrop-blur-md shadow-2xl border border-white/20"
@@ -49,7 +49,7 @@ export function SiteHeader() {
               className="object-contain transition-transform group-hover:scale-110"
             />
           </div>
-          <span className="font-heading text-[22px] font-bold tracking-wide text-white mt-[2px]">Sylvedha</span>
+          <span className="font-heading text-[20px] sm:text-[22px] font-bold tracking-wide text-white mt-[2px]">Sylvedha</span>
         </a>
 
         <nav className="hidden items-center gap-1 xl:flex pr-4">

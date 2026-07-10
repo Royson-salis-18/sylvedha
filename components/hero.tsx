@@ -42,7 +42,7 @@ export function Hero() {
   const tilt = useTilt()
 
   return (
-    <section className="w-full bg-[#011a17] h-dvh flex flex-col pt-[92px] pb-2 px-4 md:px-8 overflow-hidden">
+    <section className="w-full bg-[#011a17] h-dvh flex flex-col pt-[76px] md:pt-[92px] pb-2 px-4 md:px-8 overflow-hidden">
       <style>{`
         @keyframes fadeInUp   { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
         @keyframes fadeInLeft { from { opacity:0; transform:translateX(-28px); } to { opacity:1; transform:translateX(0); } }
