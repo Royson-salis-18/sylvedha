@@ -104,6 +104,8 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preload" href="/background-mobile.webp" as="image" type="image/webp" media="(max-width: 640px)" fetchPriority="high" />
         <link rel="preload" href="/background.webp" as="image" type="image/webp" media="(min-width: 641px)" fetchPriority="high" />
+        <link rel="preload" href="/images/hero-bg.png" as="image" fetchpriority="high" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased">
         <GlobalObserver />
@@ -149,6 +151,7 @@ export default function RootLayout({
             fill
             sizes="120px"
             loading="lazy"
+            fetchPriority="low"
             quality={50}
             className="object-contain rotate-12"
           />

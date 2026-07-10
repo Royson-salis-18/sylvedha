@@ -103,6 +103,7 @@ export function Hero() {
             fill
             className="object-cover opacity-90"
             priority
+            fetchPriority="high"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 1200px"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
@@ -274,7 +275,7 @@ export function Hero() {
             alt="Grevara Products"
             fill
             className="object-cover opacity-55 group-hover:opacity-75 transition-opacity duration-700"
-          />
+            fetchPriority="low"
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
 
           {/* Bottom content */}
