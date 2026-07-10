@@ -237,7 +237,7 @@ export function Hero() {
           style={{ clipPath: 'url(#hero-clip)' }}
         >
           <Image
-            src="/images/hero-bg.png"
+            src="/images/hero-nature-tech-new.webp"
             alt="Hero"
             fill
             className="object-cover opacity-90"
