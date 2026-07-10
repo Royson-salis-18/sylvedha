@@ -12,7 +12,7 @@ const FEEDBACK_COLS = [
 ]
 
 const QUERY_COLS = [
-  "Timestamp", "Email", "Visitor Type", "Submission #", "IP (partial)",
+  "Timestamp", "Name", "Email", "Phone", "Visitor Type", "Submission #", "IP (partial)",
   "Question", "Status",
 ]
 
@@ -84,8 +84,9 @@ export async function sendGrevaraForm(
     "feedback" | "query" | "preorder"
   const email   = String(formData.get("email")   ?? "").trim().toLowerCase()
   const message = String(formData.get("message")  ?? "").trim()
+  const notes   = String(formData.get("notes")    ?? "").trim()
 
-  // Preorder-specific fields
+  // Preorder/Query-specific fields
   const name    = String(formData.get("name")     ?? "").trim()
   const phone   = String(formData.get("phone")    ?? "").trim()
   const product = String(formData.get("product")  ?? "").trim()
@@ -93,11 +94,15 @@ export async function sendGrevaraForm(
   const city    = String(formData.get("city")     ?? "").trim()
   const rating  = String(formData.get("rating")   ?? "").trim()
 
-  // Feedback-specific validation
+  // Validation
   if (formType === "preorder") {
     if (!name) return { status: "error", message: "Please enter your name." }
     if (!email) return { status: "error", message: "Email is required for pre-orders." }
     if (!product) return { status: "error", message: "Please select a product." }
+  } else if (formType === "query") {
+    if (!name) return { status: "error", message: "Please enter your name." }
+    if (!message || message.length < 5)
+      return { status: "error", message: "Please enter a message (at least 5 characters)." }
   } else {
     if (!message || message.length < 5)
       return { status: "error", message: "Please enter a message (at least 5 characters)." }
@@ -153,20 +158,21 @@ export async function sendGrevaraForm(
       ])
     } else if (formType === "query" && qSheetId) {
       await ensureHeaders(qSheetId, QUERY_COLS)
-      await appendRow(qSheetId, "Sheet1!A:G", [
-        ts, email || "(anonymous)", visitorType, submitCount, ip,
+      await appendRow(qSheetId, "Sheet1!A:I", [
+        ts, name, email || "(anonymous)", phone || "", visitorType, submitCount, ip,
         message, "New",
       ])
     } else if (formType === "preorder" && pSheetId) {
       await ensureHeaders(pSheetId, PREORDER_COLS)
       await appendRow(pSheetId, "Sheet1!A:J", [
         ts, name, email, phone || "", product,
-        qty || "1", city || "", message || "", ip, "Pending",
+        qty || "1", city || "", notes || "", ip, "Pending",
       ])
     }
-  } catch (err) {
+  } catch (err: any) {
     console.error("[Grevara Sheets] Failed to write row:", err)
-    sheetError = "Could not save to sheet (check Google API credentials)."
+    const errDetails = err?.message || "Unknown error"
+    sheetError = `Sheet Error: ${errDetails}. Please make sure you have shared the spreadsheet with the Service Account email.`
   }
 
   // ── Send notification email ────────────────────────────────────────────────
@@ -193,7 +199,16 @@ export async function sendGrevaraForm(
         `Product : ${product}`,
         `Qty     : ${qty || "1"}`,
         `City    : ${city || "(not provided)"}`,
-        `Notes   : ${message || "(none)"}`,
+        `Notes   : ${notes || "(none)"}`,
+      )
+    } else if (formType === "query") {
+      textLines.push(
+        `Name    : ${name}`,
+        `Email   : ${email}`,
+        `Phone   : ${phone || "(not provided)"}`,
+        ``,
+        `--- Question ---`,
+        message,
       )
     } else {
       textLines.push(
@@ -207,8 +222,8 @@ export async function sendGrevaraForm(
 
     try {
       await resend.emails.send({
-        from: "Grevara Forms <info@sylvedha.com>",
-        to: ["sylvedhatechnologies@gmail.com", "info@sylvedha.com"],
+        from: "onboarding@resend.dev",
+        to: ["sylvedhatechnologies@gmail.com"],
         replyTo: email || "no-reply@sylvedha.com",
         subject: `[Grevara ${label}] ${visitorBadge} submission`,
         text: textLines.filter(Boolean).join("\n"),
@@ -219,8 +234,7 @@ export async function sendGrevaraForm(
   }
 
   if (sheetError) {
-    console.warn("[Grevara Sheets] Non-fatal error:", sheetError)
-    // Don't block the user from seeing success if the email fallback worked
+    return { status: "error", message: sheetError }
   }
 
   const successMessages = {

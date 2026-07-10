@@ -103,8 +103,9 @@ export function Hero() {
           </div>
         </a>
         <a href="/#grevara" className="relative h-[178px] rounded-[1.75rem] bg-[#2a1126] overflow-hidden shrink-0 animate-fade-up cursor-pointer group border border-amber-400/20 hover:border-amber-400/60 transition-all duration-500 shadow-[0_18px_45px_rgba(0,0,0,0.2)]" style={{animationDelay:'300ms'}}>
-          <Image src="/images/grevara/product-shelf.jpg" alt="Grevara Products" fill quality={60} sizes="100vw" className="object-cover opacity-55 group-hover:opacity-70 transition-opacity duration-500" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
+          <Image src="/images/grevara/product-shelf.jpg" alt="Grevara Products" fill quality={60} sizes="100vw" className="object-cover opacity-55 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15 group-hover:opacity-0 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 z-10">
             <div className="shrink-0 size-16 rounded-full grevara-badge-ring p-[2px]">
               <div className="w-full h-full rounded-full overflow-hidden">
@@ -113,7 +114,7 @@ export function Hero() {
             </div>
             <div>
               <p className="text-[#d4af37] font-bold tracking-[0.18em] text-[9px] uppercase">Grevara Microgreens</p>
-              <p className="text-white font-heading font-bold text-base sm:text-lg leading-tight mt-0.5">Small greens. Serious flavour.<br/><span className="italic font-light text-amber-200">Try it fresh →</span></p>
+              <p className="text-white font-heading font-bold text-base sm:text-lg leading-tight mt-0.5">Small greens. Serious flavour and great nutrition.<br/><span className="italic font-light text-amber-200">Try it fresh. Try it now.</span></p>
             </div>
           </div>
         </a>
@@ -253,15 +254,14 @@ export function Hero() {
             src="/images/grevara/product-shelf.jpg"
             alt="Grevara Products"
             fill
-            className="object-cover opacity-55 group-hover:opacity-75 transition-opacity duration-700"
+            className="object-cover opacity-55 group-hover:opacity-100 transition-opacity duration-700"
             fetchPriority="low"
             sizes="(max-width: 1024px) 60vw, 700px"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
-          {/* Border overlay for shaped card */}
-          <div className="absolute inset-0 opacity-20 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none" style={{ background: 'linear-gradient(45deg, rgba(251,191,36,0) 40%, rgba(251,191,36,0.5) 100%)' }} />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15 group-hover:opacity-0 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="absolute bottom-5 left-6 right-6 flex items-center gap-5 z-10">
-            <div className="shrink-0 size-[80px] xl:size-[90px] rounded-full grevara-badge-ring p-[3px] animate-ring-glow animate-bob">
+            <div className="shrink-0 size-[80px] xl:size-[90px] rounded-full grevara-badge-ring p-[3px] animate-bob">
               <div className="w-full h-full rounded-full overflow-hidden">
                 <Image src="/images/grevara/grevara-badge.png" alt="Grevara" width={90} height={90} className="w-full h-full object-cover scale-[1.35] object-center" />
               </div>
@@ -269,7 +269,7 @@ export function Hero() {
             <div className="flex flex-col justify-center">
               <p className="text-[#d4af37] font-bold tracking-[0.2em] text-[10px] uppercase">Grevara Microgreens</p>
               <p className="text-white font-heading font-bold text-xl leading-tight mt-1 opacity-90 transition-opacity group-hover:opacity-100">
-                Small greens. Serious flavour.<br/><span className="italic font-light text-amber-200">Try it fresh →</span>
+                Small greens. Serious flavour and great nutrition.<br/><span className="italic font-light text-amber-200">Try it fresh. Try it now.</span>
               </p>
             </div>
           </div>

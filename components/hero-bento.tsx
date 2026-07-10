@@ -16,16 +16,19 @@ function BentoCard({
   children,
   className = "",
   style,
+  disableGlow = false,
 }: {
   children: React.ReactNode
   className?: string
   style?: React.CSSProperties
+  disableGlow?: boolean
 }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const glowRef = useRef<HTMLDivElement>(null)
   const rafRef  = useRef<number>(0)
 
   const onMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (disableGlow) return;
     cancelAnimationFrame(rafRef.current)
     rafRef.current = requestAnimationFrame(() => {
       const el = cardRef.current
@@ -41,24 +44,27 @@ function BentoCard({
         g.style.background = `radial-gradient(circle at ${nx * 100}% ${ny * 100}%, rgba(191,242,2,0.15) 0%, transparent 65%)`
       }
     })
-  }, [])
+  }, [disableGlow])
 
   const onLeave = useCallback(() => {
+    if (disableGlow) return;
     cancelAnimationFrame(rafRef.current)
     const el = cardRef.current; const g = glowRef.current
     if (el) { el.style.transition = "transform 0.55s cubic-bezier(0.22,1,0.36,1)"; el.style.transform = "" }
     if (g)  { g.style.opacity = "0" }
-  }, [])
+  }, [disableGlow])
 
   return (
     <div
       ref={cardRef}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className={`relative overflow-hidden will-change-transform cursor-pointer ${className}`}
+      className={`relative overflow-hidden will-change-transform ${disableGlow ? "" : "cursor-pointer"} ${className}`}
       style={style}
     >
-      <div ref={glowRef} className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-10" style={{ opacity: 0 }} />
+      {!disableGlow && (
+        <div ref={glowRef} className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-10" style={{ opacity: 0 }} />
+      )}
       {children}
     </div>
   )
@@ -72,18 +78,22 @@ export function HeroBento() {
 
         {/* ── Cell 1: Grevara showcase — tall, spans col 1-2 row 1-2 ── */}
         <BentoCard
-          className="border-t border-r border-b border-white/5 border-l-4 border-l-[#d4af37] bg-[#1a0b2e] relative"
+          disableGlow={true}
+          className="border-t border-r border-b border-white/5 border-l-4 border-l-[#d4af37] bg-[#1a0b2e] relative group/grev"
           style={{
             gridColumn: "1 / 3",
             gridRow: "1 / 3",
             borderRadius: "2rem 2rem 1rem 2rem",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#2a1148] to-[#120818] opacity-80" />
+          {/* Base gradient that fades away on hover */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2a1148] to-[#120818] opacity-80 group-hover/grev:opacity-0 transition-opacity duration-500 z-10" />
+          
+          {/* A soft left-side gradient that stays on hover so the text is still readable */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent opacity-0 group-hover/grev:opacity-100 transition-opacity duration-500 z-10" />
           
           <div className="relative h-full flex flex-col justify-between p-6 z-20">
-            {/* Grevara logo circle — the PNG already has a white-ring circle baked in,
-                so we just crop away its grey background by zooming in */}
+            {/* Grevara logo circle */}
             <div className="relative size-[88px] rounded-full overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
               <Image 
                 src="/images/grevara/grevara-logo.png" 
@@ -99,14 +109,20 @@ export function HeroBento() {
               <p className="font-heading font-bold italic text-[#d4af37] text-3xl leading-none drop-shadow-md">
                 Grevara
               </p>
-              <p className="font-heading font-bold text-white text-4xl leading-tight mt-1">
+              <p className="font-heading font-bold text-white text-4xl leading-tight mt-1 mb-3">
                 Microgreens
+              </p>
+              <p className="text-white/90 text-sm leading-relaxed max-w-[220px]">
+                Small greens. Serious flavour and great nutrition.
+              </p>
+              <p className="text-[#BFF202] text-sm font-bold mt-1 uppercase tracking-wide">
+                Try it fresh, try it now.
               </p>
             </div>
           </div>
           
-          {/* Subtle overlay image to keep the texture if needed, but the screenshot is mostly solid/gradient */}
-          <div className="absolute inset-0 bg-[url('/images/grevara/growing-pink.jpg')] bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none" />
+          {/* Background image: becomes fully visible on hover without mix-blend filter */}
+          <div className="absolute inset-0 bg-[url('/images/grevara/growing-pink.jpg')] bg-cover bg-center opacity-20 mix-blend-screen group-hover/grev:opacity-100 group-hover/grev:mix-blend-normal transition-all duration-500 z-0" />
         </BentoCard>
 
         {/* ── Cell 2: Founded stat — col 3 row 1 ── */}
