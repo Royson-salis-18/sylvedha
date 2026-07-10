@@ -33,6 +33,7 @@ interface SubtractedCardProps {
   cutoutSize?: SizeValue
   filletSize?: number
   color?: "dark-green" | "neon" | "black" | "white" | "purple-gold" | string
+  ringSurface?: "light" | "dark"
   floatingElement?: ReactNode
   disableAnimation?: boolean
   cutouts?: CutoutConfig[]
@@ -57,6 +58,79 @@ const BG: Record<string, string> = {
   black: "bg-[#011A17] text-[#F5F0E8]",
   white: "bg-[#F5F0E8] text-[#012522]",
   "purple-gold": "bg-[#1a0b2e] text-[#d4af37]",
+}
+
+const RING_PALETTES = {
+  light: {
+    "dark-green": {
+      outer: "#01312D",
+      inner: "#6B8E23",
+      outerGlow: "0 0 14px rgba(1,49,45,0.22)",
+      innerGlow: "0 0 14px rgba(74,110,35,0.24)",
+    },
+    black: {
+      outer: "#01312D",
+      inner: "#6B8E23",
+      outerGlow: "0 0 14px rgba(1,49,45,0.22)",
+      innerGlow: "0 0 14px rgba(74,110,35,0.24)",
+    },
+    "purple-gold": {
+      outer: "#1A0B2E",
+      inner: "#8A6A16",
+      outerGlow: "0 0 14px rgba(26,11,46,0.20)",
+      innerGlow: "0 0 14px rgba(138,106,22,0.24)",
+    },
+    neon: {
+      outer: "#6B8E23",
+      inner: "#01312D",
+      outerGlow: "0 0 14px rgba(74,110,35,0.24)",
+      innerGlow: "0 0 14px rgba(1,49,45,0.22)",
+    },
+    white: {
+      outer: "#01312D",
+      inner: "#3A7717",
+      outerGlow: "0 0 14px rgba(1,49,45,0.22)",
+      innerGlow: "0 0 14px rgba(58,119,23,0.24)",
+    },
+  },
+  dark: {
+    "dark-green": {
+      outer: "#EAFDE7",
+      inner: "#BFF202",
+      outerGlow: "0 0 22px rgba(234,253,231,0.38)",
+      innerGlow: "0 0 24px rgba(191,242,2,0.42)",
+    },
+    black: {
+      outer: "#EAFDE7",
+      inner: "#BFF202",
+      outerGlow: "0 0 22px rgba(234,253,231,0.38)",
+      innerGlow: "0 0 24px rgba(191,242,2,0.42)",
+    },
+    "purple-gold": {
+      outer: "#F5F0E8",
+      inner: "#D4AF37",
+      outerGlow: "0 0 22px rgba(245,240,232,0.36)",
+      innerGlow: "0 0 22px rgba(212,175,55,0.36)",
+    },
+    neon: {
+      outer: "#F5F0E8",
+      inner: "#65E4C0",
+      outerGlow: "0 0 22px rgba(245,240,232,0.38)",
+      innerGlow: "0 0 22px rgba(101,228,192,0.40)",
+    },
+    white: {
+      outer: "#BFF202",
+      inner: "#65E4C0",
+      outerGlow: "0 0 24px rgba(191,242,2,0.42)",
+      innerGlow: "0 0 22px rgba(101,228,192,0.38)",
+    },
+  },
+} as const
+
+type RingColorKey = keyof typeof RING_PALETTES.light
+
+function resolveRingColorKey(color: string): RingColorKey {
+  return color in RING_PALETTES.light ? (color as RingColorKey) : "dark-green"
 }
 
 function resolveSize(value: SizeValue, reference: number): number {
@@ -272,6 +346,7 @@ export function SubtractedCard({
   cutoutSize = 56,
   filletSize,
   color = "dark-green",
+  ringSurface = "light",
   floatingElement,
   disableAnimation = false,
   cutouts,
@@ -424,12 +499,9 @@ export function SubtractedCard({
 
   const shaped = Boolean(outlinePath)
 
-  // Ring colors that contrast with the card surface
-  const outerRing = color === "neon"  ? "#011e1b"  // dark green outer for neon
-                  : "#ffffff"                       // white outer for all others
-  const innerRing = color === "white" ? "#011e1b"  // dark green inner for white cards
-                  : color === "neon"  ? "#ffffff"   // white inner for neon cards
-                  : "#BFF202"                       // neon inner for dark/black cards
+  const ringPalette = useMemo(() => {
+    return RING_PALETTES[ringSurface][resolveRingColorKey(color)]
+  }, [color, ringSurface])
 
   return (
     <div
@@ -533,13 +605,13 @@ export function SubtractedCard({
             <>
               {/* Outer ring */}
               <div
-                className="absolute inset-0 rounded-full border-2 opacity-0 group-hover:opacity-90 group-hover:scale-[1.7] transition-all duration-700 ease-out"
-                style={{ borderColor: outerRing }}
+                className="absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover:opacity-100 group-hover:scale-[1.7] transition-all duration-700 ease-out"
+                style={{ borderColor: ringPalette.outer, boxShadow: ringPalette.outerGlow }}
               />
               {/* Inner ring */}
               <div
-                className="absolute inset-0 rounded-full border-2 opacity-0 group-hover:opacity-90 group-hover:scale-[1.3] transition-all duration-500 ease-out"
-                style={{ borderColor: innerRing }}
+                className="absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover:opacity-100 group-hover:scale-[1.3] transition-all duration-500 ease-out"
+                style={{ borderColor: ringPalette.inner, boxShadow: ringPalette.innerGlow }}
               />
             </>
           )}

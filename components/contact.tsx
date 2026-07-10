@@ -51,6 +51,7 @@ export function Contact() {
               <div className="animate-on-scroll">
                 <SubtractedCard
                   color="white"
+                  ringSurface="dark"
                   corner="bottom-right"
                   cutoutSize={72}
                   filletSize={28}
@@ -99,6 +100,7 @@ export function Contact() {
               <div className="animate-on-scroll">
                 <SubtractedCard
                   color="neon"
+                  ringSurface="dark"
                   corner="top-left"
                   cutoutSize={64}
                   filletSize={24}

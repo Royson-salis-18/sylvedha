@@ -77,6 +77,7 @@ export function WhySylvedha() {
             <SubtractedCard
               key={reason.title}
               color={color}
+              ringSurface="dark"
               corner={corner}
               cutoutSize={56}
               className={`animate-on-scroll ${
