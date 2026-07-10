@@ -76,7 +76,7 @@ export function Hero() {
       `}</style>
 
       {/* Mobile View */}
-      <div className="lg:hidden flex flex-col gap-4 overflow-y-auto pb-4 h-full no-scrollbar">
+      <div className="lg:hidden flex flex-col gap-4 pb-4">
         {/* 1. Text Card */}
         <div className="bg-[#eee9df] rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between shrink-0 animate-fade-up" style={{animationDelay:'0ms'}}>
           <div>
@@ -111,13 +111,13 @@ export function Hero() {
         <a href="/#contact" className="relative h-[110px] rounded-[2rem] px-6 flex items-center justify-between group overflow-hidden bg-[#062118] shrink-0 animate-fade-up" style={{animationDelay:'200ms'}}>
           <div className="absolute inset-0 bg-gradient-to-br from-[#c7ff00] to-[#91ba00] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="relative z-10 flex flex-col">
-            <p className="text-[#06100d]/60 text-[9px] font-bold uppercase tracking-[0.25em] mb-0.5 group-hover:text-[#062118]/80 transition-colors">Let&apos;s Collaborate</p>
-            <p className="font-heading font-bold text-[24px] text-[#06100d] leading-[1.05] group-hover:text-[#011a17] transition-colors">
+            <p className="text-white/80 text-[9px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors">Let&apos;s Collaborate</p>
+            <p className="font-heading font-bold text-[24px] text-white leading-[1.05] transition-colors">
               Get in <span className="italic font-light">Touch</span>
             </p>
           </div>
-          <div className="relative z-10 size-12 rounded-full border-2 border-[#06100d]/30 bg-[#06100d]/5 flex items-center justify-center group-hover:border-[#011a17] group-hover:bg-[#011a17]/10 transition-colors shrink-0">
-            <ArrowUpRight className="size-5 text-[#06100d] group-hover:text-[#011a17] transition-colors" />
+          <div className="relative z-10 size-12 rounded-full border-2 border-white/20 bg-white/6 flex items-center justify-center transition-colors shrink-0">
+            <ArrowUpRight className="size-5 text-white transition-colors" />
           </div>
         </a>
 
