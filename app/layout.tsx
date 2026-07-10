@@ -49,14 +49,14 @@ export const metadata: Metadata = {
   authors: [{ name: 'SYLVEDHA LLP' }],
   creator: 'SYLVEDHA LLP',
   publisher: 'SYLVEDHA LLP',
-  openGraph: {
+    openGraph: {
     title: 'SYLVEDHA LLP — Innovating Technology in Harmony with Nature',
     description: 'Developing innovative solutions across Agriculture, Biotechnology, Renewable Energy, AI, and Sustainable Infrastructure.',
     url: 'https://sylvedha.com',
     siteName: 'SYLVEDHA LLP',
     images: [
       {
-        url: '/images/hero-nature-tech.webp',
+        url: '/images/hero-bg.png',
         width: 1200,
         height: 630,
         alt: 'Sylvedha - Innovating Technology in Harmony with Nature',
@@ -65,11 +65,11 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     type: 'website',
   },
-  twitter: {
+    twitter: {
     card: 'summary_large_image',
     title: 'SYLVEDHA — Innovating Technology in Harmony with Nature',
     description: 'We build sustainable solutions addressing food security, resource management, and environmental conservation.',
-    images: ['/images/hero-nature-tech.webp'],
+    images: ['/images/hero-bg.png'],
   },
   robots: {
     index: true,
@@ -102,7 +102,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Preload large hero image only for desktop to avoid mobile LCP competition */}
-        <link rel="preload" href="/images/hero-nature-tech-new.webp" as="image" type="image/webp" media="(min-width: 1024px)" fetchPriority="high" />
+        <link rel="preload" href="/images/hero-bg.png" as="image" type="image/png" media="(min-width: 1024px)" fetchPriority="high" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased">

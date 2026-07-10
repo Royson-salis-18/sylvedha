@@ -99,12 +99,13 @@ export function Hero() {
         {/* 2. Hero Image Card */}
         <div className="relative h-[210px] sm:h-[280px] rounded-[1.75rem] bg-[#0a1f13] overflow-hidden shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.22)] animate-fade-up" style={{animationDelay:'100ms'}}>
           <Image
-            src="/images/hero-nature-tech-new.webp"
+            src="/images/hero-bg.png"
             alt="Hero"
             fill
             className="object-cover opacity-90"
             priority
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+            quality={65}
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
         </div>
@@ -136,7 +137,8 @@ export function Hero() {
             src="/images/grevara/product-shelf.jpg"
             alt="Grevara Products"
             fill
-            sizes="(max-width: 1024px) 100vw, 40vw"
+            quality={60}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 420px"
             className="object-cover opacity-55 group-hover:opacity-70 transition-opacity duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15" />
@@ -230,12 +232,13 @@ export function Hero() {
           style={{ clipPath: 'url(#hero-clip)' }}
         >
           <Image
-            src="/images/hero-nature-tech-new.webp"
+            src="/images/hero-bg.png"
             alt="Hero"
             fill
             className="object-cover opacity-90"
             priority
-            sizes="(max-width: 1024px) 100vw, 1200px"
+            quality={65}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1000px"
           />
           {/* Lighter gradient — just enough for depth */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
