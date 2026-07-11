@@ -1,3 +1,9 @@
+﻿
+"use client"
+
+import { SubtractedCard } from "./subtracted-card"
+import { cn } from "@/lib/utils"
+import { useRef, useEffect, useState } from "react"
 
 const milestones = [
   {
@@ -23,63 +29,192 @@ const milestones = [
   },
 ]
 
-export function Journey() {
-  return (
-    <section id="journey" className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
-      <div className="absolute right-0 top-1/3 -z-[1] h-[400px] w-[400px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
-      <div className="absolute -left-20 bottom-0 -z-[1] h-[300px] w-[300px] rounded-full bg-[#3A7717]/5 blur-[120px]" />
+const cardConfigs = [
+  { color: "dark-green", corner: "top-left", ringSurface: "light", textPrimary: "text-white", textSecondary: "text-white/80", floatBg: "bg-transparent", floatText: "text-[#BFF202]" },
+  { color: "white", corner: "top-left", ringSurface: "light", textPrimary: "text-[#011e1b]", textSecondary: "text-[#011e1b]/70", floatBg: "bg-transparent", floatText: "text-[#023a35]" },
+  { color: "mid-green", corner: "top-left", ringSurface: "light", textPrimary: "text-white", textSecondary: "text-white/80", floatBg: "bg-transparent", floatText: "text-[#1e4d41]" },
+  { color: "black", corner: "top-left", ringSurface: "light", textPrimary: "text-[#F5F0E8]", textSecondary: "text-[#F5F0E8]/70", floatBg: "bg-transparent", floatText: "text-[#011A17]" },
+] as const
 
-      <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
-        <div className="max-w-2xl">
-          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+export function Journey() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [points, setPoints] = useState<{x: number, y: number}[]>([]);
+
+  useEffect(() => {
+    const updatePath = () => {
+      if (!containerRef.current) return;
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const icons = containerRef.current.querySelectorAll('.milestone-icon');
+      
+      const newPoints = Array.from(icons).map(icon => {
+        const rect = icon.getBoundingClientRect();
+        return {
+          x: rect.left + rect.width / 2 - containerRect.left,
+          y: rect.top + rect.height / 2 - containerRect.top,
+        };
+      });
+      setPoints(newPoints);
+    };
+
+    // Delay calculation slightly to ensure DOM is fully rendered
+    const timeout = setTimeout(updatePath, 100);
+    window.addEventListener('resize', updatePath);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('resize', updatePath);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      
+      // Calculate how far the center of the viewport has traveled down the container
+      const start = viewportHeight / 2;
+      const totalHeight = rect.height;
+      // Progress from 0 to 1
+      let progress = (start - rect.top) / totalHeight;
+      progress = Math.max(-0.2, Math.min(1.2, progress)); // allow glow to enter/exit fully
+      
+      containerRef.current.style.setProperty('--scroll-progress', progress.toString());
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const createPath = () => {
+    if (points.length < 2) return "";
+    // Extend start and end points vertically so the line doesn't just stop at the icons
+    const startY = -100;
+    const endY = points[points.length - 1].y + 200;
+
+    let d = `M ${points[0].x} ${startY} L ${points[0].x} ${points[0].y}`;
+    
+    for (let i = 1; i < points.length; i++) {
+      const pPrev = points[i - 1];
+      const pCurr = points[i];
+      // Vertical cubic bezier
+      const cy1 = pPrev.y + (pCurr.y - pPrev.y) / 2;
+      const cy2 = pCurr.y - (pCurr.y - pPrev.y) / 2;
+      d += ` C ${pPrev.x} ${cy1}, ${pCurr.x} ${cy2}, ${pCurr.x} ${pCurr.y}`;
+    }
+    
+    d += ` L ${points[points.length - 1].x} ${endY}`;
+    return d;
+  };
+
+  return (
+    <section id="journey" className="relative overflow-hidden bg-background min-h-[100svh] py-24 flex flex-col justify-center">
+      {/* Decorative Blur Orbs */}
+      <div className="absolute right-0 top-1/3 -z-[1] h-[500px] w-[500px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
+      <div className="absolute -left-32 bottom-0 -z-[1] h-[400px] w-[400px] rounded-full bg-[#3A7717]/5 blur-[120px]" />
+      
+      {/* Sharp grid background overlay */}
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none" />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8">
+        <div className="max-w-2xl mx-auto text-center mb-20">
+          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             Company Journey
           </p>
-          <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
+          <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             From incubation to{" "}
-            <span className="italic text-secondary">working prototypes</span>
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#BFF202]">working prototypes</span>
           </h2>
         </div>
 
-        <div className="mt-16 relative stagger-children">
-          {/* Vertical line with glow */}
-          <div className="absolute left-[26px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/40 via-[#BFF202]/40 to-primary/10" />
-          <div className="absolute left-[25px] top-2 bottom-2 w-[3px] bg-gradient-to-b from-[#BFF202]/10 via-[#BFF202]/5 to-transparent blur-sm" />
+        <div ref={containerRef} className="relative stagger-children max-w-5xl mx-auto md:py-10">
+          
+          {/* Dynamic SVG Curved Path */}
+          <div className="absolute inset-0 pointer-events-none z-[5]">
+            <svg className="w-full h-full overflow-visible">
+              <defs>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="6" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+              {/* Static Dotted Line */}
+              <path 
+                d={createPath()} 
+                fill="none" 
+                stroke="#023a35" 
+                strokeWidth="2" 
+                strokeDasharray="8 8" 
+              />
+              {/* Moving Glowing Line Segment */}
+              <path 
+                d={createPath()} 
+                fill="none" 
+                stroke="#BFF202" 
+                strokeWidth="4" 
+                pathLength="1"
+                strokeDasharray="0.05 1"
+                style={{ strokeDashoffset: 'calc(var(--scroll-progress, 0) * -1.05)' }}
+                filter="url(#glow)"
+                className="transition-all duration-150 ease-out"
+              />
+            </svg>
+          </div>
 
-          <div className="flex flex-col gap-10">
-            {milestones.map((milestone, i) => (
-              <div key={milestone.title} className="animate-on-scroll relative flex gap-8 pl-2">
-                {/* Dot with pulse animation */}
-                <div className="relative flex-shrink-0 mt-1.5">
-                  <span className="absolute inset-0 rounded-full bg-[#BFF202]/20 animate-ping" style={{ animationDuration: "3s" }} />
-                  <span className="relative z-10 flex size-9 items-center justify-center rounded-full border-2 border-primary bg-background shadow-md shadow-primary/10">
-                    <span className="font-heading text-xs font-bold text-primary">
-                      {`0${i + 1}`}
-                    </span>
-                  </span>
-                </div>
+          {/* Subtracted Cards Layout */}
+          <div className="flex flex-col gap-12 lg:gap-16">
+            {milestones.map((milestone, i) => {
+              const isLast = i === milestones.length - 1;
+              const config = isLast ? cardConfigs[3] : cardConfigs[i % cardConfigs.length];
+              const isEven = i % 2 === 0;
 
-                {/* Content card */}
-                <div className="group flex-1 rounded-[2rem] border border-border bg-card p-8 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5 hover:border-[#BFF202]/20">
-                  <div className="flex items-start justify-between">
-                    <h3 className="font-heading text-xl font-semibold text-card-foreground">
-                      {milestone.title}
-                    </h3>
-                    <span className="flex-shrink-0 ml-4 rounded-lg bg-primary/5 px-2.5 py-1 text-xs font-bold text-primary/60">
-                      {`0${i + 1}`}
-                    </span>
-                  </div>
-                  <p className="mt-3 leading-relaxed text-muted-foreground">
-                    {milestone.description}
-                  </p>
-                  {milestone.note && (
-                    <p className="mt-4 flex items-start gap-2 rounded-xl border border-[#BFF202]/20 bg-[#BFF202]/5 px-4 py-3 text-sm font-medium text-primary">
-                      <span className="mt-0.5 text-[#BFF202]">*</span>
-                      {milestone.note}
-                    </p>
+              return (
+                <div 
+                  key={milestone.title} 
+                  className={cn(
+                    "animate-on-scroll w-full md:w-[85%] relative z-10",
+                    isEven ? "md:mr-auto" : "md:ml-auto"
                   )}
+                >
+                  <SubtractedCard
+                    color={config.color}
+                    ringSurface={config.ringSurface}
+                    corner={config.corner}
+                    cutoutSize={72}
+                    filletSize={28}
+                    scoopGap={14}
+                    borderRadius={40}
+                    floatingElement={
+                      <div className={cn("milestone-icon size-full rounded-full flex items-center justify-center font-heading text-4xl font-black drop-shadow-sm", config.floatBg, config.floatText)}>
+                        0{i + 1}
+                      </div>
+                    }
+                  >
+                    <div className="py-2 px-4 lg:px-8 flex flex-col justify-center min-h-[160px]">
+                      <h3 className={cn("font-heading text-2xl md:text-3xl font-bold mb-4", config.textPrimary)}>
+                        {milestone.title}
+                      </h3>
+                      <p className={cn("text-base md:text-lg leading-relaxed font-medium max-w-2xl", config.textSecondary)}>
+                        {milestone.description}
+                      </p>
+                      
+                      {milestone.note && (
+                        <div className="mt-6 inline-flex">
+                          <p className={cn("flex items-start gap-2 rounded-xl border px-4 py-3 text-base md:text-lg font-semibold shadow-inner", 
+                            config.color === "white" || config.color === "neon" 
+                              ? "border-[#011e1b]/10 bg-[#011e1b]/5 text-[#011e1b]/80"
+                              : "border-[#BFF202]/20 bg-[#BFF202]/5 text-[#BFF202]"
+                          )}>
+                            <span className="mt-0.5 text-[#BFF202]">*</span>
+                            {milestone.note}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </SubtractedCard>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>

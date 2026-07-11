@@ -3,6 +3,8 @@
 import { NutriTechCarousel } from "./nutritech-carousel"
 import { Check, Cpu, Cloud, BarChart3, Zap, Leaf, Database, ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { SubtractedCard } from "./subtracted-card"
+import { cn } from "@/lib/utils"
 
 const monitored = [
   "Soil Moisture", "Temperature", "Humidity", "pH Level",
@@ -42,153 +44,237 @@ export function CurrentProjects() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-12 pb-6 sm:px-8">
 
         {/* Desktop View */}
-        <div className="hidden lg:block">
-          <div className="rounded-[2.5rem] overflow-hidden p-12 mb-6 border border-white/10 bg-gradient-to-br from-[#012820] to-[#011A17] backdrop-blur-md shadow-2xl relative transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_-8px_rgba(191,242,2,0.18)] hover:border-[#BFF202]/25">
-            {/* NutriTech header — with logo */}
-            <div className="animate-on-scroll mb-12">
-              <div className="flex flex-wrap items-center gap-4 mb-6">
-                {/* Logo */}
-                <div className="size-28 overflow-hidden rounded-full shadow-xl shadow-black/40 relative flex-shrink-0" style={{ border: "1.5px solid rgba(245,240,232,0.25)", background: "#F5F0E8" }}>
-                  <Image
-                    src="/images/nutritech/nutritech-logo.jpeg"
-                    alt="NutriTech"
-                    fill
-                    sizes="112px"
-                    className="object-cover object-[center_40%] scale-[1.6] transition-transform duration-700 hover:scale-[1.7]"
-                  />
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-[#BFF202]/15 border border-[#BFF202]/30 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-[#BFF202] shadow-[0_0_15px_rgba(191,242,2,0.15)]">
-                      <span className="size-1.5 rounded-full bg-[#BFF202] animate-pulse" />
-                      Active — Prototype Stage
-                    </span>
-                    <span className="rounded-full border border-[#F5F0E8]/20 bg-[#F5F0E8]/5 px-4 py-1.5 text-xs font-medium uppercase tracking-wide text-[#F5F0E8]/70 backdrop-blur-sm">
-                      Agritech · IoT · Automation
-                    </span>
-                  </div>
-                  <h2 className="font-heading text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl tracking-tight text-[#F5F0E8]">
-                    Project{" "}
-                    <span
-                      className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#BFF202] to-[#9ED600]"
-                    >
-                      NutriTech
-                    </span>
-                  </h2>
-                </div>
-              </div>
-              <p className="max-w-2xl text-lg leading-relaxed text-[#F5F0E8]/70 relative z-10">
-                Sylvedha's smart agriculture initiative — combining environmental sensing, controlled plant
-                growth experiments, automation, and digital infrastructure to build scalable solutions for
-                future farming.
-              </p>
-            </div>
-
-            {/* Carousel + monitoring */}
-            <div className="animate-on-scroll grid lg:grid-cols-2 gap-5 mb-5">
-              {/* Carousel panel */}
-              <div
-                className="rounded-[2rem] p-8 backdrop-blur-sm relative z-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_-8px_rgba(191,242,2,0.15)] hover:border-[#BFF202]/30"
-                style={{ border: "1px solid rgba(245,240,232,0.10)" }}
-              >
-                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
-                <p className="relative mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202]">
-                  Experimental Setup — Photos &amp; Video
-                </p>
-                <NutriTechCarousel />
-              </div>
-
-              {/* What it monitors panel */}
-              <div
-                className="rounded-[2rem] p-8 flex flex-col backdrop-blur-sm relative z-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_-8px_rgba(191,242,2,0.15)] hover:border-[#BFF202]/30"
-                style={{ border: "1px solid rgba(245,240,232,0.10)" }}
-              >
-                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-bl from-white/[0.03] to-transparent pointer-events-none" />
-                <p className="relative mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202]">
-                  What the Setup Monitors
-                </p>
-                <div className="grid grid-cols-2 gap-3 flex-1">
-                  {monitored.map((item) => (
-                    <span key={item} className="flex items-center gap-2.5 text-sm text-[#F5F0E8]/80">
-                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#BFF202]/20 border border-[#BFF202]/30">
-                        <Check className="size-3 text-[#BFF202]" />
-                      </span>
-                      {item}
-                    </span>
-                  ))}
-                </div>
-                {/* Current focus */}
-                <div
-                  className="relative mt-6 rounded-2xl p-5 overflow-hidden group transition-all duration-500 hover:border-[#BFF202]/40 hover:shadow-[0_10px_30px_-10px_rgba(191,242,2,0.15)]"
-                  style={{ background: "linear-gradient(135deg, rgba(191,242,2,0.08) 0%, rgba(245,240,232,0.03) 100%)", border: "1px solid rgba(191,242,2,0.2)" }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#BFF202]/0 via-[#BFF202]/5 to-[#BFF202]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                  <p className="relative text-xs font-bold uppercase tracking-[0.15em] mb-3 text-[#BFF202]">Current Focus</p>
-                  <ul className="relative space-y-1.5 text-sm text-[#F5F0E8]/70">
-                    <li>• Testing controlled growth environments</li>
-                    <li>• Gathering environmental performance metrics</li>
-                    <li>• Validating integrated hardware systems</li>
-                    <li>• Enhancing monitoring capabilities</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Tech pillars */}
-            <div
-              className="animate-on-scroll rounded-[2rem] p-8 mb-6 backdrop-blur-sm relative z-10 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_-8px_rgba(191,242,2,0.15)] hover:border-[#BFF202]/30"
-              style={{ background: "rgba(245,240,232,0.03)", border: "1px solid rgba(245,240,232,0.10)" }}
-            >
-              <p className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202]">
-                Technology Layers
-              </p>
-              <div className="grid gap-4 lg:grid-cols-3 stagger-children">
-                {techPillars.map((pillar) => (
-                  <div
-                    key={pillar.title}
-                    className="animate-on-scroll group flex gap-4 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[#BFF202]/30 hover:bg-white/[0.06]"
-                    style={{ border: "1px solid rgba(245,240,232,0.07)", background: "rgba(255,255,255,0.02)" }}
-                  >
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-[#BFF202]/20 bg-[#BFF202]/10 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-[#BFF202]/20">
-                      <pillar.icon className="size-5 text-[#BFF202]" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm tracking-wide text-[#F5F0E8]">{pillar.title}</p>
-                      <p className="mt-1.5 text-xs leading-relaxed text-[#F5F0E8]/60">{pillar.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile View */}
-        <div className="block lg:hidden">
-          <div className="rounded-3xl overflow-hidden p-6 mb-6 border border-white/10 bg-gradient-to-br from-[#012820] to-[#011A17] backdrop-blur-md shadow-2xl relative">
-            
-            {/* Header */}
-            <div className="mb-6 flex flex-col items-center text-center">
-              <div className="size-20 mb-4 overflow-hidden rounded-full shadow-xl shadow-black/40 relative flex-shrink-0" style={{ border: "1.5px solid rgba(245,240,232,0.25)", background: "#F5F0E8" }}>
+        <div className="hidden lg:block mb-6">
+          <SubtractedCard
+            color="white"
+            ringSurface="light"
+            corner="top-left"
+            cutoutSize={140}
+            filletSize={36}
+            scoopGap={16}
+            borderRadius={40}
+            disableAnimation={false}
+            animationIntensity={0.15}
+            hoverRingScale="small"
+            disableTilt={true}
+            floatingElement={
+              <div className="relative size-full overflow-hidden rounded-full bg-[#F5F0E8] border-[5px] border-[#99b961] shadow-lg">
                 <Image
                   src="/images/nutritech/nutritech-logo.jpeg"
                   alt="NutriTech"
                   fill
-                  sizes="80px"
-                  className="object-cover object-[center_40%] scale-[1.6]"
+                  sizes="140px"
+                  className="object-cover object-[center_40%] scale-[1.5] transition-transform duration-700 hover:scale-[1.6]"
                 />
               </div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#BFF202]/15 border border-[#BFF202]/30 px-3 py-1 mb-3 text-[10px] font-bold uppercase tracking-wide text-[#BFF202]">
-                <span className="size-1.5 rounded-full bg-[#BFF202] animate-pulse" />
+            }
+          >
+            {/* Header Row: Left Text, Right Tech Pillar 1 */}
+            <div className="flex flex-col lg:flex-row gap-8 mb-8 pt-4">
+              <div className="flex-[1.5] pl-20 lg:pl-[120px]">
+                <div className="animate-on-scroll">
+                  <div className="flex flex-col gap-3 mb-6">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-[#99b961]/20 border border-[#99b961]/40 px-5 py-1.5 text-xs font-bold uppercase tracking-wide text-[#123b00] shadow-[0_0_10px_rgba(153,185,97,0.2)]">
+                        <span className="size-1.5 rounded-full bg-[#7a964a] animate-pulse" />
+                        Active — Prototype Stage
+                      </span>
+                      <span className="rounded-full border border-[#06100d]/10 bg-[#06100d]/5 px-4 py-1.5 text-xs font-medium uppercase tracking-wide text-[#06100d]/70 backdrop-blur-sm">
+                        Agritech · IoT · Automation
+                      </span>
+                    </div>
+                    <h2 className="font-heading text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl tracking-tight text-[#06100d]">
+                      Project{" "}
+                      <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#7a964a] to-[#5a7333] pr-2">
+                        NutriTech
+                      </span>
+                    </h2>
+                  </div>
+                  <p className="max-w-2xl text-lg leading-relaxed text-[#06100d]/75 relative z-10 font-medium">
+                    Sylvedha's smart agriculture initiative — combining environmental sensing, controlled plant
+                    growth experiments, automation, and digital infrastructure to build scalable solutions for
+                    future farming.
+                  </p>
+                </div>
+              </div>
+
+              {/* Tech Pillar 1 moved to empty right space */}
+              <div className="hidden lg:flex flex-col flex-1 justify-center animate-on-scroll pr-8">
+                <SubtractedCard
+                  color="dark-green"
+                  ringSurface="none"
+                  corner="top-right"
+                  cutoutSize={56}
+                  borderRadius={24}
+                  disableAnimation={false}
+                  floatingElement={
+                    <div className="flex size-full items-center justify-center rounded-full bg-[#BFF202] shadow-lg border-2 border-white ring-2 ring-[#023a35]">
+                      {(() => {
+                        const Icon = techPillars[0].icon;
+                        return <Icon className="size-6 text-[#023a35]" />;
+                      })()}
+                    </div>
+                  }
+                >
+                  <div className="p-6 pt-8 pr-12 text-[#F5F0E8]">
+                    <p className="font-bold text-base tracking-wide mb-2">{techPillars[0].title}</p>
+                    <p className="text-sm leading-relaxed opacity-80 font-medium">{techPillars[0].desc}</p>
+                  </div>
+                </SubtractedCard>
+              </div>
+            </div>
+
+              {/* Carousel + monitoring */}
+              <div className="animate-on-scroll grid lg:grid-cols-5 gap-6 mb-8 px-4 lg:px-8">
+                {/* Carousel panel (Organic Shape) */}
+                <div className="lg:col-span-3 rounded-[3rem] rounded-tl-2xl rounded-br-2xl p-8 lg:p-10 relative z-10 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_50px_-12px_rgba(153,185,97,0.25)] hover:rounded-[2rem] bg-white/70 backdrop-blur-md shadow-xl shadow-[#06100d]/5 border border-[#99b961]/20">
+                  <p className="relative mb-6 text-xs font-bold uppercase tracking-[0.2em] text-[#123b00]">
+                    Experimental Setup
+                  </p>
+                  <NutriTechCarousel />
+                </div>
+
+                {/* What it monitors panel (Organic Shape) */}
+                <div className="lg:col-span-2 rounded-[3rem] rounded-tr-2xl rounded-bl-2xl p-8 lg:p-10 flex flex-col relative z-10 transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_50px_-12px_rgba(153,185,97,0.25)] hover:rounded-[2rem] bg-white/70 backdrop-blur-md shadow-xl shadow-[#06100d]/5 border border-[#99b961]/20">
+                  <p className="relative mb-6 text-xs font-bold uppercase tracking-[0.2em] text-[#123b00]">
+                    System Monitors
+                  </p>
+                  <div className="flex flex-wrap gap-2.5 flex-1 content-start">
+                    {monitored.map((item) => (
+                      <span key={item} className="group flex items-center gap-2 text-sm text-[#06100d]/90 font-semibold px-4 py-2 rounded-full bg-white shadow-sm border border-[#99b961]/20 transition-all duration-300 hover:border-[#99b961]/50 hover:shadow-md hover:-translate-y-0.5">
+                        <Check className="size-4 text-[#7a964a] group-hover:scale-110 transition-transform" strokeWidth={3} />
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Core Purpose */}
+                  <div className="mt-8 flex-1 flex flex-col justify-end">
+                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/90 to-white/40 p-6 shadow-sm border border-[#99b961]/20 group hover:shadow-md hover:border-[#99b961]/40 transition-all duration-300">
+                      <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#7a964a] to-[#BFF202]"></div>
+                      <Cloud className="absolute -right-4 -bottom-4 size-24 text-[#99b961]/10 group-hover:text-[#99b961]/20 transition-colors duration-500" />
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#7a964a] mb-3">Core Purpose</p>
+                      <p className="text-sm font-semibold leading-relaxed text-[#123b00] relative z-10">
+                        To capture high-fidelity environmental data to train AI agronomy models. By cultivating in a strictly controlled microclimate, we eliminate external variables—optimizing every input for peak yield and serious flavor.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Row: Current Focus & Remaining Tech Pillars */}
+              <div className="animate-on-scroll grid gap-6 lg:grid-cols-3 mx-4 lg:mx-8 mb-6">
+                
+                {/* Current Focus (SubtractedCard) */}
+                <SubtractedCard
+                  color="black"
+                  ringSurface="none"
+                  corner="bottom-left"
+                  cutoutSize={56}
+                  borderRadius={28}
+                  disableAnimation={false}
+                  floatingElement={
+                    <div className="flex size-full items-center justify-center rounded-full bg-[#F5F0E8] shadow-lg border-2 border-[#011A17] ring-2 ring-[#BFF202]">
+                      <Check className="size-6 text-[#011A17]" />
+                    </div>
+                  }
+                >
+                  <div className="p-6 pb-8 pl-12 text-[#F5F0E8]">
+                    <p className="relative text-sm font-bold uppercase tracking-[0.15em] mb-4 text-[#BFF202]">Current Focus</p>
+                    <ul className="relative space-y-3 text-sm opacity-90 font-medium">
+                      <li className="flex items-start gap-2"><div className="size-1.5 rounded-full bg-[#BFF202] mt-1.5 shrink-0" /> Controlled growth</li>
+                      <li className="flex items-start gap-2"><div className="size-1.5 rounded-full bg-[#BFF202] mt-1.5 shrink-0" /> Performance metrics</li>
+                      <li className="flex items-start gap-2"><div className="size-1.5 rounded-full bg-[#BFF202] mt-1.5 shrink-0" /> Hardware validation</li>
+                    </ul>
+                  </div>
+                </SubtractedCard>
+
+                {/* Tech Pillar 2 (SubtractedCard) */}
+                <SubtractedCard
+                  color="neon"
+                  ringSurface="none"
+                  corner="top-left"
+                  cutoutSize={56}
+                  borderRadius={28}
+                  disableAnimation={false}
+                  floatingElement={
+                    <div className="flex size-full items-center justify-center rounded-full bg-[#023a35] shadow-lg border-2 border-white ring-2 ring-[#BFF202]">
+                      {(() => {
+                        const Icon = techPillars[1].icon;
+                        return <Icon className="size-6 text-[#BFF202]" />;
+                      })()}
+                    </div>
+                  }
+                >
+                  <div className="p-6 pt-8 pl-12 text-[#011A17]">
+                    <p className="font-bold text-base tracking-wide mb-2">{techPillars[1].title}</p>
+                    <p className="text-sm leading-relaxed opacity-80 font-medium">{techPillars[1].desc}</p>
+                  </div>
+                </SubtractedCard>
+
+                {/* Tech Pillar 3 (SubtractedCard) */}
+                <SubtractedCard
+                  color="dark-green"
+                  ringSurface="none"
+                  corner="bottom-right"
+                  cutoutSize={56}
+                  borderRadius={28}
+                  disableAnimation={false}
+                  floatingElement={
+                    <div className="flex size-full items-center justify-center rounded-full bg-[#BFF202] shadow-lg border-2 border-white ring-2 ring-[#023a35]">
+                      {(() => {
+                        const Icon = techPillars[2].icon;
+                        return <Icon className="size-6 text-[#023a35]" />;
+                      })()}
+                    </div>
+                  }
+                >
+                  <div className="p-6 pb-8 pr-12 text-[#F5F0E8]">
+                    <p className="font-bold text-base tracking-wide mb-2">{techPillars[2].title}</p>
+                    <p className="text-sm leading-relaxed opacity-80 font-medium">{techPillars[2].desc}</p>
+                  </div>
+                </SubtractedCard>
+
+              </div>
+          </SubtractedCard>
+        </div>
+
+        {/* Mobile View */}
+        <div className="block lg:hidden mb-6">
+          <SubtractedCard
+            color="white"
+            ringSurface="light"
+            corner="top-left"
+            cutoutSize={96}
+            filletSize={28}
+            scoopGap={12}
+            borderRadius={32}
+            disableAnimation={true}
+            floatingElement={
+              <div className="relative size-full overflow-hidden rounded-full bg-[#F5F0E8] border-[4px] border-[#99b961] shadow-lg">
+                <Image
+                  src="/images/nutritech/nutritech-logo.jpeg"
+                  alt="NutriTech"
+                  fill
+                  sizes="96px"
+                  className="object-cover object-[center_40%] scale-[1.5]"
+                />
+              </div>
+            }
+          >
+            {/* Header */}
+            <div className="mb-6 flex flex-col pt-4 pl-20 sm:pl-24">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#99b961]/20 border border-[#99b961]/40 px-3 py-1 mb-3 text-[10px] font-bold uppercase tracking-wide text-[#123b00]">
+                <span className="size-1.5 rounded-full bg-[#7a964a] animate-pulse" />
                 Active Prototype
               </span>
-              <h2 className="font-heading text-3xl font-bold leading-tight text-[#F5F0E8]">
+              <h2 className="font-heading text-3xl font-bold leading-tight text-[#06100d]">
                 Project{" "}
-                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#BFF202] to-[#9ED600]">
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#7a964a] to-[#5a7333] pr-2">
                   NutriTech
                 </span>
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#F5F0E8]/70">
+              <p className="mt-3 text-sm leading-relaxed text-[#06100d]/75 font-medium">
                 Sylvedha's smart agriculture initiative for scalable future farming.
               </p>
             </div>
@@ -198,32 +284,105 @@ export function CurrentProjects() {
               <NutriTechCarousel />
             </div>
 
-            {/* Simplified Monitoring */}
-            <div className="mb-6 rounded-2xl p-5 border border-white/10 bg-white/[0.02]">
-               <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-[#BFF202] text-center">Monitors</p>
-               <div className="flex flex-wrap justify-center gap-2">
-                 {monitored.map(item => (
-                   <span key={item} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-[#F5F0E8]/80">
-                     {item}
-                   </span>
-                 ))}
-               </div>
+            {/* Monitoring List (Organic) */}
+            <div className="rounded-[2.5rem] rounded-tl-xl p-6 mb-8 bg-white/70 backdrop-blur-md shadow-lg shadow-[#06100d]/5 border border-[#99b961]/20">
+              <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#123b00]">
+                Monitors
+              </p>
+              <div className="flex flex-wrap gap-2.5">
+                {monitored.slice(0, 6).map((item) => (
+                  <span key={item} className="group flex items-center gap-2 text-xs text-[#06100d]/90 font-semibold px-3 py-2 rounded-full bg-white shadow-sm border border-[#99b961]/20">
+                    <Check className="size-3.5 text-[#7a964a]" strokeWidth={3} />
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              {/* Mobile Core Purpose */}
+              <div className="mt-6 flex-1 flex flex-col justify-end">
+                <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-white/90 to-white/40 p-5 shadow-sm border border-[#99b961]/20">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#7a964a] to-[#BFF202]"></div>
+                  <Cloud className="absolute -right-3 -bottom-3 size-20 text-[#99b961]/10" />
+                  <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#7a964a] mb-2">Core Purpose</p>
+                  <p className="text-xs font-semibold leading-relaxed text-[#123b00] relative z-10">
+                    To capture high-fidelity environmental data to train AI agronomy models. By cultivating in a strictly controlled microclimate, we eliminate external variables—optimizing every input for peak yield and serious flavor.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Simplified Tech Layers */}
-            <div className="rounded-2xl p-5 border border-white/10 bg-white/[0.02]">
-               <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-[#BFF202] text-center">Tech Layers</p>
-               <div className="grid grid-cols-2 gap-y-4 gap-x-2">
-                 {techPillars.map(pillar => (
-                   <div key={pillar.title} className="flex flex-col items-center gap-2 text-center">
-                     <pillar.icon className="size-5 text-[#BFF202]/80" />
-                     <span className="text-[11px] leading-tight text-[#F5F0E8]/90">{pillar.title}</span>
-                   </div>
-                 ))}
-               </div>
-            </div>
+            {/* Mobile SubtractedCards Grid */}
+            <div className="grid gap-6 mb-6">
+              {/* Tech Pillar 1 */}
+              <SubtractedCard
+                  color="dark-green"
+                  ringSurface="none"
+                  corner="top-right"
+                  cutoutSize={48}
+                  borderRadius={24}
+                  disableAnimation={false}
+                  floatingElement={
+                    <div className="flex size-full items-center justify-center rounded-full bg-[#BFF202] shadow-lg border-2 border-white ring-2 ring-[#023a35]">
+                      {(() => {
+                        const Icon = techPillars[0].icon;
+                        return <Icon className="size-5 text-[#023a35]" />;
+                      })()}
+                    </div>
+                  }
+                >
+                  <div className="p-5 pt-6 pr-10 text-[#F5F0E8]">
+                    <p className="font-bold text-base tracking-wide mb-1">{techPillars[0].title}</p>
+                    <p className="text-sm leading-relaxed opacity-80 font-medium">{techPillars[0].desc}</p>
+                  </div>
+              </SubtractedCard>
 
-          </div>
+              {/* Current Focus */}
+              <SubtractedCard
+                  color="black"
+                  ringSurface="none"
+                  corner="bottom-left"
+                  cutoutSize={48}
+                  borderRadius={24}
+                  disableAnimation={false}
+                  floatingElement={
+                    <div className="flex size-full items-center justify-center rounded-full bg-[#F5F0E8] shadow-lg border-2 border-[#011A17] ring-2 ring-[#BFF202]">
+                      <Check className="size-5 text-[#011A17]" />
+                    </div>
+                  }
+                >
+                  <div className="p-5 pb-6 pl-10 text-[#F5F0E8]">
+                    <p className="relative text-xs font-bold uppercase tracking-[0.15em] mb-3 text-[#BFF202]">Current Focus</p>
+                    <ul className="relative space-y-3 text-sm opacity-90 font-medium">
+                      <li className="flex items-start gap-2"><div className="size-1.5 rounded-full bg-[#BFF202] mt-1.5 shrink-0" /> Controlled growth</li>
+                      <li className="flex items-start gap-2"><div className="size-1.5 rounded-full bg-[#BFF202] mt-1.5 shrink-0" /> Hardware validation</li>
+                    </ul>
+                  </div>
+              </SubtractedCard>
+
+              {/* Tech Pillar 2 */}
+              <SubtractedCard
+                  color="neon"
+                  ringSurface="none"
+                  corner="bottom-right"
+                  cutoutSize={48}
+                  borderRadius={24}
+                  disableAnimation={false}
+                  floatingElement={
+                    <div className="flex size-full items-center justify-center rounded-full bg-[#023a35] shadow-lg border-2 border-white ring-2 ring-[#BFF202]">
+                      {(() => {
+                        const Icon = techPillars[1].icon;
+                        return <Icon className="size-5 text-[#BFF202]" />;
+                      })()}
+                    </div>
+                  }
+                >
+                  <div className="p-5 pb-6 pr-10 text-[#011A17]">
+                    <p className="font-bold text-base tracking-wide mb-1">{techPillars[1].title}</p>
+                    <p className="text-sm leading-relaxed opacity-80 font-medium">{techPillars[1].desc}</p>
+                  </div>
+              </SubtractedCard>
+            </div>
+          </SubtractedCard>
         </div>
 
         {/* Action Button */}

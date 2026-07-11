@@ -9,7 +9,7 @@ export function About() {
       <div className="absolute right-0 top-0 -z-[1] h-[600px] w-[600px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
       <div className="absolute -left-20 bottom-0 -z-[1] h-[400px] w-[400px] rounded-full bg-[#3A7717]/5 blur-[120px]" />
 
-      <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
+      <div className="mx-auto w-full max-w-7xl px-5 pt-24 pb-12 lg:pb-16 sm:px-8">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div>
             <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
@@ -27,7 +27,7 @@ export function About() {
             </p>
             <a
               href="#focus"
-              className="animate-on-scroll mt-8 inline-flex items-center gap-2 rounded-xl bg-primary/5 border border-primary/15 px-5 py-2.5 text-sm font-semibold text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:shadow-md group"
+              className="animate-on-scroll mt-4 inline-flex items-center gap-2 rounded-xl bg-primary/5 border border-primary/15 px-5 py-2.5 text-sm font-semibold text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:shadow-md group"
             >
               See Our Focus Areas
               <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -51,7 +51,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="mt-20 grid gap-5 md:grid-cols-2 stagger-children">
+        <div className="mt-2 lg:mt-4 grid gap-6 md:grid-cols-2 stagger-children">
           {/* Vision Card */}
           <SubtractedCard
             color="white"

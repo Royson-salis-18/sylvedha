@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { ReactNode, useRef, useCallback, useState, useEffect, useMemo, useId } from "react"
 import { cn } from "@/lib/utils"
@@ -34,12 +34,15 @@ interface SubtractedCardProps {
   cutoutSize?: SizeValue
   filletSize?: number
   color?: "dark-green" | "neon" | "black" | "white" | "purple-gold" | string
-  ringSurface?: "light" | "dark"
+  ringSurface?: "light" | "dark" | "none"
   floatingElement?: ReactNode
   disableAnimation?: boolean
+  animationIntensity?: number
   cutouts?: CutoutConfig[]
   borderRadius?: number
   scoopGap?: number
+  hoverRingScale?: "large" | "small"
+  disableTilt?: boolean
 }
 
 const DEFAULT_GAP = 16
@@ -47,6 +50,7 @@ const MIN_H = 200
 
 const FILL: Record<string, string> = {
   "dark-green": "#023a35",
+  "mid-green": "#1e4d41",
   neon: "#BFF202",
   black: "#011A17",
   white: "#F5F0E8",
@@ -55,6 +59,7 @@ const FILL: Record<string, string> = {
 
 const BG: Record<string, string> = {
   "dark-green": "bg-[#023a35] text-white",
+  "mid-green": "bg-[#1e4d41] text-white",
   neon: "bg-[#BFF202] text-[#012522]",
   black: "bg-[#011A17] text-[#F5F0E8]",
   white: "bg-[#F5F0E8] text-[#012522]",
@@ -62,69 +67,26 @@ const BG: Record<string, string> = {
 }
 
 const RING_PALETTES = {
+  // ── DARK backgrounds (dark-green, black, purple-gold) → LIGHT rings ──────
+  // Use bright white/creme outer + neon inner so rings always pop off dark bg
   light: {
-    "dark-green": {
-      outer: "#01312D",
-      inner: "#6B8E23",
-      outerGlow: "0 0 14px rgba(1,49,45,0.22)",
-      innerGlow: "0 0 14px rgba(74,110,35,0.24)",
-    },
-    black: {
-      outer: "#01312D",
-      inner: "#6B8E23",
-      outerGlow: "0 0 14px rgba(1,49,45,0.22)",
-      innerGlow: "0 0 14px rgba(74,110,35,0.24)",
-    },
-    "purple-gold": {
-      outer: "#1A0B2E",
-      inner: "#8A6A16",
-      outerGlow: "0 0 14px rgba(26,11,46,0.20)",
-      innerGlow: "0 0 14px rgba(138,106,22,0.24)",
-    },
-    neon: {
-      outer: "#FFFFFF",
-      inner: "#011a17",
-      outerGlow: "0 0 20px rgba(255,255,255,0.5)",
-      innerGlow: "0 0 14px rgba(1,26,23,0.3)",
-    },
-    white: {
-      outer: "#FFFFFF",
-      inner: "#BFF202",
-      outerGlow: "0 0 20px rgba(255,255,255,0.5)",
-      innerGlow: "0 0 24px rgba(191,242,2,0.5)",
-    },
+    "dark-green": { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 22px rgba(255,255,255,0.55)", innerGlow: "0 0 24px rgba(191,242,2,0.55)" },
+    "mid-green":  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 22px rgba(255,255,255,0.55)", innerGlow: "0 0 24px rgba(191,242,2,0.55)" },
+    black:        { outer: "#F5F0E8", inner: "#BFF202", outerGlow: "0 0 22px rgba(245,240,232,0.55)", innerGlow: "0 0 24px rgba(191,242,2,0.55)" },
+    "purple-gold":{ outer: "#F5F0E8", inner: "#D4AF37", outerGlow: "0 0 18px rgba(245,240,232,0.40)", innerGlow: "0 0 18px rgba(212,175,55,0.42)" },
+    // ── LIGHT backgrounds (neon, white) → DARK rings ─────────────────────────
+    // Use dark outer + dark-green inner so rings are visible against bright bg
+    neon:  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 22px rgba(255,255,255,0.55)", innerGlow: "0 0 22px rgba(191,242,2,0.55)" },
+    white: { outer: "#FFFFFF", inner: "#1e4d41", outerGlow: "0 0 22px rgba(255,255,255,0.55)", innerGlow: "0 0 24px rgba(30,77,65,0.55)" },
   },
+  // dark surface = same logic, slightly stronger glows for dark-background contexts
   dark: {
-    "dark-green": {
-      outer: "#EAFDE7",
-      inner: "#BFF202",
-      outerGlow: "0 0 22px rgba(234,253,231,0.38)",
-      innerGlow: "0 0 24px rgba(191,242,2,0.42)",
-    },
-    black: {
-      outer: "#EAFDE7",
-      inner: "#BFF202",
-      outerGlow: "0 0 22px rgba(234,253,231,0.38)",
-      innerGlow: "0 0 24px rgba(191,242,2,0.42)",
-    },
-    "purple-gold": {
-      outer: "#F5F0E8",
-      inner: "#D4AF37",
-      outerGlow: "0 0 22px rgba(245,240,232,0.36)",
-      innerGlow: "0 0 22px rgba(212,175,55,0.36)",
-    },
-    neon: {
-      outer: "#F5F0E8",
-      inner: "#BFF202",
-      outerGlow: "0 0 22px rgba(245,240,232,0.38)",
-      innerGlow: "0 0 24px rgba(191,242,2,0.42)",
-    },
-    white: {
-      outer: "#FFFFFF",
-      inner: "#BFF202",
-      outerGlow: "0 0 20px rgba(255,255,255,0.5)",
-      innerGlow: "0 0 24px rgba(191,242,2,0.5)",
-    },
+    "dark-green": { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 24px rgba(255,255,255,0.60)", innerGlow: "0 0 26px rgba(191,242,2,0.60)" },
+    "mid-green":  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 24px rgba(255,255,255,0.60)", innerGlow: "0 0 26px rgba(191,242,2,0.60)" },
+    black:        { outer: "#F5F0E8", inner: "#BFF202", outerGlow: "0 0 24px rgba(245,240,232,0.60)", innerGlow: "0 0 26px rgba(191,242,2,0.60)" },
+    "purple-gold":{ outer: "#F5F0E8", inner: "#D4AF37", outerGlow: "0 0 22px rgba(245,240,232,0.42)", innerGlow: "0 0 22px rgba(212,175,55,0.42)" },
+    neon:  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 24px rgba(255,255,255,0.60)", innerGlow: "0 0 24px rgba(191,242,2,0.60)" },
+    white: { outer: "#FFFFFF", inner: "#1e4d41", outerGlow: "0 0 24px rgba(255,255,255,0.60)", innerGlow: "0 0 26px rgba(30,77,65,0.60)" },
   },
 } as const
 
@@ -355,9 +317,12 @@ export function SubtractedCard({
   ringSurface = "light",
   floatingElement,
   disableAnimation = false,
+  animationIntensity = 1,
   cutouts,
   borderRadius = 32,
   scoopGap = DEFAULT_GAP,
+  hoverRingScale = "large",
+  disableTilt = false,
 }: SubtractedCardProps) {
   const cardRef  = useRef<HTMLDivElement>(null)
   const bodyRef  = useRef<HTMLDivElement>(null)
@@ -450,25 +415,28 @@ export function SubtractedCard({
         const dx = nx - 0.5
         const dy = ny - 0.5
 
-        // Stronger 3D tilt
-        body.style.transform = `perspective(800px) rotateX(${-dy * 18}deg) rotateY(${dx * 18}deg) scale(1.045) translateZ(0)`
+        // Stronger 3D tilt moderated by intensity
+        if (!disableTilt) {
+          const scaleFactor = 1 + (0.045 * animationIntensity)
+          body.style.transform = `perspective(800px) rotateX(${-dy * 18 * animationIntensity}deg) rotateY(${dx * 18 * animationIntensity}deg) scale(${scaleFactor}) translateZ(0)`
+        }
         body.style.transition = "none"
 
         // Spotlight follow
         if (spot) {
           spot.style.opacity = "1"
-          spot.style.background = `radial-gradient(circle at ${nx * 100}% ${ny * 100}%, rgba(255,255,255,0.07) 0%, transparent 60%)`
+          spot.style.background = `radial-gradient(circle at ${nx * 100}% ${ny * 100}%, rgba(255,255,255,${0.07 * animationIntensity}) 0%, transparent 60%)`
           spot.style.transition = "none"
         }
 
         // Icon parallax counter-movement
         if (icon && effectiveCorner !== "none") {
-          icon.style.transform = `translate(${-dx * 14}px, ${-dy * 14}px) scale(1.05) rotate(${dx * 6}deg)`
+          icon.style.transform = `translate(${-dx * 14 * animationIntensity}px, ${-dy * 14 * animationIntensity}px) scale(${1 + 0.05 * animationIntensity}) rotate(${dx * 6 * animationIntensity}deg)`
           icon.style.transition = "none"
         }
       })
     },
-    [disableAnimation, effectiveCorner]
+    [disableAnimation, animationIntensity, effectiveCorner]
   )
 
   const handleMouseEnter = useCallback(() => {
@@ -492,7 +460,9 @@ export function SubtractedCard({
 
     if (body) {
       body.style.transition = "transform 0.55s cubic-bezier(0.22,1,0.36,1)"
-      body.style.transform = ""
+      if (!disableTilt) {
+        body.style.transform = ""
+      }
     }
     if (spot) {
       spot.style.transition = "opacity 0.4s ease"
@@ -507,13 +477,14 @@ export function SubtractedCard({
   const shaped = Boolean(outlinePath)
 
   const ringPalette = useMemo(() => {
-    return RING_PALETTES[ringSurface][resolveRingColorKey(color)]
+    const surface = ringSurface === "none" ? "light" : ringSurface
+    return RING_PALETTES[surface][resolveRingColorKey(color)]
   }, [color, ringSurface])
 
   return (
     <div
       ref={cardRef}
-      className={cn("relative w-full min-h-[200px] overflow-visible group", !disableAnimation && "cursor-pointer")}
+      className={cn("relative w-full min-h-[200px] overflow-visible group/card", !disableAnimation && "cursor-pointer")}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
@@ -556,27 +527,30 @@ export function SubtractedCard({
         />
 
         {shaped && (
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none z-0"
+          <svg shapeRendering="geometricPrecision"
+            className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
             viewBox={`0 0 ${dims.w} ${dims.h}`}
             preserveAspectRatio="none"
             aria-hidden
           >
             {/* Fill */}
-            <path d={outlinePath!} fill={fillColor} />
+            <path shapeRendering="geometricPrecision" d={outlinePath!} fill={fillColor} filter={`url(#shadow-${clipId})`} />
             {/* Animated gradient border */}
-            <path
+            <path shapeRendering="geometricPrecision"
               d={outlinePath!}
               fill="none"
               stroke="url(#sc-grad-border)"
               strokeWidth="1.8"
               strokeDasharray="80 40"
               vectorEffect="non-scaling-stroke"
-              className="sc-border-anim opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+              className="sc-border-anim opacity-60 group-hover/card:opacity-100 transition-opacity duration-500"
             />
             <defs>
+              <filter id={`shadow-${clipId}`} x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="16" floodColor="#000000" floodOpacity="0.12" />
+              </filter>
               <clipPath id={clipId}>
-                <path d={outlinePath!} />
+                <path shapeRendering="geometricPrecision" d={outlinePath!} />
               </clipPath>
               <linearGradient id="sc-grad-border" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="rgba(255,255,255,0)" />
@@ -622,19 +596,25 @@ export function SubtractedCard({
             <>
               {/* Outer ring */}
               <div
-                className="absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover:opacity-100 group-hover:scale-[1.7] transition-all duration-700 ease-out"
+                className={cn(
+                  "absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover/card:opacity-100 transition-all duration-700 ease-out",
+                  hoverRingScale === "small" ? "group-hover/card:scale-[1.35]" : "group-hover/card:scale-[1.7]"
+                )}
                 style={{ borderColor: ringPalette.outer, boxShadow: ringPalette.outerGlow }}
               />
               {/* Inner ring */}
               <div
-                className="absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover:opacity-100 group-hover:scale-[1.3] transition-all duration-500 ease-out"
+                className={cn(
+                  "absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover/card:opacity-100 transition-all duration-500 ease-out",
+                  hoverRingScale === "small" ? "group-hover/card:scale-[1.15]" : "group-hover/card:scale-[1.3]"
+                )}
                 style={{ borderColor: ringPalette.inner, boxShadow: ringPalette.innerGlow }}
               />
             </>
           )}
           <div className={cn(
             "size-full transition-all duration-500",
-            !disableAnimation && "animate-bob group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
+            !disableAnimation && "animate-bob group-hover/card:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
           )}>{floatingElement}</div>
         </div>
       )}

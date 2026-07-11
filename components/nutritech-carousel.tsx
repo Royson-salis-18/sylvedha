@@ -133,7 +133,7 @@ export function NutriTechCarousel() {
 
       {/* Thumbnail strip */}
       {total > 1 && (
-        <div className="flex gap-2 overflow-x-auto pb-1">
+        <div className="flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {nutriTechMedia.map((item, i) => (
             <button
               key={i}

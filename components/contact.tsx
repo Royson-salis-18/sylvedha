@@ -1,7 +1,45 @@
-import { Mail, Phone, Link2, ArrowUpRight } from "lucide-react"
+import { Mail, Phone, ArrowUpRight } from "lucide-react"
 import { ContactForm } from "@/components/contact-form"
 import { FloatingCubes } from "./floating-cubes"
 import { SubtractedCard } from "@/components/subtracted-card"
+
+const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+)
+
+const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+)
 
 const phones = ["CEO: +91 77950 70676", "COO: +91 96323 97595", "CTO: +91 82771 51149", "Whatsapp: +91 91875 98775"]
 
@@ -108,7 +146,7 @@ export function Contact() {
                   borderRadius={40}
                   floatingElement={
                     <div className="size-full rounded-full bg-[#011e1b] flex items-center justify-center shadow-xl">
-                      <Link2 className="size-6 text-[#BFF202]" />
+                      <LinkedinIcon className="size-6 text-[#BFF202]" />
                     </div>
                   }
                 >
@@ -120,7 +158,8 @@ export function Contact() {
                   >
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#011e1b]/60 mb-1">Social</p>
-                      <span className="text-2xl font-bold text-[#011e1b]">LinkedIn</span>
+                      <span className="block text-2xl font-bold text-[#011e1b]">LinkedIn</span>
+                      <span className="text-sm font-semibold text-[#011e1b]/70">@Sylvedha</span>
                     </div>
                     <ArrowUpRight className="size-8 text-[#011e1b]/60" />
                   </a>
@@ -131,8 +170,40 @@ export function Contact() {
           </div>
 
           {/* Right column — contact form */}
-          <div className="animate-on-scroll flex flex-col justify-end">
+          <div className="animate-on-scroll flex flex-col pt-2 gap-6 lg:gap-8">
             <ContactForm />
+            
+            {/* Instagram Card */}
+            <div className="animate-on-scroll">
+              <SubtractedCard
+                color="black"
+                ringSurface="dark"
+                corner="top-right"
+                cutoutSize={64}
+                filletSize={24}
+                scoopGap={12}
+                borderRadius={40}
+                floatingElement={
+                  <div className="size-full rounded-full bg-[#BFF202] flex items-center justify-center shadow-xl">
+                    <InstagramIcon className="size-6 text-[#011e1b]" />
+                  </div>
+                }
+              >
+                <a
+                  href="https://instagram.com/sylvedha"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between w-full"
+                >
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#F5F0E8]/60 mb-1">Social</p>
+                    <span className="block text-2xl font-bold text-[#F5F0E8]">Instagram</span>
+                    <span className="text-sm font-semibold text-[#F5F0E8]/70">@Sylvedha</span>
+                  </div>
+                  <ArrowUpRight className="size-8 text-[#F5F0E8]/60" />
+                </a>
+              </SubtractedCard>
+            </div>
           </div>
 
         </div>
