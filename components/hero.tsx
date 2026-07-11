@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useRef, useCallback, useState, useEffect } from "react"
-import { ArrowUpRight, Sprout, Leaf, FlaskConical, Cpu } from "lucide-react"
+import { ArrowUpRight, Sprout, Leaf, FlaskConical, Cpu, Zap, Settings } from "lucide-react"
 
 function useTilt() {
   const ref = useRef<HTMLDivElement>(null)
@@ -60,9 +60,22 @@ function CustomHeroImageCard({ children, floatingElement }: { children: React.Re
 
   const { w, h } = size
   
-  // Cutout parameters
-  const biteR = 44
+  const b = 44
   const F = 14
+  const offset = b * 0.75
+  const cx = w - offset
+  const cy = offset
+  const ratio = F / (b + F)
+
+  const dx = Math.sqrt(Math.max(0, Math.pow(b + F, 2) - Math.pow(cy - F, 2)));
+  const dy = Math.sqrt(Math.max(0, Math.pow(b + F, 2) - Math.pow(w - cx - F, 2)));
+  const fx = cx - dx;
+  const fy = cy + dy;
+  
+  const t1x = fx + ratio * (cx - fx);
+  const t1y = F + ratio * (cy - F);
+  const t2x = w - F + ratio * (cx - (w - F));
+  const t2y = fy + ratio * (cy - fy);
 
   return (
     <div ref={containerRef} className="relative w-full h-full pointer-events-none group">
@@ -72,7 +85,7 @@ function CustomHeroImageCard({ children, floatingElement }: { children: React.Re
             <mask id="hero-cutout-mask">
               <rect x="0" y="0" width={w} height={h} fill="white" />
               <path 
-                d={`M ${w} 0 L ${w - biteR - F} 0 A ${F} ${F} 0 0 1 ${w - biteR} ${F} A ${biteR} ${biteR} 0 0 0 ${w - F} ${biteR} A ${F} ${F} 0 0 1 ${w} ${biteR + F} L ${w} 0 Z`} 
+                d={`M ${w} 0 L ${fx} 0 A ${F} ${F} 0 0 1 ${t1x} ${t1y} A ${b} ${b} 0 0 0 ${t2x} ${t2y} A ${F} ${F} 0 0 1 ${w} ${fy} Z`} 
                 fill="black" 
               />
             </mask>
@@ -97,30 +110,25 @@ function CustomHeroImageCard({ children, floatingElement }: { children: React.Re
         <div 
           className="absolute z-20 pointer-events-auto group cursor-pointer"
           style={{
-            top: 0,
-            left: w,
-            width: biteR * 2.2,
-            height: biteR * 2.2,
+            top: cy,
+            left: cx,
+            width: b * 2.2,
+            height: b * 2.2,
             transform: `translate(-50%, -50%) translate(calc(var(--mouse-x, 0) * -8px), calc(var(--mouse-y, 0) * -8px))`,
             transition: 'transform 0.1s ease-out'
           }}
         >
-          {/* Inner white ring */}
+          {/* Outer white ring */}
           <div 
-            className="absolute inset-[-4px] rounded-full border-[1.5px] border-white opacity-0 group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100"
-            style={{ boxShadow: "0 0 20px rgba(255,255,255,0.8), inset 0 0 10px rgba(255,255,255,0.5)" }}
+            className="absolute inset-0 rounded-full border-[2.5px] border-white opacity-0 group-hover:opacity-100 group-hover:scale-[1.7] transition-all duration-700 ease-out"
+            style={{ boxShadow: '0 0 15px rgba(255,255,255,0.3)' }}
           />
-          {/* Middle neon ring */}
+          {/* Inner neon ring */}
           <div 
-            className="absolute inset-[-12px] rounded-full border-[1.5px] border-[#BFF202] opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100"
-            style={{ boxShadow: "0 0 35px rgba(191,242,2,0.9), inset 0 0 15px rgba(191,242,2,0.6)" }}
+            className="absolute inset-0 rounded-full border-[2.5px] border-[#BFF202] opacity-0 group-hover:opacity-100 group-hover:scale-[1.3] transition-all duration-500 ease-out"
+            style={{ boxShadow: '0 0 15px rgba(191,242,2,0.3)' }}
           />
-          {/* Outer soft neon ring */}
-          <div 
-            className="absolute inset-[-22px] rounded-full border border-[#BFF202]/60 opacity-0 group-hover:opacity-100 transition-all duration-700 scale-[0.85] group-hover:scale-100"
-            style={{ boxShadow: "0 0 55px rgba(191,242,2,0.6), inset 0 0 20px rgba(191,242,2,0.4)" }}
-          />
-          <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-[1.08]">
+          <div className="relative w-full h-full transition-all duration-500 animate-bob group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
             {floatingElement}
           </div>
         </div>
@@ -134,7 +142,7 @@ export function Hero() {
 
   return (
     <section 
-      className="w-full bg-[#011a17] min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] lg:pt-[130px] xl:pt-[140px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden"
+      className="w-full bg-[#011a17] min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] lg:pt-[90px] xl:pt-[100px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -267,38 +275,47 @@ export function Hero() {
           className="absolute top-0 left-0 w-[59.5%] h-[72%] bg-[#eee9df] z-20 opacity-0 afl d1 flex flex-col pointer-events-auto overflow-hidden"
           style={{ clipPath: 'url(#text-clip)' }}
         >
-          <div className="w-full flex-1 px-10 xl:px-12 pt-8 xl:pt-10 pb-2 flex flex-col justify-start relative z-10">
-            <p className="text-[#123b00] font-black tracking-[0.25em] text-[12px] xl:text-[14px] mb-0.5 animate-text-float" style={{animationDelay:'0s'}}>SYLVEDHA</p>
-            <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] xl:text-[12px] mb-3">Innovating Technology in Harmony with Nature</p>
-            <h1 className="font-heading text-[clamp(2.2rem,3vw,3.2rem)] leading-[1.05] font-extrabold text-[#06100d] max-w-[95%]">
-              Building the Future of <br className="hidden xl:block" />
-              <span className="text-[#123b00] italic font-normal">
-                Sustainable Innovation
-              </span>
-            </h1>
-            <p className="text-[13px] xl:text-[14px] leading-[1.6] mt-4 text-[#06100d]/80 font-medium max-w-[90%]">
-              SYLVEDHA is a multidisciplinary technology company developing innovative solutions across{" "}
-              <span className="font-bold text-[#06100d]">Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation,</span> and Sustainable Infrastructure.
-            </p>
-            <button className="mt-5 w-fit px-7 py-3 bg-[#c7ff00] text-[#06100d] rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-[#a6d900] transition-colors animate-pulse-glow">
-              Explore Innovations
-            </button>
-          </div>
-          {/* Tag row sits in the lower-left quadrant */}
-          <div className="w-[66%] px-10 xl:px-12 pb-8 flex flex-col justify-end relative z-10">
-            <div className="flex flex-wrap gap-2.5">
+          <div className="w-full h-full px-8 xl:px-12 pt-6 xl:pt-8 pb-6 flex flex-col justify-between relative z-10">
+            
+            {/* TOP SECTION: Full Width Titles */}
+            <div className="w-full flex flex-col">
+              <p className="text-[#123b00] font-black tracking-[0.3em] text-[11px] xl:text-[13px] mb-1 animate-text-float" style={{animationDelay:'0s'}}>
+                SYLVEDHA
+              </p>
+              <h2 className="text-[#06100d]/90 font-bold tracking-wide text-[16px] md:text-[18px] xl:text-[20px] mb-1 xl:mb-2">
+                Innovating Technology in Harmony with Nature
+              </h2>
+              <h1 className="font-heading text-[clamp(2rem,2.8vw,3rem)] xl:text-[clamp(2.4rem,3.4vw,3.8rem)] leading-[1.05] font-extrabold text-[#06100d]">
+                Engineering Sustainable Technologies for <span className="text-[#123b00] italic font-normal">Tomorrow</span>
+              </h1>
+            </div>
+
+            {/* MIDDLE SECTION: Description & Button (Constrained to left side to avoid cutout) */}
+            <div className="lg:w-[62%] flex flex-col items-start mt-4 xl:mt-5">
+              <p className="text-[13px] xl:text-[14px] leading-[1.5] text-[#06100d]/75 font-medium">
+                Sylvedha is a research, engineering, and manufacturing company developing intelligent technologies and products across <span className="font-bold text-[#06100d]/90">agriculture, biotechnology, renewable energy, artificial intelligence, and automation.</span>
+              </p>
+              <button className="mt-4 xl:mt-5 w-fit px-8 xl:px-10 py-3 xl:py-3.5 bg-[#c7ff00] text-[#06100d] rounded-full font-bold uppercase tracking-[0.15em] text-[11px] xl:text-[12px] hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(199,255,0,0.4)] transition-all duration-300">
+                Explore Our Work
+              </button>
+            </div>
+            
+            {/* BOTTOM SECTION: Tags (Safe in bottom-left corner) */}
+            <div className="w-full lg:w-[85%] mt-auto flex flex-wrap gap-2.5">
               {[
                 { icon: Sprout, label: 'Agritech' },
                 { icon: FlaskConical, label: 'Biotech' },
-                { icon: Leaf, label: 'Ecology' },
+                { icon: Zap, label: 'Energy' },
                 { icon: Cpu, label: 'AI' },
+                { icon: Settings, label: 'Automation' },
               ].map((tag, i) => (
                 <span
                   key={tag.label}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#06100d]/10 text-[10px] font-bold uppercase tracking-widest text-[#06100d]/90 hover:bg-[#123b00]/20 hover:text-[#123b00] hover:scale-105 transition-all cursor-pointer"
                   style={{ transitionDelay: `${i * 40}ms` }}
                 >
-                  <tag.icon className="size-3" /> {tag.label}
+                  <tag.icon className="w-3 h-3" />
+                  {tag.label}
                 </span>
               ))}
             </div>
@@ -341,17 +358,17 @@ export function Hero() {
           className="absolute left-0 top-[73.5%] w-[39.5%] h-[26.5%] rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] z-30 opacity-0 afu d3 relative transition-colors duration-300 shadow-[0_18px_45px_rgba(0,0,0,0.15)]"
         >
           <div
-            className="absolute inset-0 z-0 rounded-[2.5rem] bg-[#a6d900] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+            className="absolute inset-0 z-0 rounded-[2.5rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
             style={{ willChange: 'transform' }}
           />
           <div className="relative z-10 flex flex-col">
-            <p className="text-[#01312D]/90 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-300">Let&apos;s Collaborate</p>
-            <p className="font-heading font-bold text-[clamp(1.5rem,2.2vw,2.1rem)] text-[#01312D] leading-[1.05] transition-colors duration-300">
+            <p className="text-[#01312D]/90 group-hover:text-[#BFF202]/90 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-300">Let&apos;s Collaborate</p>
+            <p className="font-heading font-bold text-[clamp(1.5rem,2.2vw,2.1rem)] text-[#01312D] group-hover:text-white leading-[1.05] transition-colors duration-300">
               Get in <span className="italic font-light">Touch</span>
             </p>
           </div>
-          <div className="relative z-10 size-14 rounded-full bg-[#01312D] flex items-center justify-center transition-all duration-300 shrink-0 group-hover:bg-[#011a17]">
-            <ArrowUpRight className="size-6 text-[#BFF202] transition-colors duration-300" />
+          <div className="relative z-10 size-14 rounded-full bg-[#01312D] group-hover:bg-[#BFF202] flex items-center justify-center transition-colors duration-300 shrink-0">
+            <ArrowUpRight className="size-6 text-[#BFF202] group-hover:text-[#01312D] transition-colors duration-300" />
           </div>
         </a>
 
