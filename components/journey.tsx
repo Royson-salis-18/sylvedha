@@ -123,7 +123,7 @@ export function Journey() {
             <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#BFF202] pr-2">to first sales</span>
           </h2>
           <p className="animate-on-scroll mt-5 text-base md:text-lg text-muted-foreground font-medium max-w-xl">
-            This is where we started. What comes next — watch this space.
+            This is where we started. What comes next — you'll see.
           </p>
         </div>
 
