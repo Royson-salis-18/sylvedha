@@ -22,13 +22,18 @@ const milestones = [
     description:
       "Grevara, our indoor farming sub-brand, completed its first real sales — real customers, real revenue. Proof that our products are market-ready, not just lab experiments.",
   },
+  {
+    title: "Industry Showcases & Recognition",
+    description:
+      "Took the hardware to the floor — demonstrated at technology exhibitions and academic platforms. Industry experts, researchers, and stakeholders saw it working. The feedback was clear: this matters.",
+  },
 ]
 
 const cardConfigs = [
   { color: "dark-green", corner: "top-left", ringSurface: "light", textPrimary: "text-white", textSecondary: "text-white/80", floatBg: "bg-transparent", floatText: "text-[#BFF202]" },
   { color: "white", corner: "top-left", ringSurface: "light", textPrimary: "text-[#011e1b]", textSecondary: "text-[#011e1b]/70", floatBg: "bg-transparent", floatText: "text-[#023a35]" },
   { color: "mid-green", corner: "top-left", ringSurface: "light", textPrimary: "text-white", textSecondary: "text-white/80", floatBg: "bg-transparent", floatText: "text-[#1e4d41]" },
-  { color: "black", corner: "top-left", ringSurface: "light", textPrimary: "text-[#F5F0E8]", textSecondary: "text-[#F5F0E8]/70", floatBg: "bg-transparent", floatText: "text-[#011A17]" },
+  { color: "neon", corner: "top-left", ringSurface: "light", textPrimary: "text-[#011e1b]", textSecondary: "text-[#011e1b]/75", floatBg: "bg-transparent", floatText: "text-[#023a35]" },
 ] as const
 
 export function Journey() {
