@@ -1,8 +1,9 @@
-﻿import { Analytics } from '@vercel/analytics/next'
+import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Fira_Sans } from 'next/font/google'
 import { Fraunces } from 'next/font/google'
 import { GlobalObserver } from '@/components/global-observer'
+import { SmoothScroll } from '@/components/smooth-scroll'
 import './globals.css'
 
 const firaSans = Fira_Sans({ 
@@ -106,6 +107,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased">
+        <SmoothScroll />
         <GlobalObserver />
         <script
           type="application/ld+json"
