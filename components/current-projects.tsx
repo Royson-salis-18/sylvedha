@@ -168,7 +168,7 @@ export function CurrentProjects() {
                       <Cloud className="absolute -right-4 -bottom-4 size-24 text-[#99b961]/10 group-hover:text-[#99b961]/20 transition-colors duration-500" />
                       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#7a964a] mb-3">Core Purpose</p>
                       <p className="text-sm font-semibold leading-relaxed text-[#123b00] relative z-10">
-                        To capture high-fidelity environmental data to train AI agronomy models. By cultivating in a strictly controlled microclimate, we eliminate external variables—optimizing every input for peak yield and serious flavor.
+                        Training AI for agriculture requires clean, structured, abundant data — and that data simply doesn't exist at scale. So we built our own pipeline: ECES creates a controlled environment, A-RIS captures every variable, and the result is a proprietary dataset that no one else has.
                       </p>
                     </div>
                   </div>
@@ -329,7 +329,7 @@ export function CurrentProjects() {
                   <Cloud className="absolute -right-3 -bottom-3 size-20 text-[#99b961]/10" />
                   <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#7a964a] mb-2">Core Purpose</p>
                   <p className="text-xs font-semibold leading-relaxed text-[#123b00] relative z-10">
-                    To capture high-fidelity environmental data to train AI agronomy models. By cultivating in a strictly controlled microclimate, we eliminate external variables—optimizing every input for peak yield and serious flavor.
+                    Training AI for agriculture requires clean, structured, abundant data — and that data simply doesn't exist at scale. ECES + A-RIS is our answer to that gap.
                   </p>
                 </div>
               </div>
