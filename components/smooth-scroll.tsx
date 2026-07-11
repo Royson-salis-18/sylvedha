@@ -3,21 +3,9 @@
 import { useEffect, useRef } from "react"
 import Lenis from "lenis"
 
-// Sections to snap through, in page order
-const SECTION_IDS = [
-  "about",
-  "focus",
-  "current-projects",
-  "journey",
-  "why-sylvedha",
-  "team",
-  "roadmap",
-  "contact",
-]
-
 export function SmoothScroll() {
   const lenisRef = useRef<Lenis | null>(null)
-  const isScrollingRef = useRef(false)
+  const isSnappingRef = useRef(false)
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -36,57 +24,61 @@ export function SmoothScroll() {
     }
     requestAnimationFrame(raf)
 
-    // ── Helper: get all sections sorted by their Y position ──
-    const getSections = () =>
-      SECTION_IDS
-        .map((id) => document.getElementById(id))
-        .filter(Boolean) as HTMLElement[]
+    // ── Dynamically get ALL sections on the page, sorted by DOM order ──
+    const getSections = (): HTMLElement[] =>
+      Array.from(document.querySelectorAll("section")).sort(
+        (a, b) => a.getBoundingClientRect().top + window.scrollY - (b.getBoundingClientRect().top + window.scrollY)
+      )
 
-    // ── Scroll to a specific element ──
-    const scrollToEl = (el: HTMLElement, duration = 1.6) => {
-      if (isScrollingRef.current) return
-      isScrollingRef.current = true
+    // ── Find index of the section currently most visible ──
+    const getCurrentIndex = (sections: HTMLElement[]): number => {
+      const scrollMid = window.scrollY + window.innerHeight * 0.4
+      let closest = 0
+      let minDist = Infinity
+      sections.forEach((s, i) => {
+        const top = s.getBoundingClientRect().top + window.scrollY
+        const dist = Math.abs(top - scrollMid)
+        if (dist < minDist) { minDist = dist; closest = i }
+      })
+      return closest
+    }
+
+    // ── Scroll to element ──
+    const scrollToEl = (el: HTMLElement) => {
+      if (isSnappingRef.current) return
+      isSnappingRef.current = true
       lenis.scrollTo(el, {
         offset: -80,
-        duration,
-        onComplete: () => { isScrollingRef.current = false },
+        duration: 1.5,
+        onComplete: () => {
+          setTimeout(() => { isSnappingRef.current = false }, 200)
+        },
       })
     }
 
-    // ── Section snap: find next/prev section relative to viewport center ──
-    const snapToSection = (direction: "down" | "up") => {
-      const sections = getSections()
-      const viewportMid = window.scrollY + window.innerHeight / 2
-
-      if (direction === "down") {
-        // First section whose top is below the viewport midpoint
-        const next = sections.find((s) => s.getBoundingClientRect().top > 60)
-        if (next) scrollToEl(next)
-      } else {
-        // Last section whose top is above current scroll - some threshold
-        const prev = [...sections]
-          .reverse()
-          .find((s) => s.getBoundingClientRect().top < -60)
-        if (prev) scrollToEl(prev)
-      }
-    }
-
-    // ── Keyboard handler: arrow keys / PageDown / PageUp snap sections ──
+    // ── Keyboard handler ──
     const onKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept when user is typing
+      // Don't intercept when typing
       const tag = (e.target as HTMLElement)?.tagName
       if (tag === "INPUT" || tag === "TEXTAREA" || (e.target as HTMLElement)?.isContentEditable) return
+      if (!["ArrowDown", "ArrowUp", "PageDown", "PageUp"].includes(e.key)) return
+
+      e.preventDefault()
+
+      const sections = getSections()
+      if (!sections.length) return
+      const idx = getCurrentIndex(sections)
 
       if (e.key === "ArrowDown" || e.key === "PageDown") {
-        e.preventDefault()
-        snapToSection("down")
-      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
-        e.preventDefault()
-        snapToSection("up")
+        const next = sections[Math.min(idx + 1, sections.length - 1)]
+        scrollToEl(next)
+      } else {
+        const prev = sections[Math.max(idx - 1, 0)]
+        scrollToEl(prev)
       }
     }
 
-    // ── Custom event: fired by the hero arrow button ──
+    // ── Custom event from hero scroll button ──
     const onLenisScrollTo = (e: Event) => {
       const { target, offset = -80 } = (e as CustomEvent).detail
       if (target) lenis.scrollTo(target, { offset, duration: 1.6 })
@@ -98,8 +90,7 @@ export function SmoothScroll() {
       if (!anchor) return
       const href = anchor.getAttribute("href")
       if (!href) return
-      const hash = href.includes("#") ? "#" + href.split("#")[1] : null
-      if (!hash) return
+      const hash = "#" + href.split("#")[1]
       const el = document.querySelector(hash)
       if (!el) return
       e.preventDefault()
