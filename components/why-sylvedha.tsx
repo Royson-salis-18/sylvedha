@@ -20,19 +20,19 @@ const reasons = [
     icon: Wrench,
     title: "Practical Solutions",
     description:
-      "We focus on technologies that solve real-world problems and can be implemented at scale.",
+      "No whitepapers gathering dust. Our tech ships, deploys, and works in the field.",
   },
   {
     icon: FlaskRound,
     title: "Research Driven",
     description:
-      "Continuous experimentation and data-driven development fuel our innovation pipeline.",
+      "Every hypothesis tested. Every result kept. Our pipeline runs on curiosity and data in equal measure.",
   },
   {
     icon: Rocket,
     title: "Future Focused",
     description:
-      "We build technologies not only for today's challenges but for tomorrow's opportunities.",
+      "We're already working on the problems that don't officially exist yet.",
   },
 ]
 

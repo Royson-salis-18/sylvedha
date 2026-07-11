@@ -80,7 +80,7 @@ export function SiteFooter() {
               Innovating Technology in Harmony with Nature
             </p>
             <p className="mt-5 leading-relaxed text-white/90">
-              Building intelligent solutions for a sustainable future — across agriculture, biotechnology, renewable energy, AI, and automation.
+              Roots in nature. Code in the machine. Whatever comes next — we're already building it.
             </p>
 
             {/* Inline accent bar */}

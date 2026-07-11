@@ -15,23 +15,23 @@ const phases = [
   },
   {
     phase: "Phase 2",
-    title: "Commercial Expansion",
+    title: "Scaling Up",
     items: [
-      "Large Scale Deployments",
-      "Strategic Partnerships",
-      "Regional Growth",
-      "Platform Development",
+      "Industry-Scale Deployments",
+      "Strategic Alliances",
+      "Multi-Market Presence",
+      "Vertical Integration",
     ],
     status: "Upcoming",
   },
   {
     phase: "Phase 3",
-    title: "Integrated Sustainability Ecosystem",
+    title: "The Full Ecosystem",
     items: [
-      "AI Agriculture Network",
-      "Algae Biorefinery Commercialization",
-      "Renewable Energy Solutions",
-      "Global Expansion",
+      "Something big in AgriTech",
+      "Something green in Biotech",
+      "Something clean in Energy",
+      "You'll see.",
     ],
     status: "Future",
   },
@@ -49,7 +49,7 @@ export function Roadmap() {
               Future Roadmap
             </p>
             <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
-              Our path to <span className="italic text-secondary">scale</span>
+              The roadmap.{" "}<span className="italic text-secondary">The rest is classified.</span>
             </h2>
           </div>
           <a

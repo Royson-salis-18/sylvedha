@@ -44,9 +44,8 @@ export function About() {
               automation.
             </p>
             <p className="hidden sm:block">
-              We believe the future belongs to integrated solutions
-              that create economic value while generating positive environmental
-              and social impact.
+              We believe the future belongs to those who build it.
+              And we intend to build a lot of it.
             </p>
           </div>
         </div>
@@ -68,10 +67,8 @@ export function About() {
               Our Vision
             </h3>
             <p className="mt-4 text-lg leading-relaxed text-[#012522]/80">
-              To become a global leader in sustainable innovation by developing
-              technologies that empower communities, enhance productivity,
-              accelerate renewable energy adoption, and create a more resilient
-              future for generations to come.
+              We're not building for this decade — we're building for the one that follows.
+              Where technology and nature don't trade off. They compound.
             </p>
           </SubtractedCard>
 

@@ -35,7 +35,7 @@ const projects = [
   {
     title: "Indoor Farming & Controlled Environment Agriculture",
     description:
-      "Advanced growing systems capable of producing high-quality crops regardless of season or location.",
+      "No seasons. No soil required. Just consistent, precision-grown crops — anywhere. We're making location irrelevant for high-value agriculture.",
     label: "Applications",
     items: [
       "Microgreens Production",
@@ -50,8 +50,8 @@ const projects = [
   {
     title: "Next Generation Solar Innovation Program",
     description:
-      "Research and development focused on improving solar energy accessibility and deployment for urban and rural environments.",
-    label: "Current Research",
+      "Rethinking how solar fits into the spaces we live and work in. The grid is about to get interesting.",
+    label: "Exploring",
     items: [
       "Window-Mounted Solar Systems",
       "Modular Solar Technologies",
@@ -103,10 +103,10 @@ export function FlagshipProjects() {
               Algae Biorefinery Initiative
             </h3>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Transforming algae into multiple high-value products through an
-              integrated biorefinery approach — establishing a scalable
-              ecosystem that generates economic value while contributing to
-              climate resilience.
+              Algae is arguably the most underrated organism on the planet.
+              We're changing that — turning it into fuel, food, fertilizer,
+              and more through a single integrated system. The economics make sense.
+              The scale is coming.
             </p>
             <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {[
