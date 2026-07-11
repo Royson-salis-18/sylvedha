@@ -3,9 +3,8 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { GlobalObserver } from "@/components/global-observer"
 import Image from "next/image"
-import { NutriTechCarousel } from "@/components/nutritech-carousel"
-import { Grevara } from "@/components/grevara"
-import { Check, Cpu, Cloud, BarChart3, Zap, Leaf, Database } from "lucide-react"
+import { Check, Cpu, Cloud, BarChart3, Zap, Leaf, Database, ArrowUpRight } from "lucide-react"
+import { SubtractedCard } from "@/components/subtracted-card"
 
 export const metadata: Metadata = {
   title: "Upcoming Projects — SYLVEDHA",
@@ -30,6 +29,7 @@ const upcomingProjects = [
     image: "/images/smart-agriculture.webp",
     imageAlt: "Smart agriculture sensor planted in soil among green crops",
     status: "Prototype Phase",
+    icon: Cpu,
   },
   {
     title: "Smart Automated Irrigation System",
@@ -47,6 +47,7 @@ const upcomingProjects = [
     imageAlt:
       "Smart automated irrigation hardware with plants, water tank, and mobile app interface",
     status: "Prototype Phase",
+    icon: Cloud,
   },
   {
     title: "Indoor Farming & Controlled Environment Agriculture",
@@ -63,6 +64,7 @@ const upcomingProjects = [
     image: "/images/indoor-farming.webp",
     imageAlt: "Rows of microgreens growing under LED lights in a vertical farm",
     status: "Planning Phase",
+    icon: Leaf,
   },
   {
     title: "Next Generation Solar Innovation Program",
@@ -79,6 +81,7 @@ const upcomingProjects = [
     imageAlt:
       "Futuristic skyscraper with building-integrated photovoltaic solar window panels",
     status: "Planning Phase",
+    icon: BarChart3,
   },
 ]
 
@@ -87,46 +90,12 @@ const statusColors: Record<string, string> = {
   "Planning Phase":  "bg-white/5 text-white/50 border border-white/10",
 }
 
-// ── NutriTech tech pillars ────────────────────────────────────────────────────
-const techPillars = [
-  {
-    icon: Cpu,
-    title: "Hardware Integration",
-    desc: "Deploying integrated sensor modules for field monitoring.",
-  },
-  {
-    icon: Zap,
-    title: "Control Systems",
-    desc: "Automated management of irrigation and climate parameters.",
-  },
-  {
-    icon: Cloud,
-    title: "Data Infrastructure",
-    desc: "Secure storage for environmental and growth metrics.",
-  },
-  {
-    icon: BarChart3,
-    title: "Monitoring",
-    desc: "Real-time visibility into system performance and crop status.",
-  },
-  {
-    icon: Leaf,
-    title: "Controlled Environment",
-    desc: "Optimized growth chambers for consistent cultivation.",
-  },
-  {
-    icon: Database,
-    title: "Data Analytics",
-    desc: "Compiling structured data to inform future agricultural solutions.",
-  },
-]
-
 export default function ProjectsPage() {
   return (
     <>
       <GlobalObserver />
       <SiteHeader />
-      <main className="bg-[#01312D] text-white min-h-screen">
+      <main className="bg-[#01312D] text-white min-h-screen overflow-x-hidden">
 
         {/* ── Page hero ─────────────────────────────────────────────────────── */}
         <section className="relative overflow-hidden pt-40 pb-16">
@@ -155,17 +124,15 @@ export default function ProjectsPage() {
               <span className="italic text-[#BFF202]">future of farming</span>
             </h1>
             <p className="animate-on-scroll mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-              From long-term research pipelines to next-generation innovations — here's what Sylvedha is working on for the future.
+              From long-term research pipelines to next-generation innovations — here&apos;s what Sylvedha is working on for the future.
             </p>
           </div>
         </section>
 
-        {/* ══════════════════════════════════════════════════════════════════════
-            SECTION 2 — UPCOMING PROJECTS
-        ══════════════════════════════════════════════════════════════════════ */}
-        <section className="mx-auto max-w-7xl px-5 sm:px-8 pb-10">
+        {/* ── Upcoming Projects ─────────────────────────────────────────────── */}
+        <section className="mx-auto max-w-7xl px-5 sm:px-8 pb-20">
 
-          {/* Section label for Upcoming Projects */}
+          {/* Section label */}
           <div className="flex items-center gap-4 mb-10">
             <span className="rounded-xl border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
               Upcoming Projects
@@ -173,101 +140,164 @@ export default function ProjectsPage() {
             <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
           </div>
 
-          {/* Algae Biorefinery */}
-          <div className="animate-on-scroll group glass-noise grid overflow-hidden rounded-[2rem] border border-white/10 bg-[#023a35]/90 lg:grid-cols-2 transition-all duration-500 hover:bg-[#03453f]/90 hover:shadow-2xl hover:shadow-[#BFF202]/5 hover:border-[#BFF202]/20 mb-6">
-            <div className="relative min-h-72 lg:min-h-full overflow-hidden">
-              <Image
-                src="/images/algae-biorefinery.webp"
-                alt="Green algae bioreactor tubes glowing in a modern laboratory"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-            </div>
-            <div className="p-10 sm:p-12 flex flex-col justify-center">
-              <div className="flex items-center gap-3 flex-wrap">
-                <span className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white/50">
+          {/* ── Algae Biorefinery — featured wide card ── */}
+          <SubtractedCard
+            corner="top-right"
+            cutoutSize={72}
+            color="#eee9df"
+            ringSurface="light"
+            floatingElement={
+              <div className="flex h-full w-full items-center justify-center rounded-full bg-[#011a17] text-[#BFF202]">
+                <ArrowUpRight className="size-6" />
+              </div>
+            }
+            className="animate-on-scroll mb-8 group"
+          >
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Image */}
+              <div className="relative min-h-72 lg:min-h-[360px] overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/algae-biorefinery.webp"
+                  alt="Green algae bioreactor tubes glowing in a modern laboratory"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-col justify-center py-4 pr-4">
+                <span className="inline-flex w-fit items-center gap-2 rounded-xl border border-[#011a17]/10 bg-[#011a17]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[#011a17]/60 mb-6">
                   Planning Phase
                 </span>
-              </div>
-              <h2 className="mt-6 font-heading text-3xl font-semibold sm:text-4xl">
-                Algae Biorefinery Initiative
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-white/70">
-                Transforming algae into multiple high-value products through an
-                integrated biorefinery approach — establishing a scalable
-                ecosystem that generates economic value while contributing to
-                climate resilience.
-              </p>
-              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {[
-                  "Algae Cultivation",
-                  "High-Value Bioproducts",
-                  "Nutraceutical Production",
-                  "Biofertilizers",
-                  "Carbon Capture Utilization",
-                  "Bioenergy Generation",
-                  "Circular Waste Conversion",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="flex items-center gap-2.5 text-sm text-white/80"
-                  >
-                    <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#BFF202]/20">
-                      <Check className="size-3 text-[#BFF202]" />
+                <h2 className="font-heading text-3xl font-semibold sm:text-4xl text-[#06100d]">
+                  Algae Biorefinery Initiative
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-[#06100d]/70">
+                  Transforming algae into multiple high-value products through an
+                  integrated biorefinery approach — establishing a scalable
+                  ecosystem that generates economic value while contributing to
+                  climate resilience.
+                </p>
+                <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {[
+                    "Algae Cultivation",
+                    "High-Value Bioproducts",
+                    "Nutraceutical Production",
+                    "Biofertilizers",
+                    "Carbon Capture Utilization",
+                    "Bioenergy Generation",
+                    "Circular Waste Conversion",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="flex items-center gap-2.5 text-sm font-medium text-[#06100d]/80"
+                    >
+                      <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#011a17]">
+                        <Check className="size-3 text-[#BFF202]" />
+                      </span>
+                      {item}
                     </span>
-                    {item}
-                  </span>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
+          </SubtractedCard>
+
+          {/* ── Other upcoming projects grid ── */}
+          <div className="grid gap-6 md:grid-cols-2 stagger-children pb-4">
+            {upcomingProjects.map((project, index) => {
+              const Icon = project.icon
+              const themes = [
+                {
+                  color: "#eee9df",
+                  ringSurface: "light" as const,
+                  iconContainer: "bg-[#011a17] text-[#BFF202]",
+                  textColor: "text-[#06100d]",
+                  descColor: "text-[#06100d]/70",
+                  labelColor: "text-[#123b00]",
+                  pillClass: "border-[#011a17]/15 bg-[#011a17]/5 text-[#011a17] group-hover:border-[#011a17]/30 group-hover:bg-[#011a17]/10"
+                },
+                {
+                  color: "#023a35",
+                  ringSurface: "dark" as const,
+                  iconContainer: "bg-[#BFF202] text-[#023a35]",
+                  textColor: "text-white",
+                  descColor: "text-white/70",
+                  labelColor: "text-[#BFF202]",
+                  pillClass: "border-[#BFF202]/15 bg-[#BFF202]/5 text-[#BFF202] group-hover:border-[#BFF202]/30 group-hover:bg-[#BFF202]/10"
+                },
+                {
+                  color: "#BFF202",
+                  ringSurface: "light" as const,
+                  iconContainer: "bg-[#011a17] text-[#BFF202]",
+                  textColor: "text-[#01312D]",
+                  descColor: "text-[#01312D]/80",
+                  labelColor: "text-[#011a17]",
+                  pillClass: "border-[#011a17]/15 bg-[#011a17]/5 text-[#011a17] group-hover:border-[#011a17]/30 group-hover:bg-[#011a17]/10"
+                }
+              ]
+              const theme = themes[index % themes.length]
+
+              return (
+                <SubtractedCard
+                  key={project.title}
+                  corner="bottom-right"
+                  cutoutSize={64}
+                  color={theme.color}
+                  ringSurface={theme.ringSurface}
+                  floatingElement={
+                    <div className={`flex h-full w-full items-center justify-center rounded-full ${theme.iconContainer}`}>
+                      <Icon className="size-5" />
+                    </div>
+                  }
+                  className="animate-on-scroll group"
+                >
+                  <div className={`flex flex-col h-full ${theme.textColor}`}>
+                    {/* Image */}
+                    {project.image && (
+                      <div className="relative h-52 overflow-hidden rounded-[1.5rem] mb-6 shrink-0">
+                        <Image
+                          src={project.image}
+                          alt={project.imageAlt ?? ""}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                        <span
+                          className={`absolute top-3 left-3 rounded-xl px-3 py-1 text-xs font-semibold uppercase tracking-wide ${statusColors[project.status] ?? ""}`}
+                        >
+                          {project.status}
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="flex flex-1 flex-col">
+                      <h3 className="font-heading text-xl font-semibold">{project.title}</h3>
+                      <p className={`mt-3 text-sm leading-relaxed ${theme.descColor}`}>{project.description}</p>
+                      <p className={`mt-6 text-xs font-bold uppercase tracking-[0.2em] ${theme.labelColor}`}>
+                        {project.label}
+                      </p>
+                      <ul className="mt-3 flex flex-wrap gap-2">
+                        {project.items.map((item) => (
+                          <li
+                            key={item}
+                            className={`rounded-xl border px-3.5 py-1.5 text-xs font-bold transition-colors ${theme.pillClass}`}
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </SubtractedCard>
+              )
+            })}
           </div>
 
-          {/* Other upcoming projects grid */}
-          <div className="grid gap-5 md:grid-cols-2 stagger-children pb-20">
-            {upcomingProjects.map((project) => (
-              <article
-                key={project.title}
-                className="animate-on-scroll group glass-noise flex flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#023a35]/90 transition-all duration-500 hover:-translate-y-1 hover:bg-[#03453f]/90 hover:shadow-xl hover:shadow-[#BFF202]/5 hover:border-[#BFF202]/20"
-              >
-                {project.image && (
-                  <div className="relative h-52 overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.imageAlt ?? ""}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                    <span
-                      className={`absolute top-3 left-3 rounded-xl px-3 py-1 text-xs font-semibold uppercase tracking-wide ${statusColors[project.status] ?? ""}`}
-                    >
-                      {project.status}
-                    </span>
-                  </div>
-                )}
-                <div className="flex flex-1 flex-col p-8">
-                  <h3 className="font-heading text-xl font-semibold">{project.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/70">{project.description}</p>
-                  <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#BFF202]">
-                    {project.label}
-                  </p>
-                  <ul className="mt-3 flex flex-wrap gap-2">
-                    {project.items.map((item) => (
-                      <li
-                        key={item}
-                        className="rounded-xl border border-[#BFF202]/15 bg-[#BFF202]/5 px-3.5 py-1.5 text-xs font-medium text-[#BFF202] transition-colors group-hover:border-[#BFF202]/30 group-hover:bg-[#BFF202]/10"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
         </section>
       </main>
       <SiteFooter />

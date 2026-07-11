@@ -1,6 +1,6 @@
 "use client"
 
-import { ReactNode, useRef, useCallback, useState, useEffect, useMemo } from "react"
+import { ReactNode, useRef, useCallback, useState, useEffect, useMemo, useId } from "react"
 import { cn } from "@/lib/utils"
 
 // ── Shimmer sweep keyframe injected once ──────────────────────────────────────
@@ -82,16 +82,16 @@ const RING_PALETTES = {
       innerGlow: "0 0 14px rgba(138,106,22,0.24)",
     },
     neon: {
-      outer: "#BFF202",
-      inner: "#6A716D",
-      outerGlow: "0 0 18px rgba(191,242,2,0.34)",
-      innerGlow: "0 0 14px rgba(70,78,74,0.22)",
+      outer: "#FFFFFF",
+      inner: "#011a17",
+      outerGlow: "0 0 20px rgba(255,255,255,0.5)",
+      innerGlow: "0 0 14px rgba(1,26,23,0.3)",
     },
     white: {
-      outer: "#01312D",
+      outer: "#FFFFFF",
       inner: "#BFF202",
-      outerGlow: "0 0 14px rgba(1,49,45,0.22)",
-      innerGlow: "0 0 18px rgba(191,242,2,0.34)",
+      outerGlow: "0 0 20px rgba(255,255,255,0.5)",
+      innerGlow: "0 0 24px rgba(191,242,2,0.5)",
     },
   },
   dark: {
@@ -120,10 +120,10 @@ const RING_PALETTES = {
       innerGlow: "0 0 24px rgba(191,242,2,0.42)",
     },
     white: {
-      outer: "#BFF202",
-      inner: "#F5F0E8",
-      outerGlow: "0 0 24px rgba(191,242,2,0.42)",
-      innerGlow: "0 0 22px rgba(245,240,232,0.36)",
+      outer: "#FFFFFF",
+      inner: "#BFF202",
+      outerGlow: "0 0 20px rgba(255,255,255,0.5)",
+      innerGlow: "0 0 24px rgba(191,242,2,0.5)",
     },
   },
 } as const
@@ -131,7 +131,12 @@ const RING_PALETTES = {
 type RingColorKey = keyof typeof RING_PALETTES.light
 
 function resolveRingColorKey(color: string): RingColorKey {
-  return color in RING_PALETTES.light ? (color as RingColorKey) : "dark-green"
+  if (color === "#eee9df" || color === "#F5F0E8" || color === "white") return "white"
+  if (color === "#BFF202" || color === "neon") return "neon"
+  if (color === "#2a1126" || color === "purple-gold") return "purple-gold"
+  if (color === "#011A17" || color === "black") return "black"
+  if (color in RING_PALETTES.light) return color as RingColorKey
+  return "dark-green"
 }
 
 function resolveSize(value: SizeValue, reference: number): number {
@@ -362,6 +367,7 @@ export function SubtractedCard({
   const rafRef   = useRef<number>(0)
   const shimmedRef = useRef(false)
   const [dims, setDims] = useState({ w: 0, h: 0 })
+  const clipId = useId()
 
   const fillColor = FILL[color] || color
   const bgClass = BG[color] || ""
@@ -527,7 +533,10 @@ export function SubtractedCard({
         <div
           ref={shimRef}
           className="absolute inset-0 z-[3] pointer-events-none overflow-hidden"
-          style={{ borderRadius: borderRadius }}
+          style={{ 
+            borderRadius: shaped ? 0 : borderRadius,
+            clipPath: shaped ? `url(#${CSS.escape(clipId)})` : undefined
+          }}
         >
           <div
             className="absolute inset-y-0 w-[40%] bg-gradient-to-r from-transparent via-white/12 to-transparent"
@@ -539,7 +548,11 @@ export function SubtractedCard({
         <div
           ref={spotRef}
           className="absolute inset-0 z-[1] pointer-events-none"
-          style={{ opacity: 0, borderRadius: borderRadius }}
+          style={{ 
+            opacity: 0, 
+            borderRadius: shaped ? 0 : borderRadius,
+            clipPath: shaped ? `url(#${CSS.escape(clipId)})` : undefined
+          }}
         />
 
         {shaped && (
@@ -562,6 +575,9 @@ export function SubtractedCard({
               className="sc-border-anim opacity-60 group-hover:opacity-100 transition-opacity duration-500"
             />
             <defs>
+              <clipPath id={clipId}>
+                <path d={outlinePath!} />
+              </clipPath>
               <linearGradient id="sc-grad-border" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="rgba(255,255,255,0)" />
                 <stop offset="40%" stopColor="rgba(255,255,255,0.5)" />

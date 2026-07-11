@@ -1,43 +1,143 @@
 "use client"
 
 import Image from "next/image"
-import { useRef, useCallback } from "react"
+import { useRef, useCallback, useState, useEffect } from "react"
 import { ArrowUpRight, Sprout, Leaf, FlaskConical, Cpu } from "lucide-react"
 
 function useTilt() {
   const ref = useRef<HTMLDivElement>(null)
   const raf = useRef(0)
-
-  const onMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+  
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     cancelAnimationFrame(raf.current)
     raf.current = requestAnimationFrame(() => {
       const el = ref.current
       if (!el) return
-      const r = el.getBoundingClientRect()
-      const x = (e.clientX - r.left) / r.width - 0.5
-      const y = (e.clientY - r.top) / r.height - 0.5
-      el.style.transform = `perspective(1400px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.015)`
+      const rect = el.getBoundingClientRect()
+      
+      // Normalized between -1 and 1
+      const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2)
+      const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2)
+      
+      el.style.transform = `perspective(1000px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg) scale(1.015)`
       el.style.transition = "none"
+      el.style.setProperty('--mouse-x', String(x))
+      el.style.setProperty('--mouse-y', String(y))
     })
   }, [])
 
-  const onLeave = useCallback(() => {
+  const handleMouseLeave = useCallback(() => {
     cancelAnimationFrame(raf.current)
-    const el = ref.current
-    if (el) {
-      el.style.transition = "transform 0.6s cubic-bezier(0.34,1.56,0.64,1)"
-      el.style.transform = "perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)"
-    }
+    raf.current = requestAnimationFrame(() => {
+      const el = ref.current
+      if (el) {
+        el.style.transition = "transform 0.6s cubic-bezier(0.34,1.56,0.64,1)"
+        el.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)`
+        el.style.setProperty('--mouse-x', '0')
+        el.style.setProperty('--mouse-y', '0')
+      }
+    })
   }, [])
 
-  return { ref, onMove, onLeave }
+  return { tiltRef: ref, handleMouseMove, handleMouseLeave }
+}
+
+function CustomHeroImageCard({ children, floatingElement }: { children: React.ReactNode, floatingElement: React.ReactNode }) {
+  const [size, setSize] = useState({ w: 0, h: 0 })
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setSize({ w: entry.contentRect.width, h: entry.contentRect.height })
+      }
+    })
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+
+  const { w, h } = size
+  
+  // Cutout parameters
+  const biteR = 44
+  const F = 14
+
+  return (
+    <div ref={containerRef} className="relative w-full h-full pointer-events-none group">
+      {w > 0 && h > 0 && (
+        <svg className="absolute inset-0 pointer-events-none z-10" width="0" height="0">
+          <defs>
+            <mask id="hero-cutout-mask">
+              <rect x="0" y="0" width={w} height={h} fill="white" />
+              <path 
+                d={`M ${w} 0 L ${w - biteR - F} 0 A ${F} ${F} 0 0 1 ${w - biteR} ${F} A ${biteR} ${biteR} 0 0 0 ${w - F} ${biteR} A ${F} ${F} 0 0 1 ${w} ${biteR + F} L ${w} 0 Z`} 
+                fill="black" 
+              />
+            </mask>
+          </defs>
+        </svg>
+      )}
+      
+      {/* C-Shape clipped container */}
+      <div 
+        className="absolute inset-0 z-0 bg-[#0a1f13] pointer-events-auto overflow-hidden" 
+        style={{ 
+          clipPath: 'url(#hero-clip)',
+          mask: w > 0 ? 'url(#hero-cutout-mask)' : 'none',
+          WebkitMask: w > 0 ? 'url(#hero-cutout-mask)' : 'none'
+        }}
+      >
+        {children}
+      </div>
+
+      {/* Floating element nested exactly in the circular cutout corner */}
+      {w > 0 && (
+        <div 
+          className="absolute z-20 pointer-events-auto group cursor-pointer"
+          style={{
+            top: 0,
+            left: w,
+            width: biteR * 2.2,
+            height: biteR * 2.2,
+            transform: `translate(-50%, -50%) translate(calc(var(--mouse-x, 0) * -8px), calc(var(--mouse-y, 0) * -8px))`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        >
+          {/* Inner white ring */}
+          <div 
+            className="absolute inset-[-4px] rounded-full border-[1.5px] border-white opacity-0 group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100"
+            style={{ boxShadow: "0 0 20px rgba(255,255,255,0.8), inset 0 0 10px rgba(255,255,255,0.5)" }}
+          />
+          {/* Middle neon ring */}
+          <div 
+            className="absolute inset-[-12px] rounded-full border-[1.5px] border-[#BFF202] opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100"
+            style={{ boxShadow: "0 0 35px rgba(191,242,2,0.9), inset 0 0 15px rgba(191,242,2,0.6)" }}
+          />
+          {/* Outer soft neon ring */}
+          <div 
+            className="absolute inset-[-22px] rounded-full border border-[#BFF202]/60 opacity-0 group-hover:opacity-100 transition-all duration-700 scale-[0.85] group-hover:scale-100"
+            style={{ boxShadow: "0 0 55px rgba(191,242,2,0.6), inset 0 0 20px rgba(191,242,2,0.4)" }}
+          />
+          <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-[1.08]">
+            {floatingElement}
+          </div>
+        </div>
+      )}
+    </div>
+  )
 }
 
 export function Hero() {
-  const tilt = useTilt()
+  const { tiltRef, handleMouseMove, handleMouseLeave } = useTilt()
 
   return (
-    <section className="w-full bg-[#011a17] min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] lg:pt-[100px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden">
+    <section 
+      className="w-full bg-[#011a17] min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] lg:pt-[130px] xl:pt-[140px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
       <style>{`
         @keyframes fadeInUp    { from { opacity:0; transform:translateY(28px); }  to { opacity:1; transform:translateY(0); } }
         @keyframes fadeInLeft  { from { opacity:0; transform:translateX(-28px); } to { opacity:1; transform:translateX(0); } }
@@ -93,17 +193,17 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
         </div>
         <a href="/#contact" className="relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)] animate-fade-up" style={{animationDelay:'200ms'}}>
-          <div className="absolute inset-0 z-0 rounded-[1.75rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
+          <div className="absolute inset-0 z-0 rounded-[1.75rem] bg-[#a6d900] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
           <div className="relative z-10 flex flex-col">
-            <p className="text-[#01312D] text-[9px] font-bold uppercase tracking-[0.25em] mb-1 transition-colors group-hover:text-white">Let&apos;s Collaborate</p>
-            <p className="font-heading font-bold text-[24px] text-[#01312D] leading-[1.05] transition-colors group-hover:text-white">Get in <span className="italic font-light">Touch</span></p>
+            <p className="text-[#01312D] text-[9px] font-bold uppercase tracking-[0.25em] mb-1 transition-colors">Let&apos;s Collaborate</p>
+            <p className="font-heading font-bold text-[24px] text-[#01312D] leading-[1.05] transition-colors">Get in <span className="italic font-light">Touch</span></p>
           </div>
-          <div className="relative z-10 size-12 rounded-full bg-[#01312D] flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors duration-300">
-            <ArrowUpRight className="size-5 text-white" />
+          <div className="relative z-10 size-12 rounded-full bg-[#01312D] flex items-center justify-center shrink-0 group-hover:bg-[#011a17] transition-colors duration-300">
+            <ArrowUpRight className="size-5 text-[#BFF202]" />
           </div>
         </a>
         <a href="/#grevara" className="relative h-[178px] rounded-[1.75rem] bg-[#2a1126] overflow-hidden shrink-0 animate-fade-up cursor-pointer group border border-amber-400/20 hover:border-amber-400/60 transition-all duration-500 shadow-[0_18px_45px_rgba(0,0,0,0.2)]" style={{animationDelay:'300ms'}}>
-          <Image src="/images/grevara/product-shelf.jpg" alt="Grevara Products" fill quality={60} sizes="100vw" className="object-cover opacity-55 group-hover:opacity-100 transition-opacity duration-500" />
+          <Image src="/images/grevara/product-shelf.jpg" alt="Grevara Products" fill quality={60} sizes="100vw" className="object-cover opacity-55 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15 group-hover:opacity-0 transition-opacity duration-500" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 z-10">
@@ -122,9 +222,7 @@ export function Hero() {
 
       {/* ── DESKTOP: precise interlocking bento with perfect 1% gaps ── */}
       <div
-        ref={tilt.ref}
-        onMouseMove={tilt.onMove}
-        onMouseLeave={tilt.onLeave}
+        ref={tiltRef}
         className="hidden lg:block flex-1 min-h-0 relative w-full max-w-[1400px] mx-auto will-change-transform"
       >
         {/* SVG clip definitions for custom L-shapes */}
@@ -207,21 +305,34 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ── 2. HERO IMAGE CARD (Top-Right, C-shape) ── */}
-        <div
-          className="absolute top-0 left-[40.5%] w-[59.5%] h-[72%] bg-[#0a1f13] z-10 opacity-0 afr d2 overflow-hidden"
-          style={{ clipPath: 'url(#hero-clip)' }}
-        >
-          <Image
-            src="/images/hero-bg.png"
-            alt="Sylvedha sustainable innovation"
-            fill
-            className="object-cover opacity-90"
-            priority
-            quality={70}
-            sizes="(max-width: 1024px) 80vw, 1000px"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/50 via-transparent to-transparent" />
+        {/* ── 2. HERO IMAGE CARD (Top-Right, C-shape) with custom dynamic Cutout ── */}
+        <div className="absolute top-0 left-[40.5%] w-[59.5%] h-[72%] z-10 opacity-0 afr d2">
+          <CustomHeroImageCard
+            floatingElement={
+              <div 
+                className="relative flex items-center justify-center rounded-full bg-[#011a17] shadow-[0_0_24px_rgba(191,242,2,0.4)] border border-[#BFF202]/30 overflow-hidden pointer-events-auto w-full h-full"
+              >
+                <Image
+                  src="/images/logo-icon-neon.png"
+                  alt="Sylvedha"
+                  fill
+                  sizes="96px"
+                  className="object-contain p-3"
+                />
+              </div>
+            }
+          >
+            <Image
+              src="/images/hero-bg.png"
+              alt="Sylvedha sustainable innovation"
+              fill
+              className="object-cover opacity-90"
+              priority
+              quality={70}
+              sizes="(max-width: 1024px) 80vw, 1000px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/50 via-transparent to-transparent pointer-events-none" />
+          </CustomHeroImageCard>
         </div>
 
         {/* ── 3. GET IN TOUCH (Bottom-Left) ── */}
@@ -230,17 +341,17 @@ export function Hero() {
           className="absolute left-0 top-[73.5%] w-[39.5%] h-[26.5%] rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#01312D] z-30 opacity-0 afu d3 relative transition-colors duration-300 shadow-[0_18px_45px_rgba(0,0,0,0.15)]"
         >
           <div
-            className="absolute inset-0 z-0 rounded-[2.5rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
+            className="absolute inset-0 z-0 rounded-[2.5rem] bg-[#a6d900] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
             style={{ willChange: 'transform' }}
           />
           <div className="relative z-10 flex flex-col">
-            <p className="text-[#01312D]/90 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-300 group-hover:text-white">Let&apos;s Collaborate</p>
-            <p className="font-heading font-bold text-[clamp(1.5rem,2.2vw,2.1rem)] text-[#01312D] leading-[1.05] transition-colors duration-300 group-hover:text-white">
+            <p className="text-[#01312D]/90 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-300">Let&apos;s Collaborate</p>
+            <p className="font-heading font-bold text-[clamp(1.5rem,2.2vw,2.1rem)] text-[#01312D] leading-[1.05] transition-colors duration-300">
               Get in <span className="italic font-light">Touch</span>
             </p>
           </div>
-          <div className="relative z-10 size-14 rounded-full bg-[#01312D] flex items-center justify-center transition-all duration-300 shrink-0 group-hover:bg-white/10">
-            <ArrowUpRight className="size-6 text-white transition-colors duration-300" />
+          <div className="relative z-10 size-14 rounded-full bg-[#01312D] flex items-center justify-center transition-all duration-300 shrink-0 group-hover:bg-[#011a17]">
+            <ArrowUpRight className="size-6 text-[#BFF202] transition-colors duration-300" />
           </div>
         </a>
 
@@ -254,7 +365,7 @@ export function Hero() {
             src="/images/grevara/product-shelf.jpg"
             alt="Grevara Products"
             fill
-            className="object-cover opacity-55 group-hover:opacity-100 transition-opacity duration-700"
+            className="object-cover opacity-55 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
             fetchPriority="low"
             sizes="(max-width: 1024px) 60vw, 700px"
           />

@@ -8,6 +8,7 @@ import { WhySylvedha } from "@/components/why-sylvedha"
 import { Leadership } from "@/components/leadership"
 import { Roadmap } from "@/components/roadmap"
 import { Contact } from "@/components/contact"
+import { Journey } from "@/components/journey"
 import { SiteFooter } from "@/components/site-footer"
 import { FloatingForms } from "@/components/floating-forms"
 import { ArrowRight } from "lucide-react"
@@ -33,6 +34,7 @@ export default function Page() {
           </div>
         </section>
         <CurrentProjects />
+        <Journey />
 
         <WhySylvedha />
         <Leadership />

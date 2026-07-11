@@ -43,7 +43,7 @@ export function CurrentProjects() {
 
         {/* Desktop View */}
         <div className="hidden lg:block">
-          <div className="rounded-[2.5rem] overflow-hidden p-12 mb-6 border border-white/10 bg-white/[0.04] backdrop-blur-md shadow-2xl relative transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_-8px_rgba(191,242,2,0.18)] hover:border-[#BFF202]/25">
+          <div className="rounded-[2.5rem] overflow-hidden p-12 mb-6 border border-white/10 bg-gradient-to-br from-[#012820] to-[#011A17] backdrop-blur-md shadow-2xl relative transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_50px_-8px_rgba(191,242,2,0.18)] hover:border-[#BFF202]/25">
             {/* NutriTech header — with logo */}
             <div className="animate-on-scroll mb-12">
               <div className="flex flex-wrap items-center gap-4 mb-6">
@@ -165,7 +165,7 @@ export function CurrentProjects() {
 
         {/* Mobile View */}
         <div className="block lg:hidden">
-          <div className="rounded-3xl overflow-hidden p-6 mb-6 border border-white/10 bg-white/[0.04] backdrop-blur-md shadow-2xl relative">
+          <div className="rounded-3xl overflow-hidden p-6 mb-6 border border-white/10 bg-gradient-to-br from-[#012820] to-[#011A17] backdrop-blur-md shadow-2xl relative">
             
             {/* Header */}
             <div className="mb-6 flex flex-col items-center text-center">

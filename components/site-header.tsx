@@ -35,19 +35,19 @@ export function SiteHeader() {
           ? "bg-white/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-black/5"
           : "bg-white/90 backdrop-blur-md shadow-2xl border border-white/20"
       )}>
-        {/* Logo with dark background card */}
-        <a href="/" className="group ml-0 flex min-w-0 items-center gap-2 rounded-full bg-[#011a17] py-1.5 pl-1.5 pr-4 shadow-inner transition-transform duration-300 hover:scale-105 sm:ml-2 sm:pr-6">
-          <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/5 sm:size-12">
-            <Image
-              src="/images/logo-icon-lime.webp"
-              alt="Sylvedha Icon"
-              width={22}
-              height={22}
-              priority
-              className="object-contain transition-transform group-hover:scale-110"
-            />
+        {/* Logo */}
+        <a href="/" className="group ml-0 flex min-w-0 items-center transition-transform duration-300 hover:scale-105 sm:ml-2">
+          <div className="flex h-[46px] w-[160px] items-center justify-center rounded-full bg-[#063126] shadow-md border border-white/10 px-2 py-1 sm:h-[54px] sm:w-[190px] sm:px-3 sm:py-1.5">
+            <div className="relative h-full w-full">
+              <Image
+                src="/images/logo-horizontal-neon.png"
+                alt="Sylvedha Logo"
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
           </div>
-          <span className="mt-[2px] truncate font-heading text-[19px] font-bold tracking-wide text-white sm:text-[22px]">Sylvedha</span>
         </a>
 
         <nav className="hidden items-center gap-1 xl:flex pr-4">

@@ -3,7 +3,7 @@ import { ContactForm } from "@/components/contact-form"
 import { FloatingCubes } from "./floating-cubes"
 import { SubtractedCard } from "@/components/subtracted-card"
 
-const phones = ["+91 96323 97595", "+91 77950 70676", "+91 82771 51149"]
+const phones = ["CEO: +91 77950 70676", "COO: +91 96323 97595", "CTO: +91 82771 51149", "Whatsapp: +91 91875 98775"]
 
 export function Contact() {
   return (

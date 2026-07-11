@@ -129,29 +129,7 @@ export function NutriTechCarousel() {
         )}
       </div>
 
-      {/* Dot indicators */}
-      {total > 1 && (
-        <div className="flex items-center justify-center gap-3">
-          {nutriTechMedia.map((_, i) => (
-            <button
-              type="button"
-              key={i}
-              onClick={() => setCurrent(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              className={`rounded-full transition-all duration-300 flex items-center justify-center w-[48px] h-[48px] min-w-[48px] min-h-[48px] p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#BFF202]`}
-            >
-              {/* visual indicator inside larger touch target */}
-              <span
-                className={
-                  i === current
-                    ? "block w-8 h-2 rounded-full bg-[#BFF202]"
-                    : "block w-4 h-4 rounded-full bg-white/20 hover:bg-white/40"
-                }
-              />
-            </button>
-          ))}
-        </div>
-      )}
+      {/* Dot indicators removed for cleaner look, thumbnail strip handles navigation */}
 
       {/* Thumbnail strip */}
       {total > 1 && (
