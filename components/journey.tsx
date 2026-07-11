@@ -1,4 +1,4 @@
-﻿
+
 "use client"
 
 import { SubtractedCard } from "./subtracted-card"
@@ -7,25 +7,20 @@ import { useRef, useEffect, useState } from "react"
 
 const milestones = [
   {
-    title: "Completed K-Tech NAIN Incubation Program",
+    title: "K-Tech NAIN Incubation",
     description:
-      "Successfully incubated and received support for early-stage technology development and innovation.",
+      "Received institutional backing through the K-Tech NAIN program — validating our early technology direction. This support enabled the foundational R&D that shaped everything Sylvedha is building today.",
     note: "The NAIN funding was given to one of the partners before the founding of the firm.",
   },
   {
-    title: "Prototype Development",
+    title: "Hardware Prototypes Built & Field-Tested",
     description:
-      "Developed multiple working prototypes including the Agriculture Real-Time Intelligence Sensor (ARIS), Environmental Controlled Experiment Setup (ECES), and Smart Irrigation Automation System.",
+      "Moved from concept to working hardware. ARIS (Agriculture Real-Time Intelligence Sensor), ECES (Environmental Controlled Experiment Setup), and the Smart Irrigation Automation System were developed, tested, and demonstrated at industry platforms.",
   },
   {
-    title: "Industry Showcases",
+    title: "First Commercial Sales",
     description:
-      "Presented innovations at major technology and academic platforms, receiving validation and feedback from industry experts and stakeholders.",
-  },
-  {
-    title: "Ongoing Development",
-    description:
-      "Currently advancing projects in algae biorefinery technology, smart agriculture systems, indoor farming infrastructure, renewable energy, and AI-based agricultural intelligence.",
+      "Grevara, our indoor farming sub-brand, completed its first real sales — real customers, real revenue. Proof that our products are market-ready, not just lab experiments.",
   },
 ]
 
@@ -108,7 +103,7 @@ export function Journey() {
   };
 
   return (
-    <section id="journey" className="relative overflow-hidden bg-background min-h-[100svh] py-24 flex flex-col justify-center">
+    <section id="journey" className="relative overflow-x-clip bg-background min-h-[100svh] py-24 flex flex-col justify-center">
       {/* Decorative Blur Orbs */}
       <div className="absolute right-0 top-1/3 -z-[1] h-[500px] w-[500px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
       <div className="absolute -left-32 bottom-0 -z-[1] h-[400px] w-[400px] rounded-full bg-[#3A7717]/5 blur-[120px]" />
@@ -122,9 +117,12 @@ export function Journey() {
             Company Journey
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            From incubation to{" "}
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#BFF202]">working prototypes</span>
+            From NAIN incubation{" "}
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#BFF202] pr-2">to first sales</span>
           </h2>
+          <p className="animate-on-scroll mt-5 text-base md:text-lg text-muted-foreground font-medium max-w-xl">
+            This is where we started. What comes next is manufacturing at scale, industry-wide sales, and an ecosystem built to last.
+          </p>
         </div>
 
         <div ref={containerRef} className="relative stagger-children max-w-5xl mx-auto md:py-10">
@@ -197,6 +195,15 @@ export function Journey() {
                       <p className={cn("text-base md:text-lg leading-relaxed font-medium max-w-2xl", config.textSecondary)}>
                         {milestone.description}
                       </p>
+
+                      {"ongoing" in milestone && milestone.ongoing && (
+                        <div className="mt-5 inline-flex">
+                          <span className="inline-flex items-center gap-2 rounded-full border border-[#BFF202]/30 bg-[#BFF202]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#BFF202]">
+                            <span className="size-2 rounded-full bg-[#BFF202] animate-pulse" />
+                            In Progress
+                          </span>
+                        </div>
+                      )}
                       
                       {milestone.note && (
                         <div className="mt-6 inline-flex">

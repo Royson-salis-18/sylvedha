@@ -89,6 +89,19 @@ export function CurrentProjects() {
                         NutriTech
                       </span>
                     </h2>
+                    {/* ARIS & ECES hardware highlights */}
+                    <div className="flex flex-wrap gap-2.5 mt-1">
+                      <span className="inline-flex items-center gap-2 rounded-xl border border-[#7a964a]/30 bg-[#7a964a]/10 px-4 py-2 text-xs font-bold tracking-wide text-[#3a5c1f]">
+                        <span className="size-2 rounded-full bg-[#7a964a]" />
+                        A-RIS
+                        <span className="font-normal opacity-70">· Agriculture Real-Time Intelligence Sensor</span>
+                      </span>
+                      <span className="inline-flex items-center gap-2 rounded-xl border border-[#5a7333]/30 bg-[#5a7333]/10 px-4 py-2 text-xs font-bold tracking-wide text-[#3a5c1f]">
+                        <span className="size-2 rounded-full bg-[#5a7333]" />
+                        ECES
+                        <span className="font-normal opacity-70">· Environmental Controlled Experiment Setup</span>
+                      </span>
+                    </div>
                   </div>
                   <p className="max-w-2xl text-lg leading-relaxed text-[#06100d]/75 relative z-10 font-medium">
                     Sylvedha's smart agriculture initiative — combining environmental sensing, controlled plant
@@ -277,6 +290,17 @@ export function CurrentProjects() {
               <p className="mt-3 text-sm leading-relaxed text-[#06100d]/75 font-medium">
                 Sylvedha's smart agriculture initiative for scalable future farming.
               </p>
+              {/* ARIS & ECES mobile highlights */}
+              <div className="flex flex-col gap-2 mt-3">
+                <span className="inline-flex items-center gap-2 rounded-xl border border-[#7a964a]/30 bg-[#7a964a]/10 px-3 py-1.5 text-[10px] font-bold tracking-wide text-[#3a5c1f]">
+                  <span className="size-1.5 rounded-full bg-[#7a964a]" />
+                  A-RIS · Agriculture Real-Time Intelligence Sensor
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-xl border border-[#5a7333]/30 bg-[#5a7333]/10 px-3 py-1.5 text-[10px] font-bold tracking-wide text-[#3a5c1f]">
+                  <span className="size-1.5 rounded-full bg-[#5a7333]" />
+                  ECES · Environmental Controlled Experiment Setup
+                </span>
+              </div>
             </div>
 
             {/* Carousel */}

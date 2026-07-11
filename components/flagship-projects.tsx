@@ -77,8 +77,8 @@ export function FlagshipProjects() {
             Flagship Projects
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
-            Practical innovations,{" "}
-            <span className="italic text-secondary">in development</span> today
+            Products built for{" "}
+            <span className="italic text-secondary">industry scale</span>
           </h2>
         </div>
 
