@@ -81,6 +81,7 @@ export function NutriTechCarousel() {
               loop
               playsInline
               controls
+              preload="none"
               className="size-full object-cover"
             />
           ) : (
@@ -151,7 +152,7 @@ export function NutriTechCarousel() {
                     <VideoIcon className="size-6 text-[#BFF202]/60" />
                   </div>
                 ) : (
-                  <Image src={item.src} alt={item.caption} fill quality={45} sizes="96px" className="object-cover" />
+                  <Image src={item.src} alt={item.caption} fill quality={30} sizes="96px" loading="lazy" className="object-cover" />
                 )
               ) : (
                 <div className="flex size-full items-center justify-center bg-white/[0.04]">

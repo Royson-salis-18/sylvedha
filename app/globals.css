@@ -204,6 +204,12 @@
   }
 }
 
+/* Allow browser to skip rendering for below-fold sections */
+section:not(:first-of-type) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
 ::selection {
   background-color: #BFF202;
   color: #01312D;

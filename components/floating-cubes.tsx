@@ -61,8 +61,9 @@ export function FloatingCubes() {
     }
     resize()
 
-    // Generate groups
-    const numGroups = 20 // Increased number of cubes
+    // Generate groups — fewer on mobile to save CPU/GPU
+    const isMobile = window.innerWidth < 768
+    const numGroups = isMobile ? 8 : 20
     const groups: InterlockingCubeGroup[] = []
     for (let i = 0; i < numGroups; i++) {
       // Random direction vectors for multi-directional movement
@@ -156,9 +157,20 @@ export function FloatingCubes() {
       ctx.stroke()
     }
 
+    // Throttle to ~30fps on mobile to reduce CPU usage
+    const frameInterval = isMobile ? 33 : 0
+    let lastFrame = 0
+
     const draw = (time: number) => {
       const dt = (time - lastTime) / 1000
       lastTime = time
+
+      // Skip frames on mobile
+      if (frameInterval && time - lastFrame < frameInterval) {
+        animId = requestAnimationFrame(draw)
+        return
+      }
+      lastFrame = time
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 

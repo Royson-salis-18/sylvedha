@@ -526,7 +526,8 @@ export function SubtractedCard({
       <div
         ref={bodyRef}
         className={cn(
-          "relative w-full min-h-[200px] p-8 will-change-transform",
+          "relative w-full min-h-[200px] p-8",
+          !disableAnimation && "will-change-transform",
           !shaped && cn("rounded-[2rem] overflow-hidden", bgClass),
           cleanClass
         )}
