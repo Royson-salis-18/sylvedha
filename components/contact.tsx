@@ -130,7 +130,13 @@ export function Contact() {
                         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#011e1b]/40 mb-2">Phone</p>
                         <div className="flex flex-col gap-2">
                           {phones.map((phone) => (
-                            <a key={phone} href={`tel:${phone.replace(/\s/g, "")}`} className="text-base font-semibold text-[#011e1b]/80">
+                            <a 
+                              key={phone} 
+                              href={phone.includes('Whatsapp') ? `https://wa.me/${phone.replace(/[^\d]/g, "")}` : `tel:${phone.replace(/[^\d+]/g, "")}`} 
+                              target={phone.includes('Whatsapp') ? "_blank" : undefined}
+                              rel={phone.includes('Whatsapp') ? "noopener noreferrer" : undefined}
+                              className="text-base font-semibold text-[#011e1b]/80"
+                            >
                               {phone}
                             </a>
                           ))}
