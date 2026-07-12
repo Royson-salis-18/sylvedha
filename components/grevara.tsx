@@ -3,7 +3,7 @@
 import { useState } from "react"
 import {
   ChevronLeft, ChevronRight, Sparkles, Leaf, ShoppingBag,
-  ArrowRight, FileText, X, Package, MessageSquare, HelpCircle,
+  ArrowRight, FileText, X, Package, MessageSquare, HelpCircle, Download,
 } from "lucide-react"
 import Image from "next/image"
 
@@ -291,13 +291,23 @@ export function Grevara() {
             <div className="relative flex flex-col size-full bg-[#110517] rounded-[calc(1.5rem-1px)] overflow-hidden">
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 bg-gradient-to-r from-amber-400/5 to-purple-500/5">
                 <h3 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-purple-300 tracking-wide">Grevara Product Catalog</h3>
-                <button
-                  onClick={() => setShowCatalog(false)}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/90 bg-white/5 hover:bg-white/10 rounded-full transition-colors border border-white/10"
-                >
-                  <X className="size-4" />
-                  Close
-                </button>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="/documents/grevara-catalog.pdf"
+                    download="Grevara-Catalog.pdf"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-black bg-gradient-to-r from-amber-300 to-amber-500 hover:from-amber-400 hover:to-amber-600 rounded-full transition-all shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:scale-105"
+                  >
+                    <Download className="size-4" />
+                    Download PDF
+                  </a>
+                  <button
+                    onClick={() => setShowCatalog(false)}
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/90 bg-white/5 hover:bg-white/10 rounded-full transition-colors border border-white/10"
+                  >
+                    <X className="size-4" />
+                    Close
+                  </button>
+                </div>
               </div>
               <div className="flex-1 w-full bg-white/5 relative">
                 <iframe src="/grevara-catalog.html" className="absolute inset-0 size-full border-none" title="Grevara Product Catalog" />

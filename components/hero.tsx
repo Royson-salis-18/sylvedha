@@ -295,9 +295,9 @@ export function Hero() {
               <p className="text-[13px] xl:text-[14px] leading-[1.5] text-[#06100d]/75 font-medium">
                 Sylvedha is a research, engineering, and manufacturing company developing intelligent technologies and products across <span className="font-bold text-[#06100d]/90">agriculture, biotechnology, renewable energy, artificial intelligence, and automation.</span>
               </p>
-              <button className="mt-4 xl:mt-5 w-fit px-8 xl:px-10 py-3 xl:py-3.5 bg-[#c7ff00] text-[#06100d] rounded-full font-bold uppercase tracking-[0.15em] text-[11px] xl:text-[12px] hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(199,255,0,0.4)] transition-all duration-300">
+              <a href="/#current-projects" className="mt-4 xl:mt-5 w-fit px-8 xl:px-10 py-3 xl:py-3.5 bg-[#c7ff00] text-[#06100d] rounded-full font-bold uppercase tracking-[0.15em] text-[11px] xl:text-[12px] hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(199,255,0,0.4)] transition-all duration-300 inline-flex items-center justify-center">
                 Explore Our Work
-              </button>
+              </a>
             </div>
             
             {/* BOTTOM SECTION: Tags (Safe in bottom-left corner) */}
