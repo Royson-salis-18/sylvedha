@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import { ReactNode, useRef, useCallback, useState, useEffect, useMemo, useId } from "react"
 import { cn } from "@/lib/utils"
@@ -488,7 +488,7 @@ export function SubtractedCard({
   return (
     <div
       ref={cardRef}
-      className={cn("relative w-full min-h-[200px] overflow-visible group/card", !disableAnimation && "cursor-pointer")}
+      className={cn("relative w-full min-h-[200px] overflow-visible group group/card", !disableAnimation && "cursor-pointer")}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
