@@ -276,27 +276,29 @@ export function CurrentProjects() {
             }
           >
             {/* Header */}
-            <div className="mb-6 flex flex-col pt-3 pl-[84px] sm:pl-[92px] pr-4">
-              <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#99b961]/20 border border-[#99b961]/40 px-2.5 py-1 mb-2 text-[9px] font-bold uppercase tracking-wide text-[#123b00]">
-                <span className="size-1.5 rounded-full bg-[#7a964a] animate-pulse" />
-                Active Prototype
-              </span>
-              <h2 className="font-heading text-2xl font-bold leading-tight text-[#06100d]">
+            <div className="mb-6 flex flex-col pt-6 px-6 sm:px-8">
+              <div className="ml-[72px] mb-6">
+                <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#99b961]/20 border border-[#99b961]/40 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-[#123b00]">
+                  <span className="size-1.5 rounded-full bg-[#7a964a] animate-pulse" />
+                  Active Prototype
+                </span>
+              </div>
+              <h2 className="font-heading text-3xl sm:text-4xl font-bold leading-tight text-[#06100d]">
                 Project{" "}
                 <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#7a964a] to-[#5a7333] pr-1">
                   NutriTech
                 </span>
               </h2>
-              <p className="mt-2 text-xs leading-relaxed text-[#06100d]/75 font-medium">
+              <p className="mt-3 text-sm leading-relaxed text-[#06100d]/75 font-medium">
                 Sylvedha's smart agriculture initiative for scalable future farming.
               </p>
               {/* ARIS & ECES mobile highlights */}
-              <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
-                <span className="shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-[#7a964a]/30 bg-[#7a964a]/10 px-2.5 py-1 text-[9px] font-bold tracking-wide text-[#3a5c1f]">
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="inline-flex items-center gap-1.5 rounded-xl border border-[#7a964a]/30 bg-[#7a964a]/10 px-3 py-1.5 text-[10px] font-bold tracking-wide text-[#3a5c1f]">
                   <span className="size-1.5 rounded-full bg-[#7a964a]" />
                   A-RIS
                 </span>
-                <span className="shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-[#5a7333]/30 bg-[#5a7333]/10 px-2.5 py-1 text-[9px] font-bold tracking-wide text-[#3a5c1f]">
+                <span className="inline-flex items-center gap-1.5 rounded-xl border border-[#5a7333]/30 bg-[#5a7333]/10 px-3 py-1.5 text-[10px] font-bold tracking-wide text-[#3a5c1f]">
                   <span className="size-1.5 rounded-full bg-[#5a7333]" />
                   ECES
                 </span>
