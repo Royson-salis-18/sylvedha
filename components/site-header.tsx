@@ -109,14 +109,6 @@ export function SiteHeader() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="/#contact"
-              onClick={() => setOpen(false)}
-              className="mt-3 inline-flex justify-center rounded-2xl bg-gradient-to-b from-[#d4ff33] to-[#BFF202] border border-[#a1cc00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_4px_14px_rgba(191,242,2,0.15)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_6px_20px_rgba(191,242,2,0.3)] px-6 py-3 text-sm font-semibold text-[#01312D]"
-            >
-              Connect With Us
-            </a>
-          </div>
         </nav>
       </div>
     </header>

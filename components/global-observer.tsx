@@ -44,8 +44,12 @@ export function GlobalObserver() {
 
     observeTargets()
 
+    let debounceTimer: ReturnType<typeof setTimeout> | null = null
     const mutationObserver = new MutationObserver(() => {
-      observeTargets()
+      if (debounceTimer) clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(() => {
+        observeTargets()
+      }, 100)
     })
 
     mutationObserver.observe(document.body, {
