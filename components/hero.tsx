@@ -406,26 +406,7 @@ export function Hero() {
 
       </div>{/* end desktop bento */}
 
-      {/* ── Scroll Down Arrow ── */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1">
-        <button
-          id="hero-scroll-down"
-          aria-label="Scroll to next section"
-          onClick={() => {
-            const next = document.getElementById("about")
-            if (!next) return
-            // Use Lenis if available, otherwise native
-            const lenisEvent = new CustomEvent("lenis:scrollto", { detail: { target: next, offset: -80 } })
-            window.dispatchEvent(lenisEvent)
-          }}
-          className="group flex flex-col items-center gap-0.5 hover:opacity-100 transition-opacity duration-300"
-        >
-          <span className="text-[10px] uppercase tracking-[0.2em] font-bold px-2 py-0.5 rounded-md" style={{color:'#011a17', backgroundColor:'#BFF202'}}>Scroll</span>
-          <div className="size-9 rounded-full border border-white/20 group-hover:border-[#BFF202]/60 bg-white/5 group-hover:bg-[#BFF202]/10 flex items-center justify-center transition-all duration-300 animate-bounce">
-            <ChevronDown className="size-4 text-white/60 group-hover:text-[#BFF202] transition-colors" />
-          </div>
-        </button>
-      </div>
+
 
     </section>
   )
