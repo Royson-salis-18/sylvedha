@@ -11,6 +11,9 @@ export function SmoothScroll() {
   const isSnappingRef = useRef(false)
 
   useEffect(() => {
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0)
+    if (isTouch) return // Disable custom smooth scroll on mobile to avoid scroll sticking and lag
+
     const lenis = new Lenis({
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

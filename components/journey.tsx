@@ -26,6 +26,7 @@ const milestones = [
     title: "Industry Showcases & Recognition",
     description:
       "Took the hardware to the floor — demonstrated at technology exhibitions and academic platforms. Industry experts, researchers, and stakeholders saw it working. The feedback was clear: this matters.",
+    ongoing: true,
   },
 ]
 
@@ -59,9 +60,20 @@ export function Journey() {
     // Delay calculation slightly to ensure DOM is fully rendered
     const timeout = setTimeout(updatePath, 100);
     window.addEventListener('resize', updatePath);
+    
+    // Add ResizeObserver to handle dynamic height changes (e.g. font loading, mobile layout shifts)
+    let resizeObserver: ResizeObserver | null = null;
+    if (containerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        updatePath();
+      });
+      resizeObserver.observe(containerRef.current);
+    }
+
     return () => {
       clearTimeout(timeout);
       window.removeEventListener('resize', updatePath);
+      if (resizeObserver) resizeObserver.disconnect();
     };
   }, []);
 
