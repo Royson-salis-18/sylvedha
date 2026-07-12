@@ -3,17 +3,17 @@ import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
 
 // Dynamically import all components below the fold to massively reduce initial payload
-const About = dynamic(() => import("@/components/about").then(mod => mod.About), { ssr: true })
-const FocusAreas = dynamic(() => import("@/components/focus-areas").then(mod => mod.FocusAreas), { ssr: true })
-const CurrentProjects = dynamic(() => import("@/components/current-projects").then(mod => mod.CurrentProjects), { ssr: true })
-const Grevara = dynamic(() => import("@/components/grevara").then(mod => mod.Grevara), { ssr: true })
-const WhySylvedha = dynamic(() => import("@/components/why-sylvedha").then(mod => mod.WhySylvedha), { ssr: true })
-const Leadership = dynamic(() => import("@/components/leadership").then(mod => mod.Leadership), { ssr: true })
-const Roadmap = dynamic(() => import("@/components/roadmap").then(mod => mod.Roadmap), { ssr: true })
-const Contact = dynamic(() => import("@/components/contact").then(mod => mod.Contact), { ssr: true })
-const Journey = dynamic(() => import("@/components/journey").then(mod => mod.Journey), { ssr: true })
-const SiteFooter = dynamic(() => import("@/components/site-footer").then(mod => mod.SiteFooter), { ssr: true })
-const FloatingForms = dynamic(() => import("@/components/floating-forms").then(mod => mod.FloatingForms), { ssr: false })
+const About = dynamic(() => import("@/components/about").then(mod => mod.About))
+const FocusAreas = dynamic(() => import("@/components/focus-areas").then(mod => mod.FocusAreas))
+const CurrentProjects = dynamic(() => import("@/components/current-projects").then(mod => mod.CurrentProjects))
+const Grevara = dynamic(() => import("@/components/grevara").then(mod => mod.Grevara))
+const WhySylvedha = dynamic(() => import("@/components/why-sylvedha").then(mod => mod.WhySylvedha))
+const Leadership = dynamic(() => import("@/components/leadership").then(mod => mod.Leadership))
+const Roadmap = dynamic(() => import("@/components/roadmap").then(mod => mod.Roadmap))
+const Contact = dynamic(() => import("@/components/contact").then(mod => mod.Contact))
+const Journey = dynamic(() => import("@/components/journey").then(mod => mod.Journey))
+const SiteFooter = dynamic(() => import("@/components/site-footer").then(mod => mod.SiteFooter))
+const FloatingForms = dynamic(() => import("@/components/floating-forms").then(mod => mod.FloatingForms))
 
 export default function Page() {
   return (
