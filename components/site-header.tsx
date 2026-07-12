@@ -44,6 +44,8 @@ export function SiteHeader() {
                 alt="Sylvedha Logo"
                 fill
                 priority
+                fetchPriority="high"
+                sizes="(max-width: 640px) 160px, 190px"
                 className="object-contain"
               />
             </div>
