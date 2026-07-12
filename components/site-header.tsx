@@ -46,6 +46,7 @@ export function SiteHeader() {
                 height={54}
                 priority
                 fetchPriority="high"
+                sizes="180px"
                 className="w-full h-full object-contain"
               />
             </div>
