@@ -72,23 +72,23 @@ const RING_PALETTES = {
   // ── DARK backgrounds (dark-green, black, purple-gold) → LIGHT rings ──────
   // Use bright white/creme outer + neon inner so rings always pop off dark bg
   light: {
-    "dark-green": { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 22px rgba(255,255,255,0.55)", innerGlow: "0 0 24px rgba(191,242,2,0.55)" },
-    "mid-green":  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 22px rgba(255,255,255,0.55)", innerGlow: "0 0 24px rgba(191,242,2,0.55)" },
-    black:        { outer: "#F5F0E8", inner: "#BFF202", outerGlow: "0 0 22px rgba(245,240,232,0.55)", innerGlow: "0 0 24px rgba(191,242,2,0.55)" },
-    "purple-gold":{ outer: "#F5F0E8", inner: "#D4AF37", outerGlow: "0 0 18px rgba(245,240,232,0.40)", innerGlow: "0 0 18px rgba(212,175,55,0.42)" },
+    "dark-green": { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "none", innerGlow: "none" },
+    "mid-green":  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "none", innerGlow: "none" },
+    black:        { outer: "#F5F0E8", inner: "#BFF202", outerGlow: "none", innerGlow: "none" },
+    "purple-gold":{ outer: "#F5F0E8", inner: "#D4AF37", outerGlow: "none", innerGlow: "none" },
     // ── LIGHT backgrounds (neon, white) → DARK rings ─────────────────────────
     // Use dark outer + dark-green inner so rings are visible against bright bg
-    neon:  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 22px rgba(255,255,255,0.55)", innerGlow: "0 0 22px rgba(191,242,2,0.55)" },
-    white: { outer: "#FFFFFF", inner: "#1e4d41", outerGlow: "0 0 22px rgba(255,255,255,0.55)", innerGlow: "0 0 24px rgba(30,77,65,0.55)" },
+    neon:  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "none", innerGlow: "none" },
+    white: { outer: "#FFFFFF", inner: "#1e4d41", outerGlow: "none", innerGlow: "none" },
   },
   // dark surface = same logic, slightly stronger glows for dark-background contexts
   dark: {
-    "dark-green": { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 24px rgba(255,255,255,0.60)", innerGlow: "0 0 26px rgba(191,242,2,0.60)" },
-    "mid-green":  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 24px rgba(255,255,255,0.60)", innerGlow: "0 0 26px rgba(191,242,2,0.60)" },
-    black:        { outer: "#F5F0E8", inner: "#BFF202", outerGlow: "0 0 24px rgba(245,240,232,0.60)", innerGlow: "0 0 26px rgba(191,242,2,0.60)" },
-    "purple-gold":{ outer: "#F5F0E8", inner: "#D4AF37", outerGlow: "0 0 22px rgba(245,240,232,0.42)", innerGlow: "0 0 22px rgba(212,175,55,0.42)" },
-    neon:  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "0 0 24px rgba(255,255,255,0.60)", innerGlow: "0 0 24px rgba(191,242,2,0.60)" },
-    white: { outer: "#FFFFFF", inner: "#1e4d41", outerGlow: "0 0 24px rgba(255,255,255,0.60)", innerGlow: "0 0 26px rgba(30,77,65,0.60)" },
+    "dark-green": { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "none", innerGlow: "none" },
+    "mid-green":  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "none", innerGlow: "none" },
+    black:        { outer: "#F5F0E8", inner: "#BFF202", outerGlow: "none", innerGlow: "none" },
+    "purple-gold":{ outer: "#F5F0E8", inner: "#D4AF37", outerGlow: "none", innerGlow: "none" },
+    neon:  { outer: "#FFFFFF", inner: "#BFF202", outerGlow: "none", innerGlow: "none" },
+    white: { outer: "#FFFFFF", inner: "#1e4d41", outerGlow: "none", innerGlow: "none" },
   },
 } as const
 
@@ -630,7 +630,12 @@ export function SubtractedCard({
                   "absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover/card:opacity-100 transition-all duration-500 ease-out",
                   hoverRingScale === "small" ? "group-hover/card:scale-[1.15]" : "group-hover/card:scale-[1.3]"
                 )}
-                style={{ borderColor: ringPalette.inner, boxShadow: ringPalette.innerGlow }}
+                style={{ 
+                  borderColor: ringPalette.inner, 
+                  boxShadow: ringPalette.inner === "#BFF202" 
+                    ? `0 0 0 0.5px rgba(1,37,34,0.5), inset 0 0 0 0.5px rgba(1,37,34,0.5)${ringPalette.innerGlow !== "none" ? `, ${ringPalette.innerGlow}` : ""}`
+                    : (ringPalette.innerGlow !== "none" ? ringPalette.innerGlow : undefined)
+                }}
               />
             </>
           )}

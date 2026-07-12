@@ -190,7 +190,10 @@ export function Journey() {
                     scoopGap={14}
                     borderRadius={40}
                     floatingElement={
-                      <div className={cn("milestone-icon size-full rounded-full flex items-center justify-center font-heading text-4xl font-black drop-shadow-sm", config.floatBg, config.floatText)}>
+                      <div 
+                        className={cn("milestone-icon size-full rounded-full flex items-center justify-center font-heading text-4xl font-black drop-shadow-sm", config.floatBg, config.floatText)}
+                        style={config.floatText === "text-[#BFF202]" ? { WebkitTextStroke: "0.5px rgba(1, 37, 34, 0.7)" } : undefined}
+                      >
                         0{i + 1}
                       </div>
                     }

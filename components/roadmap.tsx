@@ -69,7 +69,10 @@ export function Roadmap() {
                 cutoutSize={64}
                 color={i === 0 ? "dark-green" : "white"}
                 floatingElement={
-                  <span className={`flex size-full items-center justify-center font-heading text-3xl font-bold leading-none ${i === 0 ? "text-[#BFF202]" : "text-[#7b9896]"}`}>
+                  <span 
+                    className={`flex size-full items-center justify-center font-heading text-3xl font-bold leading-none ${i === 0 ? "text-[#BFF202]" : "text-[#7b9896]"}`}
+                    style={i === 0 ? { WebkitTextStroke: "0.5px rgba(1, 37, 34, 0.7)" } : undefined}
+                  >
                     {`0${i + 1}`}
                   </span>
                 }
