@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import { Fira_Sans } from 'next/font/google'
 import { Fraunces } from 'next/font/google'
 import dynamic from 'next/dynamic'
-const GlobalObserver = dynamic(() => import('@/components/global-observer').then(mod => mod.GlobalObserver), { ssr: false })
-const SmoothScroll = dynamic(() => import('@/components/smooth-scroll').then(mod => mod.SmoothScroll), { ssr: false })
+const GlobalObserver = dynamic(() => import('@/components/global-observer').then(mod => mod.GlobalObserver))
+const SmoothScroll = dynamic(() => import('@/components/smooth-scroll').then(mod => mod.SmoothScroll))
 import './globals.css'
 
 const firaSans = Fira_Sans({ 
