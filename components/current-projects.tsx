@@ -258,47 +258,47 @@ export function CurrentProjects() {
             color="white"
             ringSurface="light"
             corner="top-left"
-            cutoutSize={96}
-            filletSize={28}
-            scoopGap={12}
+            cutoutSize={72}
+            filletSize={20}
+            scoopGap={8}
             borderRadius={32}
             disableAnimation={true}
             floatingElement={
-              <div className="relative size-full overflow-hidden rounded-full bg-[#F5F0E8] border-[4px] border-[#99b961] shadow-lg">
+              <div className="relative size-full overflow-hidden rounded-full bg-[#F5F0E8] border-[3px] border-[#99b961] shadow-lg">
                 <Image
                   src="/images/nutritech/nutritech-logo.jpeg"
                   alt="NutriTech"
                   fill
-                  sizes="96px"
+                  sizes="72px"
                   className="object-cover object-[center_40%] scale-[1.5]"
                 />
               </div>
             }
           >
             {/* Header */}
-            <div className="mb-6 flex flex-col pt-4 pl-20 sm:pl-24">
-              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#99b961]/20 border border-[#99b961]/40 px-3 py-1 mb-3 text-[10px] font-bold uppercase tracking-wide text-[#123b00]">
+            <div className="mb-6 flex flex-col pt-3 pl-[84px] sm:pl-[92px] pr-4">
+              <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#99b961]/20 border border-[#99b961]/40 px-2.5 py-1 mb-2 text-[9px] font-bold uppercase tracking-wide text-[#123b00]">
                 <span className="size-1.5 rounded-full bg-[#7a964a] animate-pulse" />
                 Active Prototype
               </span>
-              <h2 className="font-heading text-3xl font-bold leading-tight text-[#06100d]">
+              <h2 className="font-heading text-2xl font-bold leading-tight text-[#06100d]">
                 Project{" "}
-                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#7a964a] to-[#5a7333] pr-2">
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#7a964a] to-[#5a7333] pr-1">
                   NutriTech
                 </span>
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#06100d]/75 font-medium">
+              <p className="mt-2 text-xs leading-relaxed text-[#06100d]/75 font-medium">
                 Sylvedha's smart agriculture initiative for scalable future farming.
               </p>
               {/* ARIS & ECES mobile highlights */}
-              <div className="flex flex-col gap-2 mt-3">
-                <span className="inline-flex items-center gap-2 rounded-xl border border-[#7a964a]/30 bg-[#7a964a]/10 px-3 py-1.5 text-[10px] font-bold tracking-wide text-[#3a5c1f]">
+              <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
+                <span className="shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-[#7a964a]/30 bg-[#7a964a]/10 px-2.5 py-1 text-[9px] font-bold tracking-wide text-[#3a5c1f]">
                   <span className="size-1.5 rounded-full bg-[#7a964a]" />
-                  A-RIS · Agriculture Real-Time Intelligence Sensor
+                  A-RIS
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-xl border border-[#5a7333]/30 bg-[#5a7333]/10 px-3 py-1.5 text-[10px] font-bold tracking-wide text-[#3a5c1f]">
+                <span className="shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-[#5a7333]/30 bg-[#5a7333]/10 px-2.5 py-1 text-[9px] font-bold tracking-wide text-[#3a5c1f]">
                   <span className="size-1.5 rounded-full bg-[#5a7333]" />
-                  ECES · Environmental Controlled Experiment Setup
+                  ECES
                 </span>
               </div>
             </div>
@@ -322,44 +322,10 @@ export function CurrentProjects() {
                 ))}
               </div>
 
-              {/* Mobile Core Purpose */}
-              <div className="mt-6 flex-1 flex flex-col justify-end">
-                <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-white/90 to-white/40 p-5 shadow-sm border border-[#99b961]/20">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#7a964a] to-[#BFF202]"></div>
-                  <Cloud className="absolute -right-3 -bottom-3 size-20 text-[#99b961]/10" />
-                  <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#7a964a] mb-2">Core Purpose</p>
-                  <p className="text-xs font-semibold leading-relaxed text-[#123b00] relative z-10">
-                    Training AI for agriculture requires clean, structured, abundant data — and that data simply doesn't exist at scale. ECES + A-RIS is our answer to that gap.
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* Mobile SubtractedCards Grid */}
             <div className="grid gap-6 mb-6">
-              {/* Tech Pillar 1 */}
-              <SubtractedCard
-                  color="dark-green"
-                  ringSurface="none"
-                  corner="top-right"
-                  cutoutSize={48}
-                  borderRadius={24}
-                  disableAnimation={false}
-                  floatingElement={
-                    <div className="flex size-full items-center justify-center rounded-full bg-[#BFF202] shadow-lg border-2 border-white ring-2 ring-[#023a35]">
-                      {(() => {
-                        const Icon = techPillars[0].icon;
-                        return <Icon className="size-5 text-[#023a35]" />;
-                      })()}
-                    </div>
-                  }
-                >
-                  <div className="p-5 pt-6 pr-10 text-[#F5F0E8]">
-                    <p className="font-bold text-base tracking-wide mb-1">{techPillars[0].title}</p>
-                    <p className="text-sm leading-relaxed opacity-80 font-medium">{techPillars[0].desc}</p>
-                  </div>
-              </SubtractedCard>
-
               {/* Current Focus */}
               <SubtractedCard
                   color="black"
@@ -380,29 +346,6 @@ export function CurrentProjects() {
                       <li className="flex items-start gap-2"><div className="size-1.5 rounded-full bg-[#BFF202] mt-1.5 shrink-0" /> Controlled growth</li>
                       <li className="flex items-start gap-2"><div className="size-1.5 rounded-full bg-[#BFF202] mt-1.5 shrink-0" /> Hardware validation</li>
                     </ul>
-                  </div>
-              </SubtractedCard>
-
-              {/* Tech Pillar 2 */}
-              <SubtractedCard
-                  color="neon"
-                  ringSurface="none"
-                  corner="bottom-right"
-                  cutoutSize={48}
-                  borderRadius={24}
-                  disableAnimation={false}
-                  floatingElement={
-                    <div className="flex size-full items-center justify-center rounded-full bg-[#023a35] shadow-lg border-2 border-white ring-2 ring-[#BFF202]">
-                      {(() => {
-                        const Icon = techPillars[1].icon;
-                        return <Icon className="size-5 text-[#BFF202]" />;
-                      })()}
-                    </div>
-                  }
-                >
-                  <div className="p-5 pb-6 pr-10 text-[#011A17]">
-                    <p className="font-bold text-base tracking-wide mb-1">{techPillars[1].title}</p>
-                    <p className="text-sm leading-relaxed opacity-80 font-medium">{techPillars[1].desc}</p>
                   </div>
               </SubtractedCard>
             </div>

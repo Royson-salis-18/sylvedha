@@ -127,7 +127,7 @@ export function Grevara() {
               </p>
 
               {/* Highlights */}
-              <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              <div className="mt-10 hidden sm:grid gap-4 sm:grid-cols-3">
                 {highlights.map((h, i) => (
                   <div
                     key={h.label}
@@ -233,7 +233,7 @@ export function Grevara() {
                         <div className="mt-1 flex size-2 shrink-0 rounded-full bg-gradient-to-r from-purple-400 to-amber-400 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
                         <div>
                           <p className="text-sm font-bold text-white/95">{b.title}</p>
-                          <p className="mt-1 text-xs text-white/60 leading-relaxed">{b.desc}</p>
+                          <p className="mt-1 text-xs text-white/60 leading-relaxed hidden sm:block">{b.desc}</p>
                         </div>
                       </div>
                     ))}
