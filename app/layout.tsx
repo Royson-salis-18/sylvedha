@@ -102,8 +102,8 @@ export default function RootLayout({
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Preload large hero image only for desktop to avoid mobile LCP competition */}
-        <link rel="preload" href="/images/hero-bg.png" as="image" type="image/png" media="(min-width: 1024px)" fetchPriority="high" />
+        {/* Preload watermark to fix LCP discovery on Desktop */}
+        <link rel="preload" href="/images/logo-icon-white.webp" as="image" type="image/webp" fetchPriority="high" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased">

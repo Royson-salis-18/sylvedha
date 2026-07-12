@@ -345,7 +345,7 @@ export function Hero() {
               fill
               className="object-cover opacity-90"
               priority
-              quality={70}
+              quality={60}
               sizes="(max-width: 1024px) 80vw, 1000px"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/50 via-transparent to-transparent pointer-events-none" />
