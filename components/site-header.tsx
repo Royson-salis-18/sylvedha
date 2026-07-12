@@ -42,11 +42,11 @@ export function SiteHeader() {
               <Image
                 src="/images/logo-horizontal-neon.png"
                 alt="Sylvedha Logo"
-                fill
+                width={190}
+                height={54}
                 priority
                 fetchPriority="high"
-                sizes="(max-width: 640px) 160px, 190px"
-                className="object-contain"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>

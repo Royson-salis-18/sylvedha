@@ -200,13 +200,13 @@ export function Hero() {
           <Image src="/images/hero-bg.png" alt="Hero" fill className="object-cover opacity-90" priority fetchPriority="high" quality={65} sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
         </div>
-        <a href="/#contact" className="relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#000000] shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)] animate-fade-up" style={{animationDelay:'200ms'}}>
+        <a href="/#contact" className="relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-black shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)] animate-fade-up" style={{animationDelay:'200ms'}}>
           <div className="absolute inset-0 z-0 rounded-[1.75rem] bg-[#a6d900] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
           <div className="relative z-10 flex flex-col">
-            <p className="text-[#000000] text-[9px] font-bold uppercase tracking-[0.25em] mb-1 transition-colors">Let&apos;s Collaborate</p>
-            <p className="font-heading font-bold text-[24px] text-[#000000] leading-[1.05] transition-colors">Get in <span className="italic font-light">Touch</span></p>
+            <p className="text-black text-[9px] font-bold uppercase tracking-[0.25em] mb-1 transition-colors">Let&apos;s Collaborate</p>
+            <p className="font-heading font-bold text-[24px] text-black leading-[1.05] transition-colors">Get in <span className="italic font-light">Touch</span></p>
           </div>
-          <div className="relative z-10 size-12 rounded-full bg-[#000000] flex items-center justify-center shrink-0 group-hover:bg-[#011a17] transition-colors duration-300">
+          <div className="relative z-10 size-12 rounded-full bg-black flex items-center justify-center shrink-0 group-hover:bg-[#011a17] transition-colors duration-300">
             <ArrowUpRight className="size-5 text-[#BFF202]" />
           </div>
         </a>
@@ -355,20 +355,20 @@ export function Hero() {
         {/* ── 3. GET IN TOUCH (Bottom-Left) ── */}
         <a
           href="/#contact"
-          className="absolute left-0 top-[73.5%] w-[39.5%] h-[26.5%] rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-[#000000] z-30 opacity-0 afu d3 relative transition-colors duration-300 shadow-[0_18px_45px_rgba(0,0,0,0.15)]"
+          className="absolute left-0 top-[73.5%] w-[39.5%] h-[26.5%] rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-black z-30 opacity-0 afu d3 relative transition-colors duration-300 shadow-[0_18px_45px_rgba(0,0,0,0.15)]"
         >
           <div
             className="absolute inset-0 z-0 rounded-[2.5rem] bg-[#01312D] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]"
             style={{ willChange: 'transform' }}
           />
           <div className="relative z-10 flex flex-col">
-            <p className="text-[#000000] group-hover:text-[#BFF202]/90 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-300">Let&apos;s Collaborate</p>
-            <p className="font-heading font-bold text-[clamp(1.5rem,2.2vw,2.1rem)] text-[#000000] group-hover:text-white leading-[1.05] transition-colors duration-300">
+            <p className="text-black group-hover:text-[#BFF202]/90 text-[10px] font-bold uppercase tracking-[0.25em] mb-0.5 transition-colors duration-300">Let&apos;s Collaborate</p>
+            <p className="font-heading font-bold text-[clamp(1.5rem,2.2vw,2.1rem)] text-black group-hover:text-white leading-[1.05] transition-colors duration-300">
               Get in <span className="italic font-light">Touch</span>
             </p>
           </div>
-          <div className="relative z-10 size-14 rounded-full bg-[#000000] group-hover:bg-[#BFF202] flex items-center justify-center transition-colors duration-300 shrink-0">
-            <ArrowUpRight className="size-6 text-[#BFF202] group-hover:text-[#000000] transition-colors duration-300" />
+          <div className="relative z-10 size-14 rounded-full bg-black group-hover:bg-[#BFF202] flex items-center justify-center transition-colors duration-300 shrink-0">
+            <ArrowUpRight className="size-6 text-[#BFF202] group-hover:text-black transition-colors duration-300" />
           </div>
         </a>
 
@@ -419,7 +419,7 @@ export function Hero() {
           }}
           className="group flex flex-col items-center gap-0.5 opacity-70 hover:opacity-100 transition-opacity duration-300"
         >
-          <span className="text-[10px] uppercase tracking-[0.2em] text-white/80 group-hover:text-white transition-colors font-semibold">Scroll</span>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-white transition-colors font-semibold">Scroll</span>
           <div className="size-9 rounded-full border border-white/20 group-hover:border-[#BFF202]/60 bg-white/5 group-hover:bg-[#BFF202]/10 flex items-center justify-center transition-all duration-300 animate-bounce">
             <ChevronDown className="size-4 text-white/60 group-hover:text-[#BFF202] transition-colors" />
           </div>
