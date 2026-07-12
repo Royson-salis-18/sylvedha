@@ -90,6 +90,8 @@ export function Contact() {
                 <SubtractedCard
                   color="white"
                   ringSurface="dark"
+                  shutterColor="#E8E2D4"
+                  shutterContent={<Mail className="size-24 text-[#011e1b]/40" strokeWidth={1} />}
                   corner="bottom-right"
                   cutoutSize={72}
                   filletSize={28}
@@ -139,6 +141,8 @@ export function Contact() {
                 <SubtractedCard
                   color="neon"
                   ringSurface="dark"
+                  shutterColor="#011e1b"
+                  shutterContent={<LinkedinIcon className="size-24 text-[#BFF202]" strokeWidth={1} />}
                   corner="top-left"
                   cutoutSize={64}
                   filletSize={24}
@@ -177,7 +181,9 @@ export function Contact() {
             <div className="animate-on-scroll">
               <SubtractedCard
                 color="black"
-                ringSurface="dark"
+                  ringSurface="dark"
+                  shutterColor="#BFF202"
+                  shutterContent={<InstagramIcon className="size-24 text-[#011e1b]" strokeWidth={1} />}
                 corner="top-right"
                 cutoutSize={64}
                 filletSize={24}

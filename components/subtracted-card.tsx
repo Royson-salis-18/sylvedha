@@ -43,6 +43,8 @@ interface SubtractedCardProps {
   scoopGap?: number
   hoverRingScale?: "large" | "small"
   disableTilt?: boolean
+  shutterContent?: ReactNode
+  shutterColor?: string
 }
 
 const DEFAULT_GAP = 16
@@ -323,6 +325,8 @@ export function SubtractedCard({
   scoopGap = DEFAULT_GAP,
   hoverRingScale = "large",
   disableTilt = false,
+  shutterContent,
+  shutterColor,
 }: SubtractedCardProps) {
   const cardRef  = useRef<HTMLDivElement>(null)
   const bodyRef  = useRef<HTMLDivElement>(null)
@@ -577,6 +581,24 @@ export function SubtractedCard({
 
         {effectiveCorner !== "none" && effectiveCorner.includes("bottom") && (
           <div className="relative z-[2]" style={{ height: biteRadius, width: "100%", clear: "both" }} />
+        )}
+
+        {shutterContent && (
+          <div
+            className="absolute inset-0 z-[10] pointer-events-none"
+            style={{ 
+              borderRadius: shaped ? 0 : borderRadius,
+              clipPath: shaped ? `url(#${CSS.escape(clipId)})` : 'none',
+              overflow: shaped ? 'visible' : 'hidden'
+            }}
+          >
+            <div
+              className="absolute inset-0 flex items-center justify-center transition-transform duration-[500ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover/card:-translate-y-full"
+              style={{ backgroundColor: shutterColor || fillColor }}
+            >
+              {shutterContent}
+            </div>
+          </div>
         )}
       </div>
 
