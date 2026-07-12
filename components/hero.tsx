@@ -192,7 +192,7 @@ export function Hero() {
               <span className="font-bold text-[#06100d]">Agriculture, Biotechnology, Renewable Energy, Artificial Intelligence, Automation,</span> and Sustainable Infrastructure.
             </p>
           </div>
-          <a href="#focus" className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-[#c7ff00] px-6 py-3 text-center text-[11px] font-bold uppercase tracking-widest text-[#06100d] transition-colors hover:bg-[#a6d900] sm:w-fit">
+          <a href="/#current-projects" className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-[#c7ff00] px-6 py-3 text-center text-[11px] font-bold uppercase tracking-widest text-[#06100d] transition-colors hover:bg-[#a6d900] sm:w-fit">
             Explore Innovations
           </a>
         </div>

@@ -86,11 +86,11 @@ export function SiteHeader() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "absolute left-3 right-3 top-[76px] overflow-hidden rounded-[1.75rem] border border-white/10 shadow-2xl transition-all duration-300 sm:left-4 sm:right-4 sm:top-[86px] xl:hidden",
+          "absolute left-3 right-3 top-[76px] overflow-hidden rounded-[1.75rem] border border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.15)] transition-all duration-300 sm:left-4 sm:right-4 sm:top-[86px] xl:hidden",
           open ? "max-h-[calc(100svh-96px)] opacity-100" : "pointer-events-none max-h-0 opacity-0"
         )}
       >
-        <nav className="bg-[#01312D]/97 backdrop-blur-xl">
+        <nav className="bg-white/95 backdrop-blur-xl">
           <div className="mx-auto flex max-h-[calc(100svh-96px)] max-w-7xl flex-col overflow-y-auto px-3 py-3 sm:px-5 sm:py-4">
             {navLinks.map((link) => (
               <a
@@ -103,12 +103,13 @@ export function SiteHeader() {
                     ? "bg-[#2a1126] text-[#d4af37] border border-[#d4af37]/30 mt-2 text-center"
                     : link.highlight === "neon"
                     ? "bg-[#BFF202] text-[#011a17] font-black mt-2 text-center"
-                    : "text-white/90 hover:bg-white/5 hover:text-white"
+                    : "text-[#011a17] hover:bg-black/5 hover:text-[#8db300]"
                 )}
               >
                 {link.label}
               </a>
             ))}
+          </div>
         </nav>
       </div>
     </header>
