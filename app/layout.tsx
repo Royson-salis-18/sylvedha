@@ -2,8 +2,9 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Fira_Sans } from 'next/font/google'
 import { Fraunces } from 'next/font/google'
-import { GlobalObserver } from '@/components/global-observer'
-import { SmoothScroll } from '@/components/smooth-scroll'
+import dynamic from 'next/dynamic'
+const GlobalObserver = dynamic(() => import('@/components/global-observer').then(mod => mod.GlobalObserver), { ssr: false })
+const SmoothScroll = dynamic(() => import('@/components/smooth-scroll').then(mod => mod.SmoothScroll), { ssr: false })
 import './globals.css'
 
 const firaSans = Fira_Sans({ 
