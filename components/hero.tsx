@@ -180,7 +180,7 @@ export function Hero() {
 
       {/* ── MOBILE ── */}
       <div className="lg:hidden flex flex-col gap-3.5 pb-2">
-        <div className="bg-[#eee9df] rounded-[1.75rem] p-5 sm:p-8 flex flex-col justify-between shrink-0 animate-fade-up shadow-[0_18px_45px_rgba(0,0,0,0.18)]" style={{animationDelay:'0ms'}}>
+        <div className="bg-[#eee9df] rounded-[1.75rem] p-5 sm:p-8 flex flex-col justify-between shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)]">
           <div>
             <p className="text-[#123b00] font-black tracking-[0.22em] text-[11px] mb-1">SYLVEDHA</p>
             <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] mb-3.5">Innovating Technology in Harmony with Nature</p>
@@ -196,7 +196,7 @@ export function Hero() {
             Explore Innovations
           </a>
         </div>
-        <div className="relative h-[210px] sm:h-[280px] rounded-[1.75rem] bg-[#0a1f13] overflow-hidden shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.22)] animate-fade-up" style={{animationDelay:'100ms'}}>
+        <div className="relative h-[210px] sm:h-[280px] rounded-[1.75rem] bg-[#0a1f13] overflow-hidden shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.22)]">
           <Image src="/images/hero-bg.png" alt="Hero" fill className="object-cover opacity-90" priority fetchPriority="high" quality={65} sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
         </div>
@@ -210,7 +210,7 @@ export function Hero() {
             <ArrowUpRight className="size-5 text-[#BFF202]" />
           </div>
         </a>
-        <a href="/#grevara" className="relative h-[178px] rounded-[1.75rem] bg-[#2a1126] overflow-hidden shrink-0 animate-fade-up cursor-pointer group border border-amber-400/20 hover:border-amber-400/60 transition-all duration-500 shadow-[0_18px_45px_rgba(0,0,0,0.2)]" style={{animationDelay:'300ms'}}>
+        <a href="/#grevara" className="relative h-[178px] rounded-[1.75rem] bg-[#2a1126] overflow-hidden shrink-0 cursor-pointer group border border-amber-400/20 hover:border-amber-400/60 transition-all duration-500 shadow-[0_18px_45px_rgba(0,0,0,0.2)]">
           <Image src="/images/grevara/product-shelf.jpg" alt="Grevara Products" fill quality={60} sizes="100vw" className="object-cover opacity-55 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#120c12]/90 via-[#120c12]/60 to-[#120c12]/15 group-hover:opacity-0 transition-opacity duration-500" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
