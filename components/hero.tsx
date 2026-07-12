@@ -200,7 +200,7 @@ export function Hero() {
           <Image src="/images/hero-bg.png" alt="Hero" fill className="object-cover opacity-90" priority fetchPriority="high" quality={65} sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f13]/60 via-[#011a17]/10 to-transparent" />
         </div>
-        <a href="/#contact" className="relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-black shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)] animate-fade-up" style={{backgroundColor:'#BFF202', color:'#000000', animationDelay:'200ms'}}>
+        <a href="/#contact" className="relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-black shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)]" style={{backgroundColor:'#BFF202', color:'#000000'}}>
           <div className="absolute inset-0 z-0 rounded-[1.75rem] bg-[#a6d900] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
           <div className="relative z-10 flex flex-col">
             <p className="text-black text-[9px] font-bold uppercase tracking-[0.25em] mb-1 transition-colors">Let&apos;s Collaborate</p>
@@ -355,7 +355,7 @@ export function Hero() {
         {/* ── 3. GET IN TOUCH (Bottom-Left) ── */}
         <a
           href="/#contact"
-          className="absolute left-0 top-[73.5%] w-[39.5%] h-[26.5%] rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-black z-30 opacity-0 afu d3 relative transition-colors duration-300 shadow-[0_18px_45px_rgba(0,0,0,0.15)]"
+          className="absolute left-0 top-[73.5%] w-[39.5%] h-[26.5%] rounded-[2.5rem] px-8 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-black z-30 relative transition-colors duration-300 shadow-[0_18px_45px_rgba(0,0,0,0.15)]"
           style={{backgroundColor:'#BFF202', color:'#000000'}}
         >
           <div
@@ -418,7 +418,7 @@ export function Hero() {
             const lenisEvent = new CustomEvent("lenis:scrollto", { detail: { target: next, offset: -80 } })
             window.dispatchEvent(lenisEvent)
           }}
-          className="group flex flex-col items-center gap-0.5 opacity-70 hover:opacity-100 transition-opacity duration-300"
+          className="group flex flex-col items-center gap-0.5 hover:opacity-100 transition-opacity duration-300"
         >
           <span className="text-[10px] uppercase tracking-[0.2em] text-white transition-colors font-semibold bg-black/40 px-2 py-0.5 rounded-md">Scroll</span>
           <div className="size-9 rounded-full border border-white/20 group-hover:border-[#BFF202]/60 bg-white/5 group-hover:bg-[#BFF202]/10 flex items-center justify-center transition-all duration-300 animate-bounce">
