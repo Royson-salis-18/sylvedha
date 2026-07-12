@@ -203,8 +203,8 @@ export function Hero() {
         <a href="/#contact" className="relative min-h-[104px] rounded-[1.75rem] px-5 py-5 flex items-center justify-between group overflow-hidden bg-[#BFF202] text-black shrink-0 shadow-[0_18px_45px_rgba(0,0,0,0.18)]" style={{backgroundColor:'#BFF202', color:'#000000'}}>
           <div className="absolute inset-0 z-0 rounded-[1.75rem] bg-[#a6d900] transform translate-y-full group-hover:translate-y-0 transition-transform duration-[420ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]" />
           <div className="relative z-10 flex flex-col">
-            <p className="text-black text-[9px] font-bold uppercase tracking-[0.25em] mb-1 transition-colors">Let&apos;s Collaborate</p>
-            <p className="font-heading font-bold text-[24px] text-black leading-[1.05] transition-colors">Get in <span className="italic font-light">Touch</span></p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.25em] mb-1" style={{color:'#000000', backgroundColor:'#BFF202'}}>Let&apos;s Collaborate</p>
+            <p className="font-heading font-bold text-[24px] leading-[1.05]" style={{color:'#000000', backgroundColor:'#BFF202'}}>Get in <span className="italic font-light">Touch</span></p>
           </div>
           <div className="relative z-10 size-12 rounded-full bg-black flex items-center justify-center shrink-0 group-hover:bg-[#011a17] transition-colors duration-300">
             <ArrowUpRight className="size-5 text-[#BFF202]" />
@@ -420,7 +420,7 @@ export function Hero() {
           }}
           className="group flex flex-col items-center gap-0.5 hover:opacity-100 transition-opacity duration-300"
         >
-          <span className="text-[10px] uppercase tracking-[0.2em] text-white transition-colors font-semibold bg-black/40 px-2 py-0.5 rounded-md">Scroll</span>
+          <span className="text-[10px] uppercase tracking-[0.2em] font-bold px-2 py-0.5 rounded-md" style={{color:'#011a17', backgroundColor:'#BFF202'}}>Scroll</span>
           <div className="size-9 rounded-full border border-white/20 group-hover:border-[#BFF202]/60 bg-white/5 group-hover:bg-[#BFF202]/10 flex items-center justify-center transition-all duration-300 animate-bounce">
             <ChevronDown className="size-4 text-white/60 group-hover:text-[#BFF202] transition-colors" />
           </div>
