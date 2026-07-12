@@ -1,17 +1,19 @@
+import dynamic from "next/dynamic"
 import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
-import { FocusAreas } from "@/components/focus-areas"
-import { CurrentProjects } from "@/components/current-projects"
-import { Grevara } from "@/components/grevara"
-import { WhySylvedha } from "@/components/why-sylvedha"
-import { Leadership } from "@/components/leadership"
-import { Roadmap } from "@/components/roadmap"
-import { Contact } from "@/components/contact"
-import { Journey } from "@/components/journey"
-import { SiteFooter } from "@/components/site-footer"
-import { FloatingForms } from "@/components/floating-forms"
-import { ArrowRight } from "lucide-react"
+
+// Dynamically import all components below the fold to massively reduce initial payload
+const About = dynamic(() => import("@/components/about").then(mod => mod.About), { ssr: true })
+const FocusAreas = dynamic(() => import("@/components/focus-areas").then(mod => mod.FocusAreas), { ssr: true })
+const CurrentProjects = dynamic(() => import("@/components/current-projects").then(mod => mod.CurrentProjects), { ssr: true })
+const Grevara = dynamic(() => import("@/components/grevara").then(mod => mod.Grevara), { ssr: true })
+const WhySylvedha = dynamic(() => import("@/components/why-sylvedha").then(mod => mod.WhySylvedha), { ssr: true })
+const Leadership = dynamic(() => import("@/components/leadership").then(mod => mod.Leadership), { ssr: true })
+const Roadmap = dynamic(() => import("@/components/roadmap").then(mod => mod.Roadmap), { ssr: true })
+const Contact = dynamic(() => import("@/components/contact").then(mod => mod.Contact), { ssr: true })
+const Journey = dynamic(() => import("@/components/journey").then(mod => mod.Journey), { ssr: true })
+const SiteFooter = dynamic(() => import("@/components/site-footer").then(mod => mod.SiteFooter), { ssr: true })
+const FloatingForms = dynamic(() => import("@/components/floating-forms").then(mod => mod.FloatingForms), { ssr: false })
 
 export default function Page() {
   return (
