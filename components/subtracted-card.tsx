@@ -403,6 +403,33 @@ export function SubtractedCard({
     return () => ro.disconnect()
   }, [])
 
+  useEffect(() => {
+    if (!shutterContent) return
+    const el = cardRef.current
+    if (!el) return
+
+    // Cache matchMedia check so we don't query it continuously
+    const isTouch = window.matchMedia("(hover: none)").matches
+    if (!isTouch) return
+
+    // Use direct DOM manipulation instead of React state to prevent heavy re-renders on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            el.dataset.mobileOpen = "true"
+          } else {
+            el.dataset.mobileOpen = "false"
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [shutterContent])
+
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       if (disableAnimation) return
@@ -547,7 +574,7 @@ export function SubtractedCard({
               strokeWidth="1.8"
               strokeDasharray="80 40"
               vectorEffect="non-scaling-stroke"
-              className="sc-border-anim opacity-60 group-hover/card:opacity-100 transition-opacity duration-500"
+              className="sc-border-anim opacity-60 group-hover/card:opacity-100 group-data-[mobile-open=true]/card:opacity-100 transition-opacity duration-500"
             />
             <defs>
               <filter id={`shadow-${clipId}`} x="-20%" y="-20%" width="140%" height="140%">
@@ -593,7 +620,7 @@ export function SubtractedCard({
             }}
           >
             <div
-              className="absolute inset-0 flex items-center justify-center transition-transform duration-[500ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover/card:-translate-y-full"
+              className="absolute inset-0 flex items-center justify-center transition-transform duration-[500ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover/card:-translate-y-full group-data-[mobile-open=true]/card:-translate-y-full"
               style={{ backgroundColor: shutterColor || fillColor }}
             >
               {shutterContent}
@@ -619,16 +646,20 @@ export function SubtractedCard({
               {/* Outer ring */}
               <div
                 className={cn(
-                  "absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover/card:opacity-100 transition-all duration-700 ease-out",
-                  hoverRingScale === "small" ? "group-hover/card:scale-[1.35]" : "group-hover/card:scale-[1.7]"
+                  "absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover/card:opacity-100 group-data-[mobile-open=true]/card:opacity-100 transition-all duration-700 ease-out",
+                  hoverRingScale === "small" 
+                    ? "group-hover/card:scale-[1.35] group-data-[mobile-open=true]/card:scale-[1.35]" 
+                    : "group-hover/card:scale-[1.7] group-data-[mobile-open=true]/card:scale-[1.7]"
                 )}
                 style={{ borderColor: ringPalette.outer, boxShadow: ringPalette.outerGlow }}
               />
               {/* Inner ring */}
               <div
                 className={cn(
-                  "absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover/card:opacity-100 transition-all duration-500 ease-out",
-                  hoverRingScale === "small" ? "group-hover/card:scale-[1.15]" : "group-hover/card:scale-[1.3]"
+                  "absolute inset-0 rounded-full border-[2.5px] opacity-0 group-hover/card:opacity-100 group-data-[mobile-open=true]/card:opacity-100 transition-all duration-500 ease-out",
+                  hoverRingScale === "small" 
+                    ? "group-hover/card:scale-[1.15] group-data-[mobile-open=true]/card:scale-[1.15]" 
+                    : "group-hover/card:scale-[1.3] group-data-[mobile-open=true]/card:scale-[1.3]"
                 )}
                 style={{ 
                   borderColor: ringPalette.inner, 
@@ -641,7 +672,7 @@ export function SubtractedCard({
           )}
           <div className={cn(
             "size-full transition-all duration-500",
-            !disableAnimation && "animate-bob group-hover/card:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
+            !disableAnimation && "animate-bob group-hover/card:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] group-data-[mobile-open=true]/card:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
           )}>{floatingElement}</div>
         </div>
       )}

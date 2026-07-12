@@ -175,7 +175,7 @@ export function Contact() {
                       <span className="block font-heading text-3xl lg:text-4xl font-extrabold text-[#011e1b]">LinkedIn</span>
                       <span className="text-base lg:text-lg font-medium text-[#011e1b]/70">@Sylvedha</span>
                     </div>
-                    <ArrowUpRight className="size-10 lg:size-12 text-[#011e1b]/40 transition-transform group-hover/card:translate-x-1 group-hover/card:-translate-y-1" />
+                    <ArrowUpRight className="size-10 lg:size-12 text-[#011e1b]/40 transition-transform group-hover/card:translate-x-1 group-hover/card:-translate-y-1 group-data-[mobile-open=true]/card:translate-x-1 group-data-[mobile-open=true]/card:-translate-y-1" />
                   </a>
                 </SubtractedCard>
               </div>
@@ -221,7 +221,7 @@ export function Contact() {
                     <span className="block font-heading text-3xl lg:text-4xl font-extrabold text-[#F5F0E8]">Instagram</span>
                     <span className="text-base lg:text-lg font-medium text-[#F5F0E8]/70">@Sylvedha</span>
                   </div>
-                  <ArrowUpRight className="size-10 lg:size-12 text-[#F5F0E8]/40 transition-transform group-hover/card:translate-x-1 group-hover/card:-translate-y-1" />
+                  <ArrowUpRight className="size-10 lg:size-12 text-[#F5F0E8]/40 transition-transform group-hover/card:translate-x-1 group-hover/card:-translate-y-1 group-data-[mobile-open=true]/card:translate-x-1 group-data-[mobile-open=true]/card:-translate-y-1" />
                 </a>
               </SubtractedCard>
             </div>
