@@ -91,7 +91,12 @@ export function Contact() {
                   color="white"
                   ringSurface="dark"
                   shutterColor="#E8E2D4"
-                  shutterContent={<Mail className="size-24 text-[#011e1b]/40" strokeWidth={1} />}
+                  shutterContent={
+                    <div className="flex flex-col items-center gap-4">
+                      <Mail className="size-24 text-[#011e1b]/40" strokeWidth={1} />
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#011e1b]/40">Hover to reveal</span>
+                    </div>
+                  }
                   corner="bottom-right"
                   cutoutSize={72}
                   filletSize={28}
@@ -142,7 +147,12 @@ export function Contact() {
                   color="neon"
                   ringSurface="dark"
                   shutterColor="#011e1b"
-                  shutterContent={<LinkedinIcon className="size-24 text-[#BFF202]" strokeWidth={1} />}
+                  shutterContent={
+                    <div className="flex flex-col items-center gap-4">
+                      <LinkedinIcon className="size-24 text-[#BFF202]" strokeWidth={1} />
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#BFF202]/70">Hover to connect</span>
+                    </div>
+                  }
                   corner="top-left"
                   cutoutSize={64}
                   filletSize={24}
@@ -183,7 +193,12 @@ export function Contact() {
                 color="black"
                   ringSurface="dark"
                   shutterColor="#BFF202"
-                  shutterContent={<InstagramIcon className="size-24 text-[#011e1b]" strokeWidth={1} />}
+                  shutterContent={
+                    <div className="flex flex-col items-center gap-4">
+                      <InstagramIcon className="size-24 text-[#011e1b]" strokeWidth={1} />
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#011e1b]/70">Hover to connect</span>
+                    </div>
+                  }
                 corner="top-right"
                 cutoutSize={64}
                 filletSize={24}
