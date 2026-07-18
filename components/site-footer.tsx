@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 const disciplines = [
   "Agriculture",
@@ -195,9 +196,9 @@ export function SiteFooter() {
             <div className="flex flex-wrap items-center gap-4 text-xs">
               <a href="mailto:info@sylvedha.com" className="hover:text-[#BFF202] transition-colors text-white/90">info@sylvedha.com</a>
               <span className="text-white/90">|</span>
-              <a href="#privacy" className="hover:text-white transition-colors text-white/90">Privacy Policy</a>
+              <Link href="/privacy-policy" className="hover:text-[#BFF202] transition-colors text-white/90">Privacy Policy</Link>
               <span className="text-white/90">|</span>
-              <a href="#terms" className="hover:text-white transition-colors text-white/90">Terms of Service</a>
+              <Link href="/terms" className="hover:text-[#BFF202] transition-colors text-white/90">Terms of Use &amp; Sale</Link>
             </div>
 
             <div className="flex items-center gap-3 hidden md:flex">

@@ -318,6 +318,27 @@ export function ContactForm() {
           </p>
         )}
 
+        {/* DPDP Collection Notice */}
+        <div className="rounded-xl bg-white/[0.02] border border-white/[0.05] px-4 py-3 mt-2">
+          <p className="text-[11px] leading-relaxed text-white/40">
+            By submitting this form, you acknowledge that Sylvedha LLP will process the information provided to respond to your request in accordance with our{" "}
+            <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#BFF202]/60 underline underline-offset-2 hover:text-[#BFF202] transition-colors">Privacy Policy</a>.
+          </p>
+        </div>
+
+        {/* Marketing Consent — standalone opt-in per DPDP */}
+        <label htmlFor="marketing-consent" className="flex items-start gap-3 cursor-pointer group mt-1">
+          <input
+            id="marketing-consent"
+            name="marketing_consent"
+            type="checkbox"
+            className="mt-0.5 size-4 shrink-0 rounded border-white/20 bg-white/5 accent-[#BFF202] cursor-pointer"
+          />
+          <span className="text-xs text-white/40 leading-relaxed group-hover:text-white/60 transition-colors">
+            I would like to receive occasional updates about Sylvedha&apos;s products, projects, and news. You can unsubscribe at any time.
+          </span>
+        </label>
+
         <SubmitButton disabled={!isVerified} />
       </div>
     </form>

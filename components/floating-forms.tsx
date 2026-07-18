@@ -301,7 +301,28 @@ function ModalForm({ type, onClose }: { type: ModalType; onClose: () => void }) 
               </div>
             )}
 
-            {/* Slider & Submit side-by-side on wide screens */}
+            {/* DPDP Collection Notice */}
+            <div className="rounded-xl bg-white/[0.02] border border-white/[0.06] px-4 py-3">
+              <p className="text-[11px] leading-relaxed text-white/35">
+                By submitting this form, you acknowledge that Sylvedha LLP will process the information provided to respond to your request in accordance with our{" "}
+                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-purple-400/70 underline underline-offset-2 hover:text-purple-300 transition-colors">Privacy Policy</a>.
+              </p>
+            </div>
+
+            {/* Marketing Consent — standalone opt-in per DPDP (for preorder & query only) */}
+            {(type === "preorder" || type === "query") && (
+              <label htmlFor={`ff-marketing-${type}`} className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  id={`ff-marketing-${type}`}
+                  name="marketing_consent"
+                  type="checkbox"
+                  className="mt-0.5 size-4 shrink-0 rounded border-white/20 bg-white/5 accent-amber-400 cursor-pointer"
+                />
+                <span className="text-[11px] text-white/35 leading-relaxed group-hover:text-white/50 transition-colors">
+                  I would like to receive occasional updates about Sylvedha&apos;s products and news. You can unsubscribe at any time.
+                </span>
+              </label>
+            )}
             <div className="flex flex-col sm:flex-row items-end justify-between gap-6 pt-2">
               <div className="w-full sm:flex-1">
                 <SliderCaptcha onVerified={() => setVerified(true)} />
