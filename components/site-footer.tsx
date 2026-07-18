@@ -190,22 +190,22 @@ export function SiteFooter() {
             <div className="absolute -top-0.5 right-0 h-[3px] w-16 bg-white/10" />
           </div>
 
-          <div className="flex flex-col gap-4 text-sm text-white/90 sm:flex-row sm:items-center sm:justify-between">
-            <p>&copy; {new Date().getFullYear()} <span className="font-sans font-bold text-white/90">SYLVEDHA LLP</span>. All Rights Reserved.</p>
+          <div className="flex flex-col gap-4 text-sm text-white/90 sm:flex-row sm:items-center sm:justify-between mb-6">
+            <p>&copy; {new Date().getFullYear()} <span className="font-sans font-bold text-white/90">SYLVEDHA LLP</span>. All rights reserved.</p>
             
             <div className="flex flex-wrap items-center gap-4 text-xs">
               <a href="mailto:info@sylvedha.com" className="hover:text-[#BFF202] transition-colors text-white/90">info@sylvedha.com</a>
               <span className="text-white/90">|</span>
               <Link href="/privacy-policy" className="hover:text-[#BFF202] transition-colors text-white/90">Privacy Policy</Link>
               <span className="text-white/90">|</span>
-              <Link href="/terms" className="hover:text-[#BFF202] transition-colors text-white/90">Terms of Use &amp; Sale</Link>
+              <Link href="/terms" className="hover:text-[#BFF202] transition-colors text-white/90">Terms of Use &amp; Order Requests</Link>
             </div>
+          </div>
 
-            <div className="flex items-center gap-3 hidden md:flex">
-              <div className="h-1 w-1 rotate-45 bg-[#BFF202]/40" />
-              <p className="text-xs">Mangaluru, Karnataka, India</p>
-              <div className="h-1 w-1 rotate-45 bg-[#BFF202]/40" />
-            </div>
+          <div className="flex flex-col gap-2 text-xs text-white/50 border-t border-white/5 pt-6">
+            <p>Grevara is a brand owned and operated by SYLVEDHA LLP. <span className="text-[#BFF202]/80">LLPIN: ACX-4015</span></p>
+            <p>Registered Office: Incubation Centre, Third Floor, PG Block, MITE, Moodabidri, Mangaluru, Karnataka - 574225</p>
+            <p>Registered with limited liability under the Limited Liability Partnership Act, 2008.</p>
           </div>
         </div>
       </div>

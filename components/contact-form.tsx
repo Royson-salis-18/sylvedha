@@ -203,7 +203,7 @@ export function ContactForm() {
         <h3 className="font-heading text-3xl font-bold text-white">
           Send us a message
         </h3>
-        <p className="mt-2 text-sm text-white/50">We&apos;ll get back to you within 24 hours.</p>
+        <p className="mt-2 text-sm text-white/50">We aim to respond within one to two business days.</p>
       </div>
 
       {/* Honeypot fields - invisible to humans, tempting for bot scrapers */}
@@ -233,34 +233,36 @@ export function ContactForm() {
       <input type="hidden" name="slide_token" value={slideToken} />
 
       <div className="relative mt-8 grid gap-6">
-        <div className="grid gap-2">
-          <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 pl-1">
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            autoComplete="name"
-            className={inputClasses}
-            placeholder="Your name"
-          />
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid gap-2">
+            <label htmlFor="name" className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 pl-1">
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              autoComplete="name"
+              className={inputClasses}
+              placeholder="Your name"
+            />
+          </div>
 
-        <div className="grid gap-2">
-          <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 pl-1">
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            className={inputClasses}
-            placeholder="you@example.com"
-          />
+          <div className="grid gap-2">
+            <label htmlFor="email" className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 pl-1">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              className={inputClasses}
+              placeholder="you@example.com"
+            />
+          </div>
         </div>
 
         <div className="grid gap-2">

@@ -8,7 +8,7 @@ import Image from "next/image"
 const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Focus Areas", href: "/#focus" },
-  { label: "Grevara Store", href: "/#grevara", highlight: "purple" },
+  { label: "Explore Grevara", href: "/#grevara", highlight: "purple" },
   { label: "Projects", href: "/#current-projects" },
   { label: "Why Sylvedha", href: "/#why-sylvedha" },
   { label: "Team", href: "/#team" },

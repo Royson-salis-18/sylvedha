@@ -9,7 +9,7 @@ type ModalType = "preorder" | "feedback" | "query" | null
 
 const MODAL_META = {
   preorder: { 
-    label: "Pre-Order", icon: Package, text: "Reserve microgreens before they sell out.",
+    label: "Request Availability", icon: Package, text: "Check stock & confirm your order details.",
     gradient: "from-amber-200 via-amber-400 to-amber-600",
     headerBg: "bg-amber-400/5",
     headerBorder: "border-amber-400/20",
@@ -188,7 +188,7 @@ function ModalForm({ type, onClose }: { type: ModalType; onClose: () => void }) 
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
       {/* Panel Wrapper with Metallic Border */}
-      <div className="relative w-full sm:max-w-4xl lg:max-w-[1000px] rounded-t-3xl sm:rounded-3xl shadow-[0_0_60px_-15px_rgba(251,191,36,0.15),0_0_60px_-15px_rgba(168,85,247,0.15)] overflow-hidden animate-in slide-in-from-bottom-8 sm:zoom-in-95 duration-300 max-h-[92dvh] flex flex-col p-[1px]">
+      <div className="relative w-full sm:max-w-5xl lg:max-w-[1100px] rounded-t-3xl sm:rounded-3xl shadow-[0_0_60px_-15px_rgba(251,191,36,0.15),0_0_60px_-15px_rgba(168,85,247,0.15)] overflow-hidden animate-in slide-in-from-bottom-8 sm:zoom-in-95 duration-300 max-h-[95dvh] flex flex-col p-[1px]">
         {/* Metallic Gradient Border Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-amber-400/50 via-purple-500/20 to-purple-600/50" />
 
@@ -220,7 +220,7 @@ function ModalForm({ type, onClose }: { type: ModalType; onClose: () => void }) 
         </div>
 
         {/* Scrollable form area */}
-        <div className="relative z-10 overflow-y-auto flex-1 px-6 sm:px-8 pb-8 pt-6 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gradient-to-b [&::-webkit-scrollbar-thumb]:from-amber-400/50 [&::-webkit-scrollbar-thumb]:to-purple-500/50 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:from-amber-400/80 hover:[&::-webkit-scrollbar-thumb]:to-purple-500/80">
+        <div data-lenis-prevent className="relative z-10 overflow-y-auto flex-1 px-6 sm:px-8 pb-8 pt-6 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gradient-to-b [&::-webkit-scrollbar-thumb]:from-amber-400/50 [&::-webkit-scrollbar-thumb]:to-purple-500/50 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:from-amber-400/80 hover:[&::-webkit-scrollbar-thumb]:to-purple-500/80">
           <form ref={formRef} action={formAction} className="flex flex-col gap-6">
             <input type="hidden" name="form_type" value={type!} />
             <input type="hidden" name="rating" value={rating} />
@@ -229,12 +229,20 @@ function ModalForm({ type, onClose }: { type: ModalType; onClose: () => void }) 
             {/* ── PREORDER ── */}
             {type === "preorder" && (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+                <div className="rounded-xl bg-white/[0.02] border border-amber-400/20 px-4 py-3 mb-2">
+                  <p className="text-[11px] leading-relaxed text-amber-200/80">
+                    Select the Grevara product and quantity you are interested in. No payment is collected through this website. Submitting this form does not confirm an order or reserve stock. Our team will contact you to confirm availability, pack size, final price, delivery or pickup arrangements and payment details.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                   <Field id="ff-name" name="name" label="Full Name" placeholder="Your name" required />
                   <Field id="ff-email" name="email" label="Email" type="email" placeholder="your@email.com" required />
-                  <Field id="ff-phone" name="phone" label="Phone (optional)" placeholder="Your phone number" />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                  <Field id="ff-phone" name="phone" label="Phone (optional)" placeholder="Your phone number" />
+                  <Field id="ff-city" name="city" label="City / Postcode" placeholder="Your city" required />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
                   <div className="flex flex-col gap-2.5 group">
                     <label htmlFor="ff-product" className="text-xs font-bold uppercase tracking-[0.12em] text-white/60 group-focus-within:text-amber-400/80 transition-colors duration-200">
                       Product <span className="text-amber-400">*</span>
@@ -257,24 +265,26 @@ function ModalForm({ type, onClose }: { type: ModalType; onClose: () => void }) 
 
             {/* ── FEEDBACK ── */}
             {type === "feedback" && (
-              <>
-                <Field id="ff-email-f" name="email" label="Email (optional — stay anonymous)" type="email" placeholder="your@email.com" />
-                <div className="flex flex-col gap-2.5">
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/60">Rating (optional)</p>
-                  <div className="flex gap-2">
-                    {[1,2,3,4,5].map(star => (
-                      <button key={star} type="button"
-                        onClick={() => setRating(star === rating ? 0 : star)}
-                        onMouseEnter={() => setHover(star)}
-                        onMouseLeave={() => setHover(0)}
-                        className="text-3xl transition-transform hover:scale-110">
-                        <span className={star <= (hover || rating) ? "text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" : "text-white/30"}>★</span>
-                      </button>
-                    ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+                <div className="flex flex-col gap-6">
+                  <Field id="ff-email-f" name="email" label="Email (optional — stay anonymous)" type="email" placeholder="your@email.com" />
+                  <div className="flex flex-col gap-2.5">
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/60">Rating (optional)</p>
+                    <div className="flex gap-2">
+                      {[1,2,3,4,5].map(star => (
+                        <button key={star} type="button"
+                          onClick={() => setRating(star === rating ? 0 : star)}
+                          onMouseEnter={() => setHover(star)}
+                          onMouseLeave={() => setHover(0)}
+                          className="text-3xl transition-transform hover:scale-110">
+                          <span className={star <= (hover || rating) ? "text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]" : "text-white/30"}>★</span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <TextArea id="ff-fb" name="message" label="Your Feedback" required placeholder="Taste, freshness, packaging, what you loved or what we can improve…" rows={4} />
-              </>
+                <TextArea id="ff-fb" name="message" label="Your Feedback" required placeholder="Taste, freshness, packaging, what you loved or what we can improve…" rows={3} />
+              </div>
             )}
 
             {/* ── QUERY ── */}
@@ -285,7 +295,7 @@ function ModalForm({ type, onClose }: { type: ModalType; onClose: () => void }) 
                   <Field id="ff-email-q" name="email" label="Email" type="email" placeholder="your@email.com" required />
                   <Field id="ff-phone-q" name="phone" label="Phone (optional)" placeholder="Your phone number" />
                 </div>
-                <TextArea id="ff-q" name="message" label="Your Question" required placeholder="Ask anything — pricing, varieties, delivery, bulk orders…" rows={4} />
+                <TextArea id="ff-q" name="message" label="Your Question" required placeholder="Ask anything — pricing, varieties, delivery, bulk orders…" rows={3} />
               </>
             )}
 
@@ -301,12 +311,35 @@ function ModalForm({ type, onClose }: { type: ModalType; onClose: () => void }) 
               </div>
             )}
 
-            {/* DPDP Collection Notice */}
-            <div className="rounded-xl bg-white/[0.02] border border-white/[0.06] px-4 py-3">
-              <p className="text-[11px] leading-relaxed text-white/35">
-                By submitting this form, you acknowledge that Sylvedha LLP will process the information provided to respond to your request in accordance with our{" "}
-                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-purple-400/70 underline underline-offset-2 hover:text-purple-300 transition-colors">Privacy Policy</a>.
-              </p>
+            {/* DPDP Collection Notice & Order Disclaimer */}
+            <div className="flex flex-col gap-3 rounded-xl bg-white/[0.02] border border-white/[0.06] px-4 py-3">
+              <label htmlFor={`ff-dpdp-${type}`} className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  id={`ff-dpdp-${type}`}
+                  name="dpdp_consent"
+                  type="checkbox"
+                  required
+                  className="mt-0.5 size-4 shrink-0 rounded border-white/20 bg-white/5 accent-amber-400 cursor-pointer"
+                />
+                <span className="text-[11px] leading-relaxed text-white/50 group-hover:text-white/70 transition-colors">
+                  I have read the Privacy Policy and understand that SYLVEDHA LLP will use the information submitted to respond to this request and manage the requested Grevara order or waitlist registration.
+                </span>
+              </label>
+              
+              {type === "preorder" && (
+                <label htmlFor={`ff-order-disclaimer`} className="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    id={`ff-order-disclaimer`}
+                    name="order_disclaimer"
+                    type="checkbox"
+                    required
+                    className="mt-0.5 size-4 shrink-0 rounded border-white/20 bg-white/5 accent-amber-400 cursor-pointer"
+                  />
+                  <span className="text-[11px] leading-relaxed text-white/50 group-hover:text-white/70 transition-colors">
+                    I understand that submitting this form does not confirm an order, reserve stock or require payment. Final availability, quantity, price and fulfilment details will be separately confirmed by SYLVEDHA LLP.
+                  </span>
+                </label>
+              )}
             </div>
 
             {/* Marketing Consent — standalone opt-in per DPDP (for preorder & query only) */}
@@ -318,8 +351,8 @@ function ModalForm({ type, onClose }: { type: ModalType; onClose: () => void }) 
                   type="checkbox"
                   className="mt-0.5 size-4 shrink-0 rounded border-white/20 bg-white/5 accent-amber-400 cursor-pointer"
                 />
-                <span className="text-[11px] text-white/35 leading-relaxed group-hover:text-white/50 transition-colors">
-                  I would like to receive occasional updates about Sylvedha&apos;s products and news. You can unsubscribe at any time.
+                <span className="text-[11px] text-white/50 leading-relaxed group-hover:text-white/70 transition-colors">
+                  Send me occasional Grevara product updates, availability alerts and offers. I can unsubscribe at any time.
                 </span>
               </label>
             )}
@@ -335,7 +368,7 @@ function ModalForm({ type, onClose }: { type: ModalType; onClose: () => void }) 
                 )}
                 <Send className="relative size-5" />
                 <span className="relative tracking-wide">
-                  {pending ? "Sending…" : state.status === "success" ? "Sent ✓" : meta.label === "Pre-Order" ? "Reserve Now" : "Send"}
+                  {pending ? "Sending…" : state.status === "success" ? "Sent ✓" : meta.label === "Request Availability" ? "Request Availability" : "Send"}
                 </span>
               </button>
             </div>

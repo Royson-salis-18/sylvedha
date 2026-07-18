@@ -13,8 +13,8 @@ const sections = [
     id: "sec-0",
     title: "Introduction",
     content: `PRIVACY POLICY
-Effective Date: [Insert publication date]
-Last Updated: [Insert date]
+
+
 Sylvedha LLP (“Sylvedha,” “we,” “us,” or “our”) respects your privacy and is committed to handling personal information responsibly and securely.
 This Privacy Policy explains how we collect, use, store, share, and protect information when you:
 - visit sylvedha.com;

@@ -13,8 +13,8 @@ const sections = [
     id: "sec-0",
     title: "Introduction",
     content: `TERMS OF USE AND SALE
-Effective Date: [Insert date]
-Last Updated: [Insert date]
+
+
 These Terms of Use and Sale (“Terms”) govern your access to and use of sylvedha.com and your interactions with the products, services, projects, content, forms, order-request facilities, waiting lists, and communication channels operated by Sylvedha LLP (“Sylvedha,” “we,” “us,” or “our”).
 By accessing the website, submitting a form, joining a waiting list, requesting a product, confirming an order, or otherwise using our services, you agree to these Terms.
 If you do not agree with these Terms, you should not use the website or submit an order request.

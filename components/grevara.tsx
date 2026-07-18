@@ -18,9 +18,9 @@ const grevaraImages = [
 ]
 
 const highlights = [
-  { icon: Sparkles,    label: "Already Selling",  desc: "Products actively sold to customers in Mangaluru" },
+  { icon: Sparkles,    label: "Available & Upcoming",  desc: "Products actively sold and upcoming varieties" },
   { icon: Leaf,        label: "Variety",           desc: "Radish Purple Sango, and more" },
-  { icon: ShoppingBag, label: "Ready to Order",   desc: "Fresh microgreens grown in controlled environment" },
+  { icon: ShoppingBag, label: "Request Availability",   desc: "Fresh microgreens grown in controlled environment" },
 ]
 
 // Helper: dispatch a custom event that FloatingForms listens to
@@ -33,8 +33,8 @@ function openForm(type: "preorder" | "feedback" | "query") {
 const ACTION_BTNS = [
   {
     type: "preorder"  as const,
-    label: "Pre-Order Now",
-    sub: "Reserve your fresh microgreens pack",
+    label: "Request Availability",
+    sub: "Check stock & order details",
     icon: Package,
     gradient: "from-amber-300 to-amber-600",
     glow: "hover:shadow-[0_10px_40px_-10px_rgba(251,191,36,0.6)]",
@@ -146,20 +146,34 @@ export function Grevara() {
                 ))}
               </div>
 
-              {/* Catalog button */}
-              <div className="mt-10">
-                <button
-                  onClick={() => setShowCatalog(true)}
-                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 px-8 py-4 text-sm font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(251,191,36,0.4)]"
-                >
-                  <div className="absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <FileText className="relative size-5" />
-                  <span className="relative">View Product Catalog</span>
-                  <ArrowRight className="relative size-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+              {/* Catalog button & Storage Box */}
+              <div className="mt-10 flex flex-col gap-10">
+                <div>
+                  <button
+                    onClick={() => setShowCatalog(true)}
+                    className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 px-8 py-4 text-sm font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(251,191,36,0.4)]"
+                  >
+                    <div className="absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <FileText className="relative size-5" />
+                    <span className="relative">View Product Catalog</span>
+                    <ArrowRight className="relative size-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </button>
+                </div>
+
+                {/* Storage & Disclaimer */}
+                <div className="animate-on-scroll flex flex-col gap-3" style={{transitionDelay: '300ms'}}>
+                  <div className="rounded-2xl border border-amber-400/20 bg-amber-400/5 p-5">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-amber-300 mb-2">Storage & Freshness</p>
+                    <p className="text-xs text-white/70 leading-relaxed">
+                      Keep refrigerated. Best quality is generally expected within seven days when properly refrigerated. Consume within the period stated on the product label and no later than the applicable use-by date.
+                    </p>
+                  </div>
+                  <p className="text-[10px] text-white/40 leading-relaxed px-2">
+                    Product photographs are representative. As a naturally grown agricultural product, colour, size, density and appearance may vary between batches.
+                  </p>
+                </div>
               </div>
             </div>
-
           </div>
 
           {/* RIGHT — carousel + benefits */}
@@ -224,10 +238,12 @@ export function Grevara() {
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {[
-                      { title: "40x More Nutrients",  desc: "Up to 40 times more vitamins and minerals than mature counterparts." },
-                      { title: "Rich in Antioxidants", desc: "Packed with polyphenols and carotenoids that support cellular health." },
-                      { title: "Harvest in 7–14 Days", desc: "From seed to plate in under two weeks — ultra-fresh, always." },
-                      { title: "Zero Pesticides",      desc: "Grown in controlled indoor environments with no chemicals needed." },
+                      { title: "Harvested at an Early Stage",  desc: "Young edible greens grown for fresh flavour, colour and texture." },
+                      { title: "Vibrant Colour & Flavour", desc: "Fresh microgreens developed to add colour, texture and flavour to everyday meals." },
+                      { title: "Harvest close to dispatch", desc: "Subject to crop readiness and availability." },
+                      { title: "Controlled Cultivation",      desc: "Grown in a monitored indoor environment without the routine application of synthetic pesticides during cultivation." },
+                      { title: "Culinary Versatility",        desc: "Perfect for garnishing, salads, sandwiches, and elevating home-cooked meals." },
+                      { title: "Carefully Tended",            desc: "Monitored locally to ensure quality from seed to harvest." },
                     ].map((b) => (
                       <div key={b.title} className="flex gap-3">
                         <div className="mt-1 flex size-2 shrink-0 rounded-full bg-gradient-to-r from-purple-400 to-amber-400 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
