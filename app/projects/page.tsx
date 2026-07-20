@@ -140,7 +140,7 @@ export default function ProjectsPage() {
             <div className="flex-1 h-px bg-gradient-to-r from-[#BFF202]/25 to-transparent" />
           </div>
 
-          {/* ── Algae Biorefinery — featured wide card ── */}
+                    {/* ── Algae Biorefinery — featured wide card ── */}
           <SubtractedCard
             corner="top-right"
             cutoutSize={72}
