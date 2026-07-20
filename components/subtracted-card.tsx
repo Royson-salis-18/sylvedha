@@ -10,12 +10,6 @@ const SHIMMER_STYLE = `
     100% { transform: translateX(250%)  skewX(-15deg); }
   }
   .sc-shimmer-run { animation: sc-shimmer 0.65s cubic-bezier(0.4,0,0.2,1) forwards; }
-  @keyframes sc-border-spin {
-    from { stroke-dashoffset: 0; }
-    to   { stroke-dashoffset: -800; }
-  }
-  /* Only run heavy stroke-dashoffset animation when parent group is hovered to reduce continuous non-composited animations */
-  .group:hover .sc-border-anim { animation: sc-border-spin 12s linear infinite; }
 `
 
 type SizeValue = number | string
@@ -567,16 +561,6 @@ export function SubtractedCard({
           >
             {/* Fill */}
             <path shapeRendering="geometricPrecision" d={outlinePath!} fill={fillColor} filter={`url(#shadow-${clipId})`} />
-            {/* Animated gradient border */}
-            <path shapeRendering="geometricPrecision"
-              d={outlinePath!}
-              fill="none"
-              stroke="url(#sc-grad-border)"
-              strokeWidth="1.8"
-              strokeDasharray="80 40"
-              vectorEffect="non-scaling-stroke"
-              className="sc-border-anim opacity-60 group-hover/card:opacity-100 group-data-[mobile-open=true]/card:opacity-100 transition-opacity duration-500"
-            />
             <defs>
               <filter id={`shadow-${clipId}`} x="-20%" y="-20%" width="140%" height="140%">
                 <feDropShadow dx="0" dy="12" stdDeviation="16" floodColor="#000000" floodOpacity="0.12" />
@@ -584,12 +568,6 @@ export function SubtractedCard({
               <clipPath id={clipId}>
                 <path shapeRendering="geometricPrecision" d={outlinePath!} />
               </clipPath>
-              <linearGradient id="sc-grad-border" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(255,255,255,0)" />
-                <stop offset="40%" stopColor="rgba(255,255,255,0.5)" />
-                <stop offset="60%" stopColor="rgba(191,242,2,0.6)" />
-                <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-              </linearGradient>
             </defs>
           </svg>
         )}

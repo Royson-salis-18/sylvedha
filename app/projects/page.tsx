@@ -130,7 +130,7 @@ export default function ProjectsPage() {
         </section>
 
         {/* ── Upcoming Projects ─────────────────────────────────────────────── */}
-        <section className="mx-auto max-w-7xl px-5 sm:px-8 pb-20">
+        <section className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 pb-20">
 
           {/* Section label */}
           <div className="flex items-center gap-4 mb-10">
