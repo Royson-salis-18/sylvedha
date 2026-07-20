@@ -79,24 +79,27 @@ void main(){
     float lum = dot(col.rgb, vec3(0.299, 0.587, 0.114));
     
     // Smoothstep to increase contrast
-    lum = smoothstep(0.05, 0.85, lum);
+    lum = smoothstep(0.0, 0.9, lum);
     
-    vec3 colDarkest = vec3(0.01, 0.04, 0.03); // Very deep, rich green-black
+    vec3 colDarkest = vec3(0.0, 0.08, 0.06); // Medium dark green, not pure black
     vec3 colDeepGreen = vec3(1.0/255.0, 49.0/255.0, 45.0/255.0);   // #01312D (Base dark green)
     vec3 colEmerald = vec3(5.0/255.0, 120.0/255.0, 80.0/255.0); // Medium emerald
     vec3 colVibrantGreen = vec3(40.0/255.0, 200.0/255.0, 120.0/255.0); // Bright Teal/Green
     vec3 colNeonGreen = vec3(191.0/255.0, 242.0/255.0, 2.0/255.0); // #BFF202
+    vec3 colBright = vec3(230.0/255.0, 255.0/255.0, 200.0/255.0); // Bright white-green
     
-    // Push the stops so lighter, vibrant colors dominate
+    // Push the stops so lighter, vibrant colors dominate heavily
     vec3 mapped;
-    if(lum < 0.3) {
-      mapped = mix(colDarkest, colDeepGreen, lum / 0.3);
-    } else if(lum < 0.55) {
-      mapped = mix(colDeepGreen, colEmerald, (lum - 0.3) / 0.25);
-    } else if(lum < 0.8) {
-      mapped = mix(colEmerald, colVibrantGreen, (lum - 0.55) / 0.25);
+    if(lum < 0.1) {
+      mapped = mix(colDarkest, colDeepGreen, lum / 0.1);
+    } else if(lum < 0.25) {
+      mapped = mix(colDeepGreen, colEmerald, (lum - 0.1) / 0.15);
+    } else if(lum < 0.6) {
+      mapped = mix(colEmerald, colVibrantGreen, (lum - 0.25) / 0.35);
+    } else if(lum < 0.85) {
+      mapped = mix(colVibrantGreen, colNeonGreen, (lum - 0.6) / 0.25);
     } else {
-      mapped = mix(colVibrantGreen, colNeonGreen, (lum - 0.8) / 0.2);
+      mapped = mix(colNeonGreen, colBright, (lum - 0.85) / 0.15);
     }
     
     col.rgb = mapped;
