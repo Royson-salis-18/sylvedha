@@ -62,6 +62,7 @@ void mainImage(out vec4 fragColor,in vec2 fragCoord){
     vec2 uv=fragCoord/uResolution.xy*2.-1.;
     uv.x *= uResolution.x / uResolution.y;
     uv.y*=-1.;
+    uv.y -= 0.3; // Shift design downwards towards center-top
     uv *= 0.8; // Adjusted zoom to show more fluid complexity
     uv+=uWarp*vec2(sin(uv.y*6.283+uTime*0.5),cos(uv.x*6.283+uTime*0.5))*0.05;
     fragColor=cppn_fn(uv,0.1*sin(0.3*uTime),0.1*sin(0.69*uTime),0.1*sin(0.44*uTime));
@@ -101,6 +102,14 @@ void main(){
     } else {
       mapped = mix(colNeonGreen, colBright, (lum - 0.85) / 0.15);
     }
+    
+    // Apply soft black vignette at edges
+    vec2 screen_uv = fragCoord/uResolution.xy;
+    float dist = length(screen_uv - vec2(0.5, 0.4)); // Center of vignette slightly higher
+    float vignette = smoothstep(0.75, 0.25, dist);
+    
+    vec3 vignetteBlack = vec3(0.0, 0.02, 0.015);
+    mapped = mix(vignetteBlack, mapped, vignette);
     
     col.rgb = mapped;
 
