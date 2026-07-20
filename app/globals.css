@@ -206,8 +206,7 @@
 
 /* Allow browser to skip rendering for below-fold sections */
 section:not(:first-of-type) {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 800px;
+  /* Removed content-visibility because it applies contain: paint and clips glowing rings */
 }
 
 ::selection {
