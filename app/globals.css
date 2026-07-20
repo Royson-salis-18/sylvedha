@@ -121,7 +121,7 @@
 
 :root {
   color-scheme: light;
-  --background: #EAFDE7;
+  --background: transparent;
   --foreground: #01312D;
   --card: #ffffff;
   --card-foreground: #01312D;
@@ -157,7 +157,7 @@
 
 .dark {
   color-scheme: dark;
-  --background: #01312D;
+  --background: transparent;
   --foreground: #EAFDE7;
   --card: #01312D;
   --card-foreground: #EAFDE7;

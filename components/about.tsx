@@ -4,7 +4,7 @@ import { SubtractedCard } from "./subtracted-card"
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
+    <section id="about" className="relative overflow-hidden bg-[#EAFDE7] text-[#01312D] min-h-[100svh] flex flex-col justify-center">
       {/* Subtle background decoration */}
       <div className="absolute right-0 top-0 -z-[1] h-[600px] w-[600px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
       <div className="absolute -left-20 bottom-0 -z-[1] h-[400px] w-[400px] rounded-full bg-[#3A7717]/5 blur-[120px]" />
@@ -12,31 +12,31 @@ export function About() {
       <div className="mx-auto w-full max-w-7xl px-5 pt-24 pb-12 lg:pb-16 sm:px-8">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div>
-            <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-[#01312D]/20 bg-[#01312D]/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#01312D] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             <span className="relative h-3.5 w-3 block">
               <Image src="/images/logo-mark.webp" alt="Sylvedha" fill sizes="12px" className="object-contain" />
             </span>
               Who We Are
             </p>
-            <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
-              Where <span className="italic text-secondary">nature</span> meets engineering
+            <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-[#01312D] sm:text-5xl">
+              Where <span className="italic text-[#3A7717]">nature</span> meets engineering
             </h2>
-            <p className="animate-on-scroll mt-6 text-lg leading-relaxed text-muted-foreground">
-              Unlike traditional companies focused on a single sector, <span className="font-sans font-bold text-primary">SYLVEDHA</span>{" "}
+            <p className="animate-on-scroll mt-6 text-lg leading-relaxed text-[#01312D]/80">
+              Unlike traditional companies focused on a single sector, <span className="font-sans font-bold text-[#01312D]">SYLVEDHA</span>{" "}
               operates as a multidisciplinary innovation platform.
             </p>
             <a
               href="#focus"
-              className="animate-on-scroll mt-4 inline-flex items-center gap-2 rounded-xl bg-primary/5 border border-primary/15 px-5 py-2.5 text-sm font-semibold text-primary transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:shadow-md group"
+              className="animate-on-scroll mt-4 inline-flex items-center gap-2 rounded-xl bg-[#01312D]/5 border border-[#01312D]/15 px-5 py-2.5 text-sm font-semibold text-[#01312D] transition-all duration-300 hover:bg-[#01312D]/10 hover:border-[#01312D]/30 hover:shadow-md group"
             >
               See Our Focus Areas
               <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           </div>
 
-          <div className="animate-on-scroll space-y-6 text-lg leading-relaxed text-muted-foreground">
+          <div className="animate-on-scroll space-y-6 text-lg leading-relaxed text-[#01312D]/80">
             <p>
-              <span className="font-sans font-bold text-primary">SYLVEDHA</span>{" "}is an innovation-driven company focused on creating
+              <span className="font-sans font-bold text-[#01312D]">SYLVEDHA</span>{" "}is an innovation-driven company focused on creating
               technologies that bridge the gap between nature and engineering.
               Our mission is to build sustainable solutions that address some of
               the world&apos;s most pressing challenges — food security, resource

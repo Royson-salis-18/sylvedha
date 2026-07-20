@@ -120,7 +120,7 @@ export function Journey() {
   };
 
   return (
-    <section id="journey" className="relative bg-background min-h-[100svh] py-24 flex flex-col justify-center">
+    <section id="journey" className="relative bg-[#EAFDE7] text-[#01312D] min-h-[100svh] py-24 flex flex-col justify-center">
       {/* Decorative Blur Orbs — isolated overflow so they don't clip content */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-[1]">
         <div className="absolute right-0 top-1/3 h-[500px] w-[500px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
@@ -128,18 +128,18 @@ export function Journey() {
       </div>
       
       {/* Sharp grid background overlay */}
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none" />
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(1,49,45,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(1,49,45,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8">
         <div className="max-w-2xl mx-auto text-center mb-20">
-          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+          <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-[#01312D]/20 bg-[#01312D]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#01312D] shadow-[inset_0_1px_0_rgba(1,49,45,0.05)]">
             Company Journey
           </p>
-          <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight text-[#01312D] sm:text-5xl lg:text-6xl">
             From NAIN incubation<br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#BFF202] pr-2">to first sales</span>
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#3A7717] to-[#123b00] pr-2">to first sales</span>
           </h2>
-          <p className="animate-on-scroll mt-5 text-base md:text-lg text-muted-foreground font-medium max-w-xl">
+          <p className="animate-on-scroll mt-5 text-base md:text-lg text-[#01312D]/80 font-medium max-w-xl">
             This is where we started. What comes next — you'll see.
           </p>
         </div>

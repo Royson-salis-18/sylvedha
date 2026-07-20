@@ -142,7 +142,7 @@ export function Hero() {
 
   return (
     <section 
-      className="w-full bg-[#011a17] min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] lg:pt-[90px] xl:pt-[100px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden"
+      className="w-full min-h-svh lg:h-dvh flex flex-col pt-[88px] sm:pt-[92px] lg:pt-[90px] xl:pt-[100px] pb-5 px-3 sm:px-4 md:px-8 overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

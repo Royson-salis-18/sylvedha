@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Fira_Sans } from 'next/font/google'
 import { Fraunces } from 'next/font/google'
+import { LayeredBackground } from '@/components/layered-background'
 import dynamic from 'next/dynamic'
 const GlobalObserver = dynamic(() => import('@/components/global-observer').then(mod => mod.GlobalObserver))
 const SmoothScroll = dynamic(() => import('@/components/smooth-scroll').then(mod => mod.SmoothScroll))
@@ -99,7 +100,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${firaSans.variable} ${fraunces.variable} bg-background`}
+      className={`${firaSans.variable} ${fraunces.variable} dark`}
     >
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -107,7 +108,8 @@ export default function RootLayout({
         <link rel="preload" href="/images/logo-icon-white.webp" as="image" type="image/webp" fetchPriority="high" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased bg-transparent relative min-h-screen">
+        <LayeredBackground />
         <SmoothScroll />
         <GlobalObserver />
         <script

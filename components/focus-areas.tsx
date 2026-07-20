@@ -82,7 +82,7 @@ const areas = [
 
 export function FocusAreas() {
   return (
-    <section id="focus" className="relative overflow-hidden bg-primary min-h-[100svh] flex flex-col justify-center">
+    <section id="focus" className="relative overflow-hidden min-h-[100svh] flex flex-col justify-center">
       <FloatingCubes />
       {/* Decorative grid */}
       <div className="absolute inset-0 -z-[1] opacity-[0.03]" style={{

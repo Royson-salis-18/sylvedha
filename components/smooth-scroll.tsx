@@ -56,7 +56,7 @@ export function SmoothScroll() {
       if (isSnappingRef.current) return
       isSnappingRef.current = true
       lenis.scrollTo(el, {
-        offset: -80,
+        offset: 0,
         duration: 1.5,
         onComplete: () => { setTimeout(() => { isSnappingRef.current = false }, 300) },
       })
@@ -137,7 +137,7 @@ export function SmoothScroll() {
 
     // ── Hero button custom event ──
     const onLenisScrollTo = (e: Event) => {
-      const { target, offset = -80 } = (e as CustomEvent).detail
+      const { target, offset = 0 } = (e as CustomEvent).detail
       if (target) lenis.scrollTo(target, { offset, duration: 1.6 })
     }
 
@@ -151,7 +151,7 @@ export function SmoothScroll() {
       const el = document.querySelector(hash)
       if (!el) return
       e.preventDefault()
-      lenis.scrollTo(el as HTMLElement, { offset: -80, duration: 1.6 })
+      lenis.scrollTo(el as HTMLElement, { offset: 0, duration: 1.6 })
     }
 
     document.addEventListener("keydown", onKeyDown)

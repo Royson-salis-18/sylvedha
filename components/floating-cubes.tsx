@@ -88,7 +88,7 @@ export function FloatingCubes() {
         speedX2: (Math.random() - 0.5) * 0.6,
         speedY2: (Math.random() - 0.5) * 0.6,
         speedZ2: (Math.random() - 0.5) * 0.6,
-        opacity: 0.05 + Math.random() * 0.1, // Slightly brighter opacities
+        opacity: 0.2 + Math.random() * 0.15, // Just right visibility
       })
     }
     groupsRef.current = groups
@@ -145,7 +145,7 @@ export function FloatingCubes() {
       }
 
       ctx.strokeStyle = `rgba(191, 242, 2, ${opacity})`
-      ctx.lineWidth = 1
+      ctx.lineWidth = 1.2
       ctx.beginPath()
 
       for (const edge of EDGES) {
@@ -253,7 +253,6 @@ export function FloatingCubes() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none z-0"
-      style={{ mixBlendMode: "screen" }}
     />
   )
 }
