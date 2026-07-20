@@ -145,15 +145,17 @@ export default function RootLayout({
             })
           }}
         />
-        {children}
-
+        <div className="relative flex min-h-screen flex-col overflow-hidden w-full max-w-[100vw]">
+          {children}
+          {process.env.NODE_ENV === 'production' && <Analytics />}
+        </div>
+        
         {/* Global Watermark overlay (render after main content to avoid LCP competition) */}
         <div
           className="fixed -right-[8%] -bottom-[8%] z-50 pointer-events-none select-none opacity-[0.08] w-[28vw] max-w-[380px] aspect-square bg-no-repeat bg-contain bg-center"
           aria-hidden="true"
           style={{ backgroundImage: "url('/images/logo-icon-white.webp')" }}
         />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

@@ -5,7 +5,7 @@ import { GlobalObserver } from "@/components/global-observer"
 import Image from "next/image"
 import { Check, Cpu, Cloud, BarChart3, Zap, Leaf, Database, ArrowUpRight } from "lucide-react"
 import { SubtractedCard } from "@/components/subtracted-card"
-import DecryptedText from "@/components/decrypted-text"
+import GradientText from "@/components/gradient-text"
 
 export const metadata: Metadata = {
   title: "Upcoming Projects — SYLVEDHA",
@@ -122,7 +122,7 @@ export default function ProjectsPage() {
             </p>
             <h1 className="animate-on-scroll mt-6 font-heading text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">
               Building the{" "}
-              <span className="italic text-[#BFF202]"><DecryptedText text="future of farming" animateOn="view" /></span>
+              <span className="italic text-[#BFF202]"><GradientText colors={["#BFF202", "#66ff66", "#BFF202", "#66ff66", "#BFF202"]} animationSpeed={4}>future of farming</GradientText></span>
             </h1>
             <p className="animate-on-scroll mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
               From long-term research pipelines to next-generation innovations — here&apos;s what Sylvedha is working on for the future.
@@ -136,7 +136,7 @@ export default function ProjectsPage() {
           {/* Section label */}
           <div className="flex items-center gap-4 mb-10">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#BFF202]/20 bg-[#BFF202]/8 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-md shadow-[0_0_20px_rgba(191,242,2,0.10)]">
-              <DecryptedText text="Upcoming Projects" animateOn="view" />
+              <GradientText colors={["#BFF202", "#66ff66", "#BFF202", "#66ff66", "#BFF202"]} animationSpeed={4}>Upcoming Projects</GradientText>
             </span>
             <div className="flex-1 h-px bg-gradient-to-r from-[#BFF202]/25 to-transparent" />
           </div>

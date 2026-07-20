@@ -2,7 +2,7 @@ import { Mail, Phone, ArrowUpRight } from "lucide-react"
 import { ContactForm } from "@/components/contact-form"
 import { FloatingCubes } from "./floating-cubes"
 import { SubtractedCard } from "@/components/subtracted-card"
-import DecryptedText from "@/components/decrypted-text"
+import GradientText from "@/components/gradient-text"
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -62,7 +62,7 @@ export function Contact() {
               </p>
               <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl text-white">
                 Let&apos;s build a{" "}
-                <span className="italic text-[#BFF202]"><DecryptedText text="sustainable future" animateOn="view" /></span>{" "}
+                <span className="italic text-[#BFF202]"><GradientText colors={["#BFF202", "#66ff66", "#BFF202", "#66ff66", "#BFF202"]} animationSpeed={4}>sustainable future</GradientText></span>{" "}
                 together
               </h2>
               <p className="animate-on-scroll mt-6 max-w-lg text-lg leading-relaxed text-white/75">

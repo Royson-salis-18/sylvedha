@@ -1,7 +1,7 @@
 import { Eye, Target, ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 import { SubtractedCard } from "./subtracted-card"
-import DecryptedText from "./decrypted-text"
+import GradientText from "./gradient-text"
 
 export function About() {
   return (
@@ -20,7 +20,7 @@ export function About() {
               Who We Are
             </p>
             <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-[#01312D] sm:text-5xl">
-              Where <span className="italic text-[#3A7717]"><DecryptedText text="nature" animateOn="view" /></span> meets engineering
+              Where <span className="italic text-[#3A7717]"><GradientText colors={["#BFF202", "#66ff66", "#BFF202", "#66ff66", "#BFF202"]} animationSpeed={4}>nature</GradientText></span> meets engineering
             </h2>
             <p className="animate-on-scroll mt-6 text-lg leading-relaxed text-[#01312D]/80">
               Unlike traditional companies focused on a single sector, <span className="font-sans font-bold text-[#01312D]">SYLVEDHA</span>{" "}
