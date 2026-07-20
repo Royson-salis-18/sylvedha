@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useRef, useCallback, useState, useEffect } from "react"
 import { ArrowUpRight, Sprout, Leaf, FlaskConical, Cpu, Zap, Settings, ChevronDown } from "lucide-react"
+import DecryptedText from "./decrypted-text"
 
 function useTilt() {
   const ref = useRef<HTMLDivElement>(null)
@@ -185,7 +186,7 @@ export function Hero() {
             <p className="text-[#123b00] font-black tracking-[0.22em] text-[11px] mb-1">SYLVEDHA</p>
             <p className="text-[#06100d]/70 font-semibold tracking-wide text-[11px] mb-3.5">Innovating Technology in Harmony with Nature</p>
             <h1 className="font-heading text-[clamp(2rem,9vw,2.45rem)] sm:text-[38px] leading-[0.98] font-extrabold text-[#06100d]">
-              Building the Future of <span className="text-[#123b00] italic font-normal">Sustainable Innovation</span>
+              Building the Future of <span className="text-[#123b00] italic font-normal"><DecryptedText text="Sustainable Innovation" animateOn="view" /></span>
             </h1>
             <p className="text-[13px] sm:text-sm leading-[1.55] mt-3.5 text-[#06100d]/80 font-medium">
               SYLVEDHA is a multidisciplinary technology company developing innovative solutions across{" "}
@@ -286,7 +287,7 @@ export function Hero() {
                 Innovating Technology in Harmony with Nature
               </h2>
               <h1 className="font-heading text-[clamp(2rem,2.8vw,3rem)] xl:text-[clamp(2.4rem,3.4vw,3.8rem)] leading-[1.05] font-extrabold text-[#06100d]">
-                Engineering Sustainable Technologies for <span className="text-[#123b00] italic font-normal">Tomorrow</span>
+                Engineering Sustainable Technologies for <span className="text-[#123b00] italic font-normal"><DecryptedText text="Tomorrow" animateOn="view" /></span>
               </h1>
             </div>
 
