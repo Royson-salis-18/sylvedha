@@ -36,24 +36,12 @@ export function Leadership() {
   return (
     <section
       id="team"
-      className="relative overflow-hidden bg-[#01312D] text-white min-h-[100svh] flex flex-col justify-center"
+      className="relative overflow-hidden bg-transparent text-white min-h-[100svh] flex flex-col justify-center"
     >
       <FloatingCubes />
 
-      {/* Ambient glow */}
-      <div className="absolute right-0 bottom-0 -z-[1] h-[600px] w-[600px] rounded-full bg-[#3A7717]/10 blur-[200px]" />
-      <div className="absolute -left-32 top-1/3 -z-[1] h-[400px] w-[400px] rounded-full bg-[#BFF202]/5 blur-[140px]" />
-      <div className="absolute left-1/2 top-0 -z-[1] h-[350px] w-[350px] -translate-x-1/2 rounded-full bg-[#BFF202]/4 blur-[130px]" />
-
       {/* Section chrome */}
-      <div className="absolute inset-0 pointer-events-none z-[1]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#BFF202]/40 via-white/10 to-transparent" />
-        <div className="absolute top-0 right-0 w-24 h-[3px] bg-[#BFF202]/60" />
-        <div className="absolute right-8 top-8 h-16 w-16 border-r-2 border-t-2 border-[#BFF202]/25" />
-        <div className="absolute left-8 top-8 h-10 w-10 border-l-2 border-t-2 border-white/10" />
-        <div className="absolute left-8 bottom-8 h-10 w-10 border-l-2 border-b-2 border-[#BFF202]/15" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#BFF202]/15 to-transparent" />
-      </div>
+      
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-5 py-24 sm:px-8">
         {/* Header */}

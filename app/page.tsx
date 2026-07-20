@@ -24,7 +24,7 @@ export default function Page() {
         <About />
         <FocusAreas />
         {/* ── Current Projects: Grevara → NutriTech → View Upcoming ── */}
-        <section className="bg-gradient-to-b from-[#01312D] to-[#011A17] px-5 sm:px-8 pt-24 pb-12 transition-colors duration-500">
+        <section className="px-5 sm:px-8 pt-24 pb-12 transition-colors duration-500">
           <div className="mx-auto max-w-7xl animate-on-scroll">
             <div className="flex items-center gap-4 mb-12">
               <p className="inline-flex items-center gap-2 rounded-full border border-[#BFF202]/20 bg-[#BFF202]/8 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-md shadow-[0_0_20px_rgba(191,242,2,0.10)]">

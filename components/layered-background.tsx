@@ -16,14 +16,19 @@ export function LayeredBackground() {
         
         {/* 2. Light Color (Top Right Corner) - Accent Color (Minimized) */}
         <div 
-          className="absolute -top-[10%] -right-[5%] w-[35vw] h-[35vh] rounded-full bg-[#BFF202] opacity-45 z-30"
+          className="absolute -top-[10%] -right-[5%] w-[35vw] h-[35vh] rounded-full bg-[#BFF202] opacity-45 z-30 animate-slow-drift"
         />
         
         {/* 3. Black (Bottom Left leaning, spreading to bottom right) */}
         <div 
-          className="absolute -bottom-[5%] -left-[30%] w-[130vw] h-[55vh] rounded-[100%] bg-black opacity-85 z-20"
+          className="absolute -bottom-[5%] -left-[30%] w-[130vw] h-[55vh] rounded-[100%] bg-black opacity-85 z-20 animate-slow-zoom"
         />
         
+        {/* 4. Subtle moving highlight for fluid feel */}
+        <div
+          className="absolute top-[30%] left-[20%] w-[40vw] h-[40vh] rounded-full bg-[#3A7717] opacity-20 z-20 animate-slow-drift"
+          style={{ animationDelay: '-5s', animationDuration: '25s' }}
+        />
       </div>
       
       {/* Noise texture overlay to make it look premium and prevent banding */}

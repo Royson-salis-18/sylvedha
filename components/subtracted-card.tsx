@@ -515,7 +515,7 @@ export function SubtractedCard({
   return (
     <div
       ref={cardRef}
-      className={cn("relative w-full min-h-[200px] overflow-visible group group/card", !disableAnimation && "cursor-pointer")}
+      className={cn("relative w-full h-full min-h-[200px] overflow-visible group group/card", !disableAnimation && "cursor-pointer")}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}

@@ -25,7 +25,7 @@ export function CurrentProjects() {
     <section
       id="current-projects"
       className="relative overflow-hidden flex flex-col justify-center text-white pb-0"
-      style={{ background: "linear-gradient(135deg, #011A17 0%, #01312D 45%, #012820 100%)" }}
+      style={{ background: "transparent" }}
     >
       {/* Background glows — from logo palette: forest green + lime + cream */}
       <div className="absolute -top-32 left-1/4 h-[600px] w-[600px] rounded-full blur-[180px] pointer-events-none mix-blend-screen" style={{ background: "radial-gradient(circle, rgba(191,242,2,0.07) 0%, transparent 70%)" }} />

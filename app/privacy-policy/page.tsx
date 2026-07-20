@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import DarkVeil from "@/components/dark-veil"
 import { ArrowLeft, Mail, MapPin, Globe } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -452,26 +453,24 @@ function RichText({ text }: { text: string }) {
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-[#011A17] text-white/80">
-      <header className="sticky top-0 z-50 border-b border-[#BFF202]/10 bg-[#011A17]/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-8">
+    <div className="min-h-screen bg-transparent text-white/80 relative">
+      <div className="fixed inset-0 -z-50 bg-[#000504]" />
+      <div className="fixed inset-0 -z-40 pointer-events-none">
+        <DarkVeil hueShift={0} noiseIntensity={0.03} scanlineIntensity={0.1} speed={0.15} scanlineFrequency={800} warpAmount={0.5} resolutionScale={0.5} />
+      </div>
+      <div className="absolute top-0 left-0 w-full z-50 pointer-events-none">
+        <div className="mx-auto flex max-w-5xl items-center px-5 py-6 sm:px-8 pointer-events-auto">
           <Link href="/" className="flex items-center gap-3 group">
             <ArrowLeft className="size-5 text-white/50 transition-transform group-hover:-translate-x-1" />
             <div className="relative h-12 w-[160px]">
               <Image src="/images/logo-horizontal-dark-green.webp" alt="Sylvedha" fill sizes="160px" className="object-contain" />
             </div>
           </Link>
-          <Link href="/terms" className="text-sm font-bold uppercase tracking-[0.15em] text-white/40 hover:text-[#BFF202] transition-colors">
-            Terms of Use
-          </Link>
         </div>
-      </header>
+      </div>
 
       <section className="relative overflow-hidden border-b border-[#BFF202]/10">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-[#BFF202]/10 blur-[120px]" />
-          <div className="absolute -right-40 -bottom-40 h-[400px] w-[400px] rounded-full bg-[#3A7717]/20 blur-[100px]" />
-        </div>
+        
         <div className="relative mx-auto max-w-5xl px-5 py-24 sm:px-8 sm:py-32">
           <h1 className="font-heading text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
             Privacy Policy
@@ -550,3 +549,4 @@ export default function Page() {
     </div>
   )
 }
+

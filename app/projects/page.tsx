@@ -95,7 +95,7 @@ export default function ProjectsPage() {
     <>
       <GlobalObserver />
       <SiteHeader />
-      <main className="bg-[#01312D] text-white min-h-screen overflow-x-hidden">
+      <main className="bg-transparent text-white min-h-screen overflow-x-hidden">
 
         {/* ── Page hero ─────────────────────────────────────────────────────── */}
         <section className="relative overflow-hidden pt-40 pb-16">
@@ -134,10 +134,10 @@ export default function ProjectsPage() {
 
           {/* Section label */}
           <div className="flex items-center gap-4 mb-10">
-            <span className="rounded-xl border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#BFF202]/20 bg-[#BFF202]/8 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-md shadow-[0_0_20px_rgba(191,242,2,0.10)]">
               Upcoming Projects
             </span>
-            <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
+            <div className="flex-1 h-px bg-gradient-to-r from-[#BFF202]/25 to-transparent" />
           </div>
 
           {/* ── Algae Biorefinery — featured wide card ── */}

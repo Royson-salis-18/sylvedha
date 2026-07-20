@@ -39,22 +39,22 @@ const phases = [
 
 export function Roadmap() {
   return (
-    <section id="roadmap" className="relative overflow-hidden bg-background min-h-[100svh] flex flex-col justify-center">
-      <div className="absolute left-1/2 top-0 -z-[1] h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-[#3A7717]/5 blur-[200px]" />
+    <section id="roadmap" className="relative overflow-hidden bg-[#EAFDE7] text-[#01312D] min-h-[100svh] flex flex-col justify-center">
+      
 
       <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary">
-              Future Roadmap
+            <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-[#01312D]/20 bg-[#01312D]/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#01312D]">
+              Milestones
             </p>
-            <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
-              The roadmap.{" "}<span className="italic text-secondary">The rest is classified.</span>
+            <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-[#01312D] sm:text-5xl">
+              Future Roadmap
             </h2>
           </div>
           <a
             href="#contact"
-            className="animate-on-scroll inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-secondary group"
+            className="animate-on-scroll inline-flex items-center gap-2 text-sm font-semibold text-[#01312D] transition-colors hover:opacity-80 group"
           >
             Join our journey
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
