@@ -2,6 +2,7 @@ import { Sprout, FlaskConical, Sun, Cpu, Recycle } from "lucide-react"
 import { FloatingCubes } from "./floating-cubes"
 import Image from "next/image"
 import { SubtractedCard } from "./subtracted-card"
+import DecryptedText from "./decrypted-text"
 
 const areas = [
   {
@@ -100,7 +101,7 @@ export function FocusAreas() {
           </p>
           <h2 className="animate-on-scroll mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
             Five disciplines,{" "}
-            <span className="italic text-[#BFF202]">one integrated</span> platform
+            <span className="italic text-[#BFF202]"><DecryptedText text="one integrated" animateOn="view" /></span> platform
           </h2>
         </div>
 
