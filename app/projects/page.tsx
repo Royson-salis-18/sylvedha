@@ -95,7 +95,7 @@ export default function ProjectsPage() {
     <>
       <GlobalObserver />
       <SiteHeader />
-      <main className="bg-transparent text-white min-h-screen">
+      <main className="bg-transparent text-white min-h-screen overflow-x-hidden">
 
         {/* ── Page hero ─────────────────────────────────────────────────────── */}
         <section className="relative overflow-hidden pt-40 pb-16">
