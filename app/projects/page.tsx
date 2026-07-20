@@ -151,6 +151,7 @@ export default function ProjectsPage() {
                 <ArrowUpRight className="size-6" />
               </div>
             }
+            disableTilt={true}
             className="animate-on-scroll mb-8 group"
           >
             <div className="grid lg:grid-cols-2 gap-8">
@@ -252,6 +253,7 @@ export default function ProjectsPage() {
                       <Icon className="size-5" />
                     </div>
                   }
+                  disableTilt={true}
                   className="animate-on-scroll group"
                 >
                   <div className={`flex flex-col h-full ${theme.textColor}`}>
