@@ -104,7 +104,7 @@ void main(){
     }
     
     // Apply soft black vignette at edges
-    vec2 screen_uv = fragCoord/uResolution.xy;
+    vec2 screen_uv = gl_FragCoord.xy/uResolution.xy;
     float dist = length(screen_uv - vec2(0.5, 0.4)); // Center of vignette slightly higher
     float vignette = smoothstep(0.75, 0.25, dist);
     
