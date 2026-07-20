@@ -48,4 +48,5 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  padding-right: 0.15em; /* Fix for italic letters getting clipped by background-clip */
 }
