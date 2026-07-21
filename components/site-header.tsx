@@ -30,7 +30,7 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-3 z-50 px-3 transition-all duration-500 sm:px-4">
       <div className={cn(
-        "mx-auto flex h-[64px] w-full max-w-[1400px] items-center justify-between rounded-[1.75rem] px-2 transition-all duration-500 sm:h-[72px] sm:rounded-[2rem]",
+        "mx-auto flex h-[64px] w-full max-w-none items-center justify-between rounded-[1.75rem] px-2 transition-all duration-500 sm:h-[72px] sm:rounded-[2rem]",
         scrolled
           ? "bg-white/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-black/5"
           : "bg-white/90 backdrop-blur-md shadow-2xl border border-white/20"
@@ -91,7 +91,7 @@ export function SiteHeader() {
         )}
       >
         <nav className="bg-white/95 backdrop-blur-xl">
-          <div className="mx-auto flex max-h-[calc(100svh-96px)] max-w-7xl flex-col overflow-y-auto px-3 py-3 sm:px-5 sm:py-4">
+          <div className="mx-auto flex max-h-[calc(100svh-96px)] max-w-none flex-col overflow-y-auto px-3 py-3 sm:px-5 sm:py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}

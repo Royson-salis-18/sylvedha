@@ -68,7 +68,7 @@ export function FlagshipProjects() {
     <section id="projects" className="relative overflow-hidden bg-transparent min-h-[100svh] flex flex-col justify-center">
       <div className="absolute left-0 bottom-0 -z-[1] h-[500px] w-[500px] rounded-full bg-[#3A7717]/5 blur-[150px]" />
 
-      <div className="mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
+      <div className="mx-auto w-full max-w-none px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             <span className="relative h-3.5 w-3 block">

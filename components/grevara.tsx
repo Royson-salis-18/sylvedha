@@ -84,7 +84,7 @@ export function Grevara() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-purple-500/15 blur-[120px] pointer-events-none mix-blend-screen transition-all duration-700 group-hover/gv:bg-purple-500/35 group-hover/gv:scale-110" />
         <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-amber-400/10 blur-[100px] pointer-events-none mix-blend-screen transition-all duration-700 group-hover/gv:bg-amber-400/25 group-hover/gv:scale-125" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 py-12 lg:py-14 sm:px-8">
+      <div className="relative mx-auto w-full max-w-none px-5 py-12 lg:py-14 sm:px-8">
 
         {/* Section label */}
         <div className="flex items-center gap-4 mb-10">
@@ -303,7 +303,7 @@ export function Grevara() {
       {/* Catalog modal */}
       {showCatalog && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-md bg-black/70">
-          <div className="relative w-full max-w-7xl h-full max-h-[96vh] rounded-3xl shadow-[0_0_80px_-15px_rgba(251,191,36,0.3)] flex flex-col animate-in fade-in zoom-in duration-300 p-[1px] bg-gradient-to-br from-amber-400/50 via-purple-500/20 to-purple-600/50">
+          <div className="relative w-full max-w-none h-full max-h-[96vh] rounded-3xl shadow-[0_0_80px_-15px_rgba(251,191,36,0.3)] flex flex-col animate-in fade-in zoom-in duration-300 p-[1px] bg-gradient-to-br from-amber-400/50 via-purple-500/20 to-purple-600/50">
             <div className="relative flex flex-col size-full bg-[#110517] rounded-[calc(1.5rem-1px)] overflow-hidden">
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 bg-gradient-to-r from-amber-400/5 to-purple-500/5">
                 <h3 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-purple-300 tracking-wide">Grevara Product Catalog</h3>

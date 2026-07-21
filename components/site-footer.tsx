@@ -58,7 +58,7 @@ export function SiteFooter() {
         <div className="absolute bottom-0 left-1/2 h-64 w-96 -translate-x-1/2 rounded-full bg-[#BFF202]/5 blur-[80px]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+      <div className="mx-auto max-w-none px-5 py-20 sm:px-8">
         {/* Top separator with accent */}
         <div className="relative mb-16">
           <div className="h-px w-full bg-gradient-to-r from-[#BFF202]/40 via-white/10 to-transparent" />

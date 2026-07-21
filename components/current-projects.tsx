@@ -41,7 +41,7 @@ export function CurrentProjects() {
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#6DB33F]/30 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-12 pb-6 sm:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-none px-5 pt-12 pb-6 sm:px-8">
 
         {/* Desktop View */}
         <div className="hidden lg:block mb-6">

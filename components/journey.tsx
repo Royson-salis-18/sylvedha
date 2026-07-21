@@ -130,7 +130,7 @@ export function Journey() {
       {/* Sharp grid background overlay */}
       <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(1,49,45,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(1,49,45,0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-none px-5 sm:px-8">
         <div className="max-w-2xl mx-auto text-center mb-20">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-[#01312D]/20 bg-[#01312D]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#01312D] shadow-[inset_0_1px_0_rgba(1,49,45,0.05)]">
             Company Journey
