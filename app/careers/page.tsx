@@ -41,7 +41,7 @@ export default function CareersPage() {
             <div className="xl:col-span-5 w-full flex flex-col gap-8">
               <div className="w-full relative rounded-[2.5rem] overflow-hidden shadow-[0_30px_90px_rgba(191,242,2,0.1)] border border-white/10 group bg-[#020b07]">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#BFF202]/10 via-transparent to-[#123b00]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10" />
-                <Image src="/images/careers/detailed-poster.png" alt="Detailed Internship Poster" width={1600} height={2400} quality={100} unoptimized className="w-full h-auto object-contain" />
+                <Image src="/images/careers/untitled-design-7.png" alt="Detailed Internship Poster" width={1600} height={2400} quality={100} unoptimized className="w-full h-auto object-contain" />
               </div>
 
               {/* NEW CARD THAT APPEARS IN THE EMPTY LEFT SPACE WHEN NOTIFY ME IS CLICKED */}
@@ -99,7 +99,7 @@ export default function CareersPage() {
                     {/* 16:9 Image Infographic */}
                     <div className="w-full relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-lg border border-black/5 group-hover/card:shadow-xl transition-all duration-500 shrink-0 bg-[#051C12]">
                       <div className="relative w-full aspect-[16/9]">
-                        <Image src="/images/careers/intern-infographic.png" alt="Sylvedha Engineering Innovation" fill quality={100} unoptimized className="object-cover group-hover/card:scale-[1.03] transition-transform duration-700 ease-out" />
+                        <Image src="/images/careers/intern-card.png" alt="Sylvedha Engineering Innovation" fill quality={100} unoptimized className="object-cover group-hover/card:scale-[1.03] transition-transform duration-700 ease-out" />
                       </div>
                     </div>
 
@@ -126,7 +126,7 @@ export default function CareersPage() {
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
                         {[
                           { lbl: "Duration", val: "180 Days" },
-                          { lbl: "Vacancies", val: "5–6 Openings" },
+                          { lbl: "Vacancies", val: "10 Openings" },
                           { lbl: "Mode", val: "Hybrid & Online" },
                           { lbl: "Program", val: "Free Internship" },
                         ].map(detail => (
@@ -166,7 +166,7 @@ export default function CareersPage() {
                     
                     <div className="w-full xl:w-[55%] relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-lg border border-white/10 group-hover/card:shadow-xl transition-all duration-500 shrink-0 p-3 xl:p-5 flex items-center justify-center bg-[#01140e]">
                       <div className="relative w-full aspect-[16/9] rounded-[1rem] overflow-hidden shadow-md border border-white/10">
-                        <Image src="/images/careers/future-poster.png" alt="Future Hiring" fill quality={100} unoptimized className="object-contain group-hover/card:scale-105 transition-transform duration-700 bg-white" />
+                        <Image src="/images/careers/full-time-card.png" alt="Full-Time Hiring" fill quality={100} unoptimized className="object-cover group-hover/card:scale-105 transition-transform duration-700" />
                       </div>
                     </div>
 
