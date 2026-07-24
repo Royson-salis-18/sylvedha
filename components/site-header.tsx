@@ -64,7 +64,7 @@ export function SiteHeader() {
                 link.highlight === "purple"
                   ? "bg-gradient-to-r from-[#2a1126] to-[#461a3f] text-[#d4af37] shadow-md border border-[#d4af37]/20 hover:shadow-lg hover:-translate-y-0.5 hover:text-white"
                   : link.highlight === "neon"
-                  ? "bg-[#BFF202] text-[#011a17] font-black shadow-[0_0_16px_rgba(191,242,2,0.35)] hover:shadow-[0_0_28px_rgba(191,242,2,0.6)] hover:-translate-y-0.5"
+                  ? "bg-[#BFF202] text-[#011a17] font-black shadow-[0_0_16px_rgba(191,242,2,0.35)] hover:shadow-[0_0_28px_rgba(191,242,2,0.6)] hover:-translate-y-0.5 ml-2"
                   : link.highlight === "neon-border"
                   ? "border-[1.5px] border-[#8db300] text-[#011a17] shadow-[0_0_12px_rgba(141,179,0,0.4)] hover:shadow-[0_0_24px_rgba(141,179,0,0.6)] hover:bg-[#8db300]/10 hover:-translate-y-0.5"
                   : "text-[#011a17] hover:bg-black/5 hover:text-[#8db300]"
