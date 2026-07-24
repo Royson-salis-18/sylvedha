@@ -231,7 +231,7 @@ export function Hero() {
       {/* ── DESKTOP: precise interlocking bento with perfect 1% gaps ── */}
       <div
         ref={tiltRef}
-        className="hidden lg:block flex-1 min-h-0 relative w-full max-w-none mx-auto will-change-transform"
+        className="hidden lg:block flex-1 min-h-0 relative w-full max-w-none landscape:max-w-[95%] 2xl:max-w-[95%] mx-auto will-change-transform"
       >
         {/* SVG clip definitions for custom L-shapes */}
         <svg width="0" height="0" className="absolute pointer-events-none" aria-hidden>

@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Why Sylvedha", href: "/#why-sylvedha" },
   { label: "Team", href: "/#team" },
   { label: "Roadmap", href: "/#roadmap" },
+  { label: "Careers", href: "/careers", highlight: "neon-border" },
   { label: "Connect", href: "/#contact", highlight: "neon" },
 ]
 
@@ -30,7 +31,7 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-3 z-50 px-3 transition-all duration-500 sm:px-4">
       <div className={cn(
-        "mx-auto flex h-[64px] w-full max-w-none items-center justify-between rounded-[1.75rem] px-2 transition-all duration-500 sm:h-[72px] sm:rounded-[2rem]",
+        "mx-auto flex h-[64px] w-full max-w-none landscape:max-w-[95%] 2xl:max-w-[95%] items-center justify-between rounded-[1.75rem] px-2 transition-all duration-500 sm:h-[72px] sm:rounded-[2rem]",
         scrolled
           ? "bg-white/95 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-black/5"
           : "bg-white/90 backdrop-blur-md shadow-2xl border border-white/20"
@@ -64,6 +65,8 @@ export function SiteHeader() {
                   ? "bg-gradient-to-r from-[#2a1126] to-[#461a3f] text-[#d4af37] shadow-md border border-[#d4af37]/20 hover:shadow-lg hover:-translate-y-0.5 hover:text-white"
                   : link.highlight === "neon"
                   ? "bg-[#BFF202] text-[#011a17] font-black shadow-[0_0_16px_rgba(191,242,2,0.35)] hover:shadow-[0_0_28px_rgba(191,242,2,0.6)] hover:-translate-y-0.5"
+                  : link.highlight === "neon-border"
+                  ? "border-[1.5px] border-[#8db300] text-[#011a17] shadow-[0_0_12px_rgba(141,179,0,0.4)] hover:shadow-[0_0_24px_rgba(141,179,0,0.6)] hover:bg-[#8db300]/10 hover:-translate-y-0.5"
                   : "text-[#011a17] hover:bg-black/5 hover:text-[#8db300]"
               )}
             >
@@ -91,7 +94,7 @@ export function SiteHeader() {
         )}
       >
         <nav className="bg-white/95 backdrop-blur-xl">
-          <div className="mx-auto flex max-h-[calc(100svh-96px)] max-w-none flex-col overflow-y-auto px-3 py-3 sm:px-5 sm:py-4">
+          <div className="mx-auto flex max-h-[calc(100svh-96px)] max-w-7xl flex-col overflow-y-auto px-3 py-3 sm:px-5 sm:py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -103,6 +106,8 @@ export function SiteHeader() {
                     ? "bg-[#2a1126] text-[#d4af37] border border-[#d4af37]/30 mt-2 text-center"
                     : link.highlight === "neon"
                     ? "bg-[#BFF202] text-[#011a17] font-black mt-2 text-center"
+                    : link.highlight === "neon-border"
+                    ? "border-[1.5px] border-[#8db300] text-[#011a17] shadow-[0_0_12px_rgba(141,179,0,0.3)] mt-2 text-center"
                     : "text-[#011a17] hover:bg-black/5 hover:text-[#8db300]"
                 )}
               >

@@ -42,7 +42,7 @@ export function Roadmap() {
     <section id="roadmap" className="relative overflow-hidden bg-[#EAFDE7] text-[#01312D] min-h-[100svh] flex flex-col justify-center">
       
 
-      <div className="mx-auto w-full max-w-none px-5 py-24 sm:px-8">
+      <div className="mx-auto w-full max-w-none landscape:max-w-[90%] 2xl:max-w-[90%] px-5 py-24 sm:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div className="max-w-2xl">
             <p className="animate-on-scroll inline-flex items-center gap-2 rounded-full border border-[#01312D]/20 bg-[#01312D]/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#01312D]">

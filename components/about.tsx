@@ -9,7 +9,7 @@ export function About() {
       <div className="absolute right-0 top-0 -z-[1] h-[600px] w-[600px] rounded-full bg-[#BFF202]/5 blur-[150px]" />
       <div className="absolute -left-20 bottom-0 -z-[1] h-[400px] w-[400px] rounded-full bg-[#3A7717]/5 blur-[120px]" />
 
-      <div className="mx-auto w-full max-w-none px-5 pt-24 pb-12 lg:pb-16 sm:px-8">
+      <div className="mx-auto w-full max-w-none landscape:max-w-[90%] 2xl:max-w-[90%] px-5 pt-24 pb-12 lg:pb-16 sm:px-8">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <div>
             <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-[#01312D]/20 bg-[#01312D]/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#01312D] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">

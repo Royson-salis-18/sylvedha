@@ -51,7 +51,7 @@ export function Contact() {
       {/* Sharp geometric accents */}
       
 
-      <div className="relative z-40 mx-auto w-full max-w-none px-5 py-24 sm:px-8">
+      <div className="relative z-40 mx-auto w-full max-w-none landscape:max-w-[90%] 2xl:max-w-[90%] px-5 py-24 sm:px-8">
         <div className="grid gap-16 lg:grid-cols-2">
 
           {/* Left column */}

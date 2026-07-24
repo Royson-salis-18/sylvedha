@@ -43,7 +43,7 @@ export function WhySylvedha() {
       {/* Sharp geometric accents */}
       
 
-      <div className="relative z-10 mx-auto w-full max-w-none px-5 py-24 sm:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-none landscape:max-w-[90%] 2xl:max-w-[90%] px-5 py-24 sm:px-8">
         <div className="max-w-2xl">
           <p className="animate-on-scroll inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-[#BFF202] backdrop-blur-sm">
             <span className="relative h-3.5 w-3 block">

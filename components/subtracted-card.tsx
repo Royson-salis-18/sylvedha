@@ -519,6 +519,9 @@ export function SubtractedCard({
       {/* In-flow body — keeps grid row height; SVG paints the real card shape on top */}
       <div
         ref={bodyRef}
+        style={{
+          clipPath: shaped ? `url(#${clipId})` : undefined,
+        }}
         className={cn(
           "relative w-full min-h-[200px] p-8",
           !disableAnimation && "will-change-transform",
@@ -560,11 +563,8 @@ export function SubtractedCard({
             aria-hidden
           >
             {/* Fill */}
-            <path shapeRendering="geometricPrecision" d={outlinePath!} fill={fillColor} filter={`url(#shadow-${clipId})`} />
+            <path shapeRendering="geometricPrecision" d={outlinePath!} fill={fillColor} />
             <defs>
-              <filter id={`shadow-${clipId}`} x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="12" stdDeviation="16" floodColor="#000000" floodOpacity="0.12" />
-              </filter>
               <clipPath id={clipId}>
                 <path shapeRendering="geometricPrecision" d={outlinePath!} />
               </clipPath>
