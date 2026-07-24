@@ -39,10 +39,24 @@ export default function CareersPage() {
             
             {/* LEFT SIDE: DETAILED POSTER BENTO + DYNAMIC FORM CARD */}
             <div className="xl:col-span-5 w-full flex flex-col gap-8">
-              <div className="w-full relative rounded-[2.5rem] overflow-hidden shadow-[0_30px_90px_rgba(191,242,2,0.1)] border border-white/10 group bg-[#020b07]">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#BFF202]/10 via-transparent to-[#123b00]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10" />
-                <Image src="/images/careers/untitled-design-7.png" alt="Detailed Internship Poster" width={1600} height={2400} quality={100} unoptimized className="w-full h-auto object-contain" />
-              </div>
+              <SubtractedCard
+                color="black"
+                corner="top-right"
+                cutoutSize={72}
+                hoverRingScale="small"
+                animationIntensity={0.4}
+                floatingElement={
+                  <div className="flex size-full items-center justify-center rounded-full bg-[#BFF202] shadow-md border border-white/10">
+                    <ArrowUpRight className="size-6 text-[#011a17]" />
+                  </div>
+                }
+                className="!p-0 border border-white/10 shadow-[0_30px_90px_rgba(191,242,2,0.1)]"
+              >
+                <div className="w-full relative overflow-hidden bg-[#020b07]">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#BFF202]/10 via-transparent to-[#123b00]/20 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none z-10" />
+                  <Image src="/images/careers/untitled-design-7.png" alt="Detailed Internship Poster" width={1600} height={2400} quality={100} unoptimized className="w-full h-auto object-contain" />
+                </div>
+              </SubtractedCard>
 
               {/* NEW CARD THAT APPEARS IN THE EMPTY LEFT SPACE WHEN NOTIFY ME IS CLICKED */}
               <AnimatePresence>
