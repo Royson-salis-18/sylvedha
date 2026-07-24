@@ -574,16 +574,16 @@ export function SubtractedCard({
 
         {effectiveCorner !== "none" && effectiveCorner.includes("top") && (
           <div
-            className="relative z-[2]"
+            className={cn("z-[2] pointer-events-none", className?.includes("!p-0") || className?.includes("p-0") ? "absolute top-0 right-0" : "relative")}
             style={{
-              float: effectiveCorner.includes("right") ? "right" : "left",
+              float: className?.includes("!p-0") || className?.includes("p-0") ? undefined : (effectiveCorner.includes("right") ? "right" : "left"),
               width: biteRadius,
               height: biteRadius,
             }}
           />
         )}
 
-        <div className="relative z-[2]">{children}</div>
+        <div className="relative z-[2] size-full">{children}</div>
 
         {effectiveCorner !== "none" && effectiveCorner.includes("bottom") && (
           <div className="relative z-[2]" style={{ height: biteRadius, width: "100%", clear: "both" }} />

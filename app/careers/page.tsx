@@ -50,9 +50,9 @@ export default function CareersPage() {
                     <Sparkles className="size-5 text-[#011a17]" />
                   </div>
                 }
-                className="!p-0 border border-white/10 shadow-[0_30px_90px_rgba(191,242,2,0.15)] aspect-[2/3] w-full"
+                className="!p-0 border border-white/10 shadow-[0_30px_90px_rgba(191,242,2,0.15)] w-full"
               >
-                <div className="absolute inset-0 size-full overflow-hidden bg-[#020b07]">
+                <div className="relative w-full aspect-[2/3] overflow-hidden bg-[#020b07]">
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#BFF202]/10 via-transparent to-[#123b00]/20 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none z-10" />
                   <Image
                     src="/images/careers/untitled-design-7.png"
