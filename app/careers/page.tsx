@@ -4,7 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Sparkles } from "lucide-react"
 import Image from "next/image"
 import { SubtractedCard } from "@/components/subtracted-card"
 import { NotifyCardForm } from "@/components/notify-card-form"
@@ -42,19 +42,26 @@ export default function CareersPage() {
               <SubtractedCard
                 color="black"
                 corner="top-right"
-                cutoutSize={72}
+                cutoutSize={60}
                 hoverRingScale="small"
                 animationIntensity={0.4}
                 floatingElement={
-                  <div className="flex size-full items-center justify-center rounded-full bg-[#BFF202] shadow-md border border-white/10">
-                    <ArrowUpRight className="size-6 text-[#011a17]" />
+                  <div className="flex size-full items-center justify-center rounded-full bg-[#BFF202] shadow-md border border-white/20">
+                    <Sparkles className="size-5 text-[#011a17]" />
                   </div>
                 }
-                className="!p-0 border border-white/10 shadow-[0_30px_90px_rgba(191,242,2,0.1)]"
+                className="!p-0 border border-white/10 shadow-[0_30px_90px_rgba(191,242,2,0.15)] aspect-[2/3] w-full"
               >
-                <div className="w-full relative overflow-hidden bg-[#020b07]">
+                <div className="absolute inset-0 size-full overflow-hidden bg-[#020b07]">
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#BFF202]/10 via-transparent to-[#123b00]/20 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none z-10" />
-                  <Image src="/images/careers/untitled-design-7.png" alt="Detailed Internship Poster" width={1600} height={2400} quality={100} unoptimized className="w-full h-auto object-contain" />
+                  <Image
+                    src="/images/careers/untitled-design-7.png"
+                    alt="Detailed Internship Poster"
+                    fill
+                    quality={100}
+                    unoptimized
+                    className="object-cover object-top group-hover/card:scale-[1.02] transition-transform duration-700 ease-out"
+                  />
                 </div>
               </SubtractedCard>
 
